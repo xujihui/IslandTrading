@@ -945,7 +945,6 @@
                 android:background="@color/lightgrey"/>
         </LinearLayout>
 
-
         <!--<ListView
             android:id="@+id/Lp"
             android:layout_width="match_parent"
