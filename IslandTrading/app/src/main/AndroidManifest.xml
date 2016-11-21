@@ -15,6 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".controller.ClassifyAllActivity"/>
+        <activity android:name=".controller.ClassifyDetail" />
+        <activity android:name=".ui.MyInfo" />
+        <activity android:name=".ui.GoodsDetail" />
+        <activity android:name=".ui.MyCollection" />
+        <activity android:name=".ui.Help" />
+        <activity android:name=".ui.Set"></activity>
     </application>
 
 </manifest>
