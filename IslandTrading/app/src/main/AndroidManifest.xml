@@ -38,9 +38,12 @@
 <<<<<<< HEAD
         <activity android:name=".ui.Set"></activity>
         <activity android:name=".ui.AddresChioce"/>
+<<<<<<< HEAD
+=======
 =======
         <activity android:name=".ui.Set"/>
 >>>>>>> c41b39b7fb7700bb12c4d7ec408558294d599c2f
+>>>>>>> 3d30be8c36d4ec78d3d599304e0f82026daed261
     </application>
 
 </manifest>
