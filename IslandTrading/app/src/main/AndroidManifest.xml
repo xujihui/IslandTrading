@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -14,8 +14,12 @@
 
         </activity>
         <activity android:name=".controller.ClassifyAllActivity"/>
+<<<<<<< HEAD
+        <activity android:name=".controller.ReleaseConfirm">
+=======
         <activity android:name=".controller.MyBuy">
 >>>>>>> c41b39b7fb7700bb12c4d7ec408558294d599c2f
+>>>>>>> b3b0b068c517eddebbe0d6de37bdc42599781aef
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,10 +27,16 @@
             </intent-filter>
         </activity>
 <<<<<<< HEAD
+        <activity android:name=".controller.Release"/>
+        <activity android:name=".controller.WeWantSell"/>
+        <activity android:name=".controller.MyBuy"/>
+=======
+<<<<<<< HEAD
         <activity android:name=".controller.ClassifyAllActivity">
 
         </activity>
 =======
+>>>>>>> b3b0b068c517eddebbe0d6de37bdc42599781aef
         <activity android:name=".controller.MySold"/>
         <activity android:name=".controller.MyPublish"/>
 >>>>>>> c41b39b7fb7700bb12c4d7ec408558294d599c2f
