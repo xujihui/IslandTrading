@@ -9,24 +9,41 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+<<<<<<< HEAD
+=======
 
         </activity>
-        <activity android:name=".controller.ClassifyAllActivity">
+        <activity android:name=".controller.ClassifyAllActivity"/>
+        <activity android:name=".controller.MyBuy">
+>>>>>>> c41b39b7fb7700bb12c4d7ec408558294d599c2f
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.ClassifyDetail" />
-        <activity android:name=".ui.MyInfo" />
-        <activity android:name=".ui.GoodsDetail">
+<<<<<<< HEAD
+        <activity android:name=".controller.ClassifyAllActivity">
 
         </activity>
+=======
+        <activity android:name=".controller.MySold"/>
+        <activity android:name=".controller.MyPublish"/>
+>>>>>>> c41b39b7fb7700bb12c4d7ec408558294d599c2f
+        <activity android:name=".controller.ClassifyDetail" />
+        <activity android:name=".ui.MyInfo" />
+        <activity android:name=".ui.GoodsDetail"/>
         <activity android:name=".ui.MyCollection" />
         <activity android:name=".ui.Help" />
+<<<<<<< HEAD
         <activity android:name=".ui.Set"></activity>
         <activity android:name=".ui.AddresChioce"/>
+<<<<<<< HEAD
+=======
+=======
+        <activity android:name=".ui.Set"/>
+>>>>>>> c41b39b7fb7700bb12c4d7ec408558294d599c2f
+>>>>>>> 3d30be8c36d4ec78d3d599304e0f82026daed261
     </application>
 
 </manifest>
