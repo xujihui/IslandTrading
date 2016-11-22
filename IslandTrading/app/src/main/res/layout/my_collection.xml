@@ -5,233 +5,312 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.MyCollection">
-    <RelativeLayout
+
+    <FrameLayout
+        android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/mainblue">
-        <ImageView
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/backwhite" />
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:src="@mipmap/backwhite" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:text="我的收藏"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:gravity="center"/>
-    </RelativeLayout>
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+
+    </FrameLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:background="@android:color/white">
+                    android:padding="10dp">
+
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@mipmap/mytouxiang"/>
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@mipmap/chat7" />
+
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="5"
                         android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="清晨的小鸟"
-                            android:textSize="18sp"
-                            android:padding="10dp"
-                            android:textColor="@android:color/black"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="收藏于1天前"
-                            android:textSize="18sp"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/drakgrey"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="价格： ¥50"
-                            android:textSize="18sp"
-                            android:padding="10dp"
-                            android:textColor="@color/orange"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="70dp"/>
+
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_marginLeft="115dp">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@mipmap/i"/>
+                            android:paddingLeft="10dp">
+
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="未卖"
-                                android:textSize="18sp"
-                                android:paddingLeft="5dp"
-                                android:textColor="@android:color/black" />
+                                android:layout_weight="3"
+                                android:text="清晨的小鸟"
+                                android:textColor="@color/black"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="￥299"
+                                android:textColor="@android:color/holo_red_light"
+                                android:textSize="16sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:text="收藏于1天前" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_gravity="center"
+                                    android:background="@mipmap/i" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="5dp"
+                                    android:text="未卖"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
                         </LinearLayout>
                     </LinearLayout>
+
+
                 </LinearLayout>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="200dp"
-                        android:src="@mipmap/cheone"
+                        android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:layout_marginLeft="5dp"/>
+                        android:src="@mipmap/cheone" />
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="200dp"
-                        android:src="@mipmap/chetwo"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="10dp" />
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:src="@mipmap/chethree"
-                        android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"/>
+                        android:layout_weight="1"
+                        android:src="@mipmap/chetwo" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/chethree" />
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="代驾专用折叠电动车学生车单车男女式铝合金折叠电动车轻便小轮碟"
-                    android:textSize="18sp"
                     android:padding="10dp"
+                    android:text="代驾专用折叠电动车学生车单车男女式铝合金折叠电动车轻便小轮碟"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold"/>
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:background="@drawable/list_line"/>
+                android:background="@drawable/list_line" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="3dp"
-                android:background="@drawable/list_line"
-                android:layout_marginTop="13dp"/>
+                android:layout_marginTop="13dp"
+                android:background="@drawable/list_line" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:background="@android:color/white">
+                    android:padding="10dp">
+
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@mipmap/mytouxiang"/>
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@mipmap/chat1"
+                        android:id="@+id/imageView" />
+
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="5"
                         android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="清晨的小鸟"
-                            android:textSize="18sp"
-                            android:padding="10dp"
-                            android:textColor="@android:color/black"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="收藏于1天前"
-                            android:textSize="18sp"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/drakgrey"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="价格： ¥50"
-                            android:textSize="18sp"
-                            android:padding="10dp"
-                            android:textColor="@color/orange"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="70dp"/>
+
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_marginLeft="115dp">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@mipmap/i"/>
+                            android:paddingLeft="10dp">
+
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="未卖"
-                                android:textSize="18sp"
-                                android:paddingLeft="5dp"
-                                android:textColor="@android:color/black" />
+                                android:layout_weight="3"
+                                android:text="傍晚的天鹅"
+                                android:textColor="@color/black"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="￥612"
+                                android:textColor="@android:color/holo_red_light"
+                                android:textSize="16sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:text="收藏于3天前" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_gravity="center"
+                                    android:background="@mipmap/i" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="5dp"
+                                    android:text="已卖"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
                         </LinearLayout>
                     </LinearLayout>
+
+
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="200dp"
-                        android:src="@mipmap/cheone"
+                        android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:layout_marginLeft="5dp"/>
+                        android:src="@mipmap/shoeone" />
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="200dp"
-                        android:src="@mipmap/chetwo"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="10dp" />
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="200dp"
-                        android:src="@mipmap/chethree"
-                        android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"/>
+                        android:layout_weight="1"
+                        android:src="@mipmap/shoetwo" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:src="@mipmap/shoethree" />
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="代驾专用折叠电动车学生车单车男女式铝合金折叠电动车轻便小轮碟"
-                    android:textSize="18sp"
                     android:padding="10dp"
+                    android:text="花花公子男鞋冬季英伦真皮马丁靴男短靴高帮雪地靴加绒保暖棉鞋男"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold"/>
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 

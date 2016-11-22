@@ -3,23 +3,36 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backcolor">
-    <RelativeLayout
+    <FrameLayout
+        android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/mainblue">
-        <ImageView
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/backwhite" />
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:src="@mipmap/backwhite" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="分类"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:gravity="center"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="分  类"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
 
-    </RelativeLayout>
+
+    </FrameLayout>
     <GridView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
