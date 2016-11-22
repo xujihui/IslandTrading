@@ -11,21 +11,22 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".controller.ClassifyAllActivity">
+        <activity android:name=".controller.ClassifyAllActivity"/>
+        <activity android:name=".controller.MyBuy">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".controller.MySold"/>
+        <activity android:name=".controller.MyPublish"/>
         <activity android:name=".controller.ClassifyDetail" />
         <activity android:name=".ui.MyInfo" />
-        <activity android:name=".ui.GoodsDetail">
-
-        </activity>
+        <activity android:name=".ui.GoodsDetail"/>
         <activity android:name=".ui.MyCollection" />
         <activity android:name=".ui.Help" />
-        <activity android:name=".ui.Set"></activity>
+        <activity android:name=".ui.Set"/>
     </application>
 
 </manifest>
