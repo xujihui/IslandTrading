@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -12,13 +12,16 @@
 
         </activity>
         <activity android:name=".controller.ClassifyAllActivity"/>
-        <activity android:name=".controller.MyBuy">
+        <activity android:name=".controller.ReleaseConfirm">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".controller.Release"/>
+        <activity android:name=".controller.WeWantSell"/>
+        <activity android:name=".controller.MyBuy"/>
         <activity android:name=".controller.MySold"/>
         <activity android:name=".controller.MyPublish"/>
         <activity android:name=".controller.ClassifyDetail" />

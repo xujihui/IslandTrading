@@ -11,4 +11,5 @@
     <color name="black">#000000</color>
     <color name="lightpurple">#cbd2ed</color>
     <color name="orange">#ff5722</color>
+    <color name="gray_white">#f0f0f2</color>
 </resources>
