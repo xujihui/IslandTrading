@@ -1,7 +1,7 @@
 package com.daomaidaomai.islandtrading.ui;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.daomaidaomai.islandtrading.R;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AddresChioce extends AppCompatActivity {
+public class AddresChioce extends Activity {
 
     private ListView lv;
     private List<Addres> ls=new ArrayList<Addres>();
