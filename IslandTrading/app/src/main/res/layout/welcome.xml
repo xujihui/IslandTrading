@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@mipmap/welcomebg"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/top"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/team"/>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_below="@+id/top"
+        android:layout_above="@+id/down"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/iam"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/logo"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/dmdm"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/down"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:background="@mipmap/down"
+        android:layout_height="wrap_content">
+
+
+    </TextView>
+
+
+
+</RelativeLayout>

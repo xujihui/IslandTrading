@@ -9,7 +9,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.setting_personal_information2);
+        setContentView(R.layout.welcome);
 
     }
 }
