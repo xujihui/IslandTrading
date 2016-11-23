@@ -12,7 +12,7 @@
 ## 修改记录
 - **新增** ：2016-11-21 新增服务器端文件
 - **新增** ：2016-11-23 新增欢迎页
-- ![enter image description here](http://a3.qpic.cn/psb?/V12XoAXo2OhpPX/En*PIZdcRcagsfPdaP9cGdprCRyUXQPuiDG7RI13XeQ!/b/dI8AAAAAAAAA&bo=gAJyBAAAAAADB9Y!&rf=viewer_4)
+- ![enter image description here](https://github.com/xujihui/IslandTrading/blob/master/welcome.png?raw=true)
 
 ---------
 感谢阅读这份帮助文档。
