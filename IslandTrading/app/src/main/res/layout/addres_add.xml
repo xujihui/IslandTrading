@@ -1,151 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backcolor"
+    android:orientation="vertical">
 
     <FrameLayout
+        android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#1db8f0">
+        android:background="@color/mainblue">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center">
+
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:gravity="center"
-                android:paddingLeft="5dip"
-                android:id="@+id/address_add_back"
-                android:src="@mipmap/l_back" />
+                android:paddingLeft="5dp"
+                android:src="@mipmap/backwhite" />
         </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="新增地址"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="24sp" />
+
+
     </FrameLayout>
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
-        android:orientation="horizontal">
-        <Spinner
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:id="@+id/spinner"
-            android:entries="@array/spingarr"
-            />
-        <Spinner
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:id="@+id/spinner2"
-            android:entries="@array/spingarr1"
-            />
-        <Spinner
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:id="@+id/spinner3"
-            android:entries="@array/spingarr2"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:layout_margin="10dip"
+        android:layout_margin="10dp"
+        android:background="@color/white"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="添加地址："
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/spingarr" />
+
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/spingarr1" />
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/spingarr2" />
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@android:drawable/edit_text"
+                android:hint="省市县信息不用重复填写"
+                android:inputType="textMultiLine"></EditText>
+        </LinearLayout>
+
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/backcolor" />
+
+        <TextView
+
+            android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="18sp"
-            android:text="详细地址："/>
-        <EditText
-            android:layout_width="fill_parent"
+            android:paddingLeft="10dp"
+            android:text="收件人信息"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+
+
+        <LinearLayout
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:inputType="textMultiLine"
-            android:hint="省市县信息不用重复填写"
-            android:minLines="4"
-            android:maxLines="10"
-            android:background="@android:drawable/edit_text"
-            >
-        </EditText>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="姓名："
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:text="收件人信息："/>
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/backcolor" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
+
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:text="姓名："/>
+                android:paddingLeft="10dp"
+                android:text="电话："
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
             <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/backcolor" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
+
+
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:text="电话："/>
+                android:paddingLeft="10dp"
+                android:text="邮编："
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
             <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:text="邮编："/>
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </LinearLayout>
+
     <Button
         android:layout_width="match_parent"
-        android:layout_margin="40dip"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:textSize="18sp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/shape"
-        android:text="保存"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttonshape"
+        android:text="保    存"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 </LinearLayout>

@@ -4,96 +4,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <RelativeLayout
+
+
+    <FrameLayout
+        android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/mainblue"
-        android:gravity="center_vertical"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:background="@color/mainblue">
+
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="发布确认"
-            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="发布确定"
             android:textColor="@color/white"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
-    <RelativeLayout
+            android:textSize="24sp" />
+
+
+    </FrameLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gray_white">
-        <ImageView
-            android:layout_marginLeft="10dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/login_head"
-            android:background="@mipmap/login_head_picture"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="月咏几斗"
-            android:id="@+id/username"
-            android:textSize="20sp"
-            android:layout_toRightOf="@+id/login_head"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="几分钟前在一期3号楼发布"
-            android:textColor="@color/drakgrey"
-            android:textSize="18sp"
-            android:layout_below="@+id/username"
-            android:layout_toRightOf="@+id/login_head"
-            android:layout_marginLeft="10dp"/>
-    </RelativeLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="如果你无法简洁的表达你的想法，那就买下这台电脑吧\n--月咏几斗"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textColor="@color/drakgrey"
-        android:layout_marginLeft="10dp"/>
-    <ImageView
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@mipmap/computer_two"
-        android:scaleType="fitXY"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="已发布"
-            android:id="@+id/tv"
-            android:textColor="@color/drakgrey"
-            android:textSize="20sp"
-            android:gravity="center"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="3秒后自动跳转到首页..."
-            android:textColor="@color/drakgrey"
-            android:textSize="20sp"
-            android:layout_below="@+id/tv"
-            android:id="@+id/tv1"
-            android:gravity="center"/>
-        <Button
+            android:layout_weight="2"
+            android:src="@mipmap/otouxiang" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:background="@drawable/buttonshape"
-            android:text="返回首页"
-            android:id="@+id/btn"
-            android:textColor="@color/white"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/tv1"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="月咏几斗"
+                android:textColor="@color/mainblue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="几分钟前在一期3号楼发布" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="￥9999"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:text="如果你无法简洁的表达你的想法，那就买下这台电脑吧--月咏几斗" />
+
+
+    <LinearLayout
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@mipmap/pcone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:text="已发布，3秒后自动跳转到首页..."
+        android:textColor="@color/drakgrey"
+        android:textSize="14sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/buttonshape"
+        android:text="返回首页"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 </LinearLayout>

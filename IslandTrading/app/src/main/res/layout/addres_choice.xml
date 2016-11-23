@@ -1,48 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/Topbar"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:background="#1db8f0"
-        android:layout_height="50dp">
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/addres_choice_back"
-            android:src="@mipmap/l_back"/>
+        android:layout_height="50dp"
+        android:background="@color/mainblue">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:src="@mipmap/backwhite" />
+        </LinearLayout>
+
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
             android:layout_gravity="center"
-            android:textSize="24sp"
-            android:textColor="#FFFFFF"
             android:gravity="center"
             android:text="选择收货地址"
-            />
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="24sp"
-            android:textColor="#FFFFFF"
+            android:gravity="right"
+            android:paddingRight="10dp"
             android:text="管理"
-            android:id="@+id/addres_choice_manager"
-            android:layout_marginRight="10dip"
-            />
-    </LinearLayout>
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+
+    </FrameLayout>
+
     <ListView
+        android:id="@+id/listview_lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dip"
-        android:id="@+id/listview_lv">
+        android:paddingTop="5dip">
 
     </ListView>
 </LinearLayout>

@@ -1,145 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_white">
-    <RelativeLayout
+    android:background="@color/gray_white"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/mainblue"
-        android:gravity="center_vertical"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@mipmap/backwhite"
-            android:id="@+id/back"
-            android:layout_marginLeft="15dp"/>
-        <TextView
+        android:background="@color/mainblue">
+
+        <LinearLayout
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:src="@mipmap/backwhite" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="发布"
-            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="发    布"
             android:textColor="@color/white"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+            android:textSize="24sp" />
+
+
+    </FrameLayout>
+
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/search"
         android:layout_margin="10dp"
+        android:background="@drawable/search"
         android:hint="联想笔记本电脑 游戏本"
-        android:textColorHint="@color/drakgrey"/>
+        android:textColorHint="@color/drakgrey" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:background="@drawable/search"
         android:hint="电脑用了一个月，我有钱,换了个更好的,这个低价卖了，就当做慈善了，谁要赶紧来啊，一口价9999，可以还价"
-        android:textColorHint="@color/drakgrey"
-        android:background="@drawable/search"/>
+        android:textColorHint="@color/drakgrey" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:background="@mipmap/computer_one"
-            android:layout_marginLeft="5dp"/>
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:background="@mipmap/computer_two"
-            android:layout_marginLeft="5dp"/>
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:background="@mipmap/computer_two"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
+            android:layout_weight="1"
+            android:background="@mipmap/computer_one" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@mipmap/computer_two" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@mipmap/computer_two" />
     </LinearLayout>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/search"
         android:layout_margin="10dp"
+        android:background="@drawable/search"
         android:hint="请输入您理想的交易地点"
-        android:textColorHint="@color/drakgrey"/>
+        android:textColorHint="@color/drakgrey" />
+
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="使用当前位置发布商品"
-        android:textColor="@color/drakgrey"/>
+        android:textColor="@color/drakgrey" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="价格："
-            android:textSize="18sp"
-            android:textColor="@color/drakgrey" />
+            android:textColor="@color/drakgrey"
+            android:textSize="18sp" />
+
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:textSize="15sp"
+            android:background="@drawable/search"
             android:hint="输入价格"
             android:textColorHint="@color/drakgrey"
-            android:background="@drawable/search"/>
+            android:textSize="15sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="39dp"
-            android:text="分类："
-            android:textSize="18sp"
             android:gravity="center"
-            android:textColor="@color/drakgrey" />
+            android:text="分类："
+            android:textColor="@color/drakgrey"
+            android:textSize="18sp" />
+
         <RelativeLayout
             android:layout_width="80dp"
             android:layout_height="wrap_content">
+
             <Spinner
                 android:layout_width="80dp"
                 android:layout_height="39dp"
-                android:entries="@array/sort"
-                android:background="@drawable/search"/>
+                android:background="@drawable/search"
+                android:entries="@array/sort" />
+
             <TextView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_alignParentRight="true"
-                android:background="@mipmap/triangle"/>
+                android:background="@mipmap/triangle" />
         </RelativeLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="43dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/search">
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="25dp"
-            android:background="@mipmap/send"/>
+            android:background="@mipmap/send" />
+
         <Button
+            android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:text="确认发布"
-            android:id="@+id/btn"
-            android:textStyle="bold"
             android:gravity="center"
-            android:textColor="@color/drakgrey"/>
+            android:text="确认发布"
+            android:textColor="@color/drakgrey"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

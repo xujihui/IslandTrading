@@ -3,27 +3,38 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
+
+    <FrameLayout
+        android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/mainblue"
-        android:gravity="center_vertical"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@mipmap/backwhite"
-            android:id="@+id/buy_back"
-            android:layout_marginLeft="15dp"/>
-        <TextView
+        android:background="@color/mainblue">
+
+        <LinearLayout
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:src="@mipmap/backwhite" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:text="我买到的"
-            android:textSize="24sp"
             android:textColor="@color/white"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+            android:textSize="24sp" />
+
+
+    </FrameLayout>
+
     <ListView
         android:background="@color/white"
         android:layout_width="match_parent"
