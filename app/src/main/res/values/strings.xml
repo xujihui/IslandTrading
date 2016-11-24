@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Island</string>
+    <string-array name="spingarr">
+        <item>河北省</item>
+        <item>山西省</item>
+        <item>山东省</item>
+        <item>深圳</item>
+    </string-array>
+    <string-array name="spingarr1">
+        <item>石家庄市</item>
+        <item>保定市</item>
+        <item>张家口市</item>
+    </string-array>
+    <string-array name="spingarr2">
+        <item>裕华区</item>
+        <item>长安区</item>
+        <item>新华区</item>
+    </string-array>
+</resources>
