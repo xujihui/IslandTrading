@@ -25,6 +25,13 @@
         <activity android:name=".controller.MyPublish" />
         <activity android:name=".controller.ClassifyDetail" />
         <activity android:name=".ui.MyInfo" />
+        <activity android:name=".ui.Myself" />
+        <activity android:name=".ui.Regist" />
+        <activity android:name=".ui.Login" />
+        <activity android:name=".ui.Chat" />
+        <activity android:name=".ui.Map" />
+        <activity android:name=".ui.Sell" />
+        <activity android:name=".ui.Home" />
         <activity android:name=".ui.GoodsDetail" />
         <activity android:name=".ui.MyCollection" />
         <activity android:name=".ui.Help" />

@@ -972,6 +972,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -993,6 +994,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/map"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -1014,6 +1016,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/sell"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -1035,6 +1038,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/chat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -1057,6 +1061,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/myself"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
