@@ -1,18 +1,16 @@
-package com.daomaidaomai.islandtrading.controller;
+package com.daomaidaomai.islandtrading.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-
 import com.daomaidaomai.islandtrading.R;
 
-/**
- * Created by Administrator on 2016/11/19 0019.
- */
-public class WeWantSell extends Activity{
+
+public class Aboutus extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.want_sell_layout);
+        setContentView(R.layout.about_us);
+
     }
 }

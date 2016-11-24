@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.R;
+import com.daomaidaomai.islandtrading.controller.MyBuy;
+import com.daomaidaomai.islandtrading.controller.MyPublish;
+import com.daomaidaomai.islandtrading.controller.MySold;
 
 /**
  * Created by Administrator on 2016/11/24 0024.
@@ -23,6 +26,13 @@ public class Myself extends Activity {
     private LinearLayout Sell;
     private LinearLayout Chat;
 
+    private LinearLayout Output;
+    private LinearLayout Sellout;
+    private LinearLayout Bought;
+    private LinearLayout Favourite;
+    private LinearLayout Help;
+    private LinearLayout Setting;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +43,70 @@ public class Myself extends Activity {
         Map = (LinearLayout) findViewById(R.id.map);
         Sell = (LinearLayout) findViewById(R.id.sell);
         Chat = (LinearLayout) findViewById(R.id.chat);
+
+        Output = (LinearLayout) findViewById(R.id.myoutput);
+        Sellout = (LinearLayout) findViewById(R.id.mysellout);
+        Bought = (LinearLayout) findViewById(R.id.mybought);
+        Favourite = (LinearLayout) findViewById(R.id.myfavourite);
+        Setting = (LinearLayout) findViewById(R.id.setting);
+        Help = (LinearLayout) findViewById(R.id.help);
+        Output.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Myself.this, MyPublish.class);
+                startActivity(i);
+
+            }
+        });
+        Sellout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Myself.this, MySold.class);
+                startActivity(i);
+
+            }
+        });
+        Bought.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Myself.this,MyBuy.class);
+                startActivity(i);
+
+            }
+        });
+
+        //Favourite.setOnClickListener(new View.OnClickListener() {
+
+         //   @Override
+         //   public void onClick(View v) {
+         //       Intent i = new Intent(Myself.this, Login.class);
+         //       startActivity(i);
+
+         //   }
+       // });
+
+        Help.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Myself.this, Help.class);
+                startActivity(i);
+
+            }
+        });
+        Setting.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Myself.this, Set.class);
+                startActivity(i);
+
+            }
+        });
+
 
         Btn.setOnClickListener(new View.OnClickListener() {
 

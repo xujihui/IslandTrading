@@ -18,6 +18,8 @@ public class HomePage extends Activity {
     private HomeAdapter homeAdapter;
     //用于存放获取的视图控件
     private ListView lv;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

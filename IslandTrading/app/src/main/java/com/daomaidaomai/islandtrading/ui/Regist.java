@@ -28,7 +28,6 @@ public class Regist extends Activity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(Regist.this, "正在载入...", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(Regist.this, Home.class);
                 startActivity(i);
 

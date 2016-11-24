@@ -38,58 +38,7 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:src="@mipmap/otouxiang" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="月咏几斗"
-                android:textColor="@color/mainblue"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="几分钟前在一期3号楼发布" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="￥9999"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <TextView
-        android:paddingLeft="25dp"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="如果你无法简洁的表达你的想法，那就买下这台电脑吧
---月咏几斗" />
-
     <ScrollView
-        android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="5">
@@ -97,46 +46,102 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:orientation="vertical">
 
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@mipmap/pcone" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="15dp"
-                android:src="@mipmap/pctwo" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:src="@mipmap/otouxiang" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="15dp"
-                android:src="@mipmap/pcthree" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="15dp"
-                android:src="@mipmap/pcfour" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="月咏几斗"
+                        android:textColor="@color/mainblue"
+                        android:textSize="16sp" />
 
-            <ImageView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="几分钟前在一期3号楼发布" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="￥9999"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="15dp"
-                android:src="@mipmap/pcfive" />
+
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:text="如果你无法简洁的表达你的想法，那就买下这台电脑吧
+--月咏几斗" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@mipmap/pcone" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@mipmap/pctwo" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@mipmap/pcthree" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@mipmap/pcfour" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@mipmap/pcfive" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -185,6 +190,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/buy"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="20dp"
@@ -204,7 +210,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/LlGdMsg"
+            android:id="@+id/chatmessage"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
@@ -212,9 +218,9 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_gravity="center"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_gravity="center"
                 android:src="@mipmap/mess_gray" />
 
             <TextView

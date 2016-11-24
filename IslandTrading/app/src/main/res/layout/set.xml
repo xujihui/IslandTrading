@@ -45,6 +45,7 @@
         android:background="@drawable/list_line" />
 
     <RelativeLayout
+        android:id="@+id/personal"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_gravity="center"
@@ -95,7 +96,7 @@
         android:background="@drawable/list_line" />
 
     <RelativeLayout
-        android:id="@+id/RlMiAdd"
+        android:id="@+id/aboutus"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@android:color/white"

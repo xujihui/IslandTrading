@@ -1,37 +1,33 @@
-package com.daomaidaomai.islandtrading.controller;
+package com.daomaidaomai.islandtrading.ui;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import com.daomaidaomai.islandtrading.R;
-import com.daomaidaomai.islandtrading.ui.Home;
-import com.daomaidaomai.islandtrading.ui.Sell;
 
 
-public class ReleaseConfirm extends Activity{
+public class Pay extends Activity {
     private Button Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.release_confirm_layout);
-        Btn = (Button) findViewById(R.id.backtohome);
+        setContentView(R.layout.activity_pay);
+        Btn = (Button) findViewById(R.id.pay);
 
         Btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ReleaseConfirm.this,Home.class);
+                Intent i = new Intent(Pay.this,Onlinedeal.class);
                 startActivity(i);
 
             }
         });
 
     }
-
 }

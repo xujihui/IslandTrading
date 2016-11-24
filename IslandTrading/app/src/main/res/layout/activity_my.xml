@@ -104,6 +104,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/myoutput"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:orientation="horizontal">
@@ -169,6 +170,7 @@
                     android:background="@color/lightgrey" />
 
                 <LinearLayout
+                    android:id="@+id/mysellout"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:orientation="horizontal">
@@ -234,6 +236,7 @@
                     android:background="@color/lightgrey" />
 
                 <LinearLayout
+                    android:id="@+id/mybought"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:orientation="horizontal">
@@ -299,6 +302,7 @@
                     android:background="@color/lightgrey" />
 
                 <LinearLayout
+                    android:id="@+id/myfavourite"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:orientation="horizontal">
@@ -364,6 +368,7 @@
                     android:background="@color/lightgrey" />
 
                 <LinearLayout
+                    android:id="@+id/help"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:orientation="horizontal">
@@ -429,6 +434,7 @@
                     android:background="@color/lightgrey" />
 
                 <LinearLayout
+                    android:id="@+id/setting"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:orientation="horizontal">
