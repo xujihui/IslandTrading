@@ -31,13 +31,15 @@
         <activity android:name=".ui.Chat" />
         <activity android:name=".ui.Map" />
         <activity android:name=".ui.Sell" />
-        <activity android:name=".ui.Home" />
+        <activity
+            android:name=".ui.Home"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".ui.GoodsDetail" />
         <activity android:name=".ui.MyCollection" />
         <activity android:name=".ui.Help" />
         <activity android:name=".ui.Set" />
         <activity android:name=".ui.AddresChioce" />
-        <activity android:name=".controller.HomePage"></activity>
+        <activity android:name=".controller.HomePage"/>
     </application>
 
 </manifest>

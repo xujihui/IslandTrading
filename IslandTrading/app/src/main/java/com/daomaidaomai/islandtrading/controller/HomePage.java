@@ -2,6 +2,7 @@ package com.daomaidaomai.islandtrading.controller;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.daomaidaomai.islandtrading.R;
