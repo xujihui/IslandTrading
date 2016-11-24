@@ -194,7 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="20dp"
-            android:layout_toLeftOf="@+id/LlGdMsg"
+            android:layout_toLeftOf="@+id/chatmessage"
             android:gravity="center"
             android:orientation="vertical">
 
