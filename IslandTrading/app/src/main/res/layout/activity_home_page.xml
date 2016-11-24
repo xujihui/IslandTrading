@@ -1,11 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.daomaidaomai.islandtrading.controller.HomePage">
-    <TextView
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/mainblue"
+        android:gravity="center_vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/ll">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:src="@mipmap/scan"
+            android:id="@+id/scan"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.4"/>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:background="@drawable/search"
+                android:layout_width="match_parent"
+                android:id="@+id/tv"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/search"
+                android:id="@+id/search"
+                android:layout_alignLeft="@+id/tv"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="搜索"
+                android:gravity="center_vertical"
+                android:background="@null"
+                android:textColorHint="@color/lightgrey"
+                android:layout_toRightOf="@+id/search"/>
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:src="@mipmap/sort"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.5"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_below="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:id="@+id/fl">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dip"
+            android:layout_gravity="bottom"
+            android:background="#33000000"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图片标题"
+                android:textColor="@android:color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dip"
+                android:orientation="horizontal" >
+
+                <View
+                    android:id="@+id/dot_0"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@drawable/dot_focused"/>
+
+                <View
+                    android:id="@+id/dot_1"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@drawable/dot_normal"/>
+                <View
+                    android:id="@+id/dot_2"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@drawable/dot_normal"/>
+                <View
+                    android:id="@+id/dot_3"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@drawable/dot_normal"/>
+                <View
+                    android:id="@+id/dot_4"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@drawable/dot_normal"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <ListView
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="欢迎来到首页"/>
+        android:id="@+id/home_lv"
+        android:layout_below="@id/fl"
+        android:background="@color/white"/>
 </RelativeLayout>
