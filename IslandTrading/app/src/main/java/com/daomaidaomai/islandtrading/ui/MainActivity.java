@@ -1,4 +1,4 @@
-package com.daomaidaomai.islandtrading;
+package com.daomaidaomai.islandtrading.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,8 +7,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 
-import com.daomaidaomai.islandtrading.controller.HomePage;
-import com.daomaidaomai.islandtrading.ui.Login;
+import com.daomaidaomai.islandtrading.R;
 
 public class MainActivity extends Activity implements Animation.AnimationListener{
     private RelativeLayout rl;
