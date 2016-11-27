@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/id_map_ground"
+        android:title="图形覆盖物"
+        android:showAsAction="never" />
+    <item
+        android:id="@+id/id_map_"
+        android:title="清除覆盖物"
+        android:showAsAction="never" />
+
+</menu>
