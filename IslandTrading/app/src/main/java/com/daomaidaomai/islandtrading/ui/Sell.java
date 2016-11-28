@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,12 +20,21 @@ import com.daomaidaomai.islandtrading.controller.Release;
 
 public class Sell extends Activity {
     private TextView Tex;
+    private ImageView Back;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.want_sell_layout);
         Tex = (TextView) findViewById(R.id.tosell);
+        Back = (ImageView) findViewById(R.id.back);
+        Back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Sell.this.finish();
+            }
+        });
 
         Tex.setOnClickListener(new View.OnClickListener() {
 

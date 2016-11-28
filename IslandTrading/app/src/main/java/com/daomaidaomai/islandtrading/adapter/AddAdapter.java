@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.daomaidaomai.islandtrading.R;
@@ -21,6 +22,7 @@ import java.util.List;
 public class AddAdapter extends BaseAdapter {
     private Context context;
     private List<Addres> laddres=new ArrayList<>();
+
 
     public AddAdapter(Context context, List<Addres> laddres) {
         this.context = context;

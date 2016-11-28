@@ -1,78 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
+
         <ImageView
-            android:layout_centerVertical="true"
+            android:id="@+id/publish_image"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:id="@+id/publish_image"
-            android:background="@mipmap/bag"/>
+            android:background="@mipmap/bag" />
+
         <TextView
+            android:id="@+id/publish_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="链条女包萌耳朵夹子包单肩"
-            android:layout_toRightOf="@+id/publish_image"
             android:layout_marginLeft="10dp"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
             android:layout_marginTop="10dp"
-            android:id="@+id/publish_title"/>
+            android:layout_toRightOf="@+id/publish_image"
+            android:text="链条女包萌耳朵夹子包单肩"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="价格:￥"
-            android:textSize="15sp"
             android:layout_alignLeft="@+id/publish_title"
             android:layout_below="@+id/publish_title"
             android:layout_marginTop="5dp"
-            android:textStyle="bold"
+            android:text="价格:￥"
             android:textColor="@color/orange"
-            android:id="@+id/tv"/>
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/publish_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="40"
-            android:layout_toRightOf="@+id/tv"
             android:layout_below="@+id/publish_title"
             android:layout_marginTop="5dp"
-            android:textStyle="bold"
+            android:layout_toRightOf="@+id/tv"
+            android:text="40"
             android:textColor="@color/orange"
-            android:id="@+id/publish_price"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/publish_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="可爱的单肩包"
             android:layout_alignLeft="@+id/publish_title"
             android:layout_below="@+id/publish_price"
             android:layout_marginTop="5dp"
+            android:text="可爱的单肩包"
             android:textColor="@color/drakgrey"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/publish_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="20天"
-            android:textSize="15sp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
             android:layout_below="@+id/publish_content"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:text="20天"
+            android:textSize="15sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="展示时间："
-            android:textSize="15sp"
+            android:layout_alignTop="@+id/publish_time"
             android:layout_toLeftOf="@+id/publish_time"
-            android:layout_alignTop="@+id/publish_time"/>
+            android:text="展示时间："
+            android:textSize="15sp" />
     </RelativeLayout>
 </LinearLayout>

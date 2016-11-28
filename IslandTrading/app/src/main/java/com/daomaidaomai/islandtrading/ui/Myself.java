@@ -32,6 +32,7 @@ public class Myself extends Activity {
     private LinearLayout Favourite;
     private LinearLayout Help;
     private LinearLayout Setting;
+    private LinearLayout Back;
 
 
     @Override
@@ -50,6 +51,14 @@ public class Myself extends Activity {
         Favourite = (LinearLayout) findViewById(R.id.myfavourite);
         Setting = (LinearLayout) findViewById(R.id.setting);
         Help = (LinearLayout) findViewById(R.id.help);
+        Back = (LinearLayout) findViewById(R.id.back);
+        Back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Myself.this.finish();
+            }
+        });
         Output.setOnClickListener(new View.OnClickListener() {
 
             @Override

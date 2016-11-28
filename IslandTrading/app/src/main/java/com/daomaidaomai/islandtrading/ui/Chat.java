@@ -21,6 +21,7 @@ public class Chat extends Activity {
     private LinearLayout Map;
     private LinearLayout Sell;
     private LinearLayout Myself;
+    private LinearLayout Back;
 
 
     @Override
@@ -31,6 +32,15 @@ public class Chat extends Activity {
         Map = (LinearLayout) findViewById(R.id.map);
         Sell = (LinearLayout) findViewById(R.id.sell);
         Myself = (LinearLayout) findViewById(R.id.myself);
+        Back = (LinearLayout) findViewById(R.id.back);
+        Back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Chat.this.finish();
+            }
+        });
+
 
         Main.setOnClickListener(new View.OnClickListener() {
 

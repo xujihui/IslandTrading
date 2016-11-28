@@ -12,19 +12,6 @@
         android:layout_height="50dp"
         android:background="@color/mainblue">
 
-        <LinearLayout
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <ImageView
-                android:paddingLeft="5dp"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:src="@mipmap/backwhite" />
-        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"

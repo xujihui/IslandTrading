@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 
@@ -18,6 +19,7 @@ public class ClassifyDetail extends Activity {
     private List<ItemDetail> ls = new ArrayList<ItemDetail>();
     private ListView lv ;
     private MyListAdapter myListAdapter;
+    private LinearLayout Back;
     private void getDate(){
         ls.add(new ItemDetail(1,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
         ls.add(new ItemDetail(2,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
@@ -33,6 +35,14 @@ public class ClassifyDetail extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.classify_detail);
+        Back = (LinearLayout) findViewById(R.id.back);
+        Back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                ClassifyDetail.this.finish();
+            }
+        });
         lv = (ListView)findViewById(R.id.lv);
         getDate();
         myListAdapter = new MyListAdapter(this,ls);

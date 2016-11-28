@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.daomaidaomai.islandtrading.R;
 public class Login extends Activity {
     private Button Btn;
     private TextView Tex;
+    private LinearLayout Back;
 
 
     @Override
@@ -27,6 +29,14 @@ public class Login extends Activity {
 
         Btn = (Button) findViewById(R.id.loginhome);
         Tex = (TextView) findViewById(R.id.regist);
+        Back = (LinearLayout) findViewById(R.id.back);
+        Back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+               Login.this.finish();
+            }
+        });
 
 
         Btn.setOnClickListener(new View.OnClickListener() {

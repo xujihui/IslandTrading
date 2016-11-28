@@ -15,6 +15,7 @@
         android:background="@color/mainblue">
 
         <LinearLayout
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center">

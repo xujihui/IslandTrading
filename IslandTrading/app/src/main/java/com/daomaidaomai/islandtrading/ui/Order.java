@@ -16,6 +16,7 @@ public class Order extends Activity {
     private Button Facedeal;
     private Button Onlinedeal;
     private Button Canceldeal;
+    private LinearLayout Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +26,20 @@ public class Order extends Activity {
         Facedeal = (Button) findViewById(R.id.facedeal);
         Onlinedeal = (Button) findViewById(R.id.onlinedeal);
         Canceldeal = (Button) findViewById(R.id.canceldeal);
+        Back = (LinearLayout) findViewById(R.id.back);
+        Back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Order.this.finish();
+            }
+        });
 
         Facedeal.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Order.this,Facedeal.class);
+                Intent i = new Intent(Order.this, Facedeal.class);
                 startActivity(i);
 
             }
@@ -40,7 +49,7 @@ public class Order extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Order.this,Pay.class);
+                Intent i = new Intent(Order.this, Pay.class);
                 startActivity(i);
 
             }
@@ -50,7 +59,7 @@ public class Order extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Order.this,Canceldeal.class);
+                Intent i = new Intent(Order.this, Canceldeal.class);
                 startActivity(i);
 
             }

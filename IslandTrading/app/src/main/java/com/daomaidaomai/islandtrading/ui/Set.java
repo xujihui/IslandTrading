@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.daomaidaomai.islandtrading.R;
@@ -13,6 +14,7 @@ import com.daomaidaomai.islandtrading.R;
 public class Set extends Activity {
     private RelativeLayout Personal;
     private RelativeLayout Aboutus;
+    private LinearLayout Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,14 @@ public class Set extends Activity {
         setContentView(R.layout.set);
         Personal = (RelativeLayout) findViewById(R.id.personal);
         Aboutus = (RelativeLayout) findViewById(R.id.aboutus);
+        Back = (LinearLayout) findViewById(R.id.back);
+        Back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Set.this.finish();
+            }
+        });
 
         Personal.setOnClickListener(new View.OnClickListener() {
 
@@ -31,7 +41,7 @@ public class Set extends Activity {
             }
         });
 
-       Aboutus.setOnClickListener(new View.OnClickListener() {
+        Aboutus.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -40,8 +50,6 @@ public class Set extends Activity {
 
             }
         });
-
-
 
 
     }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 
 
 import com.daomaidaomai.islandtrading.R;
@@ -22,6 +23,7 @@ public class ClassifyAllActivity extends Activity {
     private List<Item> ls = new ArrayList<>();
     private GridView gv ;
     private GridAdapter girdAdapter;
+    private LinearLayout Back;
 
     private void getDate(){
         ls.add(new Item(1,"女装",R.mipmap.women));
@@ -41,6 +43,14 @@ public class ClassifyAllActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.classify_all);
+        Back = (LinearLayout) findViewById(R.id.back);
+        Back.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                ClassifyAllActivity.this.finish();
+            }
+        });
 
         gv = (GridView)findViewById(R.id.GvAllGoods);
         getDate();

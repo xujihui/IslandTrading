@@ -10,10 +10,21 @@ import com.daomaidaomai.islandtrading.R;
 
 
 public class Canceldeal extends Activity {
+    private LinearLayout Back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remind);
+        Back = (LinearLayout) findViewById(R.id.back);
+        Back.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                Canceldeal.this.finish();
+            }
+        });
     }
+
 }
+

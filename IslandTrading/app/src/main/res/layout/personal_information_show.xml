@@ -12,18 +12,6 @@
         android:layout_height="50dp"
         android:background="@color/mainblue">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:paddingLeft="5dp"
-                android:src="@mipmap/backwhite" />
-        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -44,6 +32,20 @@
             android:text="编辑"
             android:textColor="@color/white"
             android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:src="@mipmap/backwhite" />
+        </LinearLayout>
 
 
     </FrameLayout>
