@@ -1,0 +1,80 @@
+ * 请求活动列表
+	 * 作者：孙铖铖
+	 * 日期：2016-11-28
+	 * 触发方式：localhost:8080/supermarket/analysis/request_acts
+	 * 参数：不需要参数
+	 * 实现：App请求获取所有活动
+	 * */
+	public void request_acts(){
+		String res = "ok";	//默认查询结果
+		
+		//用于存储获得的活动详细信息
+		String str_id;
+		String str_name;
+		String str_dec;
+		String str_organizer;
+		Date date_temp;
+		String str_time;
+		String str_site;
+		JSONObject json = new JSONObject();
+		JSONObject content = new JSONObject();
+		JSONObject good = new JSONObject();
+			try {
+				List<Record> list_Record_act = new ArrayList<>();
+				list_Record_act = analysisService.lookup_act();
+				
+				PrintWriter writer;
+				HttpServletResponse response = this.getResponse();
+				
+				response.setContentType("application/json;charset=utf-8");
+				writer = response.getWriter();
+				//循环查找表
+				for(Record rec_pType: list_Record_act){
+					//获取商品字段信息
+					str_id = String.valueOf(rec_pType.getInt("id"));
+					str_name = rec_pType.getStr("name");
+					str_dec = rec_pType.getStr("desciption");
+					str_organizer = rec_pType.getStr("organizer");
+					date_temp = rec_pType.getDate("time");
+					str_time = (new SimpleDateFormat("yyyy-MM-dd")).format(date_temp);
+					str_site = rec_pType.getStr("site");
+					
+					//组装json串
+					try {
+						System.out.println("name"+str_name);
+						content.put("pId", str_id);
+						content.put("name", str_name);
+						content.put("pDes", str_dec);
+						content.put("organizer", str_organizer);
+						content.put("pLoc", str_site);
+						content.put("pTime", str_time);
+						
+						json.put("res", res);
+						json.put("content", content);
+						good.put("good", json);
+
+						System.out.println("----good串:" + good.toString());
+						
+						writer.append(good.toString());
+						
+						// this.renderJson(jsonText);
+						this.renderNull();		
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}//for
+				writer.flush();
+				writer.close();
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+		
+		
+		
+	}
+	
