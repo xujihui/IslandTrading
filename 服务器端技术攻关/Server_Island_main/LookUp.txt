@@ -1,0 +1,133 @@
+/**
+	 * 
+	 * 2016-11-27  商品查询
+	 * 输入pId或pName，获得商品的详细信息
+	 * 触发方式：http://localhost:8080/supermarket/analysis/lookupprice?pName={pName:华为}
+	 * App端注释：   App端主要进行json请求、解析
+	 * 			App发送请求中携带json串参数，key为 "pId"或者"pName"；
+	 * 			App以pId或pName为key值进行搜索
+	 * 			pId默认为123456，此时视为App没有携带pId参数，另外，后台设计要避开此pId；
+	 * 			pName默认为”Default“,此时视为App没有携带pName参数；
+	 * 
+	 * 运行注释：	App发送请求中携带json串参数，key为 "pId"或者"pName"；
+	 * 			pId默认为123456，此时视为App没有携带pId参数，另外，后台设计要避开此pId；
+	 * 			pName默认为”Default“,此时视为App没有携带pName参数；
+	 * 			jsonContent_pId、jsonContent_pName是通过参数得到的商品详细信息；(二者只取其一)
+	 * 			通过jsonContent_pId 或 jsonContent_pName新建JSONObject，其中有一个在数据库中有对应即可查询出结果；
+	 * 			通过 res 关键字检索查询结果，"ok"为查询到商品，"no"为没有查询到指定商品
+	 * 			一定注意 中文 问题！！！只有涉及到网址中的中文!!!
+	 * 
+	 * @throws UnsupportedEncodingException 
+	 */
+	public void lookupprice() throws UnsupportedEncodingException {
+
+//		String jsonContent = this.getPara("goodsCode"); //goodsCode 和 pid 是一个东西		
+		String jsonContent_pId = this.getPara("pId");
+		String jsonContent_pName = this.getPara("pName");
+		//String jsonContent = "{pid:123458}";	//告诉你参数是什么样子，下面的接口中应该也一样
+		String jsonContent = jsonContent_pId == null?jsonContent_pName:jsonContent_pId;
+
+		String pid = "123456";	//默认pid，应该是为了防止获取不到pId设置的
+		String pName = "Default";	//默认pName，为了防止获取不到pName设置的
+		String res = "ok";	//标记，查询成功；解析时可以以此key为查询结果，ok为存在相应商品，no为不存在
+		float price;
+//		String name;
+		
+		//用于存储查询到的其他项
+		String str_des;
+		String str_type;
+		String str_loc;
+		Date date_time;
+		String str_time;
+		JSONObject json = new JSONObject();
+		JSONObject content = new JSONObject();
+		JSONObject good = new JSONObject();
+		if(jsonContent_pId != null){
+			System.out.println("携带的pId："+jsonContent_pId + "  pName：" + jsonContent_pName);
+			JSONObject jsonObject;
+			try {
+				jsonObject = new JSONObject(jsonContent);
+				pid = jsonObject.getString("pId");	//得到商品pid
+			} catch (JSONException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			System.out.println("lookup price pId:" + pid + "  lookup pname pName:" + pName);
+			Record rec_pId = analysisService.lookupprice(pid);
+			
+			
+			
+			// 获取商品字段信息
+			price = rec_pId.getFloat("price");
+			//price=Float.parseFloat(new java.text.DecimalFormat("#.00").format(rec.getFloat("price")));
+			pName = rec_pId.getStr("name");
+			str_des = rec_pId.getStr("description");
+			str_type = rec_pId.getStr("type");
+			str_loc = rec_pId.getStr("location");
+			date_time = rec_pId.getDate("time");
+			str_time = (new SimpleDateFormat("yyyy-MM-dd")).format(date_time);
+			
+		}
+		else{
+			System.out.println("携带的pId："+jsonContent_pId + "  pName：" + jsonContent_pName);
+			JSONObject jsonObject;
+			try {
+				jsonObject = new JSONObject(jsonContent);
+				String pName_temp = jsonObject.getString("pName");	//得到商品pName
+				pName = new String(pName_temp.getBytes("iso-8859-1"),"UTF-8");
+			} catch (JSONException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			System.out.println("lookup pId:" + pid + "  lookup pName:" + pName);
+			Record rec_pName = analysisService.lookup_pName(pName);
+			// 获取商品字段信息
+			price = rec_pName.getFloat("price");
+			//price=Float.parseFloat(new java.text.DecimalFormat("#.00").format(rec.getFloat("price")));
+			String pid_temp = String.valueOf(rec_pName.getInt("pid"));
+			str_des = rec_pName.getStr("description");
+			str_type = rec_pName.getStr("type");
+			str_loc = rec_pName.getStr("location");
+			date_time = rec_pName.getDate("time");
+			str_time = (new SimpleDateFormat("yyyy-MM-dd")).format(date_time);
+		}
+		// 组装Json串
+		try {
+
+			// {"pPrice":3.200000047683716,"pName":"牛奶","pID":"123458"}
+			System.out.println("name"+pName);
+			content.put("pId", pid);
+			content.put("pName", pName);
+			content.put("pPrice", price);
+			content.put("pDes", str_des);
+			content.put("pType", str_type);
+			content.put("pLoc", str_loc);
+			content.put("pTime", str_time);
+			
+
+			// {"res":"1","content":{"pPrice":3.200000047683716,"pName":"牛奶","pID":"123458"}}
+			json.put("res", res);
+			json.put("content", content);
+			good.put("good", json);
+
+			System.out.println("----ret:" + good.toString());
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		// 响应
+		try {
+			HttpServletResponse response = this.getResponse();
+			
+			response.setContentType("application/json;charset=utf-8");
+			PrintWriter writer = response.getWriter();
+			writer.write(good.toString());
+			writer.flush();
+			writer.close();
+			// this.renderJson(jsonText);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.renderNull();
+	}
