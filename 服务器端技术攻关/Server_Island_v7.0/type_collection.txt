@@ -1,0 +1,95 @@
+/*
+	 * 分类
+	 * 作者：孙铖铖
+	 * 日期：2016-11-28
+	 * App端注释：点击分类图片，获取分类关键字，查询出相同类型的所有商品；
+	 * 运行注释：注意，网址涉及到中文！！！只处理网址中文即可；
+	 * 		 注意修改AnalysisBiz里调用的方法；
+	 * 		 目前只能得到一条商品信息，通过循环表达到过滤类别功能！
+	 * */
+	public void type_collection(){
+		String jsonContent = this.getPara("pType");	//得到携带的参数pType
+		String type = "default";	//设置默认类型
+		String res = "ok";	//默认查询结果
+		
+		//用于存储获得某商品的详细信息
+		String str_pid = null;
+		String str_name = null;
+		float price = 0;
+		String str_des = null;
+		String str_loc = null;
+		Date date_time;
+		String str_time = null;
+		JSONObject json = new JSONObject();
+		JSONObject content = new JSONObject();
+		JSONObject good = new JSONObject();
+		System.out.println("----jsonContent:"+jsonContent.toString());
+		if(jsonContent != null){
+			JSONObject jsonObject;
+			try {
+				jsonObject = new JSONObject(jsonContent);
+				String str_temp = jsonObject.getString("pType");
+				type = new String(str_temp.getBytes("iso-8859-1"),"UTF-8");
+				System.out.println("----中文否？type:"+type);	//成功得到中文
+				List<Record> list_Record_type = new ArrayList<>();
+				list_Record_type = analysisService.lookup_type(type);
+				
+				PrintWriter writer;
+				HttpServletResponse response = this.getResponse();
+				
+				response.setContentType("application/json;charset=utf-8");
+				writer = response.getWriter();
+				//循环查找表
+				for(Record rec_pType: list_Record_type){
+					//获取商品字段信息
+					str_pid = String.valueOf(rec_pType.getInt("pid"));
+					str_name = rec_pType.getStr("name");
+					price = rec_pType.getFloat("price");
+					str_des = rec_pType.getStr("desciption");
+					str_loc = rec_pType.getStr("location");
+					date_time = rec_pType.getDate("time");
+					str_time = (new SimpleDateFormat("yyyy-MM-dd")).format(date_time);
+					//组装json串
+					try {
+						System.out.println("name"+str_name);
+						content.put("pId", str_pid);
+						content.put("name", str_name);
+						content.put("pPrice", price);
+						content.put("pDes", str_des);
+						content.put("pType", type);
+						content.put("pLoc", str_loc);
+						content.put("pTime", str_time);
+						
+						json.put("res", res);
+						json.put("content", content);
+						good.put("good", json);
+
+						System.out.println("----good串:" + good.toString());
+						
+						writer.append(good.toString());
+						
+						// this.renderJson(jsonText);
+						this.renderNull();		
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}//for
+				writer.flush();
+				writer.close();
+			} catch (JSONException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+			
+			
+			
+				
+		}//if(jsonContent != null)
+	}
