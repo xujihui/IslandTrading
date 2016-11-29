@@ -1,0 +1,145 @@
+/**
+	 * 用户订单提交
+	 * 作者：孙铖铖
+	 * 日期：2016-11-29
+	 * 参数：total商品数量，record商品信息，oSum订单总价，address交易地址，telphone买家电话
+	 * 		好像不能有商品id，万一一下买了好多呢；岛买岛卖这个机制就不能多买！！！
+	 * 		
+	 * 参数形如：/order={osm:30.0,address:"软件学院",telphone:1234566666,user_id:700,pid:7878788}
+	 * localhost:8080/supermarket/analysis/oreder?order={osm:30.0,address:"软件学院",telphone:1234566666,user_id:700,pid:7878788}
+	 */
+	public void oreder() {
+		
+		String jsonContent = this.getPara("order");	//得到一堆参数
+//		String jsonContent = "{ oId:A20160816001, total:3,record:["
+//				+ "{pId:123462,pNum:1},"
+//				+ "{pId:123460,pNum:2},"
+//				+ "{pId:123461,pNum:1}]," + "oSum:30.5}";
+		String oid = "";	//订单编号
+		float osum = 0;		//订单总价
+		String address = "";	//交易地址
+		String telphone = "";	//买家电话
+		String user_id = "";	//买家 user_id
+		String pid = "";
+		Date date = new Date();
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		DateFormat oidformat=new SimpleDateFormat("yyMMddHHmmss");
+		String time=format.format(date);	//将现在时间转成String时间
+		oid = oidformat.format(date);	//将现在时间转成订单号oid
+		System.out.println("----time:"+time);
+		System.out.println("----oid:"+oid);
+		try {
+			JSONObject jsonObject = new JSONObject(jsonContent);
+			osum = Float.parseFloat(jsonObject.getString("osm"));
+			String str_address = jsonObject.getString("address");
+			String str_telphone = jsonObject.getString("telphone");
+			String str_user_id = jsonObject.getString("user_id");
+			pid = jsonObject.getString("pid");
+			try {
+				address = new String(str_address.getBytes("iso-8859-1"),"UTF-8");
+				telphone = new String(str_telphone.getBytes("iso-8859-1"),"UTF-8");
+				user_id = new String(str_user_id.getBytes("iso-8859-1"),"UTF-8");
+//				pid = new String(str_pid.getBytes("iso-8856-1"),"UTF-8");
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
+			System.out.println("得到否  ---address:" + address + "telphone:" 
+					+ telphone + "user_id:" + user_id + "pid:" + pid);
+
+			// 保存订单记录
+			boolean b_res = orderService.save(oid, osum, address, telphone,user_id,pid);
+			HttpServletResponse response = this.getResponse();
+			response.setContentType("application/json;charset=utf-8");
+			PrintWriter writer = response.getWriter();
+			if(b_res == true){	//订单保存成功			
+				writer.write("订单提交成功！" + oid);
+				writer.flush();
+				writer.close();
+				this.renderNull();
+			}
+			else{	//订单保存失败
+				writer.write("订单提交失败！！！" + oid);
+				writer.flush();
+				writer.close();
+				this.renderNull();
+			}
+			
+			
+			
+//			JSONArray jsonrecos = jsonObject.getJSONArray("record");	//记录各商品信息
+//			JSONObject jsonreco = null;	//临时变量
+//			List<Record> recordList = new ArrayList<Record>();	//解析完的各商品信息
+			
+
+//			// 批量添加 商品名、商品价格、数量、所属订单
+//			String pID;
+//			String pName;
+//			float pPrice;
+//			String pNum;
+//
+//			// 解析订单中记录
+//			for (int i = 0; i < total; i++) {
+//				
+//				jsonreco = jsonrecos.getJSONObject(i);
+//
+//				// 根据商品号，获得商品名称及单价
+//				pID = jsonreco.getString("pid");
+//				System.out.println("pid:"+pID);
+//				
+//				Record product = productService.findByID(pID);
+//
+//				// 获取商品信息
+//				pName = product.getStr("name");
+//				pPrice = product.getFloat("price");
+//				pNum = jsonreco.getString("num");
+//
+//				System.out.println("name:" + pName + "price:" + pPrice
+//						+ "pNum:" + pNum + "oid:" + oid);
+//
+//				// 将商品信息封装成记录
+//				Record record = new Record().set("name", pName).set("price", pPrice)
+//						.set("number", pNum).set("oid", oid);
+//				System.out.println("name:" + i+":"+record.getStr("name"));
+//				recordList.add(i, record);
+//			}
+//			
+//			for (Record record2 : recordList) {
+//				System.out.println("name:" + record2.getStr("name"));
+//			}
+//
+//			// 批量存储订单详细信息记录
+//			int[] res = orderService.batchsave(recordList, total);
+//			JSONObject resjson = new JSONObject();
+//			JSONObject order = new JSONObject();
+//			if (res.length > 0) {
+//				resjson.put("res", "ok");
+//			} else {
+//				resjson.put("res", "no");
+//			}
+//			order.put("order", resjson);
+//			// 响应
+//			try {
+//				HttpServletResponse response = this.getResponse();
+//				response.setContentType("application/json;charset=utf-8");
+//				PrintWriter writer = response.getWriter();
+//				writer.write(order.toString());
+//				writer.flush();
+//				writer.close();
+//				// this.renderJson(jsonText);
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		this.renderNull();
+	}
