@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IslandTrading</string>
+    <string name="app_name">岛买岛卖</string>
     <string name="action_settings">Settings</string>
     <string-array name="spingarr">
         <item>河北省</item>
