@@ -1,0 +1,129 @@
+/*
+	 * 完成用户注册、登陆等请求
+	 * 作者：孙铖铖
+	 * 日期：2016-11-29
+	 * App端注释：	App端携带mode参数，验证登陆check  还是 注册register
+	 * 			注册时，App端能获取到要注册账号、密码并提交
+	 * 			登录时，App端提交用户输入的用户名、密码提交，在数据库端完成验证并给App端反馈
+	 * 运行注释：
+	 * */
+	public void reg_log_user(){
+		String str_mode = this.getPara("mode");	//区分验证方式，登陆还是注册
+		
+		//1.后台验证
+		if(str_mode.equals("check")){
+			String user_temp = this.getPara("user");	//直接得到参数就行了，不用json了
+			String user = null;
+			try {
+				user = new String(user_temp.getBytes("iso-8859-1"),"UTF-8");
+				System.out.println("----reg_log_user()得到的参数--user:"+user);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String pwd = this.getPara("pwd");
+			
+			String str_nickname;
+			int power;
+			String res = "";	//结果状态标记  ok , no
+			
+			//JSONObject用于最终组装得到的参数、结果状态标记等信息；
+			JSONObject json = new JSONObject();
+			JSONObject content = new JSONObject();
+			JSONObject good = new JSONObject();
+			
+			//向网页中渲染信息……不太清楚作用
+			HttpServletResponse response = this.getResponse();
+			response.setContentType("application/json;charset=utf-8");
+			PrintWriter writer = null;
+			try {
+				writer = response.getWriter();
+			} catch (IOException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
+			Record mRecord = analysisService.lookup_user(user);
+			if(mRecord == null){	//用户名错误
+				System.out.println("-----reg_log_user()--现在只能说明输入的用户名错误：" + user);
+				writer.write("用户名错误！");
+				writer.flush();
+				writer.close();
+				this.renderNull();
+			}
+			else{	//用户名正确
+				System.out.println("-----reg_log_user()得到的记录:"+mRecord.toString());
+				
+				//用户名验证通过，且拿了数据库中的信息，下面验证密码是否正确
+				String str_pwd = mRecord.getStr("password");
+				if(str_pwd.equals(pwd)){	//用户输入密码正确
+					System.out.println("用户输入密码正确！！！");
+					str_nickname = mRecord.getStr("nickname");
+					power = mRecord.getInt("power");
+					res = "ok";
+					try {
+						content.put("username", user);
+						content.put("password", pwd);
+						content.put("nickname", str_nickname);
+						content.put("power", power);
+						json.put("res", res);
+						json.put("content", content);
+						good.put("good", json);
+						System.out.println("----reg_log_user（）中 good:"+good.toString());
+						
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					writer.write(good.toString());
+					writer.flush();
+					writer.close();
+					this.renderNull();
+				}
+				else{	//用户输入密码错误
+					writer.write("密码错误！");
+					this.renderNull();
+				}
+			}
+				
+		}
+		//2.添加账户 http://localhost:8080/supermarket/analysis/reg_log_user?mode=check&user=%E7%94%A8%E6%88%B7%E5%90%8D&pwd=123a
+		else if(str_mode.equals("register")){	
+			String str_pwd = this.getPara("pwd");
+			String str_nick_temp = this.getPara("nick");
+			String str_user_temp = this.getPara("user");		//携带了一堆参数
+			String str_user = null;
+			String str_nick = "default nick";
+			try {
+				str_user = new String(str_user_temp.getBytes("iso-8859-1"),"UTF-8");
+				if(!str_nick.equals("default nick")){
+					str_nick = new String(str_nick_temp.getBytes("iso-8859-1"),"UTF-8");
+				}
+				boolean b_res = orderService.reg_user(str_user, str_pwd, str_nick);
+				System.out.println("----注册reg_log_user（）  - 获得账号" + str_user);
+				//用于向网页中渲染信息
+				HttpServletResponse response = this.getResponse();
+				response.setContentType("application/json;charset=utf-8");
+				PrintWriter writer = response.getWriter();
+				if(b_res == true){			//犯了个很低级的错误，用了 = ！！！
+					writer.write("注册成功！ user:" + str_user);
+					writer.flush();
+					writer.close();
+					this.renderNull();
+				}
+				else{
+					System.out.println("str_user::::" + str_user);
+					writer.write("注册失败！ user:" + str_user);
+					writer.flush();
+					writer.close();
+					this.renderNull();
+				}
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}//else if
+	}	
