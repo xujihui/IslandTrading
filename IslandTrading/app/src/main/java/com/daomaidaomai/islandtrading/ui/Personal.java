@@ -16,6 +16,23 @@ public class Personal extends Activity {
     private TextView Tex;
     private LinearLayout Back;
 
+    public View.OnClickListener mylistener = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.edit: {
+                    Intent i = new Intent(Personal.this, Personal_Edit.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.back:
+                    Personal.this.finish();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,23 +40,9 @@ public class Personal extends Activity {
 
         Tex = (TextView) findViewById(R.id.edit);
         Back = (LinearLayout) findViewById(R.id.back);
-        Back.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                Personal.this.finish();
-            }
-        });
-
-        Tex.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Personal.this, Personal_Edit.class);
-                startActivity(i);
-
-            }
-        });
+        Tex.setOnClickListener(mylistener);
+        Back.setOnClickListener(mylistener);
 
     }
 }

@@ -77,12 +77,12 @@
 
 
     <LinearLayout
-        android:paddingTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -90,15 +90,37 @@
             android:src="@mipmap/pcone" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="5dp"
-        android:text="已发布，3秒后自动跳转到首页..."
-        android:textColor="@color/drakgrey"
-        android:textSize="14sp" />
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/timenumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="3"
+                android:textColor="@color/drakgrey"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/timenumber"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="秒后自动返回首页"
+                android:textColor="@color/drakgrey"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/backtohome"

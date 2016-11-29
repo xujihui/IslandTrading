@@ -7,16 +7,14 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 
-<<<<<<< HEAD:IslandTrading/app/src/main/java/com/daomaidaomai/islandtrading/MainActivity.java
 import com.daomaidaomai.islandtrading.controller.HomePage;
 import com.daomaidaomai.islandtrading.ui.First_Login;
 import com.daomaidaomai.islandtrading.ui.Login;
-=======
 import com.daomaidaomai.islandtrading.R;
->>>>>>> 7531b087293319ea72cb5e3045c5fbf6ebf54d44:IslandTrading/app/src/main/java/com/daomaidaomai/islandtrading/ui/MainActivity.java
 
-public class MainActivity extends Activity implements Animation.AnimationListener{
+public class MainActivity extends Activity implements Animation.AnimationListener {
     private RelativeLayout rl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +22,7 @@ public class MainActivity extends Activity implements Animation.AnimationListene
         //得到视图控件
         rl = (RelativeLayout) findViewById(R.id.rl);
         //创建透明度动画对象
-        AlphaAnimation anima = new AlphaAnimation(0.3f,1.0f);
+        AlphaAnimation anima = new AlphaAnimation(0.3f, 1.0f);
         //设置动画显示时间
         anima.setDuration(1000);
         //启动动画

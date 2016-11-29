@@ -20,6 +20,23 @@ public class Regist extends Activity {
     private Button Btn;
     private LinearLayout Back;
 
+    public View.OnClickListener mylistener = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.registed: {
+                    Intent i = new Intent(Regist.this, Home.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.back:
+                    Regist.this.finish();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,22 +44,10 @@ public class Regist extends Activity {
         setContentView(R.layout.activity_register);
         Btn = (Button) findViewById(R.id.registed);
         Back = (LinearLayout) findViewById(R.id.back);
-        Back.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                Regist.this.finish();
-            }
-        });
-        Btn.setOnClickListener(new View.OnClickListener() {
+        Btn.setOnClickListener(mylistener);
+        Back.setOnClickListener(mylistener);
 
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Regist.this, Home.class);
-                startActivity(i);
-
-            }
-        });
 
     }
 }

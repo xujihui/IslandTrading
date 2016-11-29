@@ -15,9 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".controller.ClassifyAllActivity" />
-        <activity android:name=".controller.ReleaseConfirm"/>
+        <activity android:name=".autoclose.ReleaseConfirm" />
         <activity android:name=".controller.MyBuy" />
         <activity android:name=".controller.Release" />
         <activity android:name=".controller.MySold" />

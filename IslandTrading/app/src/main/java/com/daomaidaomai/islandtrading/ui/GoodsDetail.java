@@ -14,29 +14,34 @@ public class GoodsDetail extends Activity {
     private LinearLayout Lin;
     private LinearLayout Back;
 
+    public View.OnClickListener mylistener = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.buy: {
+                    Intent i = new Intent(GoodsDetail.this,Order.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.back: {
+                    GoodsDetail.this.finish();
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.goods_detail);
         Lin = (LinearLayout) findViewById(R.id.buy);
         Back = (LinearLayout) findViewById(R.id.back);
-        Back.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                GoodsDetail.this.finish();
-            }
-        });
+        Lin.setOnClickListener(mylistener);
+        Back.setOnClickListener(mylistener);
 
-        Lin.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(GoodsDetail.this,Order.class);
-                startActivity(i);
-
-            }
-        });
 
 
 

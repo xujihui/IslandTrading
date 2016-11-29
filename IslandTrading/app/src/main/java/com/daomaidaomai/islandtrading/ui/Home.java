@@ -29,7 +29,7 @@ public class Home extends Activity {
     private List<View> listViews; // 图片组
     private TextView title; //用于存放获取的视图控件
     //存放图片的标题
-    private String[]  titles = new String[]{
+    private String[] titles = new String[]{
             "你妈喊你来买键盘",
             "微信鼓励金",
             "蒙牛真果粒",
@@ -50,6 +50,40 @@ public class Home extends Activity {
     //用于存放获取的视图控件
     private ListView lv;
 
+    public View.OnClickListener mylistener = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.chat: {
+                    Intent i = new Intent(Home.this, Chat.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.map: {
+                    Intent i = new Intent(Home.this, Map.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.sell: {
+                    Intent i = new Intent(Home.this, Sell.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.myself: {
+                    Intent i = new Intent(Home.this, Myself.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.classfy: {
+                    Intent i = new Intent(Home.this, ClassifyAllActivity.class);
+                    startActivity(i);
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +99,7 @@ public class Home extends Activity {
         //初始化图片
         InitViewPager();
         //开始滚动
-        myPager.start(this, listViews, 4000, title,titles,ovalLayout,
+        myPager.start(this, listViews, 4000, title, titles, ovalLayout,
                 R.layout.ad_scroll_dot_item, R.id.ad_item_v,
                 R.drawable.dot_focused, R.drawable.dot_normal);
         // 把ViewPager做成ListView的Header,注意:addHeaderView一定要在setAdapter前调用
@@ -83,58 +117,15 @@ public class Home extends Activity {
         Map = (LinearLayout) findViewById(R.id.map);
         Sell = (LinearLayout) findViewById(R.id.sell);
         Myself = (LinearLayout) findViewById(R.id.myself);
-
         Img = (ImageView) findViewById(R.id.classfy);
-        Img.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Home.this, ClassifyAllActivity.class);
-                startActivity(i);
-
-            }
-        });
-
-
-        Chat.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Home.this, Chat.class);
-                startActivity(i);
-
-            }
-        });
-        Map.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Home.this, Map.class);
-                startActivity(i);
-
-            }
-        });
-        Sell.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Home.this, Sell.class);
-                startActivity(i);
-
-            }
-        });
-
-        Myself.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Home.this, Myself.class);
-                startActivity(i);
-
-            }
-        });
-
+        Chat.setOnClickListener(mylistener);
+        Map.setOnClickListener(mylistener);
+        Sell.setOnClickListener(mylistener);
+        Myself.setOnClickListener(mylistener);
+        Img.setOnClickListener(mylistener);
     }
+
 
     private void getListData() {
         listViewProducts.add(new Product(0L, R.mipmap.threesquirrel, "三只松鼠 能量果仁182g", 33.9, "每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。"));
@@ -167,8 +158,8 @@ public class Home extends Activity {
     private void InitViewPager() {
         //显示的图片
         listViews = new ArrayList<View>();
-        int[] imageResId = new int[] { R.mipmap.viewpager1,R.mipmap.viewpager2,R.mipmap.viewpager3,R.mipmap.viewpager4};
-        for(int i = 0; i < imageResId.length; i++){
+        int[] imageResId = new int[]{R.mipmap.viewpager1, R.mipmap.viewpager2, R.mipmap.viewpager3, R.mipmap.viewpager4};
+        for (int i = 0; i < imageResId.length; i++) {
             ImageView imageView = new ImageView(this);
             imageView.setBackgroundResource(imageResId[i]);
             listViews.add(imageView);

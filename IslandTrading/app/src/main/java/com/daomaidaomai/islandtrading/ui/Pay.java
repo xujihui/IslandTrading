@@ -14,28 +14,31 @@ public class Pay extends Activity {
     private Button Btn;
     private LinearLayout Back;
 
+    public View.OnClickListener mylistener = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.pay: {
+                    Intent i = new Intent(Pay.this, Onlinedeal.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.back:
+                    Pay.this.finish();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
         Btn = (Button) findViewById(R.id.pay);
         Back = (LinearLayout) findViewById(R.id.back);
-        Back.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                Pay.this.finish();
-            }
-        });
-        Btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Pay.this, Onlinedeal.class);
-                startActivity(i);
-
-            }
-        });
-
+        Btn.setOnClickListener(mylistener);
+        Back.setOnClickListener(mylistener);
     }
 }

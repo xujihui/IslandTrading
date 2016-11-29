@@ -17,7 +17,7 @@ import java.util.List;
 public class AddressChioce extends AppCompatActivity {
 
     private ListView lv;
-    private List<Addres> ls=new ArrayList<Addres>();
+    private List<Addres> ls = new ArrayList<Addres>();
     private AddAdapter maddAdapter;
     private LinearLayout Back;
 
@@ -36,25 +36,27 @@ public class AddressChioce extends AppCompatActivity {
         });
 
 
-
         findViewById();
         getData();
-        maddAdapter=new AddAdapter(this,ls);
+        maddAdapter = new AddAdapter(this, ls);
         set();
     }
+
     private void findViewById() {
-        lv=(ListView)findViewById(R.id.listview_lv);
+        lv = (ListView) findViewById(R.id.listview_lv);
     }
-    private void set(){
+
+    private void set() {
         lv.setAdapter(maddAdapter);
     }
+
     private void getData() {
-        ls.add(new Addres(01,"小红","1523212xxxx","河北师范大学新校区","[默认地址]"));
-        ls.add(new Addres(02,"小红","1523212xxxx","河北师范大学新校区",""));
-        ls.add(new Addres(03,"小红","1523212xxxx","河北师范大学新校区",""));
-        ls.add(new Addres(04,"小红","1523212xxxx","河北师范大学新校区",""));
-        ls.add(new Addres(05,"小红","1523212xxxx","河北师范大学新校区",""));
-        ls.add(new Addres(06,"小红","1523212xxxx","河北师范大学新校区",""));
-        ls.add(new Addres(07,"小红","1523212xxxx","河北师范大学新校区",""));
+        ls.add(new Addres(01, "小红", "1523212xxxx", "河北师范大学新校区", "[默认地址]"));
+        ls.add(new Addres(02, "小红", "1523212xxxx", "河北师范大学新校区", ""));
+        ls.add(new Addres(03, "小红", "1523212xxxx", "河北师范大学新校区", ""));
+        ls.add(new Addres(04, "小红", "1523212xxxx", "河北师范大学新校区", ""));
+        ls.add(new Addres(05, "小红", "1523212xxxx", "河北师范大学新校区", ""));
+        ls.add(new Addres(06, "小红", "1523212xxxx", "河北师范大学新校区", ""));
+        ls.add(new Addres(07, "小红", "1523212xxxx", "河北师范大学新校区", ""));
     }
 }

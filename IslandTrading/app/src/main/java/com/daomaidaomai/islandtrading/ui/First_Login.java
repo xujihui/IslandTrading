@@ -18,6 +18,25 @@ public class First_Login extends Activity {
     private Button Btn;
     private TextView Tex;
 
+    public View.OnClickListener mylistener = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.loginhome: {
+                    Intent i = new Intent(First_Login.this, Home.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.regist: {
+                    Intent i = new Intent(First_Login.this, Regist.class);
+                    startActivity(i);
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+    };
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,25 +47,9 @@ public class First_Login extends Activity {
         Tex = (TextView) findViewById(R.id.regist);
 
 
-        Btn.setOnClickListener(new View.OnClickListener() {
+        Btn.setOnClickListener(mylistener);
+        Tex.setOnClickListener(mylistener);
 
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(First_Login.this, Home.class);
-                startActivity(i);
-
-            }
-        });
-
-        Tex.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(First_Login.this, Regist.class);
-                startActivity(i);
-
-            }
-        });
 
     }
 }

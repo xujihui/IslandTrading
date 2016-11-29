@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_white"
+    android:background="@color/backcolor"
     android:orientation="vertical">
 
 
@@ -39,7 +39,6 @@
     </FrameLayout>
 
 
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,6 +58,8 @@
         android:textColorHint="@color/drakgrey" />
 
     <LinearLayout
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -94,6 +95,7 @@
         android:textColorHint="@color/drakgrey" />
 
     <RadioButton
+        android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="使用当前位置发布商品"
@@ -152,27 +154,19 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginLeft="10dp"
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/search">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-            android:background="@mipmap/send" />
-
-        <Button
-            android:id="@+id/confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:gravity="center"
-            android:text="确认发布"
-            android:textColor="@color/drakgrey"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:background="@drawable/buttonshape"
+        android:gravity="center"
+        android:text="确认发布"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"></Button>
 
 </LinearLayout>
