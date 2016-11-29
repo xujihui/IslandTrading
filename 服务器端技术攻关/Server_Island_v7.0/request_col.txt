@@ -1,0 +1,162 @@
+ * 请求我的收藏
+	 * 作者：孙铖铖
+	 * 日期：2016-11-28
+	 * App端注释：携带id_user和id_goods两个id，方能获取准确商品
+	 * 			或者只携带id_user，达到获取某人收藏的效果
+	 * 运行注释：两个参数确定准确商品；user参数过滤商品；
+	 * 		 需要考虑携带的参数数量，如何表示？？？user必带，所以，先判断goods_id有无
+	 * 		
+	 * */
+	public void request_col(){
+		String jsonContent_goods = this.getPara("goods");	
+		String jsonContent_user = this.getPara("user");
+		String goods = "default";
+		String user = "default";
+		String res = "ok";
+		String str_goods_id = null;	//可能不使用
+		String str_status;	//sql中bit类型，需要转换！
+		Date time_temp;
+		String str_time;
+		JSONObject json = new JSONObject();
+		JSONObject content = new JSONObject();
+		JSONObject good = new JSONObject();
+//		System.out.println("----jsonContent_user:"+jsonContent_user.toString() + "  " 
+//		+ "----jsonContent_user:" +jsonContent_goods.toString());
+		if(jsonContent_goods != null){
+		try {
+			JSONObject jsonObject_temp = new JSONObject(jsonContent_goods);
+			goods = jsonObject_temp.getString("goods");
+		} catch (JSONException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		}
+		//如果没有携带goods_id
+		if(goods.equals("default")){	//如果没有携带goods_id，即商品id，只处理user参数
+			System.out.println("----执行if：");
+			JSONObject jsonObject;
+			try {
+				jsonObject = new JSONObject(jsonContent_user);
+				user = jsonObject.getString("user");
+				System.out.println("----中文否？type:"+user);	//成功得到中文
+				List<Record> list_Record_type = new ArrayList<>();
+				list_Record_type = analysisService.lookup_col(user);
+				
+				PrintWriter writer;
+				HttpServletResponse response = this.getResponse();
+				
+				response.setContentType("application/json;charset=utf-8");
+				writer = response.getWriter();
+				//循环查找表
+				for(Record rec_pType: list_Record_type){
+					//获取商品字段信息
+					str_goods_id = String.valueOf(rec_pType.getInt("id_goods"));					
+					time_temp = rec_pType.getDate("date");
+					str_time = (new SimpleDateFormat("yyyy-MM-dd hh:mm:ss")).format(time_temp);
+					//组装json串
+					try {
+						content.put("pId", str_goods_id);
+						content.put("user", user);
+						content.put("pTime", str_time);
+						
+						json.put("res", res);
+						json.put("content", content);
+						good.put("good", json);
+
+						System.out.println("----good串:" + good.toString());
+						
+						writer.append(good.toString());
+						
+						// this.renderJson(jsonText);
+						this.renderNull();		
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						System.out.println("-----捕获到异常   e1 !!!");
+						e.printStackTrace();
+					}
+				}//for
+				writer.flush();
+				writer.close();
+			} catch (JSONException e2) {
+				// TODO Auto-generated catch block
+				System.out.println("-----捕获到异常   e2 !!!");
+				e2.printStackTrace();
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("-----捕获到异常   e3 !!!");
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("-----捕获到异常   e4 !!!");
+				e1.printStackTrace();
+			} 
+		}
+		else{	//携带了goods_id，即商品id，处理两个参数
+			System.out.println("----执行else：");
+			JSONObject jsonObject_goods;
+			JSONObject jsonObject_user;
+			try {
+				System.out.println("----else中得到的参数：jsonContent_user" + 
+						jsonContent_user.toString() + "  jsonObject_goods:" + 
+						jsonContent_goods.toString());
+				jsonObject_user = new JSONObject(jsonContent_user);
+				jsonObject_goods = new JSONObject(jsonContent_goods);
+				user = jsonObject_user.getString("user");
+				goods = jsonObject_goods.getString("goods");
+				System.out.println("-----user:"+user+"  goods:"+goods);
+				List<Record> list_Record_type = new ArrayList<>();
+				list_Record_type = analysisService.lookup_col(user, goods);
+				System.out.println(list_Record_type.toString()+"-----");	//list里没东西
+				PrintWriter writer;
+				HttpServletResponse response = this.getResponse();
+				
+				response.setContentType("application/json;charset=utf-8");
+				writer = response.getWriter();
+				//循环查找表
+				for(Record rec_pType: list_Record_type){
+					//获取商品字段信息
+					str_goods_id = String.valueOf(rec_pType.getInt("id_goods"));					
+					time_temp = rec_pType.getDate("date");
+					str_time = (new SimpleDateFormat("yyyy-MM-dd hh:mm:ss")).format(time_temp);
+					//组装json串
+					try {
+						content.put("pId", str_goods_id);
+						content.put("user", user);
+						content.put("pTime", str_time);
+						
+						json.put("res", res);
+						json.put("content", content);
+						good.put("good", json);
+
+						System.out.println("----good串:" + good.toString());
+						
+						writer.append(good.toString());
+						
+						// this.renderJson(jsonText);
+						this.renderNull();		
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						System.out.println("-----捕获到异常   e1 !!!");
+						e.printStackTrace();
+					}
+				}//for
+				writer.flush();
+				writer.close();
+			} catch (JSONException e2) {
+				// TODO Auto-generated catch block
+				System.out.println("-----捕获到异常   e2 !!!");
+				e2.printStackTrace();
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("-----捕获到异常   e3 !!!");
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("-----捕获到异常   e4 !!!");
+				e1.printStackTrace();
+			} 
+		}//else
+		
+
+	}
+	
