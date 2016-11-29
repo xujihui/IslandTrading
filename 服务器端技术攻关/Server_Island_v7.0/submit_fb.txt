@@ -1,0 +1,49 @@
+/*
+	 * 提交反馈表
+	 * 作者：孙铖铖
+	 * 日期：2016-11-29
+	 * App端注释：获取用户填写的信息；
+	 * 		         需要规范上传的日期格式；
+	 * 			参数形如：http://localhost:8080/supermarket/analysis/submit_fb?checkout={"id":"1","user_id":"2","content":"你好","time":"2016-11-25 11:13:01"}
+	 * 运行注释：携带参数 checkout 
+	 * */
+	public void submit_fb(){
+		String jsonContent = this.getPara("checkout");
+		String str_id;	//反馈信息id，这个参数必须有
+		String str_user_id;	//用户id，这个参数，暂定必带
+		String str_content;	//反馈内容，必带
+//		Date time_date;	//时间，必带！
+		String str_time;	
+		boolean b_status;	//问题是否已经处理了，客户端不需要上传，为了便于填充表，此处给一个默认值 false
+		try {
+			JSONObject jsonObject = new JSONObject(jsonContent);
+			str_id = jsonObject.getString("id");
+			str_user_id = jsonObject.getString("user_id");
+			String str_content_temp = jsonObject.getString("content");
+			str_content = new String(str_content_temp.getBytes("iso-8859-1"),"UTF-8");
+			str_time = jsonObject.getString("time");
+			System.out.println("----str_time:"+str_time);
+			b_status = false;	//什么时候转换成 bit，要不存储的时候转换一下，但是提交成网址之后，会变成什么……
+			boolean b = orderService.subfb(str_id, str_user_id, str_content, str_time, b_status);
+			System.out.println("-----submit_fb()获得的参数jsonContent:" + jsonContent+"\n转换后的效果 content:" + str_content);
+			
+			if(b == true){
+				System.out.println("反馈提交成功：id" + str_id + "  user_id:" + str_user_id);
+				this.renderHtml("反馈提交成功！");
+				return;
+			}
+			else{
+				System.out.println("反馈提交失败：id" + str_id + "  user_id:" + str_user_id);
+				this.renderHtml("反馈提交失败！");
+				return;
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			System.out.println("-----submit_fb() 捕获到异常e1");
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
