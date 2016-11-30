@@ -30,10 +30,10 @@ public class Home extends Activity {
     private TextView title; //用于存放获取的视图控件
     //存放图片的标题
     private String[] titles = new String[]{
-            "你妈喊你来买键盘",
-            "微信鼓励金",
-            "蒙牛真果粒",
-            "特价怡宝",
+            "BEATS SOLO2 WIRELESS",
+            "国际大牌 低至一折",
+            "极有家推荐 品质生活 便宜不贵",
+            "施华洛世奇 秋冬新款",
     };
 
 
@@ -128,12 +128,12 @@ public class Home extends Activity {
 
 
     private void getListData() {
-        listViewProducts.add(new Product(0L, R.mipmap.threesquirrel, "三只松鼠 能量果仁182g", 33.9, "每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。"));
-        listViewProducts.add(new Product(0L, R.mipmap.chocolate, "德芙巧克力 黑巧克力/牛奶/榛仁 三种口味【一次吃个够】", 59.9, "德芙巧克力500克散装"));
-        listViewProducts.add(new Product(0L, R.mipmap.napkin, "30包心逸原木抽纸巾 3层300张/包面巾纸", 27.9, "精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。"));
-        listViewProducts.add(new Product(0L, R.mipmap.threesquirrel, "三只松鼠 能量果仁182g", 33.9, "每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。"));
-        listViewProducts.add(new Product(0L, R.mipmap.chocolate, "德芙巧克力 黑巧克力/牛奶/榛仁 三种口味【一次吃个够】", 59.9, "德芙巧克力500克散装"));
-        listViewProducts.add(new Product(0L, R.mipmap.napkin, "30包心逸原木抽纸巾 3层300张/包面巾纸", 27.9, "精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。"));
+        listViewProducts.add(new Product(0L, R.mipmap.swatch, "Swatch手表2016七夕情人节限定", 459, "Swatch系列Special edition特别款系列"));
+        listViewProducts.add(new Product(0L, R.mipmap.schaebens, " Schaebens雪本诗面膜 补水保湿美白提拉紧致祛痘", 9, "亲表姐德国代购，保证正品"));
+        listViewProducts.add(new Product(0L, R.mipmap.coach, "coach加拿大代购 长款男钱包", 558, "PVC/牛皮 长20CM*宽10CM*厚2.5CM"));
+        listViewProducts.add(new Product(0L, R.mipmap.ysl, "YSL 亮泽滋润唇膏", 298, "圣罗兰方管口红迷魅唇膏滋润保湿限量星辰"));
+        listViewProducts.add(new Product(0L, R.mipmap.zuixie, "一字鲜醉蟹", 138, "一字鲜醉蟹醉大闸蟹红膏全母蟹2.4-2两熟醉蟹共8只花雕熟醉蟹"));
+        listViewProducts.add(new Product(0L, R.mipmap.teenmix, "Teenmix/天美意 长靴", 1239, "Teenmix/天美意冬季专柜同款打蜡牛皮女过膝长靴6D480DG5"));
     }
 
     @Override
