@@ -1,0 +1,228 @@
+2016/11/30数据库接口文档
+以下方法均在AnalysisController.java中，部分方法经过Android Studio测试，后期开发紧张没有进行App端测试；
+由于时间紧张，接口的设计基本属于代码堆叠，没有考虑优化、代码重用，因为我们的侧重点在前台；
+图片上传各小组都有遇到，是个难点，现阶段数据库作为测试用，没有实现图片上传功能；
+使用方法下面会详细说明，为了便于使用，只会介绍使用方法，代码详细注释在eclipse中。
+表间关联，全没做……
+
+
+
+App端在运行时，localhost应该替换成服务器ip！！！
+
+***************************************************************************************
+
+1.商品查询
+涉及表 t_product
+App端请求 http://localhost:8080/supermarket/analysis/lookupprice?pName={pName:华为}
+	  http://localhost:8080/supermarket/analysis/lookupprice?pId={pId:2}
+通过pName或pId进行查询，{}中为参数，需要服务器解析，注意大小写
+返回json串，形如：
+
+{"good":{"res":"ok","content":{"pDes":"中文描述one","pPrice":10,"pName":"Apple","pLoc":"中文发布地点","pType":"phone","pId":"123456","pTime":"2016-11-11"}}}
+
+good为最终组装的json串；
+res为查询结果状态，ok成功，no失败，即没有相应商品；
+content为商品详细信息，pDes为商品描述，pPrice为商品价格，pName为商品名称，pLoc为商品发布地点，pType为商品类型，pId为商品编码，pTime为商品发布时间。
+
+没有查询相应商品时返回
+
+没有指定商品嘻嘻哈哈
+
+嘻嘻哈哈为查询时的pName或pId
+
+pId默认为123456，此时视为App没有携带pId参数，另外，后台设计要避开此pId；
+pName默认为”Default“,此时视为App没有携带pName参数；
+
+***************************************************************************************
+
+2.商品类别筛选
+涉及表 t_product
+APP端请求 http://localhost:8080/supermarket/analysis/type_collection?pType={pType:电脑}
+通过pType进行查询，{}中为参数，需要服务器解析，注意大小写
+返回json串，因为是类别筛选，可能返回多条信息，形如
+
+{"good":{"res":"ok","content":{"pPrice":20,"pLoc":"中文发布地点","name":"Lenovo","pType":"电脑","pId":"2","pTime":"2016-11-12"}}}{"good":{"res":"ok","content":{"pPrice":100,"pLoc":"中文发布地点","name":"Asus","pType":"电脑","pId":"3","pTime":"2016-11-13"}}}{"good":{"res":"ok","content":{"pPrice":55,"pLoc":"中文发布地点","name":"华硕","pType":"电脑","pId":"9","pTime":"2016-11-15"}}}{"good":{"res":"ok","content":{"pPrice":55,"pLoc":"中文发布地点","name":"联想","pType":"电脑","pId":"10","pTime":"2016-11-16"}}}
+
+good为最终组装json串；
+res为查询状态，ok成功，no失败（res在类别筛选里边没什么用）
+content为结果内容，里边是商品信息，商品参数不再解释；
+
+没有查询类别时返回
+
+嘻嘻哈哈此类别没有商品！
+
+嘻嘻哈哈 为pType值；
+
+***************************************************************************************
+
+3.请求活动列表
+涉及表 activities
+APP端请求 localhost:8080/supermarket/analysis/request_acts
+没有参数，获取所有活动信息。
+返回json串，可能返回多条信息，形如
+
+{"good":{"res":"ok","content":{"pDes":"it's the desciption about the activity!","pLoc":"where to hold the activity!","organizer":"organizer01","name":"activity01","pId":"1","pTime":"2016-11-28"}}}{"good":{"res":"ok","content":{"pDes":"it's the desciption about the activity!","pLoc":"where to hold the activity!","organizer":"organizer01","name":"activity02","pId":"2","pTime":"2016-11-29"}}}{"good":{"res":"ok","content":{"pDes":"it's the desciption about the activity!","pLoc":"where to hold the activity!","organizer":"organizer01","name":"activity03","pId":"3","pTime":"2016-11-30"}}}{"good":{"res":"ok","content":{"pDes":"活动描述四","pLoc":"图书馆吧！","organizer":"组织者四","name":"活动四","pId":"4","pTime":"2016-12-01"}}}{"good":{"res":"ok","content":{"pDes":"活动描述五","pLoc":"软件学院！","organizer":"组织者五","name":"活动五","pId":"5","pTime":"2016-12-02"}}}
+
+good为最终组装json串；
+res为查询状态，ok成功，no失败（res在类别筛选里边没什么用）；
+content为结果内容，里边是活动内容；
+pDes活动描述；
+pLoc为活动地点；
+organizer为活动组织者；
+name为活动名称；
+pId为活动编号；
+pTime为活动时间；
+
+没有活动时返回
+
+暂时没有活动！
+
+***************************************************************************************
+
+4.请求我的收藏
+涉及表 collection
+APP端请求 http://localhost:8080/supermarket/analysis/request_col?user={user:20161130}
+	  http://localhost:8080/supermarket/analysis/request_col?user={user:20161130}&goods={goods:4}
+通过user、goods查询：要么只携带user参数，结果为某人收藏的全部商品；
+		     要么携带user、goos参数，结果为某人收藏的某商品；
+
+返回json串，可能返回多条信息，形如
+
+{"good":{"res":"no","content":{"pId":"3","user":"20161130","pTime":"2016-11-30 07:24:41","status":true}}}{"good":{"res":"no","content":{"pId":"6","user":"20161130","pTime":"2016-11-05 08:56:23","status":true}}}
+
+需要解释下，后台设计的时候，所有用户的收藏都在一个表里，呃，有点不妥，但是暂且如此，所以商品的各列名就清晰了：
+pId商品id
+user用户id
+pTime为收藏时间
+status标识所收藏商品是否卖出
+
+查询失败时，返回如下
+
+商品已不存在或者请求商品id非法！
+
+***************************************************************************************
+
+5.用户提交反馈
+涉及的表feedback
+APP端请求 http://localhost:8080/supermarket/analysis/submit_fb?checkout={"id":"1","user_id":"2","content":"你好","time":"2016-11-25 11:13:01"}
+
+通过 checkout提交反馈
+id为反馈信息id
+user_id为用户id
+content为反馈内容
+time为反馈时间 App端提交的time为String类型，但是一定注意格式！！！
+
+所有用户的反馈都存在一个表里，又不太合适，但暂且如此……
+
+返回 
+
+反馈提交成功！
+
+反馈提交失败！
+
+***************************************************************************************
+
+6.用户请求注册、登陆
+涉及的表 user
+APP端请求http://localhost:8080/supermarket/analysis/reg_log_user?mode=register&user=周杰伦&pwd=123abcdefg
+
+参数mode为register或check，区分用户要执行验证登录还是注册
+user为用户名
+pwd为用户密码
+
+check下，先验证用户名
+错误，返回
+
+用户名错误！
+
+正确，密码也正确，返回json串
+
+{"good":{"res":"ok","content":{"password":"123abcdefg","nickname":"default nick","power":0,"username":"周杰伦"}}}
+
+用户名正确，密码错误，返回
+
+密码错误！
+
+password为用户密码
+nickname为昵称
+power区分管理员、用户，用户注册默认为0
+username用户名，此名唯一
+
+***************************************************************************************
+
+7.用户提交订单
+涉及的表 order
+APP端请求 localhost:8080/supermarket/analysis/oreder?order={osm:30.0,address:"软件学院",telphone:1234566666,user_id:700,pid:7878788}
+携带参数 osm订单总价、address交易地址、telphone买家电话、user_id买家id、pid
+
+我认为岛买岛卖机制不能多买，所以只实现了单个商品提交订单。
+
+提交订单成功，返回
+
+订单提交成功！161130100245
+
+提交订单失败，一秒之内多次提交会失败，后台会以现在时间生成oid（oid是主键），返回
+
+订单提交失败！161130100245
+
+***************************************************************************************
+
+8.删除商品
+涉及的表 t_product
+APP端请求http://localhost:8080/supermarket/analysis/deleteById?goodsCode={pId:123458}
+参数 goodsCode,注意大小写，尤其是 pId的 I，大写！！！
+
+默认pId为123459，所以删除失败的时候pId会是默认值123459
+
+删除成功，返回
+
+删除成功！10
+
+删除失败，返回
+
+删除失败！123459
+
+***************************************************************************************
+
+9.编辑商品
+设计的表 t_product
+APP端请求 http://localhost:8080/supermarket/analysis/editGoods?goods={pId:8,pName:我的Java,pPrice:100}
+参数一定注意大小写！！！
+
+编辑成功，返回
+
+编辑成功！
+
+编辑失败，返回
+
+编辑失败！
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
