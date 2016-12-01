@@ -1,0 +1,890 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:2:1-383:12
+	package
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:3:5-35
+	android:versionName
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:6:5-32
+		INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml
+		INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml
+	android:versionCode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:5:5-29
+		INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml
+		INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:2:11-69
+	android:installLocation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:4:5-35
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:10:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:11:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:12:5-76
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:12:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:13:5-76
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:13:22-73
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:14:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:15:5-81
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:15:22-78
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:16:5-73
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:16:22-70
+uses-permission#android.permission.GET_TASKS
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:19:5-68
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:19:22-65
+uses-permission#android.permission.FLASHLIGHT
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:20:5-69
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:20:22-66
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:21:5-66
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:21:22-63
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:22:5-68
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:22:22-65
+uses-permission#android.permission.BLUETOOTH
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:23:5-68
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:23:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:24:5-74
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:24:22-71
+uses-permission#android.permission.CHANGE_CONFIGURATION
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:25:5-79
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:25:22-76
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:26:5-80
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:26:22-77
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:29:5-80
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:29:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:30:5-81
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:30:22-78
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:33:5-65
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:33:22-62
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:34:5-71
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:34:22-68
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:35:5-75
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:35:22-72
+permission#com.netease.nim.demo.permission.RECEIVE_MSG
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:39:5-41:47
+	android:protectionLevel
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:41:9-44
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:40:9-67
+uses-permission#com.netease.nim.demo.permission.RECEIVE_MSG
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:44:5-83
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:44:22-80
+application
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:46:5-381:19
+MERGED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:9:5-137:19
+MERGED from [com.android.support:appcompat-v7:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:design:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\design\23.3.0\AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:50:9-41
+	android:allowBackup
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:48:9-35
+	android:icon
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:49:9-41
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:51:9-52
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:47:9-39
+meta-data#com.amap.api.v2.apikey
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:54:9-56:43
+	android:value
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:56:13-40
+		INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:55:13-50
+meta-data#com.netease.nim.appKey
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:58:9-60:55
+	android:value
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:60:4-52
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:59:13-50
+uses-library#com.google.android.maps
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:62:9-64:40
+	android:required
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:64:13-37
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:63:13-51
+activity#com.netease.nim.demo.main.activity.WelcomeActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:67:9-82:20
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:73:13-49
+	android:label
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:71:13-45
+	android:hardwareAccelerated
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:70:13-47
+	android:launchMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:72:13-43
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:75:13-52
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:69:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:74:13-65
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:68:13-58
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER+android.intent.category.MULTIWINDOW_LAUNCHER
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:76:13-81:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:77:17-69
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:77:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:79:17-77
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:79:27-74
+category#android.intent.category.MULTIWINDOW_LAUNCHER
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:80:17-89
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:80:27-86
+activity#com.netease.nim.demo.main.activity.MainActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:85:9-92:64
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:90:13-49
+	android:hardwareAccelerated
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:88:13-47
+	android:launchMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:89:13-43
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:92:13-52
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:87:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:91:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:86:13-55
+activity#com.netease.nim.demo.main.activity.MultiportActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:95:9-100:79
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:98:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:100:13-67
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:97:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:99:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:96:13-60
+activity#com.netease.nim.demo.login.LoginActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:103:9-109:70
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:107:13-49
+	android:label
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:106:13-42
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:109:13-67
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:105:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:108:13-46
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:104:13-48
+activity#com.netease.nim.demo.main.activity.AboutActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:112:9-118:75
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:116:13-49
+	android:label
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:115:13-42
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:118:13-72
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:114:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:117:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:113:13-56
+activity#com.netease.nim.demo.main.activity.SettingsActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:120:9-125:63
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:123:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:125:13-60
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:122:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:124:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:121:13-59
+activity#com.netease.nim.demo.main.activity.NoDisturbActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:127:9-132:75
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:130:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:132:13-72
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:129:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:131:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:128:13-60
+activity#com.netease.nim.demo.contact.activity.AddFriendActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:134:9-139:75
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:137:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:139:13-72
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:136:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:138:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:135:13-63
+activity#com.netease.nim.demo.contact.activity.UserProfileActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:141:9-146:75
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:144:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:146:13-72
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:143:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:145:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:142:13-65
+activity#com.netease.nim.demo.contact.activity.UserProfileSettingActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:148:9-153:75
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:151:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:153:13-72
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:150:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:152:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:149:13-72
+activity#com.netease.nim.demo.contact.activity.UserProfileEditItemActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:155:9-160:75
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:158:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:160:13-72
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:157:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:159:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:156:13-73
+activity#com.netease.nim.demo.contact.activity.BlackListActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:162:9-167:75
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:165:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:167:13-72
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:164:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:166:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:163:13-63
+activity#com.netease.nim.demo.file.browser.FileBrowserActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:170:9-176:75
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:174:13-49
+	android:label
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:173:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:176:13-72
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:172:13-48
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:175:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:171:13-61
+activity#com.netease.nim.demo.main.activity.SystemMessageActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:178:9-183:70
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:181:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:183:13-67
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:180:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:182:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:179:13-64
+activity#com.netease.nim.demo.main.activity.CustomNotificationActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:184:9-189:70
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:187:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:189:13-67
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:186:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:188:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:185:13-69
+activity#com.netease.nim.demo.session.activity.MessageHistoryActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:190:9-195:70
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:193:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:195:13-67
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:192:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:194:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:191:13-68
+activity#com.netease.nim.demo.session.activity.MessageInfoActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:196:9-201:70
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:199:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:201:13-67
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:198:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:200:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:197:13-65
+activity#com.netease.nim.demo.team.activity.AdvancedTeamSearchActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:203:9-208:70
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:206:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:208:13-67
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:205:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:207:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:204:13-69
+activity#com.netease.nim.demo.team.activity.AdvancedTeamJoinActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:210:9-215:70
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:213:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:215:13-67
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:212:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:214:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:211:13-67
+activity#com.netease.nim.demo.main.activity.TeamListActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:217:9-222:67
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:220:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:222:13-64
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:219:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:221:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:218:13-59
+activity#com.netease.nim.demo.main.activity.GlobalSearchActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:225:9-230:71
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:228:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:230:13-59
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:227:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:229:13-52
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:226:13-63
+activity#com.netease.nim.demo.main.activity.GlobalSearchDetailActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:232:9-236:68
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:235:13-49
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:234:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:236:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:233:13-69
+activity#com.netease.nim.demo.main.activity.GlobalSearchDetailActivity2
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:238:9-242:68
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:241:13-49
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:240:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:242:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:239:13-70
+activity#com.netease.nim.demo.session.activity.WatchSnapChatPictureActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:245:9-248:59
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:247:13-51
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:248:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:246:13-74
+activity#com.netease.nim.demo.location.activity.LocationAmapActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:250:9-255:59
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:254:13-49
+	android:label
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:253:13-49
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:252:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:255:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:251:13-67
+activity#com.netease.nim.demo.location.activity.NavigationAmapActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:256:9-261:59
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:260:13-49
+	android:label
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:259:13-54
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:258:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:261:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:257:13-69
+activity#com.netease.nim.demo.avchat.activity.AVChatActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:264:9-269:63
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:267:13-49
+	android:launchMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:266:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:269:13-60
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:268:13-51
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:265:13-59
+activity#com.netease.nim.demo.rts.activity.RTSActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:272:9-277:63
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:275:13-49
+	android:launchMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:274:13-48
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:277:13-60
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:276:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:273:13-53
+activity#com.netease.nim.demo.session.search.SearchMessageActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:280:9-285:72
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:283:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:285:13-69
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:282:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:284:13-52
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:281:13-65
+activity#com.netease.nim.demo.session.search.DisplayMessageActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:287:9-292:70
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:290:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:292:13-67
+	android:configChanges
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:289:13-63
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:291:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:288:13-66
+activity#com.netease.nim.demo.chatroom.activity.ChatRoomActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:295:9-299:70
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:297:13-49
+	android:windowSoftInputMode
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:299:13-67
+	android:theme
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:298:13-56
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:296:13-63
+activity#com.netease.nim.demo.avchat.activity.AVChatSettingsActivity
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:302:9-303:52
+	android:screenOrientation
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:303:13-49
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:302:19-73
+service#com.netease.nimlib.service.NimService
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:306:9-308:39
+	android:process
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:308:13-36
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:307:13-65
+service#com.netease.nimlib.service.NimService$Aux
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:311:9-313:39
+	android:process
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:313:13-36
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:312:13-69
+service#com.netease.nimlib.job.NIMJobService
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:316:9-319:43
+	android:process
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:319:18-41
+	android:exported
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:318:18-41
+	android:permission
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:317:18-74
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:316:18-69
+receiver#com.netease.nimlib.service.NimReceiver
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:322:9-330:20
+	android:process
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:325:13-36
+	android:exported
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:324:13-37
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:323:13-66
+intent-filter#android.intent.action.BOOT_COMPLETED+android.net.conn.CONNECTIVITY_CHANGE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:326:13-329:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:327:17-79
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:327:25-76
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:328:17-79
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:328:25-76
+receiver#com.netease.nimlib.service.ResponseReceiver
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:333:9-80
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:333:19-77
+receiver#com.netease.nim.demo.receiver.CustomNotificationReceiver
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:337:9-344:20
+	android:enabled
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:339:13-35
+	android:exported
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:340:13-37
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:338:13-64
+intent-filter#com.netease.nim.demo.ACTION.RECEIVE_CUSTOM_NOTIFICATION
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:341:13-343:29
+action#com.netease.nim.demo.ACTION.RECEIVE_CUSTOM_NOTIFICATION
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:342:17-98
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:342:25-95
+receiver#com.netease.nimlib.receiver.RTSBroadcastReceiver
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:347:9-354:20
+	android:enabled
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:349:13-35
+	android:exported
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:350:13-37
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:348:13-76
+intent-filter#com.netease.nim.demo.ACTION.RECEIVE_RTS_NOTIFICATION
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:351:13-353:29
+action#com.netease.nim.demo.ACTION.RECEIVE_RTS_NOTIFICATION
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:352:17-95
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:352:25-92
+receiver#com.netease.nimlib.receiver.IncomingCallReceiver
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:357:9-361:20
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:357:19-82
+intent-filter#android.intent.action.PHONE_STATE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:358:13-360:29
+action#android.intent.action.PHONE_STATE
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:359:17-76
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:359:25-73
+service#com.netease.cosine.core.CosineService
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:364:9-366:49
+	android:process
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:366:13-38
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:365:13-65
+receiver#com.netease.cosine.target.CosineReceiver
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:368:9-371:50
+	android:process
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:371:13-38
+	android:exported
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:370:13-36
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:369:13-68
+meta-data#com.netease.cosine.target
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:374:9-376:32
+	android:value
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:376:13-29
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:375:13-53
+meta-data#com.netease.cosine.target.receiver
+ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:377:9-379:70
+	android:value
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:379:13-67
+	android:name
+		ADDED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml:378:13-62
+uses-sdk
+INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:appcompat-v7:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-vector-drawable:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:animated-vector-drawable:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:design:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\design\23.3.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.1] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\AndroidManifest.xml:18:5-42
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.3.0] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml
+		INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml
+		INJECTED from C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\AndroidManifest.xml
+activity#com.netease.nim.uikit.session.activity.P2PMessageActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:16:9-21:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:19:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:21:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:18:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:20:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:17:13-85
+activity#com.netease.nim.uikit.session.activity.TeamMessageActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:22:9-27:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:25:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:27:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:24:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:26:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:23:13-86
+activity#com.netease.nim.uikit.team.activity.NormalTeamInfoActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:30:9-35:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:33:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:35:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:32:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:34:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:31:13-86
+activity#com.netease.nim.uikit.team.activity.AdvancedTeamInfoActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:36:9-41:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:39:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:41:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:38:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:40:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:37:13-88
+activity#com.netease.nim.uikit.team.activity.AdvancedTeamMemberActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:42:9-47:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:45:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:47:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:44:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:46:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:43:13-90
+activity#com.netease.nim.uikit.team.activity.AdvancedTeamAnnounceActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:48:9-53:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:51:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:53:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:50:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:52:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:49:13-92
+activity#com.netease.nim.uikit.team.activity.AdvancedTeamMemberInfoActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:54:9-59:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:57:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:59:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:56:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:58:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:55:13-94
+activity#com.netease.nim.uikit.team.activity.AdvancedTeamNicknameActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:60:9-65:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:63:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:65:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:62:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:64:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:61:13-92
+activity#com.netease.nim.uikit.team.activity.AdvancedTeamCreateAnnounceActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:66:9-71:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:69:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:71:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:68:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:70:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:67:13-98
+activity#com.netease.nim.uikit.team.activity.TeamPropertySettingActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:72:9-77:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:75:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:77:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:74:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:76:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:73:13-91
+activity#com.netease.nim.uikit.contact_selector.activity.ContactSelectActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:80:9-86:67
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:84:13-49
+	android:label
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:83:13-53
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:86:13-64
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:82:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:85:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:81:13-97
+activity#com.netease.nim.uikit.common.media.picker.activity.PickImageActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:89:9-92:59
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:91:13-49
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:92:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:90:13-96
+activity#com.netease.nim.uikit.common.media.picker.activity.CropImageActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:93:9-96:59
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:95:13-49
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:96:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:94:13-96
+activity#com.netease.nim.uikit.common.media.picker.activity.PickerAlbumActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:97:9-100:59
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:99:13-49
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:100:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:98:13-98
+activity#com.netease.nim.uikit.common.media.picker.activity.PickerAlbumPreviewActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:101:9-104:59
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:103:13-49
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:104:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:102:13-105
+activity#com.netease.nim.uikit.common.media.picker.activity.PreviewImageFromLocalActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:105:9-110:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:108:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:110:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:107:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:109:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:106:13-108
+activity#com.netease.nim.uikit.common.media.picker.activity.PreviewImageFromCameraActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:111:9-117:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:115:13-49
+	android:label
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:114:13-53
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:117:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:113:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:116:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:112:13-109
+activity#com.netease.nim.uikit.session.activity.CaptureVideoActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:120:9-125:70
+	android:screenOrientation
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:123:13-49
+	android:windowSoftInputMode
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:125:13-67
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:122:13-63
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:124:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:121:13-87
+activity#com.netease.nim.uikit.session.activity.WatchVideoActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:126:9-130:48
+	android:label
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:129:13-47
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:128:13-74
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:130:13-45
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:127:13-85
+activity#com.netease.nim.uikit.session.activity.WatchMessagePictureActivity
+ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:133:9-136:59
+	android:configChanges
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:135:13-51
+	android:theme
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:136:13-56
+	android:name
+		ADDED from [nim_demo:uikit:unspecified] C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\exploded-aar\nim_demo\uikit\unspecified\AndroidManifest.xml:134:13-94

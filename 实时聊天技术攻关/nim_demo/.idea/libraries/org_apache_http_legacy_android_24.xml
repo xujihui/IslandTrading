@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org.apache.http.legacy-android-24">
+    <CLASSES>
+      <root url="jar://C:/Program/android-sdk/android-sdk_r24.3.2-windows/android-sdk-windows/platforms/android-24/optional/org.apache.http.legacy.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

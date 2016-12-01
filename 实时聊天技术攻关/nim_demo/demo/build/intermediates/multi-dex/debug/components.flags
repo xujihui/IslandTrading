@@ -1,0 +1,37 @@
+-injars 'C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
+-outjars 'C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\multi-dex\debug\componentClasses.jar'
+
+-libraryjars 'C:\Program\android-sdk\android-sdk_r24.3.2-windows\android-sdk-windows\build-tools\24.0.2\lib\shrinkedAndroid.jar'
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontnote **
+-dontwarn **
+-printconfiguration 'C:\Users\lenovo\AndroidStudioProjects\nim_demo\demo\build\intermediates\multi-dex\debug\components.flags'
+
+
+-keep public class * extends android.app.Instrumentation {
+    <init>();
+}
+
+-keep public class * extends android.app.Application {
+    <init>();
+    void attachBaseContext(android.content.Context);
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.android.tools.fd.** {
+    <fields>;
+    <methods>;
+}

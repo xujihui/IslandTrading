@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\lenovo\\AndroidStudioProjects\\nim_demo\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_stat_notify_msg.png",
+        "source": "C:\\Users\\lenovo\\AndroidStudioProjects\\nim_demo\\demo\\res\\drawable-mdpi\\ic_stat_notify_msg.png"
+    },
+    {
+        "merged": "C:\\Users\\lenovo\\AndroidStudioProjects\\nim_demo\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\action_bar_search_view_icon.png",
+        "source": "C:\\Users\\lenovo\\AndroidStudioProjects\\nim_demo\\demo\\res\\drawable-mdpi\\action_bar_search_view_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\lenovo\\AndroidStudioProjects\\nim_demo\\demo\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_logo.png",
+        "source": "C:\\Users\\lenovo\\AndroidStudioProjects\\nim_demo\\demo\\res\\drawable-mdpi\\ic_logo.png"
+    }
+]
