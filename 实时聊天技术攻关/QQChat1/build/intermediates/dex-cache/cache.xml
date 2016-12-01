@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="F:\QQChat1\app\libs\nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
+        <dex dex="F:\QQChat1\app\build\intermediates\pre-dexed\debug\nineoldandroids-2.4.0_9ef28b3500fbf096d30e4e11f23996195379eb1b.jar" />
+    </item>
+    <item
+        jar="E:\G.3term\android\tools-package\android-sdk-windows\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="25.0.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="F:\QQChat1\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0_9d9eb5b62becc17772a034e763b5e552f539ead7.jar" />
+    </item>
+
+</items>

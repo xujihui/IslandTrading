@@ -1,0 +1,106 @@
+[
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chat_emo_normal.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\chat_emo_normal.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_07.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_07.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dot_selected.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\dot_selected.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatfrom_bg_pressed.9.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\chatfrom_bg_pressed.9.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\iv_chat_from.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\iv_chat_from.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\online_dotsunselect.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\online_dotsunselect.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\faceicon.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\faceicon.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_01.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_01.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_04.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_04.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_12.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_12.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatto_bg_normal.9.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\chatto_bg_normal.9.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_11.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_11.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_03.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_03.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\online_dotsselect.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\online_dotsselect.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_08.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_08.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_02.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_02.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_05.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_05.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_10.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_10.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dot_unselected.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\dot_unselected.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\iv_head_to.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\iv_head_to.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_06.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_06.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatfrom_bg_normal.9.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\chatfrom_bg_normal.9.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading_09.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\loading_09.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatto_bg_pressed.9.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\chatto_bg_pressed.9.png"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\default_head.png",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable-hdpi\\default_head.png"
+    }
+]

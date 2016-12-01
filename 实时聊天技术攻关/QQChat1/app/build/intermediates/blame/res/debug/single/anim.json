@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\anim\\chatfrom_remove_anim.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\anim\\chatfrom_remove_anim.xml"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\anim\\chatto_remove_anim.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\anim\\chatto_remove_anim.xml"
+    }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\chatfrom_bg.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable\\chatfrom_bg.xml"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\circle_shape.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable\\circle_shape.xml"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\chat_popmenu_bg_shape.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable\\chat_popmenu_bg_shape.xml"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\loading.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable\\loading.xml"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\chatto_bg.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable\\chatto_bg.xml"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\chat_bottom_shape.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable\\chat_bottom_shape.xml"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\button_shape.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable\\button_shape.xml"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\input_shape.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable\\input_shape.xml"
+    },
+    {
+        "merged": "F:\\QQChat1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\dots.xml",
+        "source": "F:\\QQChat1\\app\\src\\main\\res\\drawable\\dots.xml"
+    }
+]
