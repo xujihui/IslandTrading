@@ -43,15 +43,4 @@ public class OrderBiz {
 	}
 	
 	//保存订单
-	public boolean save(String oID,String time,float total){
-		Record order = new Record().set("oid", oID).set("date", time).set("total", total);
-		boolean res = Db.save("t_order", order);
-		return res;
-	}
-	
-	//批量保存订单详情记录
-	public int[] batchsave(List<Record> recordList,int batchSize){
-		int[] res = Db.batchSave("t_detail", recordList, batchSize);
-		return res;
-	}
-}
+
