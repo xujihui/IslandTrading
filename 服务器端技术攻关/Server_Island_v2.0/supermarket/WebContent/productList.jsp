@@ -64,28 +64,4 @@
 	</dl>
 	<div class="center">
 		<table class="imgtable">
-			<thead>
-				<tr>
-					<th width="100px;">商品ID</th>
-					<th width="100px;">商品名称</th>
-					<th width="100px;">单价</th>
-					<th width="100px;" colspan="2">操作</th>
-				</tr>
-			</thead>
 
-			<tbody>
-				<c:forEach items="${prolist}" var="pro">
-					<tr>
-						<td>${pro.pid}</td>
-						<td>${pro.name}</td>
-						<td>${pro.price}</td>
-						<td><a href="${ctx}/product/deleteByID/${pro.pid}">删除</a></td>
-						<td><a
-							href="${ctx}/editProduct.jsp?proID=${pro.pid}&proName=${pro.name}&proPrice=${pro.price}">编辑</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
-</body>
-</html>
