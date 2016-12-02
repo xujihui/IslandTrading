@@ -49,17 +49,4 @@ public class AnalysisBiz {
 	 * */
 	public boolean deleteMyGood(String pid){
 		boolean res = Db.deleteById("t_product","pid", pid);
-		return res;
-	}
-	/* 作者：孙铖铖
-	 * 实现：编辑指定商品
-	 * 返回值：编辑结果
-	 * */
-	public int editMyGood(String pID,String pName,float pPrice){
-		
-		System.out.println("update("+pName+","+pID+","+ ") success!");
-		String sql = "UPDATE t_product SET name='"+pName+"',price="+pPrice+" WHERE pid='"+pID+"'";
-		int res = Db.update(sql);
-		return res;
-	}
-}
+		return re
