@@ -108,9 +108,9 @@ public class Login extends Activity {
         }
 
         public void onComplete(Object response) {
-            intent = new Intent(Login.this, Home.class);
             dialog.setMessage("正在登录");
             dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            intent = new Intent(Login.this, Home.class);
 
             // dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.show();
@@ -197,7 +197,7 @@ public class Login extends Activity {
 //这一行的变动
 //             startActivity(new
 //             Intent(Login.this,Personal.class));
-            startActivity(intent);
+      //     startActivity(intent);
         }
 
         public void onError(UiError arg0) {
