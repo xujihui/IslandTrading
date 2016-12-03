@@ -17,4 +17,8 @@
         <item>新华区</item>
         <item>长安区</item>
     </string-array>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="qq_login">登录</string>
+    <string name="qq_logout">退出当前账号</string>
 </resources>
