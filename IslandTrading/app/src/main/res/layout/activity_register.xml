@@ -78,6 +78,7 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:id="@+id/et_phone"
                 android:layout_weight="4"
                 android:height="40dp"
                 android:background="@color/white"
@@ -116,6 +117,7 @@
                 android:layout_weight="4"
                 android:height="40dp"
                 android:background="@color/white"
+                android:id="@+id/password"
                 android:hint="请输入密码"
                 android:paddingLeft="6dp"
                 android:password="true"
@@ -150,6 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0.5dp"
                 android:layout_weight="4"
+                android:id="@+id/repassword"
                 android:height="40dp"
                 android:background="@color/white"
                 android:hint="请再次输入密码"
@@ -157,6 +160,24 @@
                 android:password="true"
                 android:textColorHint="@color/lightgrey"
                 android:textSize="18sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backcolor"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/bt_getCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取验证码" />
+
+            <EditText
+                android:id="@+id/et_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="输入验证码"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -167,7 +188,7 @@
             android:paddingTop="25dp">
 
             <Button
-                android:id="@+id/registed"
+                android:id="@+id/bt_verify"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:height="38dp"

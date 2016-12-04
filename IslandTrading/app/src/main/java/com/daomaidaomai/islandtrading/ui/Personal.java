@@ -2,7 +2,6 @@ package com.daomaidaomai.islandtrading.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -12,6 +11,9 @@ import com.daomaidaomai.islandtrading.R;
 
 
 public class Personal extends Activity {
+    private Button bt;
+    private TextView tv;
+    Login login;
 
     private TextView Tex;
     private LinearLayout Back;
@@ -33,16 +35,7 @@ public class Personal extends Activity {
         }
     };
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.personal_information_show);
-
-        Tex = (TextView) findViewById(R.id.edit);
-        Back = (LinearLayout) findViewById(R.id.back);
-
-        Tex.setOnClickListener(mylistener);
-        Back.setOnClickListener(mylistener);
-
-    }
 }
+
+
+

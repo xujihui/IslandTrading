@@ -15,6 +15,8 @@
 - ![enter image description here](https://github.com/xujihui/IslandTrading/blob/master/welcome.png?raw=true)
 - **新增** ：2016-11-28 新增百度地图技术攻关文件
 - **新增** ：2016-11-29 新增服务器端技术攻关文件
+- **新增** ：2016-12-01 新增实时聊天技术攻关文件
+- **新增** ：2016-12-03 新增登录注册技术攻关文件
 
 ---------
 感谢阅读这份帮助文档。

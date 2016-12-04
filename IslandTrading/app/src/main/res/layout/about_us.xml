@@ -43,6 +43,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="40dip"
-        android:text="此软件为岛买岛卖小队开发如有任何问题欢迎通过反馈留言。 "
+        android:text="        此软件为岛买岛卖开发小组开发，如有任何问题，欢迎通过反馈留言。 "
         android:textSize="18sp" />
 </LinearLayout>

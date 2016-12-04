@@ -43,7 +43,6 @@ public class ClassifyAllActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.classify_all);
-        Back = (LinearLayout) findViewById(R.id.back);
         Back.setOnClickListener(new View.OnClickListener() {
 
             @Override

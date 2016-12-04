@@ -7,12 +7,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 
-import com.daomaidaomai.islandtrading.controller.HomePage;
-import com.daomaidaomai.islandtrading.ui.First_Login;
-import com.daomaidaomai.islandtrading.ui.Login;
 import com.daomaidaomai.islandtrading.R;
-
-public class MainActivity extends Activity implements Animation.AnimationListener {
+public class MainActivity extends Activity implements Animation.AnimationListener{
     private RelativeLayout rl;
 
     @Override
@@ -51,7 +47,7 @@ public class MainActivity extends Activity implements Animation.AnimationListene
      * 动画结束后跳转到别的页面
      */
     private void skip() {
-        startActivity(new Intent(MainActivity.this, First_Login.class));
+        startActivity(new Intent(MainActivity.this, Login.class));
         finish();
     }
 }

@@ -115,6 +115,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:paddingTop="5dp"
+                            android:id="@+id/peronal_user"
                             android:text="泪...不哭"
                             android:textColor="@color/drakgrey"
                             android:textSize="18sp" />
