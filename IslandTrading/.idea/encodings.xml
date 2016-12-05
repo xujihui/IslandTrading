@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/daomaidaomai/islandtrading/controller/CustomView.java" charset="GBK" />
+=======
+    <file url="PROJECT" charset="UTF-8" />
+>>>>>>> 156c15486bc6b200f76145def5a948d623289265
   </component>
 </project>
