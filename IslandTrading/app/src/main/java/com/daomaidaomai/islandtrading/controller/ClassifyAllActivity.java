@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.adapter.GridAdapter;
 import com.daomaidaomai.islandtrading.entity.Item;
+import com.daomaidaomai.islandtrading.ui.Aboutus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,8 @@ public class ClassifyAllActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.classify_all);
+
+        Back = (LinearLayout) findViewById(R.id.back);
         Back.setOnClickListener(new View.OnClickListener() {
 
             @Override

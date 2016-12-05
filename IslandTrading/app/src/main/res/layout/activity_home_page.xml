@@ -51,10 +51,10 @@
         </RelativeLayout>
 
         <ImageView
-            android:layout_gravity="center"
             android:id="@+id/classfy"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_gravity="center"
             android:layout_marginRight="5dp"
             android:layout_weight="0.5"
             android:src="@mipmap/sort" />
@@ -94,8 +94,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textColor="@color/mainblue"
-                android:text="吾岛" />
+                android:text="吾岛"
+                android:textColor="@color/mainblue" />
         </LinearLayout>
 
         <LinearLayout
