@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ import com.daomaidaomai.islandtrading.controller.Release;
  */
 
 public class Sell extends Activity {
-    private TextView Tex;
+    private Button Sell;
     private ImageView Back;
 
     public View.OnClickListener mylistener = new View.OnClickListener() {
@@ -40,10 +41,10 @@ public class Sell extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.want_sell_layout);
-        Tex = (TextView) findViewById(R.id.tosell);
+        Sell = (Button) findViewById(R.id.tosell);
         Back = (ImageView) findViewById(R.id.back);
 
-        Tex.setOnClickListener(mylistener);
+        Sell.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
 
     }

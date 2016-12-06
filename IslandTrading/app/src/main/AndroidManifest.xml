@@ -60,7 +60,9 @@
         <activity android:name=".ui.Onlinedeal" />
         <activity android:name=".ui.Pay" />
         <activity android:name=".ui.Canceldeal" />
-        <activity android:name=".ui.Sell" />
+        <activity
+            android:name=".ui.Sell"
+            android:theme="@style/myTransparent" />
         <activity android:name=".ui.GoodsDetail" />
         <activity android:name=".ui.MyCollection" />
         <activity android:name=".ui.Help" />

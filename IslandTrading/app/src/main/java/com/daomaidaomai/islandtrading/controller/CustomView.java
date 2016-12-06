@@ -14,137 +14,138 @@ import com.daomaidaomai.islandtrading.R;
 
 public class CustomView extends View {
 
-	private Paint mbackPaint;
-	private Paint mForWordPaint;
-	private Paint mTextPaint;
-	private float mProgress = 0;
-	private float mMax = 100;
-	private int width;
-	private int height;
-	
+    private Paint mbackPaint;
+    private Paint mForWordPaint;
+    private Paint mTextPaint;
+    private float mProgress = 0;
+    private float mMax = 100;
+    private int width;
+    private int height;
 
-	private float mStokeWidth = 20;
-	private float mRadius = 140;
-	private RectF mRectf;
-	public CustomView(Context context) {
-		this(context,null);
-		// TODO Auto-generated constructor stub
-	}
 
-	public CustomView(Context context, AttributeSet attrs) {
-		this(context, attrs,0);
-		// TODO Auto-generated constructor stub
-	}
-	
-	public CustomView(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
-		if(attrs != null) {
-			TypedArray a = context.obtainStyledAttributes(attrs,
-					R.styleable.CustomView);
-			mRadius = a.getDimension(R.styleable.CustomView_radius, 50);//ºóÃæÄÇ¸ö²ÎÊı200ÊÇ»ñÈ¡²»µ½µÄÊ±ºòÈ¥ÓÃµÄ
-			mStokeWidth = a.getDimension(R.styleable.CustomView_stroke_width, 5);
-		}
-		init();
-	}
-	
-	/**
-	 * ¼ÆËã»æÖÆÎ»ÖÃµÄ 
-	 * 
-	 */
-	private void initRect(){
-		if(mRectf == null) {
-			mRectf = new RectF();
-			int viewSize = (int) (mRadius*2);
-			int left = (width - viewSize) / 2;//×ó±ßµÄ×ø±ê
-			int right = left + viewSize;
-			int top = (height - viewSize) / 2;
-			int bottom = top + viewSize;
-			mRectf.set(left, top, right, bottom);//left£ºÊÇ¾ØĞÎ¾àÀë×ó±ßµÄXÖá    top£ºÊÇ¾ØĞÎ¾àÀëÉÏ±ßµÄYÖá   right£ºÊÇ¾ØĞÎ¾àÀëÓÒ±ßµÄXÖá    bottom£ºÊÇ¾ØĞÎ¾àÀëÏÂ±ßµÄYÖá
-		}
-		
-	}
-	private void init() {
-		mbackPaint = new Paint();
-		mbackPaint.setColor(Color.WHITE);
-		mbackPaint.setAntiAlias(true);
-		mbackPaint.setStyle(Paint.Style.STROKE);
-		mbackPaint.setStrokeWidth(mStokeWidth);
-		
-		mForWordPaint = new Paint();
-		mForWordPaint.setColor(0xFF66C796);
-		mForWordPaint.setAntiAlias(true);
-		mForWordPaint.setStyle(Paint.Style.STROKE);
-		mForWordPaint.setStrokeWidth(mStokeWidth); 
-		
-		mTextPaint = new Paint();
-		mTextPaint.setColor(0xFF66C796);
-		mTextPaint.setAntiAlias(true);
-		mTextPaint.setTextSize(50);
-		mTextPaint.setTextAlign(Paint.Align.CENTER);
-		
-		
-	}
-	
-	@Override
-	protected void onDraw(Canvas canvas) {
-		// TODO Auto-generated method stub
-//		super.onDraw(canvas);
-		initRect();
-		
-		float angle = mProgress / (float)mMax * 360;
-		
-		canvas.drawCircle(width / 2, height / 2, mRadius, mbackPaint);//cx£ºÔ²ĞÄµÄx×ø±ê¡£ cy£ºÔ²ĞÄµÄy×ø±ê¡£
+    private float mStokeWidth = 20;
+    private float mRadius = 140;
+    private RectF mRectf;
+    public CustomView(Context context) {
+        this(context,null);
+        // TODO Auto-generated constructor stub
+    }
 
-//		oval :Ö¸¶¨Ô²»¡µÄÍâÂÖÀª¾ØĞÎÇøÓò¡£
-//		startAngle: Ô²»¡ÆğÊ¼½Ç¶È£¬µ¥Î»Îª¶È¡£
-//		sweepAngle: Ô²»¡É¨¹ıµÄ½Ç¶È£¬Ë³Ê±Õë·½Ïò£¬µ¥Î»Îª¶È¡£
-//		useCenter: Èç¹ûÎªTrueÊ±£¬ÔÚ»æÖÆÔ²»¡Ê±½«Ô²ĞÄ°üÀ¨ÔÚÄÚ£¬Í¨³£ÓÃÀ´»æÖÆÉÈĞÎ¡£
-//		paint: »æÖÆÔ²»¡µÄ»­°åÊôĞÔ£¬ÈçÑÕÉ«£¬ÊÇ·ñÌî³äµÈ¡£
-		canvas.drawArc(mRectf, -90, angle, false, mForWordPaint);
-		
-		//mXÄ¬ÈÏÊÇ×Ö·û´®µÄ×ó±ßÔÚÆÁÄ»µÄÎ»ÖÃ£¬Èç¹ûÉèÖÃÁË
-		//paint.setTextAlign(Paint.Align.CENTER);
-		//ÄÇ¾ÍÊÇ×Ö·ûµÄÖĞĞÄ£¬mYÊÇÖ¸¶¨Õâ¸ö×Ö·ûbaselineÔÚÆÁÄ»ÉÏµÄÎ»ÖÃ¡£
-		canvas.drawText(mProgress+"%", width / 2, height / 2+10  , mTextPaint);
-		if(mProgress < mMax) {
-			mProgress += 2;
-			
-			invalidate();
-		}
-		
-		
-		
-		
-	}
-	
-	public void setYuanProgress(int a) {
-		mProgress = (float)a;
-		invalidate();
-	}
-	
-	@Override
-	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		// TODO Auto-generated method stub
-		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-		width = getRealSize(widthMeasureSpec);//µÃµ½µÄÊÇviewµÄ¿í¶È Ò²¾ÍÊÇÕû¸ö¿Õ¼äµÄ¿í¶È
-		height = getRealSize(heightMeasureSpec);//¸ß¶È
-		
-		setMeasuredDimension(width, height);//±£´æ
-	}
-	
-	public int getRealSize(int measure) {
-		int result = -1;
-		
-		int mode = MeasureSpec.getMode(measure);
-		int size = MeasureSpec.getSize(measure);
-		
-		if(mode == MeasureSpec.AT_MOST || size == MeasureSpec.UNSPECIFIED) {
-			result = (int) (mRadius*2 + mStokeWidth);//°ë¾¶*2+»·ĞÎ¿í¶ÈµÄ»°¾ÍÊÇÕû¸ö»·ĞÎÏÔÊ¾¿í¶È´óĞ¡
-		} else {
-			result = size;
-		}
-		return result;
-	}
-	
+    public CustomView(Context context, AttributeSet attrs) {
+        this(context, attrs,0);
+        // TODO Auto-generated constructor stub
+    }
+
+    public CustomView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        // TODO Auto-generated constructor stub
+        if(attrs != null) {
+            TypedArray a = context.obtainStyledAttributes(attrs,
+                    R.styleable.CustomView);
+            mRadius = a.getDimension(R.styleable.CustomView_radius, 50);//åé¢é‚£ä¸ªå‚æ•°200æ˜¯è·å–ä¸åˆ°çš„æ—¶å€™å»ç”¨çš„
+            mStokeWidth = a.getDimension(R.styleable.CustomView_stroke_width, 5);
+        }
+        init();
+    }
+
+    /**
+     * è®¡ç®—ç»˜åˆ¶ä½ç½®çš„
+     *
+     */
+    private void initRect(){
+        if(mRectf == null) {
+            mRectf = new RectF();
+            int viewSize = (int) (mRadius*2);
+            int left = (width - viewSize) / 2;//å·¦è¾¹çš„åæ ‡
+            int right = left + viewSize;
+            int top = (height - viewSize) / 2;
+            int bottom = top + viewSize;
+            mRectf.set(left, top, right, bottom);//leftï¼šæ˜¯çŸ©å½¢è·ç¦»å·¦è¾¹çš„Xè½´    topï¼šæ˜¯çŸ©å½¢è·ç¦»ä¸Šè¾¹çš„Yè½´   rightï¼šæ˜¯çŸ©å½¢è·ç¦»å³è¾¹çš„Xè½´    bottomï¼šæ˜¯çŸ©å½¢è·ç¦»ä¸‹è¾¹çš„Yè½´
+        }
+
+    }
+    private void init() {
+        mbackPaint = new Paint();
+        mbackPaint.setColor(Color.WHITE);
+        mbackPaint.setAntiAlias(true);
+        mbackPaint.setStyle(Paint.Style.STROKE);
+        mbackPaint.setStrokeWidth(mStokeWidth);
+
+        mForWordPaint = new Paint();
+        mForWordPaint.setColor(0xFF66C796);
+        mForWordPaint.setAntiAlias(true);
+        mForWordPaint.setStyle(Paint.Style.STROKE);
+        mForWordPaint.setStrokeWidth(mStokeWidth);
+
+        mTextPaint = new Paint();
+        mTextPaint.setColor(0xFF66C796);
+        mTextPaint.setAntiAlias(true);
+        mTextPaint.setTextSize(50);
+        mTextPaint.setTextAlign(Paint.Align.CENTER);
+
+
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        // TODO Auto-generated method stub
+//    super.onDraw(canvas);
+        initRect();
+
+        float angle = mProgress / (float)mMax * 360;
+
+        canvas.drawCircle(width / 2, height / 2, mRadius, mbackPaint);//cxï¼šåœ†å¿ƒçš„xåæ ‡ã€‚ cyï¼šåœ†å¿ƒçš„yåæ ‡ã€‚
+
+//    oval :æŒ‡å®šåœ†å¼§çš„å¤–è½®å»“çŸ©å½¢åŒºåŸŸã€‚
+//    startAngle: åœ†å¼§èµ·å§‹è§’åº¦ï¼Œå•ä½ä¸ºåº¦ã€‚
+//    sweepAngle: åœ†å¼§æ‰«è¿‡çš„è§’åº¦ï¼Œé¡ºæ—¶é’ˆæ–¹å‘ï¼Œå•ä½ä¸ºåº¦ã€‚
+//    useCenter: å¦‚æœä¸ºTrueæ—¶ï¼Œåœ¨ç»˜åˆ¶åœ†å¼§æ—¶å°†åœ†å¿ƒåŒ…æ‹¬åœ¨å†…ï¼Œé€šå¸¸ç”¨æ¥ç»˜åˆ¶æ‰‡å½¢ã€‚
+//    paint: ç»˜åˆ¶åœ†å¼§çš„ç”»æ¿å±æ€§ï¼Œå¦‚é¢œè‰²ï¼Œæ˜¯å¦å¡«å……ç­‰ã€‚
+        canvas.drawArc(mRectf, -90, angle, false, mForWordPaint);
+
+        //mXé»˜è®¤æ˜¯å­—ç¬¦ä¸²çš„å·¦è¾¹åœ¨å±å¹•çš„ä½ç½®ï¼Œå¦‚æœè®¾ç½®äº†
+        //paint.setTextAlign(Paint.Align.CENTER);
+        //é‚£å°±æ˜¯å­—ç¬¦çš„ä¸­å¿ƒï¼ŒmYæ˜¯æŒ‡å®šè¿™ä¸ªå­—ç¬¦baselineåœ¨å±å¹•ä¸Šçš„ä½ç½®ã€‚
+        canvas.drawText(mProgress+"%", width / 2, height / 2+10  , mTextPaint);
+        if(mProgress < mMax) {
+            mProgress += 2;
+
+            invalidate();
+        }
+
+
+
+
+    }
+
+    public void setYuanProgress(int a) {
+        mProgress = (float)a;
+        invalidate();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        // TODO Auto-generated method stub
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        width = getRealSize(widthMeasureSpec);//å¾—åˆ°çš„æ˜¯viewçš„å®½åº¦ ä¹Ÿå°±æ˜¯æ•´ä¸ªç©ºé—´çš„å®½åº¦
+        height = getRealSize(heightMeasureSpec);//é«˜åº¦
+
+        setMeasuredDimension(width, height);//ä¿å­˜
+    }
+
+    public int getRealSize(int measure) {
+        int result = -1;
+
+        int mode = MeasureSpec.getMode(measure);
+        int size = MeasureSpec.getSize(measure);
+
+        if(mode == MeasureSpec.AT_MOST || size == MeasureSpec.UNSPECIFIED) {
+            result = (int) (mRadius*2 + mStokeWidth);//åŠå¾„*2+ç¯å½¢å®½åº¦çš„è¯å°±æ˜¯æ•´ä¸ªç¯å½¢æ˜¾ç¤ºå®½åº¦å¤§å°
+        } else {
+            result = size;
+        }
+        return result;
+    }
+
 }
+

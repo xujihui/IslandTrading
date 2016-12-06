@@ -13,12 +13,12 @@
         android:paddingTop="5dp">
 
         <ImageView
-            android:id="@+id/scan"
+            android:id="@+id/home"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_weight="0.4"
-            android:src="@mipmap/scan" />
+            android:src="@mipmap/home" />
 
         <RelativeLayout
             android:layout_width="0dp"

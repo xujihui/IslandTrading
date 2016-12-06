@@ -15,7 +15,7 @@ public class Canceldeal extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_remind);
+        setContentView(R.layout.activity_cancel);
         Back = (LinearLayout) findViewById(R.id.back);
         Back.setOnClickListener(new View.OnClickListener() {
 

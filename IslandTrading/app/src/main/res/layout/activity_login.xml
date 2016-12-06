@@ -13,19 +13,7 @@
         android:layout_height="50dp"
         android:background="@color/mainblue">
 
-        <LinearLayout
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center">
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:paddingLeft="5dp"
-                android:src="@mipmap/backwhite" />
-        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -60,7 +48,7 @@
             android:layout_height="wrap_content"
             android:height="40dp"
             android:background="@color/white"
-            android:hint="    QQ号/手机号/邮箱"
+            android:hint="    手机号"
             android:textColorHint="@color/lightgrey"
             android:textSize="18sp" />
 
@@ -84,15 +72,32 @@
         android:paddingRight="5dp"
         android:paddingTop="25dp">
 
-        <Button
-            android:id="@+id/loginhome"
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <Button
+            android:id="@+id/new_login_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:height="38dp"
+            android:background="@drawable/buttonshape"
+            android:text="使用QQ登录"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+        <Button
+            android:layout_marginLeft="5dp"
+            android:id="@+id/loginhome"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:height="38dp"
             android:background="@drawable/buttonshape"
             android:text="登 录"
             android:textColor="@color/white"
             android:textSize="18sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -123,29 +128,7 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-        <TextView
-            android:gravity="center"
-            android:paddingTop="18dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dip"
-            android:text="第三方登录"
-            android:textColor="@color/drakgrey"
-            android:textSize="24sp" />
-
-        <Button
-            android:layout_gravity="center"
-            android:id="@+id/new_login_btn"
-            android:layout_marginTop="10dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@mipmap/qq" />
-    </LinearLayout>
 
 
     <!--<ScrollView
