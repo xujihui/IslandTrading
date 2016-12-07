@@ -76,9 +76,9 @@
 
 
             <EditText
+                android:id="@+id/et_phone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/et_phone"
                 android:layout_weight="4"
                 android:height="40dp"
                 android:background="@color/white"
@@ -112,12 +112,12 @@
                 android:background="@color/backcolor" />
 
             <EditText
+                android:id="@+id/password"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:height="40dp"
                 android:background="@color/white"
-                android:id="@+id/password"
                 android:hint="请输入密码"
                 android:paddingLeft="6dp"
                 android:password="true"
@@ -148,11 +148,11 @@
                 android:background="@color/backcolor" />
 
             <EditText
+                android:id="@+id/repassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0.5dp"
                 android:layout_weight="4"
-                android:id="@+id/repassword"
                 android:height="40dp"
                 android:background="@color/white"
                 android:hint="请再次输入密码"
@@ -161,43 +161,75 @@
                 android:textColorHint="@color/lightgrey"
                 android:textSize="18sp" />
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/backcolor"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="0.5dp"
+            android:background="@color/white"
             android:orientation="horizontal">
-            <Button
-                android:id="@+id/bt_getCode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="获取验证码" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="验证"
+                android:textColor="@color/drakgrey"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/backcolor" />
 
             <EditText
                 android:id="@+id/et_code"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="输入验证码"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="25dp">
+                android:layout_marginTop="0.5dp"
+                android:layout_weight="2.5"
+                android:height="40dp"
+                android:background="@color/white"
+                android:hint="请输入验证码"
+                android:paddingLeft="6dp"
+                android:textColorHint="@color/lightgrey"
+                android:textSize="18sp" />
 
             <Button
-                android:id="@+id/bt_verify"
-                android:layout_width="match_parent"
+                android:id="@+id/bt_getCode"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:height="38dp"
-                android:background="@drawable/buttonshape"
-                android:text="注 册"
+                android:layout_weight="1.5"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:background="@drawable/buttonshape"
+                android:text="获取验证码" />
+
+
         </LinearLayout>
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="25dp">
+
+        <Button
+            android:id="@+id/bt_verify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="38dp"
+            android:background="@drawable/buttonshape"
+            android:text="注 册"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
 </LinearLayout>

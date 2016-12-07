@@ -13,7 +13,7 @@ public class Util {
 	public static String TAG="UTIL";
     public static Bitmap getbitmap(String imageUri) {
         Log.v(TAG, "getbitmap:" + imageUri);
-        // ÏÔÊ¾ÍøÂçÉÏµÄÍ¼Æ¬  
+        //æ˜¾ç¤ºç½‘ç»œä¸Šçš„å›¾ç‰‡
         Bitmap bitmap = null;
         try {  
             URL myFileUrl = new URL(imageUri);

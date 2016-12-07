@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/id_map_common"
+        android:title="普通地图"
+        app:showAsAction="never" />
+    <item android:id="@+id/id_map_none"
+        android:title="空白地图"
+        app:showAsAction="never" />
+    <item android:id="@+id/id_map_site"
+        android:title="卫星地图"
+        app:showAsAction="never" />
+    <item android:id="@+id/id_map_traffic"
+        android:title="交通地图(off)"
+        app:showAsAction="never" />
+    <item android:id="@+id/id_map_heat"
+        android:title="热力地图(off)"
+        app:showAsAction="never" />
+
+</menu>

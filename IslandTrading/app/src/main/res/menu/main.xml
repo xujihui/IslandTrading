@@ -1,9 +1,46 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/id_menu_map_myLoc"
+        android:title="我的位置"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/id_menu_map_style"
+        android:title="地图模式【正常】"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/id_map_mark"
+        android:title="标注覆盖物"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/id_map_polygon"
+        android:title="多边形覆盖物"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/id_map_polyline"
+        android:title="折线覆盖物"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/id_map_text"
+        android:title="文本覆盖物"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/id_map_ground"
+        android:title="地形图图层覆盖物"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/id_map_infoWindow"
+        android:title="弹出窗覆盖物"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/id_map_clear"
+        android:title="清空覆盖物"
+        app:showAsAction="never" />
 
 </menu>

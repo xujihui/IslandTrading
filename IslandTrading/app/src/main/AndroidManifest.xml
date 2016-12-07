@@ -2,6 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.daomaidaomai.islandtrading">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,7 +31,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!--短信的权限-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!--新添加的权限-->
@@ -35,6 +52,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6" />
+
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,14 +74,17 @@
         <activity android:name=".ui.Myself" />
         <activity android:name=".ui.Regist" />
         <activity android:name=".ui.Login" />
+        <activity android:name=".ui.Map" />
         <activity android:name=".ui.Chat" />
         <activity android:name=".ui.Order" />
-        <activity android:name=".ui.Map" />
+        <activity android:name=".ui.Order_Detail" />
         <activity android:name=".ui.Facedeal" />
         <activity android:name=".ui.Onlinedeal" />
         <activity android:name=".ui.Pay" />
         <activity android:name=".ui.Canceldeal" />
-        <activity android:name=".ui.Sell" />
+        <activity
+            android:name=".ui.Sell"
+            android:theme="@style/myTransparent" />
         <activity android:name=".ui.GoodsDetail" />
         <activity android:name=".ui.MyCollection" />
         <activity android:name=".ui.Help" />
@@ -69,6 +93,11 @@
         <activity android:name=".ui.Aboutus" />
         <activity android:name=".ui.Personal_Edit" />
         <activity android:name=".ui.AddressChioce" />
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7ef9d1daf12733916f517ea5317c8b93b2f0d453
         <activity android:name=".controller.HomePage" />
         <activity
             android:name=".ui.Home"
@@ -77,7 +106,7 @@
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -95,9 +124,9 @@
         <!--短信的引入-->
         <activity
             android:name="com.mob.tools.MobUIShell"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <!--短信的引入-->
     </application>
 

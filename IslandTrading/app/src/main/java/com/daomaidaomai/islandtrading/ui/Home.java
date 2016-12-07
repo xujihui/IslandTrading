@@ -37,11 +37,13 @@ public class Home extends Activity {
     };
 
 
-    private ImageView Img;
+    private ImageView Classfy;
+    private ImageView Home;
     private LinearLayout Chat;
     private LinearLayout Map;
     private LinearLayout Sell;
     private LinearLayout Myself;
+
 
     //定义动态数组
     private ArrayList<Product> listViewProducts = new ArrayList<Product>();
@@ -59,7 +61,7 @@ public class Home extends Activity {
                     break;
                 }
                 case R.id.map: {
-                    Intent i = new Intent(Home.this, Map.class);
+                    Intent i = new Intent(Home.this, com.daomaidaomai.islandtrading.ui.Map.class);
                     startActivity(i);
                     break;
                 }
@@ -117,13 +119,15 @@ public class Home extends Activity {
         Map = (LinearLayout) findViewById(R.id.map);
         Sell = (LinearLayout) findViewById(R.id.sell);
         Myself = (LinearLayout) findViewById(R.id.myself);
-        Img = (ImageView) findViewById(R.id.classfy);
+        Classfy = (ImageView) findViewById(R.id.classfy);
+        Home = (ImageView) findViewById(R.id.home);
 
         Chat.setOnClickListener(mylistener);
         Map.setOnClickListener(mylistener);
         Sell.setOnClickListener(mylistener);
         Myself.setOnClickListener(mylistener);
-        Img.setOnClickListener(mylistener);
+        Classfy.setOnClickListener(mylistener);
+        Home.setOnClickListener(mylistener);
     }
 
 

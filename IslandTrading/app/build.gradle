@@ -1,6 +1,21 @@
 apply plugin: 'com.android.application'
 
+
 android {
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    signingConfigs {
+        config {
+            keyAlias 'Key'
+            keyPassword '123456'
+            storeFile file('C:/android-studio-ide-143.2739321-windows/Key/Keystore.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {
@@ -18,8 +33,8 @@ android {
         }
     }
 }
-repositories{
-    flatDir{
+repositories {
+    flatDir {
         dirs 'libs' //就是你放aar的目录地址
     }
 }
@@ -37,4 +52,5 @@ dependencies {
     compile name: 'SMSSDK-2.1.2', ext: 'aar'
     compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
     compile files('libs/open_sdk.jar')
+    compile files('libs/BaiduLBS_Android.jar')
 }
