@@ -2,10 +2,15 @@ package com.daomaidaomai.islandtrading.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +20,13 @@ import com.daomaidaomai.islandtrading.controller.MyBuy;
 import com.daomaidaomai.islandtrading.controller.MyPublish;
 import com.daomaidaomai.islandtrading.controller.MySold;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import static com.daomaidaomai.islandtrading.R.id.regist;
+import static com.daomaidaomai.islandtrading.ui.Login.bitmap;
+import static com.daomaidaomai.islandtrading.ui.Login.mQQAuth;
+import static com.daomaidaomai.islandtrading.ui.Login.nicknameString;
 
 /**
  * Created by Administrator on 2016/11/24 0024.
@@ -33,6 +44,7 @@ public class Myself extends Activity {
     private LinearLayout Help;
     private LinearLayout Setting;
     private LinearLayout Back;
+    private ImageView iv;
 
 
     public View.OnClickListener mylistener = new View.OnClickListener() {
@@ -92,11 +104,13 @@ public class Myself extends Activity {
                     startActivity(i);
                     break;
                 }
+
                 default:
                     break;
             }
         }
     };
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,6 +127,7 @@ public class Myself extends Activity {
         Setting = (LinearLayout) findViewById(R.id.setting);
         Help = (LinearLayout) findViewById(R.id.help);
         Back = (LinearLayout) findViewById(R.id.back);
+        iv=(ImageView)findViewById(R.id.IvPersonImg);
 
         Btn.setOnClickListener(mylistener);
         Main.setOnClickListener(mylistener);
@@ -126,6 +141,28 @@ public class Myself extends Activity {
         Help.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
 
+       // Intent intent = getIntent();
+       // String username = intent.getStringExtra("a");
+       // Bitmap bi = intent.getParcelableExtra("b");
 
+        updateLoginButton();
+
+    }
+    private void updateLoginButton() {
+        if (mQQAuth != null && mQQAuth.isSessionValid()) {
+            Btn.setTextColor(Color.BLUE);
+            iv.setImageResource(R.mipmap.chat1);
+            Btn.setText(R.string.qq_login);
+        } else {
+            iv.setImageBitmap(bitmap);
+            Btn.setTextColor(Color.RED);
+            Btn.setText(R.string.qq_logout);
+            Btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new Login().Logout();
+                }
+            });
+        }
     }
 }

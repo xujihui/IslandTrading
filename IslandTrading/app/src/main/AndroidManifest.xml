@@ -69,9 +69,6 @@
         <activity android:name=".ui.Aboutus" />
         <activity android:name=".ui.Personal_Edit" />
         <activity android:name=".ui.AddressChioce" />
-
-
-
         <activity android:name=".controller.HomePage" />
         <activity
             android:name=".ui.Home"
