@@ -61,7 +61,7 @@ public class Home extends Activity {
                     break;
                 }
                 case R.id.map: {
-                    Intent i = new Intent(Home.this, Map.class);
+                    Intent i = new Intent(Home.this, com.daomaidaomai.islandtrading.ui.Map.class);
                     startActivity(i);
                     break;
                 }

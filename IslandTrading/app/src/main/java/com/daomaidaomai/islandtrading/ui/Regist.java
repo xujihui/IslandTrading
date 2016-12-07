@@ -29,7 +29,6 @@ import static cn.smssdk.SMSSDK.submitVerificationCode;
  */
 
 public class Regist extends Activity {
-    private Button Btn;
     private LinearLayout Back;
     private final String TAG="--MainActivity--";
     //app key和app secret 需要填自己应用的对应的！这里只是我自己创建的应用。
@@ -48,10 +47,26 @@ public class Regist extends Activity {
     private EditText pswd;   //输入密码
     private EditText repswd;  //确认密码
 
+    public View.OnClickListener mylistener = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+
+                case R.id.back:
+                    Regist.this.finish();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        Back = (LinearLayout) findViewById(R.id.back);
+        Back.setOnClickListener(mylistener);
+
         // 启动短信验证sdk
         SMSSDK.initSDK(this, appKey, appSecret);
         findViewById();
