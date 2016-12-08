@@ -6,6 +6,14 @@
     tools:context="com.daomaidaomai.islandtrading.controller.ClassifyDetail"
     android:background="@android:color/white"
     android:orientation="vertical">
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/mainblue">
+
+    </TextView>
     <FrameLayout
         android:id="@+id/Topbar"
         android:layout_width="match_parent"

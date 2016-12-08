@@ -3,13 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backcolor"
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:background="@color/backcolor">
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/mainblue">
 
+    </TextView>
 
     <FrameLayout
+        android:layout_below="@+id/status"
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"

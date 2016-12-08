@@ -3,8 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:background="@color/mainblue"
+        android:layout_alignParentTop="true">
+
+    </TextView>
     <LinearLayout
         android:id="@+id/ll"
+        android:layout_below="@+id/status"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/mainblue"

@@ -2,70 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ImageView
-        android:layout_weight="0.45"
-        android:layout_margin="10dp"
+        android:id="@+id/sold_image"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:id="@+id/sold_image"
-        android:background="@mipmap/earphone"/>
+        android:layout_margin="10dp"
+        android:layout_weight="0.45"
+        android:background="@mipmap/earphone" />
+
     <RelativeLayout
-        android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
+        android:layout_weight="1">
 
         <TextView
+            android:id="@+id/sold_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="链条女包萌耳朵夹子包单肩"
             android:layout_marginLeft="10dp"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:text="链条女包萌耳朵夹子包单肩"
             android:textColor="@color/black"
-            android:id="@+id/sold_title"/>
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="价格:￥"
-            android:textSize="15sp"
             android:layout_alignLeft="@+id/sold_title"
             android:layout_below="@+id/sold_title"
             android:layout_marginTop="5dp"
-            android:textStyle="bold"
+            android:text="价格:￥"
             android:textColor="@color/orange"
-            android:id="@+id/tv"/>
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/sold_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="60"
-            android:layout_toRightOf="@+id/tv"
             android:layout_below="@+id/sold_title"
             android:layout_marginTop="5dp"
-            android:textStyle="bold"
+            android:layout_toRightOf="@+id/tv"
+            android:text="60"
             android:textColor="@color/orange"
-            android:id="@+id/sold_price"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_below="@+id/sold_price"
-            android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true">
+            android:layout_marginTop="5dp">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/chat"/>
+                android:src="@mipmap/chat" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="联系买家"
-                android:textSize="15sp"
                 android:textColor="@color/drakgrey"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

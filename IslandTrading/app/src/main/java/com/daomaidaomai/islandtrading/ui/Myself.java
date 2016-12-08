@@ -4,16 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
-<<<<<<< HEAD
-=======
 import android.widget.EditText;
 import android.widget.ImageView;
->>>>>>> 43347ce7d885175f4be37b0a18d85b8c1a861af9
 import android.widget.LinearLayout;
 
 import com.daomaidaomai.islandtrading.R;
@@ -21,8 +21,6 @@ import com.daomaidaomai.islandtrading.controller.MyBuy;
 import com.daomaidaomai.islandtrading.controller.MyPublish;
 import com.daomaidaomai.islandtrading.controller.MySold;
 
-<<<<<<< HEAD
-=======
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -31,10 +29,6 @@ import static com.daomaidaomai.islandtrading.ui.Login.bitmap;
 import static com.daomaidaomai.islandtrading.ui.Login.mQQAuth;
 import static com.daomaidaomai.islandtrading.ui.Login.nicknameString;
 
->>>>>>> 43347ce7d885175f4be37b0a18d85b8c1a861af9
-/**
- * Created by Administrator on 2016/11/24 0024.
- */
 
 public class Myself extends Activity {
     private Button Btn;
@@ -119,6 +113,18 @@ public class Myself extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                    | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+            window.setNavigationBarColor(Color.TRANSPARENT);
+        }
         setContentView(R.layout.activity_my);
         Btn = (Button) findViewById(R.id.mylogin);
         Main = (LinearLayout) findViewById(R.id.main);
@@ -131,7 +137,7 @@ public class Myself extends Activity {
         Setting = (LinearLayout) findViewById(R.id.setting);
         Help = (LinearLayout) findViewById(R.id.help);
         Back = (LinearLayout) findViewById(R.id.back);
-        iv=(ImageView)findViewById(R.id.IvPersonImg);
+        iv = (ImageView) findViewById(R.id.IvPersonImg);
 
         Btn.setOnClickListener(mylistener);
         Main.setOnClickListener(mylistener);
@@ -145,13 +151,14 @@ public class Myself extends Activity {
         Help.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
 
-       // Intent intent = getIntent();
-       // String username = intent.getStringExtra("a");
-       // Bitmap bi = intent.getParcelableExtra("b");
+        // Intent intent = getIntent();
+        // String username = intent.getStringExtra("a");
+        // Bitmap bi = intent.getParcelableExtra("b");
 
         updateLoginButton();
 
     }
+
     private void updateLoginButton() {
         if (mQQAuth != null && mQQAuth.isSessionValid()) {
             Btn.setTextColor(Color.BLUE);
