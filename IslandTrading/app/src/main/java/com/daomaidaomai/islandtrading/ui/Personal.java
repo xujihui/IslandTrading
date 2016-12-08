@@ -11,10 +11,29 @@ import android.widget.TextView;
 
 import com.daomaidaomai.islandtrading.R;
 
+import static android.R.attr.name;
+
 
 public class Personal extends Activity {
+<<<<<<< HEAD
+    private Button bt;
+    private TextView tv;
+    Login login;
+
+    private TextView tv_name;
+=======
+>>>>>>> 7ef9d1daf12733916f517ea5317c8b93b2f0d453
     private LinearLayout Back;
     private TextView Edit;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.personal_information_show);
+        findViewById();
+        Intent i=getIntent();
+        String s= i.getStringExtra("a");
+    }
 
     public View.OnClickListener mylistener = new View.OnClickListener() {
         public void onClick(View v) {
@@ -32,6 +51,10 @@ public class Personal extends Activity {
             }
         }
     };
+    private void findViewById() {
+        tv_name=(TextView)findViewById(R.id.setting_personal_information_user);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
