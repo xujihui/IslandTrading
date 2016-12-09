@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hyphenate.easeui"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="20" />
+    <application>
+        <activity android:name=".ui.EaseShowBigImageActivity"/>
+        <activity android:name=".ui.EaseBaiduMapActivity"/>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="3ecea51f560650b1ed8a4b99808f52e8" />
+    </application>
+
+</manifest>
