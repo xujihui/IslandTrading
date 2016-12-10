@@ -26,6 +26,7 @@ import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
 import com.daomaidaomai.islandtrading.R;
 
@@ -33,7 +34,7 @@ import com.daomaidaomai.islandtrading.R;
 public class Map extends Activity { /* 地图控件*/
     private ImageView Refresh;
     private ImageView Back;
-    private MapView mMapView = null; /* 地图实例*/
+    private TextureMapView mMapView = null; /* 地图实例*/
     private BaiduMap mBaiduMap; /* 定位的客户端*/
     private LocationClient mLocationClient; /* 定位的监听器*/
     public MyLocationListener mMyLocationListener; /* 当前定位的模式*/
@@ -89,7 +90,7 @@ public class Map extends Activity { /* 地图控件*/
      * 初始化百度地图
      */
     private void initBaiduMap() {
-        mMapView = (MapView) findViewById(R.id.bmapView);
+        mMapView = (TextureMapView) findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(19.0f);
         mBaiduMap.setMapStatus(msu);
