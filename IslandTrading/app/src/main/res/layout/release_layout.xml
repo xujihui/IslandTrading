@@ -105,6 +105,7 @@
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/radio_button"
         android:text="使用当前位置发布商品"
         android:textColor="@color/drakgrey" />
 
