@@ -1,12 +1,11 @@
 package com.daomaidaomai.islandtrading.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -24,8 +23,11 @@ import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.daomaidaomai.islandtrading.R;
 
@@ -59,6 +61,22 @@ public class Map extends Activity { /* 地图控件*/
     };
 
 
+    /**
+     * 添加标注覆盖物
+     */
+    private void addMarkerOverlay() {
+        // 定义Maker坐标点
+        LatLng point = new LatLng(38.000076, 114.52447);
+        // 构建Marker图标
+        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
+        // 构建MarkerOption，用于在地图上添加Marker
+        OverlayOptions option = new MarkerOptions().anchor(0.5f, 1.0f)//设置锚点
+                .position(point) // 设置marker的位置
+                .icon(bitmap); // 必须设置marker图标
+        // 在地图上添加Marker，并显示
+        Marker marker = (Marker) mBaiduMap.addOverlay(option);
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +88,7 @@ public class Map extends Activity { /* 地图控件*/
         //初始化百度地图SDK
         SDKInitializer.initialize(getApplicationContext());
 
-        setContentView(R.layout.ditu);
+        setContentView(R.layout.activity_map);
         initBaiduMap();
         initMyLocation();
         Refresh = (ImageView) findViewById(R.id.refresh);
@@ -83,6 +101,17 @@ public class Map extends Activity { /* 地图控件*/
         if (child != null && (child instanceof ImageView || child instanceof ZoomControls)) {
             child.setVisibility(View.INVISIBLE);
         }
+        addMarkerOverlay();
+        mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
+
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Intent i = new Intent(Map.this, Map_GoodsDetail.class);
+                startActivity(i);
+                return false;
+            }
+        });
+
     }
 
     /**
@@ -160,11 +189,6 @@ public class Map extends Activity { /* 地图控件*/
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.gps, menu);
-        return true;
-    }
 
 
 

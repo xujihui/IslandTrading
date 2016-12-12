@@ -75,6 +75,9 @@
         <activity android:name=".ui.Regist" />
         <activity android:name=".ui.Login" />
         <activity android:name=".ui.Map" />
+        <activity
+            android:name=".ui.Map_GoodsDetail"
+            android:theme="@style/myTransparent" />
         <activity android:name=".ui.Chat" />
         <activity android:name=".ui.Order" />
         <activity android:name=".ui.Order_Detail" />
