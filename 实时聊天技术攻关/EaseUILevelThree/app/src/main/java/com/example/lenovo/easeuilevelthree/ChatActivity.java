@@ -1,4 +1,4 @@
-package com.example.lenovo.easeuilevelthree;
+﻿package com.example.lenovo.easeuilevelthree;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,8 +13,10 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_chat);
+
+	//get user id
+        mChatId = getIntent().getExtras().getString("userId");
 
         // 这里直接使用EaseUI封装好的聊天界面
         chatFragment = new EaseChatFragment();
