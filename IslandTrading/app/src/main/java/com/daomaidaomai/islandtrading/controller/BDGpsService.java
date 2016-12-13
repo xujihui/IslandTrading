@@ -1,5 +1,5 @@
 package com.daomaidaomai.islandtrading.controller;
-/*°Ù¶ÈµØÍ¼»ñÈ¡Î»ÖÃµÄº¯Êı*/
+/*ç™¾åº¦åœ°å›¾è·å–ä½ç½®çš„å‡½æ•°*/
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -18,25 +18,25 @@ public class BDGpsService extends Service {
 	private LocationClient locationClient;
 	private BDLocationListener locationListener;
 	private LocationClientOption lco;
-	
+
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
 		lco = new LocationClientOption();
 		lco.setLocationMode(LocationMode.Hight_Accuracy);
-		//¿ÉÑ¡£¬Ä¬ÈÏ¸ß¾«¶È£¬ÉèÖÃ¶¨Î»Ä£Ê½£¬¸ß¾«¶È£¬µÍ¹¦ºÄ£¬½öÉè±¸
+		//å¯é€‰ï¼Œé»˜è®¤é«˜ç²¾åº¦ï¼Œè®¾ç½®å®šä½æ¨¡å¼ï¼Œé«˜ç²¾åº¦ï¼Œä½åŠŸè€—ï¼Œä»…è®¾å¤‡
 		lco.setScanSpan(minTime);
-		//¿ÉÑ¡£¬Ä¬ÈÏ0£¬¼´½ö¶¨Î»Ò»´Î£¬ÉèÖÃ·¢Æğ¶¨Î»ÇëÇóµÄ¼ä¸ôĞèÒª´óÓÚµÈÓÚ1000ms²ÅÊÇÓĞĞ§µÄ
+		//å¯é€‰ï¼Œé»˜è®¤0ï¼Œå³ä»…å®šä½ä¸€æ¬¡ï¼Œè®¾ç½®å‘èµ·å®šä½è¯·æ±‚çš„é—´éš”éœ€è¦å¤§äºç­‰äº1000msæ‰æ˜¯æœ‰æ•ˆçš„
 		lco.setCoorType("bd09ll");
-		//¿ÉÑ¡£¬Ä¬ÈÏgcj02£¬ÉèÖÃ·µ»ØµÄ¶¨Î»½á¹û×ø±êÏµ
+		//å¯é€‰ï¼Œé»˜è®¤gcj02ï¼Œè®¾ç½®è¿”å›çš„å®šä½ç»“æœåæ ‡ç³»
 		lco.setOpenGps(true);
-		//¿ÉÑ¡£¬Ä¬ÈÏfalse,ÉèÖÃÊÇ·ñÊ¹ÓÃgps
+		//å¯é€‰ï¼Œé»˜è®¤false,è®¾ç½®æ˜¯å¦ä½¿ç”¨gps
 		lco.setIsNeedAddress(true);
 		locationListener = new BDGpsServiceListener(getApplicationContext());
-		locationClient = new LocationClient(getApplicationContext());//ÉùÃ÷locationÀà
+		locationClient = new LocationClient(getApplicationContext());//å£°æ˜locationç±»
 		locationClient.setLocOption(lco);
-		locationClient.registerLocationListener(locationListener);//×¢²á¼àÌıº¯Êı
+		locationClient.registerLocationListener(locationListener);//æ³¨å†Œç›‘å¬å‡½æ•°
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class BDGpsService extends Service {
 		}
 		locationClient.unRegisterLocationListener(locationListener);
 	}
-	
+
 	@Override
 	public IBinder onBind(Intent arg0) {
 		// TODO Auto-generated method stub
@@ -65,3 +65,4 @@ public class BDGpsService extends Service {
 	}
 
 }
+

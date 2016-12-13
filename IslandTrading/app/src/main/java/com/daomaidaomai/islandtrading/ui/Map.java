@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -27,11 +26,8 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
-<<<<<<< HEAD
 import com.baidu.mapapi.map.OverlayOptions;
-=======
 import com.baidu.mapapi.map.TextureMapView;
->>>>>>> 6a73c7494602f7203dbc3bf16606d5db0da9ac3c
 import com.baidu.mapapi.model.LatLng;
 import com.daomaidaomai.islandtrading.R;
 
@@ -39,7 +35,7 @@ import com.daomaidaomai.islandtrading.R;
 public class Map extends Activity { /* 地图控件*/
     private ImageView Refresh;
     private ImageView Back;
-    private TextureMapView mMapView = null; /* 地图实例*/
+    private MapView mMapView = null; /* 地图实例*/
     private BaiduMap mBaiduMap; /* 定位的客户端*/
     private LocationClient mLocationClient; /* 定位的监听器*/
     public MyLocationListener mMyLocationListener; /* 当前定位的模式*/
@@ -105,6 +101,7 @@ public class Map extends Activity { /* 地图控件*/
         if (child != null && (child instanceof ImageView || child instanceof ZoomControls)) {
             child.setVisibility(View.INVISIBLE);
         }
+        //添加覆盖物响应事件
         addMarkerOverlay();
         mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
 
@@ -122,7 +119,7 @@ public class Map extends Activity { /* 地图控件*/
      * 初始化百度地图
      */
     private void initBaiduMap() {
-        mMapView = (TextureMapView) findViewById(R.id.bmapView);
+        mMapView = (MapView) findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(19.0f);
         mBaiduMap.setMapStatus(msu);

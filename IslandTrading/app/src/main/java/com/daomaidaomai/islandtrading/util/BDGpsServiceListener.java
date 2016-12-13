@@ -1,5 +1,5 @@
 package com.daomaidaomai.islandtrading.util;
-/*ÉèÖÃ°Ù¶ÈµØÍ¼µÄÀà*/
+/*è®¾ç½®ç™¾åº¦åœ°å›¾çš„ç±»*/
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.location.BDLocation;
@@ -12,7 +12,7 @@ public class BDGpsServiceListener implements BDLocationListener {
 	public static double longitude;
 	public static double latitude;
 	public static String time;
-	
+
 	public BDGpsServiceListener(){
 		super();
 	}
@@ -21,7 +21,7 @@ public class BDGpsServiceListener implements BDLocationListener {
 		this.context = context;
 	}
 
-	//·¢ËÍ¹ã²¥£¬ÌáÊ¾¸üĞÂ½çÃæ
+	//å‘é€å¹¿æ’­ï¼Œæç¤ºæ›´æ–°ç•Œé¢
 	private void sendToActivity(String str){
 		Intent intent = new Intent();
 		intent.putExtra("newLoca", str);
@@ -33,19 +33,20 @@ public class BDGpsServiceListener implements BDLocationListener {
 		// TODO Auto-generated method stub
 		if(location == null){return;}
 		StringBuffer sb = new StringBuffer();
-		sb.append("¾­¶È=").append(location.getLongitude());
-		sb.append("\nÎ³¶È=").append(location.getLatitude());
-		sb.append("\nÊ±¼ä=").append(location.getTime());
+		sb.append("ç»åº¦=").append(location.getLongitude());
+		sb.append("\nçº¬åº¦=").append(location.getLatitude());
+		sb.append("\næ—¶é—´=").append(location.getTime());
 		if (location.hasRadius()){
 		}
 		if (location.getLocType() == BDLocation.TypeGpsLocation){
 		} else if (location.getLocType() == BDLocation.TypeNetWorkLocation){
 		}
-		//×Ö·û´®
+		//å­—ç¬¦ä¸²
 		sendToActivity(sb.toString());
-		//»ñµÃ
+		//è·å¾—
 		longitude=location.getLongitude();
 		latitude=location.getLatitude();
 		time=location.getTime();
 	}
 }
+
