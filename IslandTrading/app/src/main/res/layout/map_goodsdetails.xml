@@ -20,7 +20,7 @@
             android:layout_marginLeft="10dp"
             android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:background="@mipmap/computer_two" />
