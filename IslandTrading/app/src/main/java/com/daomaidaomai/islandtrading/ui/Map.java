@@ -10,11 +10,15 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.ZoomControls;
 
 import com.baidu.location.BDLocation;
@@ -26,6 +30,8 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.InfoWindow;
+import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
@@ -33,15 +39,23 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
+
 import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.TextureMapView;
+
 import com.baidu.mapapi.model.LatLng;
 import com.daomaidaomai.islandtrading.R;
+import com.daomaidaomai.islandtrading.entity.MapST;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class Map extends Activity { /* 地图控件*/
+public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地图控件*/
     private ImageView Refresh;
     private ImageView Back;
-    private MapView mMapView = null; /* 地图实例*/
+    private TextureMapView mMapView = null; /* 地图实例*/
     private BaiduMap mBaiduMap; /* 定位的客户端*/
     private LocationClient mLocationClient; /* 定位的监听器*/
     public MyLocationListener mMyLocationListener; /* 当前定位的模式*/
@@ -51,7 +65,8 @@ public class Map extends Activity { /* 地图控件*/
     private double mCurrentLantitude;
     private double mCurrentLongitude; /* 地图定位的模式*/
     private int mCurrentStyle = 0;
-
+    private List<MapST> markInfoList;
+    private LinearLayout markLayout;//点击事件的信息
 
 
     public View.OnClickListener mylistener = new View.OnClickListener() {
@@ -67,6 +82,13 @@ public class Map extends Activity { /* 地图控件*/
     };
 
 
+    //初始化数据
+    private void initMarksData(){
+        markInfoList=new ArrayList<MapST>();
+        markInfoList.add(new MapST(1,38.000076, 114.52447, R.mipmap.mapcomputer,"联想笔记本电脑 超极本","Lenovo联想 商务游戏本"));
+        markInfoList.add(new MapST(2,38.003385, 114.527106, R.mipmap.chat6,"迷你包包","真的很好看，用了不长的时间"));
+        markInfoList.add(new MapST(3,38.004057, 114.529366,R.mipmap.chat8,"懒人腮红","一共就用过几次，现在出售"));
+    }
     /**
      * 添加标注覆盖物
      **/
@@ -86,15 +108,48 @@ public class Map extends Activity { /* 地图控件*/
         canvas.drawBitmap(bitmap2,0,0, paint);
 
         // 定义Maker坐标点
-        LatLng point = new LatLng(38.000076, 114.52447);
+      /*  LatLng point = new LatLng(38.000076, 114.52447);
+        LatLng point1 = new LatLng(38.003385, 114.527106);
+        LatLng point2 = new LatLng(38.004057, 114.529366);
+
         // 构建Marker图标
         BitmapDescriptor bitmap = BitmapDescriptorFactory.fromBitmap(alterBitmap);
         // 构建MarkerOption，用于在地图上添加Marker
-        OverlayOptions option = new MarkerOptions().anchor(0.5f, 1.0f)//设置锚点
-                .position(point) // 设置marker的位置
+        // OverlayOptions option = new MarkerOptions().anchor(0.5f, 1.0f)
+        OverlayOptions option = new MarkerOptions()//设置锚点
+                .position(point)// 设置marker的位置
+                .icon(bitmap); // 必须设置marker图标
+        OverlayOptions option1 = new MarkerOptions()//设置锚点
+                .position(point1)// 设置marker的位置
+                .icon(bitmap); // 必须设置marker图标
+        OverlayOptions option2 = new MarkerOptions()//设置锚点
+                .position(point2)// 设置marker的位置
                 .icon(bitmap); // 必须设置marker图标
         // 在地图上添加Marker，并显示
         Marker marker = (Marker) mBaiduMap.addOverlay(option);
+
+        Marker marker1 = (Marker) mBaiduMap.addOverlay(option1);
+        Marker marker2 = (Marker) mBaiduMap.addOverlay(option2);*/
+        initMarksData();
+        mBaiduMap.clear();//清理图层
+        LatLng latLng=null;
+        Marker marker=null;
+        OverlayOptions options;
+        BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
+        //遍历MarkInfo的List一个MarkInfo就是一个Mark
+        for (int i = 0; i < markInfoList.size(); i++) {
+            //经纬度对象
+            latLng=new LatLng(markInfoList.get(i).getLatitude(), markInfoList.get(i).getLongitude());//需要创建一个经纬对象，通过该对象就可以定位到处于地图上的某个具体点
+            //图标
+            options=new MarkerOptions().position(latLng).icon(myMarks).zIndex(6);
+            marker=(Marker) mBaiduMap.addOverlay(options);//将覆盖物添加到地图上
+            Bundle bundle=new Bundle();//创建一个Bundle对象将每个mark具体信息传过去，当点击该覆盖物图标的时候就会显示该覆盖物的详细信息
+            bundle.putSerializable("mark",markInfoList.get(i));
+            marker.setExtraInfo(bundle);
+        }
+        MapStatusUpdate msu=MapStatusUpdateFactory.newLatLng(latLng);//通过这个经纬度对象，地图就可以定位到该点
+        mBaiduMap.animateMapStatus(msu);
+
     }
 
 
@@ -115,6 +170,7 @@ public class Map extends Activity { /* 地图控件*/
         initMyLocation();
         Refresh = (ImageView) findViewById(R.id.refresh);
         Back = (ImageView) findViewById(R.id.back);
+        markLayout = (LinearLayout) findViewById(R.id.mark_layout);//获取标志物的点击事件id
         Refresh.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
 
@@ -130,21 +186,65 @@ public class Map extends Activity { /* 地图控件*/
 
             @Override
             public boolean onMarkerClick(Marker marker) {
-                Intent i = new Intent(Map.this, Map_GoodsDetail.class);
-                startActivity(i);
-                return false;
+//                Intent i = new Intent(Map.this, Map_GoodsDetail.class);
+//                startActivity(i);
+                Bundle bundle = marker.getExtraInfo();
+                MapST MyMarker = (MapST) bundle.getSerializable("mark");
+                ImageView iv = (ImageView) markLayout.findViewById(R.id.map_goodsdetails_img);
+                TextView nameTv = (TextView) markLayout.findViewById(R.id.map_goodsdetails_title);
+                TextView contentTv = (TextView) markLayout.findViewById(R.id.map_goodsdetails_content);
+                iv.setImageResource(MyMarker.getImageId());
+                nameTv.setText(MyMarker.getmName());
+                contentTv.setText(MyMarker.getmContent());
+                //初始化一个InfoWindow
+                initInfoWindow(MyMarker, marker);
+                markLayout.setVisibility(View.VISIBLE);
+                return true;
             }
         });
 
 
-
     }
+    /**
+     *
+     *初始化出一个InfoWindow
+     *
+     * */
+    private void initInfoWindow(MapST MyMarker,Marker marker) {
+        // TODO Auto-generated method stub
+        InfoWindow infoWindow;
+        //InfoWindow中显示的View内容样式，显示一个TextView
+        TextView infoWindowTv=new TextView(Map.this);
+        //infoWindowTv.setBackgroundResource(R.drawable.location_tips);
+        infoWindowTv.setPadding(10, 10, 10, 10);
+        infoWindowTv.setText(MyMarker.getmName());
+       //infoWindowTv.setTextColor(Color.parseColor("#FFFFFF"));
+        final LatLng latLng=marker.getPosition();
+        Point p=mBaiduMap.getProjection().toScreenLocation(latLng);//将地图上的经纬度转换成屏幕中实际的点
+        p.y-=47;//设置屏幕中点的Y轴坐标的偏移量
+        LatLng ll=mBaiduMap.getProjection().fromScreenLocation(p);//把修改后的屏幕的点有转换成地图上的经纬度对象
+        infoWindow=new InfoWindow(infoWindowTv, ll, 10);
+        mBaiduMap.showInfoWindow(infoWindow);//显示InfoWindow
+    }
+//点击地图的其他部分，然后可以收回弹出框
+    @Override
+    public void onMapClick(LatLng arg0) {
+        markLayout.setVisibility(View.GONE);
+        mBaiduMap.hideInfoWindow();//隐藏InfoWindow
+    }
+
+    @Override
+    public boolean onMapPoiClick(MapPoi mapPoi) {
+        return false;
+    }
+
+
 
     /**
      * 初始化百度地图
      */
     private void initBaiduMap() {
-        mMapView = (MapView) findViewById(R.id.bmapView);
+        mMapView = (TextureMapView) findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(19.0f);
         mBaiduMap.setMapStatus(msu);
@@ -171,6 +271,7 @@ public class Map extends Activity { /* 地图控件*/
         MyLocationConfiguration config = new MyLocationConfiguration(mCurrentMode, true, mCurrentMarker);
         mBaiduMap.setMyLocationConfigeration(config);
     }
+
 
     /**
      * 实现实位回调监听
