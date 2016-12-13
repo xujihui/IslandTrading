@@ -3,6 +3,13 @@ package com.daomaidaomai.islandtrading.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +34,6 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
 import com.daomaidaomai.islandtrading.R;
 
@@ -63,20 +69,36 @@ public class Map extends Activity { /* 地图控件*/
 
     /**
      * 添加标注覆盖物
-     */
+     **/
     private void addMarkerOverlay() {
+        // 图片合成-画布 先去画A 再去画B
+        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.mipmap.pxdingsi); // bitmap为只读的
+        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.mipmap.local);
+
+        Bitmap alterBitmap = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), bitmap2.getConfig());
+
+        Canvas canvas = new Canvas(alterBitmap);
+
+        Paint paint = new Paint();
+        paint.setColor(Color.BLACK);
+
+        canvas.drawBitmap(bitmap1,18,36, paint);
+        canvas.drawBitmap(bitmap2,0,0, paint);
+
         // 定义Maker坐标点
         LatLng point = new LatLng(38.000076, 114.52447);
         // 构建Marker图标
-        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
+        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromBitmap(alterBitmap);
         // 构建MarkerOption，用于在地图上添加Marker
         OverlayOptions option = new MarkerOptions().anchor(0.5f, 1.0f)//设置锚点
                 .position(point) // 设置marker的位置
                 .icon(bitmap); // 必须设置marker图标
         // 在地图上添加Marker，并显示
         Marker marker = (Marker) mBaiduMap.addOverlay(option);
-
     }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +125,7 @@ public class Map extends Activity { /* 地图控件*/
         }
         //添加覆盖物响应事件
         addMarkerOverlay();
+
         mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
 
             @Override
@@ -112,6 +135,8 @@ public class Map extends Activity { /* 地图控件*/
                 return false;
             }
         });
+
+
 
     }
 

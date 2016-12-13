@@ -54,7 +54,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi" />
+            android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6" />
 
         <activity android:name=".ui.MainActivity">
             <intent-filter>
@@ -96,7 +96,6 @@
         <activity android:name=".ui.Aboutus" />
         <activity android:name=".ui.Personal_Edit" />
         <activity android:name=".ui.AddressChioce" />
-        <activity android:name=".controller.HomePage" />
         <activity
             android:name=".ui.Home"
             android:windowSoftInputMode="stateHidden" />
