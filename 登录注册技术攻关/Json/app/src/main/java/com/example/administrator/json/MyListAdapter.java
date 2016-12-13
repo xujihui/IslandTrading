@@ -46,11 +46,12 @@ public class MyListAdapter extends BaseAdapter{
         DetialName.setText(ldetail.get(i).getmName());
         TextView DetialContent =(TextView) view.findViewById(R.id.DetialContent);
         DetialContent.setText(ldetail.get(i).getmContent());
-        TextView DetialPrice =(TextView) view.findViewById(R.id.DetialPrice);
-        DetialPrice.setText("￥"+ldetail.get(i).getmPrice());
-        ImageView DetialImg = (ImageView) view.findViewById(R.id.DetialImg);
-        DetialImg.setImageResource(ldetail.get(i).getmPicture());
-
+        TextView mPlace =(TextView) view.findViewById(R.id.DetialPlace);
+        mPlace.setText(ldetail.get(i).getmPlace());
+        TextView mOgnizition =(TextView) view.findViewById(R.id.zuzhizhe);
+        mOgnizition.setText(ldetail.get(i).getmOgnizition());
+        TextView mTime=(TextView)view.findViewById(R.id.DetialTime);
+        mTime.setText( ldetail.get(i).getTime());
         return view;
     }
 }
