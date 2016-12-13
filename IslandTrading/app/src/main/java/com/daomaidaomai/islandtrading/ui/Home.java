@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -127,6 +128,12 @@ public class Home extends Activity {
         getListData();
         //创建adapter
         homeAdapter = new HomeAdapter(Home.this, listViewProducts);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(getApplication(),GoodsDetail.class));
+            }
+        });
         //为ListView绑定adapter
         lv.setAdapter(homeAdapter);
 
