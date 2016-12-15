@@ -21,6 +21,7 @@ import java.util.List;
 public class GridAdapter extends BaseAdapter {
     private Context context;
     private List<Item> litems = new ArrayList<>();//待加载的列表项item布局资源
+
     public GridAdapter(Context c, List<Item> ls) {
         context = c;
         litems = ls;
@@ -45,7 +46,7 @@ public class GridAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = LayoutInflater.from(context).inflate(R.layout.item_goods, null);
 
-        TextView TvItemName =(TextView) view.findViewById(R.id.TvItemTitle);
+        TextView TvItemName = (TextView) view.findViewById(R.id.TvItemTitle);
         TvItemName.setText(litems.get(i).getmName());
         ImageView TvItemImage = (ImageView) view.findViewById(R.id.IvItemImg);
         TvItemImage.setImageResource(litems.get(i).getmPicture());

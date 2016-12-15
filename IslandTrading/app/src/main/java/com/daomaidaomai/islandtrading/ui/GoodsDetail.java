@@ -22,7 +22,7 @@ public class GoodsDetail extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.buy: {
-                    Intent i = new Intent(GoodsDetail.this,Order.class);
+                    Intent i = new Intent(GoodsDetail.this, Order.class);
                     startActivity(i);
                     break;
                 }
@@ -40,7 +40,7 @@ public class GoodsDetail extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -57,8 +57,6 @@ public class GoodsDetail extends Activity {
 
         Lin.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
-
-
 
 
     }

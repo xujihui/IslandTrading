@@ -15,7 +15,6 @@ import com.daomaidaomai.islandtrading.entity.Product;
 import java.util.ArrayList;
 
 
-
 /**
  * Created by Administrator on 2016/11/20 0020.
  */
@@ -48,14 +47,14 @@ public class BuyAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (null == view) {//判断是不是空控件
             //获取布局，将xml文件转换成view，即把xml文件当成view来使用
-            view = LayoutInflater.from(context).inflate(R.layout.buy_listview_item_layout,null);
+            view = LayoutInflater.from(context).inflate(R.layout.buy_listview_item_layout, null);
         }
         ImageView buyImage = (ImageView) view.findViewById(R.id.buy_image);
         buyImage.setImageResource(products.get(i).getmImage());
         TextView buyTitle = (TextView) view.findViewById(R.id.buy_title);
         buyTitle.setText(products.get(i).getmTitle());
         TextView buyPrice = (TextView) view.findViewById(R.id.buy_price);
-        buyPrice.setText(products.get(i).getmPrice()+"");
+        buyPrice.setText(products.get(i).getmPrice() + "");
         return view;
     }
 }

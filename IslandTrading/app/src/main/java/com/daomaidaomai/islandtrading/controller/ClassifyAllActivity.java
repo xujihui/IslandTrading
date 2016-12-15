@@ -26,29 +26,30 @@ import java.util.List;
  */
 public class ClassifyAllActivity extends Activity {
     private List<Item> ls = new ArrayList<>();
-    private GridView gv ;
+    private GridView gv;
     private GridAdapter girdAdapter;
     private LinearLayout Back;
 
-    private void getDate(){
-        ls.add(new Item(1,"女装",R.mipmap.women));
-        ls.add(new Item(2,"男装", R.mipmap.man));
-        ls.add(new Item(3,"自行车 ",R.mipmap.bike));
-        ls.add(new Item(4,"手机",R.mipmap.phone));
-        ls.add(new Item(5,"电脑",R.mipmap.pc));
-        ls.add(new Item(6,"3C数码",R.mipmap.game));
-        ls.add(new Item(7,"鞋包",R.mipmap.shoes));
-        ls.add(new Item(8,"化妆品",R.mipmap.cosmetics));
-        ls.add(new Item(9,"文具",R.mipmap.stationery));
-        ls.add(new Item(10,"图书",R.mipmap.book));
-        ls.add(new Item(11,"技能服务",R.mipmap.skills));
-        ls.add(new Item(12,"其他",R.mipmap.other));
+    private void getDate() {
+        ls.add(new Item(1, "女装", R.mipmap.women));
+        ls.add(new Item(2, "男装", R.mipmap.man));
+        ls.add(new Item(3, "自行车 ", R.mipmap.bike));
+        ls.add(new Item(4, "手机", R.mipmap.phone));
+        ls.add(new Item(5, "电脑", R.mipmap.pc));
+        ls.add(new Item(6, "3C数码", R.mipmap.game));
+        ls.add(new Item(7, "鞋包", R.mipmap.shoes));
+        ls.add(new Item(8, "化妆品", R.mipmap.cosmetics));
+        ls.add(new Item(9, "文具", R.mipmap.stationery));
+        ls.add(new Item(10, "图书", R.mipmap.book));
+        ls.add(new Item(11, "技能服务", R.mipmap.skills));
+        ls.add(new Item(12, "其他", R.mipmap.other));
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -70,7 +71,7 @@ public class ClassifyAllActivity extends Activity {
             }
         });
 
-        gv = (GridView)findViewById(R.id.GvAllGoods);
+        gv = (GridView) findViewById(R.id.GvAllGoods);
         getDate();
 
         girdAdapter = new GridAdapter(ClassifyAllActivity.this, ls);//Utils.ls
@@ -80,7 +81,7 @@ public class ClassifyAllActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent();
-                intent.setClass(ClassifyAllActivity.this,ClassifyDetail.class);
+                intent.setClass(ClassifyAllActivity.this, ClassifyDetail.class);
                 startActivity(intent);
             }
         });

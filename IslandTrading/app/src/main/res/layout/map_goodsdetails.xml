@@ -15,9 +15,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -63,23 +63,23 @@
                 android:textColor="@color/white" />
 
             <Button
-                android:padding="0dp"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/buttonshape"
+                android:padding="0dp"
                 android:text="和ta联系"
                 android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/details"
-                android:padding="0dp"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/buttonshape"
+                android:padding="0dp"
                 android:text="查看详情"
                 android:textColor="@color/white" />
         </LinearLayout>

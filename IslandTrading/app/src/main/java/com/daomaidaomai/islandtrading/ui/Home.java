@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -21,6 +23,14 @@ import com.daomaidaomai.islandtrading.controller.ClassifyAllActivity;
 import com.daomaidaomai.islandtrading.defineview.MyImgScroll;
 import com.daomaidaomai.islandtrading.entity.Product;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLStreamHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,11 +101,59 @@ public class Home extends Activity {
         }
     };
 
+    //Get方法
+    public String get(String urlPath) {
+        HttpURLConnection connection = null;
+        InputStream is = null;
+        try {
+            URL url = new URL(urlPath);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setUseCaches(false);
+            connection.setConnectTimeout(10000);
+            connection.setReadTimeout(10000);
+            connection.setDoInput(true);
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                is = connection.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+
+                }
+                return response.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            if(connection != null){
+                connection.disconnect();
+                connection = null;
+            }
+            if (is != null){
+                try {
+                    is.close();
+                    is = null;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+        return null;
+    }
+
+
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -131,7 +189,7 @@ public class Home extends Activity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(getApplication(),GoodsDetail.class));
+                startActivity(new Intent(getApplication(), GoodsDetail.class));
             }
         });
         //为ListView绑定adapter

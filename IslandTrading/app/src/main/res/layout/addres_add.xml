@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/backcolor"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -12,6 +13,7 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
@@ -45,7 +47,6 @@
     </FrameLayout>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,6 +67,7 @@
                 android:text="添加地址："
                 android:textColor="@color/black"
                 android:textSize="18sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -114,24 +116,23 @@
 
         <TextView
 
-            android:paddingTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
             android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:text="收件人信息"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
 
-
         <LinearLayout
-            android:paddingTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"

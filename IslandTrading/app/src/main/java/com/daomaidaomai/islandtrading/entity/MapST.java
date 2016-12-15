@@ -11,8 +11,8 @@ public class MapST implements Serializable {
     private double latitude;
     private double longitude;
     private int ImageId;
-    private  String mName;
-    private  String mContent;
+    private String mName;
+    private String mContent;
 
     public int getId() {
         return id;

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.entity.Product;
+// import com.mob.tools.utils.R;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class HomeAdapter extends BaseAdapter {
         this.context = context;
         this.products = products;
     }
+
     @Override
     public int getCount() {
         return products.size();
@@ -45,14 +47,14 @@ public class HomeAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (null == view) {//判断是不是空控件
             //获取布局，将xml文件转换成view，即把xml文件当成view来使用
-            view = LayoutInflater.from(context).inflate(R.layout.home_listview_item_layout,null);
+            view = LayoutInflater.from(context).inflate(R.layout.home_listview_item_layout, null);
         }
         ImageView homeImage = (ImageView) view.findViewById(R.id.home_image);
         homeImage.setImageResource(products.get(i).getmImage());
         TextView homeTitle = (TextView) view.findViewById(R.id.home_title);
         homeTitle.setText(products.get(i).getmTitle());
         TextView homePrice = (TextView) view.findViewById(R.id.home_price);
-        homePrice.setText(products.get(i).getmPrice()+"");
+        homePrice.setText(products.get(i).getmPrice() + "");
         TextView homeContent = (TextView) view.findViewById(R.id.home_content);
         homeContent.setText(products.get(i).getmContent());
         return view;

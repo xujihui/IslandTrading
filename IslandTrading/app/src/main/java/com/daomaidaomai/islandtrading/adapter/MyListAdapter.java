@@ -18,9 +18,10 @@ import java.util.List;
 /**
  * Created by lenovo on 2016/11/19.
  */
-public class MyListAdapter extends BaseAdapter{
+public class MyListAdapter extends BaseAdapter {
     private Context context;//上下文环境
-    private List<ItemDetail> ldetail= new ArrayList<>();
+    private List<ItemDetail> ldetail = new ArrayList<>();
+
     public MyListAdapter(Context c, List<ItemDetail> ls) {
         context = c;//下面的layoutInflater类构造的时候用到了啊
         ldetail = ls;
@@ -46,12 +47,12 @@ public class MyListAdapter extends BaseAdapter{
 
         view = LayoutInflater.from(context).inflate(R.layout.item_detial, null);
         //绘制视图中的每一项
-        TextView DetialName =(TextView) view.findViewById(R.id.DetialName);
+        TextView DetialName = (TextView) view.findViewById(R.id.DetialName);
         DetialName.setText(ldetail.get(i).getmName());
-        TextView DetialContent =(TextView) view.findViewById(R.id.DetialContent);
+        TextView DetialContent = (TextView) view.findViewById(R.id.DetialContent);
         DetialContent.setText(ldetail.get(i).getmContent());
-        TextView DetialPrice =(TextView) view.findViewById(R.id.DetialPrice);
-        DetialPrice.setText("￥"+ldetail.get(i).getmPrice());
+        TextView DetialPrice = (TextView) view.findViewById(R.id.DetialPrice);
+        DetialPrice.setText("￥" + ldetail.get(i).getmPrice());
         ImageView DetialImg = (ImageView) view.findViewById(R.id.DetialImg);
         DetialImg.setImageResource(ldetail.get(i).getmPicture());
 

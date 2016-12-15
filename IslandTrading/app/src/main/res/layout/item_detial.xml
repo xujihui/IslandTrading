@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
     android:padding="5dp">
+
     <ImageView
+        android:id="@+id/DetialImg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:src="@mipmap/odetailone"
+        android:layout_gravity="center"
         android:layout_weight="1"
-        android:id="@+id/DetialImg"
-        android:layout_gravity="center"/>
+        android:src="@mipmap/odetailone" />
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:orientation="vertical">
+
         <TextView
+            android:id="@+id/DetialName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/DetialName"
+            android:layout_marginTop="10dp"
             android:text="三只松鼠 能量果仁182g"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"/>
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/DetialContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/DetialContent"
             android:layout_marginTop="10dp"
-            android:text="每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。"/>
+            android:text="每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。" />
     </LinearLayout>
+
     <TextView
+        android:id="@+id/DetialPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textColor="@android:color/holo_red_light"
-        android:text="￥33.90"
-        android:id="@+id/DetialPrice"
         android:layout_marginTop="15dp"
-        android:textSize="18sp"/>
+        android:layout_weight="1"
+        android:text="￥33.90"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="18sp" />
 </LinearLayout>

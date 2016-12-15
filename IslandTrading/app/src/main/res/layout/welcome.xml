@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/welcomebg">
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -11,10 +12,11 @@
         android:layout_alignParentTop="true">
 
     </TextView>
+
     <RelativeLayout
-        android:layout_below="@+id/status"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/status">
 
         <TextView
             android:id="@+id/top"

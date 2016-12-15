@@ -31,11 +31,11 @@ public class PictureComposition extends Activity {
         Paint paint = new Paint();
         paint.setColor(Color.BLACK);
 
-        canvas.drawBitmap(bitmap1,36,72, paint);
-        canvas.drawBitmap(bitmap2,0,0, paint);
+        canvas.drawBitmap(bitmap1, 36, 72, paint);
+        canvas.drawBitmap(bitmap2, 0, 0, paint);
 
         Drawable drawable = new BitmapDrawable(alterBitmap);
-        
+
     }
 
 }

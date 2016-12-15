@@ -26,20 +26,21 @@ public class CustomView extends View {
     private float mStokeWidth = 20;
     private float mRadius = 140;
     private RectF mRectf;
+
     public CustomView(Context context) {
-        this(context,null);
+        this(context, null);
         // TODO Auto-generated constructor stub
     }
 
     public CustomView(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
         // TODO Auto-generated constructor stub
     }
 
     public CustomView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         // TODO Auto-generated constructor stub
-        if(attrs != null) {
+        if (attrs != null) {
             TypedArray a = context.obtainStyledAttributes(attrs,
                     R.styleable.CustomView);
             mRadius = a.getDimension(R.styleable.CustomView_radius, 50);//后面那个参数200是获取不到的时候去用的
@@ -50,12 +51,11 @@ public class CustomView extends View {
 
     /**
      * 计算绘制位置的
-     *
      */
-    private void initRect(){
-        if(mRectf == null) {
+    private void initRect() {
+        if (mRectf == null) {
             mRectf = new RectF();
-            int viewSize = (int) (mRadius*2);
+            int viewSize = (int) (mRadius * 2);
             int left = (width - viewSize) / 2;//左边的坐标
             int right = left + viewSize;
             int top = (height - viewSize) / 2;
@@ -64,6 +64,7 @@ public class CustomView extends View {
         }
 
     }
+
     private void init() {
         mbackPaint = new Paint();
         mbackPaint.setColor(Color.WHITE);
@@ -92,7 +93,7 @@ public class CustomView extends View {
 //    super.onDraw(canvas);
         initRect();
 
-        float angle = mProgress / (float)mMax * 360;
+        float angle = mProgress / (float) mMax * 360;
 
         canvas.drawCircle(width / 2, height / 2, mRadius, mbackPaint);//cx：圆心的x坐标。 cy：圆心的y坐标。
 
@@ -106,20 +107,18 @@ public class CustomView extends View {
         //mX默认是字符串的左边在屏幕的位置，如果设置了
         //paint.setTextAlign(Paint.Align.CENTER);
         //那就是字符的中心，mY是指定这个字符baseline在屏幕上的位置。
-        canvas.drawText(mProgress+"%", width / 2, height / 2+10  , mTextPaint);
-        if(mProgress < mMax) {
+        canvas.drawText(mProgress + "%", width / 2, height / 2 + 10, mTextPaint);
+        if (mProgress < mMax) {
             mProgress += 2;
 
             invalidate();
         }
 
 
-
-
     }
 
     public void setYuanProgress(int a) {
-        mProgress = (float)a;
+        mProgress = (float) a;
         invalidate();
     }
 
@@ -139,8 +138,8 @@ public class CustomView extends View {
         int mode = MeasureSpec.getMode(measure);
         int size = MeasureSpec.getSize(measure);
 
-        if(mode == MeasureSpec.AT_MOST || size == MeasureSpec.UNSPECIFIED) {
-            result = (int) (mRadius*2 + mStokeWidth);//半径*2+环形宽度的话就是整个环形显示宽度大小
+        if (mode == MeasureSpec.AT_MOST || size == MeasureSpec.UNSPECIFIED) {
+            result = (int) (mRadius * 2 + mStokeWidth);//半径*2+环形宽度的话就是整个环形显示宽度大小
         } else {
             result = size;
         }

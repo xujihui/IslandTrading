@@ -6,5 +6,5 @@ package com.daomaidaomai.islandtrading.util;
 
 public class AppConstant {
     //QQ登录的key
-    public static String APP_ID="1105766125";
+    public static String APP_ID = "1105766125";
 }

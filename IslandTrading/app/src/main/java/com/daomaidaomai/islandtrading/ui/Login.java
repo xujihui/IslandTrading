@@ -58,7 +58,7 @@ public class Login extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -79,22 +79,24 @@ public class Login extends Activity {
         Btn = (Button) findViewById(R.id.loginhome);
         Tex = (TextView) findViewById(R.id.regist);
         Btnqq = (Button) findViewById(R.id.new_login_btn);
-        userName=(EditText)findViewById(R.id.login_user);
-        passWord=(EditText)findViewById(R.id.login_password);
+        userName = (EditText) findViewById(R.id.login_user);
+        passWord = (EditText) findViewById(R.id.login_password);
 
     }
+
     private void setOnclickLister() {
         Btn.setOnClickListener(button);
         Tex.setOnClickListener(button);
         Btnqq.setOnClickListener(button);
     }
-    View.OnClickListener button=new View.OnClickListener(){
+
+    View.OnClickListener button = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.loginhome:
-                   // login();
+                    // login();
                     Intent i = new Intent(Login.this, Home.class);
                     startActivity(i);
                     break;
@@ -109,6 +111,7 @@ public class Login extends Activity {
 
         }
     };
+
     // 这里是调用QQ登录的关键代码
     public void LoginQQ() {
         mAppid = AppConstant.APP_ID;
@@ -116,9 +119,10 @@ public class Login extends Activity {
         mTencent.login(Login.this, "all", new BaseUiListener());
 
     }
+
     //注销时的代码
     public void Logout() {
-         mTencent.logout(Login.this);
+        mTencent.logout(Login.this);
     }
 
     private class BaseUiListener implements IUiListener {
@@ -135,7 +139,7 @@ public class Login extends Activity {
             // dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.show();
             // TODO Auto-generated method stub
-             Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
 
             try {
 
@@ -159,7 +163,8 @@ public class Login extends Activity {
         }
 
     }
-    private void user(){
+
+    private void user() {
         QQToken qqToken = mTencent.getQQToken();
         UserInfo info = new UserInfo(getApplicationContext(), qqToken);
         info.getUserInfo(new IUiListener() {
@@ -227,7 +232,7 @@ public class Login extends Activity {
                     }
                 }
             } else if (msg.what == 1) {
-                 bitmap = (Bitmap) msg.obj;
+                bitmap = (Bitmap) msg.obj;
                 // userlogo.setImageBitmap(bitmap);
             }
 //            Intent intent1 = new Intent(Login.this, Myself.class);
@@ -237,20 +242,18 @@ public class Login extends Activity {
         }
 
     };
-    public void login()
-    {
+
+    public void login() {
         //取得用户输入的账号和密码
-        String name=userName.getText().toString();
-        String pass=passWord.getText().toString();
-        boolean result= UserService.check(name,pass);
-        if(result)
-        {
-            Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_SHORT).show();
+        String name = userName.getText().toString();
+        String pass = passWord.getText().toString();
+        boolean result = UserService.check(name, pass);
+        if (result) {
+            Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(Login.this, Home.class);
             startActivity(i);
-        }else
-        {
-            Toast.makeText(getApplicationContext(),"登录失败",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "登录失败", Toast.LENGTH_SHORT).show();
         }
     }
 }

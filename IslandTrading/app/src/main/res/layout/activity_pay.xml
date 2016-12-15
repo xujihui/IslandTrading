@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/backcolor"
     android:weightSum="1">
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -13,11 +14,12 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
-        android:layout_below="@+id/status"
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_below="@+id/status"
         android:background="@color/mainblue">
 
         <LinearLayout
@@ -228,17 +230,17 @@
                         android:paddingBottom="10dp"
                         android:paddingLeft="15dp"
                         android:paddingTop="10dp"
-                        android:textColor="@color/black"
                         android:text="买家留言："
+                        android:textColor="@color/black"
                         android:textSize="18sp" />
 
                     <EditText
-                        android:paddingLeft="15dp"
-                        android:textColor="@color/drakgrey"
-                        android:textSize="15sp"
-                        android:text="想对卖家说些什么~"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="想对卖家说些什么~"
+                        android:textColor="@color/drakgrey"
+                        android:textSize="15sp" />
 
 
                 </LinearLayout>

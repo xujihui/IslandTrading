@@ -47,14 +47,14 @@ public class SoldAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (null == view) {//判断是不是空控件
             //获取布局，将xml文件转换成view，即把xml文件当成view来使用
-            view = LayoutInflater.from(context).inflate(R.layout.sold_listview_item_layout,null);
+            view = LayoutInflater.from(context).inflate(R.layout.sold_listview_item_layout, null);
         }
         ImageView soldImage = (ImageView) view.findViewById(R.id.sold_image);
         soldImage.setImageResource(products.get(i).getmImage());
         TextView soldTitle = (TextView) view.findViewById(R.id.sold_title);
         soldTitle.setText(products.get(i).getmTitle());
         TextView soldPrice = (TextView) view.findViewById(R.id.sold_price);
-        soldPrice.setText(products.get(i).getmPrice()+"");
+        soldPrice.setText(products.get(i).getmPrice() + "");
         return view;
     }
 }

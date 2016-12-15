@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地图控件*/
+public class Map extends Activity implements BaiduMap.OnMapClickListener { /* 地图控件*/
     private ImageView Refresh;
     private ImageView Back;
     private TextureMapView mMapView = null; /* 地图实例*/
@@ -83,12 +83,13 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
 
 
     //初始化数据
-    private void initMarksData(){
-        markInfoList=new ArrayList<MapST>();
-        markInfoList.add(new MapST(1,38.000076, 114.52447, R.mipmap.mapcomputer,"联想笔记本电脑 超极本","Lenovo联想 商务游戏本"));
-        markInfoList.add(new MapST(2,38.003385, 114.527106, R.mipmap.chat6,"迷你包包","真的很好看，用了不长的时间"));
-        markInfoList.add(new MapST(3,38.004057, 114.529366,R.mipmap.chat8,"懒人腮红","一共就用过几次，现在出售"));
+    private void initMarksData() {
+        markInfoList = new ArrayList<MapST>();
+        markInfoList.add(new MapST(1, 38.000076, 114.52447, R.mipmap.mapcomputer, "联想笔记本电脑 超极本", "Lenovo联想 商务游戏本"));
+        markInfoList.add(new MapST(2, 38.003385, 114.527106, R.mipmap.chat6, "迷你包包", "真的很好看，用了不长的时间"));
+        markInfoList.add(new MapST(3, 38.004057, 114.529366, R.mipmap.chat8, "懒人腮红", "一共就用过几次，现在出售"));
     }
+
     /**
      * 添加标注覆盖物
      **/
@@ -104,8 +105,8 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
         Paint paint = new Paint();
         paint.setColor(Color.BLACK);
 
-        canvas.drawBitmap(bitmap1,18,36, paint);
-        canvas.drawBitmap(bitmap2,0,0, paint);
+        canvas.drawBitmap(bitmap1, 18, 36, paint);
+        canvas.drawBitmap(bitmap2, 0, 0, paint);
 
         // 定义Maker坐标点
       /*  LatLng point = new LatLng(38.000076, 114.52447);
@@ -132,26 +133,25 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
         Marker marker2 = (Marker) mBaiduMap.addOverlay(option2);*/
         initMarksData();
         mBaiduMap.clear();//清理图层
-        LatLng latLng=null;
-        Marker marker=null;
+        LatLng latLng = null;
+        Marker marker = null;
         OverlayOptions options;
         BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
         //遍历MarkInfo的List一个MarkInfo就是一个Mark
         for (int i = 0; i < markInfoList.size(); i++) {
             //经纬度对象
-            latLng=new LatLng(markInfoList.get(i).getLatitude(), markInfoList.get(i).getLongitude());//需要创建一个经纬对象，通过该对象就可以定位到处于地图上的某个具体点
+            latLng = new LatLng(markInfoList.get(i).getLatitude(), markInfoList.get(i).getLongitude());//需要创建一个经纬对象，通过该对象就可以定位到处于地图上的某个具体点
             //图标
-            options=new MarkerOptions().position(latLng).icon(myMarks).zIndex(6);
-            marker=(Marker) mBaiduMap.addOverlay(options);//将覆盖物添加到地图上
-            Bundle bundle=new Bundle();//创建一个Bundle对象将每个mark具体信息传过去，当点击该覆盖物图标的时候就会显示该覆盖物的详细信息
-            bundle.putSerializable("mark",markInfoList.get(i));
+            options = new MarkerOptions().position(latLng).icon(myMarks).zIndex(6);
+            marker = (Marker) mBaiduMap.addOverlay(options);//将覆盖物添加到地图上
+            Bundle bundle = new Bundle();//创建一个Bundle对象将每个mark具体信息传过去，当点击该覆盖物图标的时候就会显示该覆盖物的详细信息
+            bundle.putSerializable("mark", markInfoList.get(i));
             marker.setExtraInfo(bundle);
         }
-        MapStatusUpdate msu=MapStatusUpdateFactory.newLatLng(latLng);//通过这个经纬度对象，地图就可以定位到该点
+        MapStatusUpdate msu = MapStatusUpdateFactory.newLatLng(latLng);//通过这个经纬度对象，地图就可以定位到该点
         mBaiduMap.animateMapStatus(msu);
 
     }
-
 
 
     @Override
@@ -205,28 +205,28 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
 
 
     }
+
     /**
-     *
-     *初始化出一个InfoWindow
-     *
-     * */
-    private void initInfoWindow(MapST MyMarker,Marker marker) {
+     * 初始化出一个InfoWindow
+     */
+    private void initInfoWindow(MapST MyMarker, Marker marker) {
         // TODO Auto-generated method stub
         InfoWindow infoWindow;
         //InfoWindow中显示的View内容样式，显示一个TextView
-        TextView infoWindowTv=new TextView(Map.this);
+        TextView infoWindowTv = new TextView(Map.this);
         //infoWindowTv.setBackgroundResource(R.drawable.location_tips);
         infoWindowTv.setPadding(10, 10, 10, 10);
         infoWindowTv.setText(MyMarker.getmName());
-       //infoWindowTv.setTextColor(Color.parseColor("#FFFFFF"));
-        final LatLng latLng=marker.getPosition();
-        Point p=mBaiduMap.getProjection().toScreenLocation(latLng);//将地图上的经纬度转换成屏幕中实际的点
-        p.y-=47;//设置屏幕中点的Y轴坐标的偏移量
-        LatLng ll=mBaiduMap.getProjection().fromScreenLocation(p);//把修改后的屏幕的点有转换成地图上的经纬度对象
-        infoWindow=new InfoWindow(infoWindowTv, ll, 10);
+        //infoWindowTv.setTextColor(Color.parseColor("#FFFFFF"));
+        final LatLng latLng = marker.getPosition();
+        Point p = mBaiduMap.getProjection().toScreenLocation(latLng);//将地图上的经纬度转换成屏幕中实际的点
+        p.y -= 47;//设置屏幕中点的Y轴坐标的偏移量
+        LatLng ll = mBaiduMap.getProjection().fromScreenLocation(p);//把修改后的屏幕的点有转换成地图上的经纬度对象
+        infoWindow = new InfoWindow(infoWindowTv, ll, 10);
         mBaiduMap.showInfoWindow(infoWindow);//显示InfoWindow
     }
-//点击地图的其他部分，然后可以收回弹出框
+
+    //点击地图的其他部分，然后可以收回弹出框
     @Override
     public void onMapClick(LatLng arg0) {
         markLayout.setVisibility(View.GONE);
@@ -237,7 +237,6 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
     public boolean onMapPoiClick(MapPoi mapPoi) {
         return false;
     }
-
 
 
     /**
@@ -314,9 +313,6 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
             Log.i("BaiduLocationInfo", sb.toString());
         }
     }
-
-
-
 
 
     /**

@@ -13,6 +13,7 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
@@ -65,10 +66,10 @@
         android:textColorHint="@color/drakgrey" />
 
     <LinearLayout
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <ImageView
             android:layout_width="0dp"
@@ -102,10 +103,10 @@
         android:textColorHint="@color/drakgrey" />
 
     <RadioButton
-        android:layout_marginLeft="10dp"
+        android:id="@+id/radio_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radio_button"
+        android:layout_marginLeft="10dp"
         android:text="使用当前位置发布商品"
         android:textColor="@color/drakgrey" />
 
