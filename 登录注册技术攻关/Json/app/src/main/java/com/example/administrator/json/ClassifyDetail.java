@@ -5,7 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,34 +24,54 @@ public class ClassifyDetail extends Activity {
     private List<ItemDetail> ls = new ArrayList<ItemDetail>();
     private ListView lv ;
     private MyListAdapter myListAdapter;
-    private void getDate(){
-        ls.add(new ItemDetail(1,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
-        ls.add(new ItemDetail(2,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailone,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
-        ls.add(new ItemDetail(3,"三只松鼠 能量果仁182g",R.mipmap.odetailone,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
-        ls.add(new ItemDetail(4,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
-        ls.add(new ItemDetail(5,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailone,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
-        ls.add(new ItemDetail(6,"三只松鼠 能量果仁182g",R.mipmap.odetailone,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
-        ls.add(new ItemDetail(7,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
-        ls.add(new ItemDetail(8,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailone,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
-        ls.add(new ItemDetail(9,"三只松鼠 能量果仁182g",R.mipmap.odetailone,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
-    }
+    private TextView tv;
+//    private void getDate(){
+//        ls.add(new ItemDetail(1,"自愿者","植树","师生活动中心","青协","2014-12-12"));
+//        ls.add(new ItemDetail(2,"自愿者1","植树","师生活动中心","青协","2014-12-12"));
+//        ls.add(new ItemDetail(3,"自愿者2","植树","师生活动中心","青协","2014-12-12"));
+//
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
         lv = (ListView)findViewById(R.id.lv);
-        getDate();
+        tv=(TextView)findViewById(R.id.tv);
+       // getDate();
         myListAdapter = new MyListAdapter(this,ls);
         lv.setAdapter(myListAdapter);
+        AsyncHttpClient client = new AsyncHttpClient();
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        String url = "http://10.7.88.26:8080/supermarket/analysis/request_acts";
+        client.get(getApplicationContext(), url, new JsonHttpResponseHandler(){
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               /* Intent intent = new Intent();
-                intent.setClass(ClassifyDetail.this,ClassifyDetail.class);
-                startActivity(intent);*/
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                System.out.println(response.toString());
+                for(int i=0;i<response.length();i++){
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        JSONObject content=jsonObject.getJSONObject("content");
+                        String output=content.getString("ACTIVITY_NAME");
+                        String output1=content.getString("ACTIVITY_ORGANIZER");
+                        String output2=content.getString("ACTIVITY_SITE");
+                        String outpu3=content.getString("ACTIVITY_CONTENT");
+                        String output4=content.getString("ACTIVITY_TIME");
+                       Integer output5=content.getInt("ACTIVITY_ID");
+                        ls.add(new ItemDetail(output5,output,outpu3,output2,output1,output4));
+                        tv.setText(output);
+                        Toast.makeText(getApplicationContext(),jsonObject.toString(),Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
             }
         });
 
+
+
     }
+
 }

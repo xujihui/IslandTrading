@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/myinfo_lin"
@@ -13,14 +13,14 @@
         android:layout_weight="1"
         android:background="#cccccc"
         android:gravity="center_horizontal|bottom"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="18dp"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <com.daomaidaomai.islandtrading.controller.CircleImageView
                 android:id="@+id/imv"
@@ -45,25 +45,25 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@android:color/white"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-            <TextView 
-                android:layout_width="wrap_content" 
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="账号"/>
-            <TextView 
-                android:id="@+id/username"
-                android:textColor="@android:color/black"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                />
+                android:text="账号"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black" />
         </LinearLayout>
 
         <Button

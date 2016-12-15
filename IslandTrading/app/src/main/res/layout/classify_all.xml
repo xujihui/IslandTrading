@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backcolor">
+    android:background="@color/backcolor"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -11,6 +13,7 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
@@ -42,15 +45,15 @@
 
 
     </FrameLayout>
+
     <GridView
+        android:id="@+id/GvAllGoods"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="3"
-        android:id="@+id/GvAllGoods"
-        android:padding="12dp"
+        android:gravity="center"
         android:horizontalSpacing="20dp"
-        android:verticalSpacing="15dp"
+        android:numColumns="3"
+        android:padding="12dp"
         android:stretchMode="columnWidth"
-        android:gravity="center">
-    </GridView>
+        android:verticalSpacing="15dp"></GridView>
 </LinearLayout>

@@ -2,18 +2,17 @@ apply plugin: 'com.android.application'
 
 
 android {
-
+    signingConfigs {
+        config {
+            keyAlias 'key'
+            keyPassword '123456'
+            storeFile file('D:/key/keystore.jks')
+            storePassword '123456'
+        }
+    }
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
-        }
-    }
-    signingConfigs {
-        config {
-            keyAlias 'Key'
-            keyPassword '123456'
-            storeFile file('C:/android-studio-ide-143.2739321-windows/Key/Keystore.jks')
-            storePassword '123456'
         }
     }
     compileSdkVersion 24

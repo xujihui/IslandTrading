@@ -13,14 +13,15 @@ import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 
 import com.daomaidaomai.islandtrading.R;
-public class MainActivity extends Activity implements Animation.AnimationListener{
+
+public class MainActivity extends Activity implements Animation.AnimationListener {
     private RelativeLayout rl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);

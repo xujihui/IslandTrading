@@ -35,7 +35,7 @@ public class Order_Detail extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -48,9 +48,9 @@ public class Order_Detail extends Activity {
         }
         setContentView(R.layout.activity_orderdetail);
 
-       Back = (LinearLayout) findViewById(R.id.back);
+        Back = (LinearLayout) findViewById(R.id.back);
 
-         Back.setOnClickListener(mylistener);
+        Back.setOnClickListener(mylistener);
 
 
     }

@@ -5,6 +5,7 @@
     android:background="@color/backcolor"
 
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -13,6 +14,7 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
@@ -117,12 +119,12 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/peronal_user"
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:paddingTop="5dp"
-                            android:id="@+id/peronal_user"
                             android:text="泪...不哭"
                             android:textColor="@color/drakgrey"
                             android:textSize="18sp" />

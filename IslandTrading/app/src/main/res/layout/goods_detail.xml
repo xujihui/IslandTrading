@@ -6,6 +6,7 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".ui.GoodsDetail">
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
         android:id="@+id/Topbar"
         android:layout_width="match_parent"

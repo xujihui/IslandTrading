@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp">
-    <ImageView
+    <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:src="@mipmap/odetailone"
         android:layout_weight="1"
-        android:id="@+id/DetialImg"
+        android:text="组织者"
+        android:id="@+id/zuzhizhe"
         android:layout_gravity="center"/>
     <LinearLayout
         android:layout_width="0dp"
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/DetialName"
-            android:text="三只松鼠 能量果仁182g"
+            android:text="活动名称"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"/>
@@ -30,15 +30,24 @@
             android:layout_height="wrap_content"
             android:id="@+id/DetialContent"
             android:layout_marginTop="10dp"
-            android:text="每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。"/>
+            android:text="内容"/>
     </LinearLayout>
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textColor="@android:color/holo_red_light"
-        android:text="￥33.90"
-        android:id="@+id/DetialPrice"
+        android:text="时间"
+        android:id="@+id/DetialTime"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@android:color/holo_red_light"
+        android:text="地点"
+        android:id="@+id/DetialPlace"
         android:layout_marginTop="15dp"
         android:textSize="18sp"/>
 </LinearLayout>

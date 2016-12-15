@@ -14,11 +14,12 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
-        android:layout_below="@+id/status"
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_below="@+id/status"
         android:background="@color/mainblue">
 
         <LinearLayout
@@ -137,10 +138,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,10 +221,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -299,10 +304,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -380,10 +387,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -461,10 +470,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -542,10 +553,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -623,10 +636,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -704,10 +719,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -785,10 +802,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -866,10 +885,12 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -947,10 +968,11 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/lightgrey"/>
+                android:background="@color/lightgrey" />
         </LinearLayout>
 
         <!--<ListView

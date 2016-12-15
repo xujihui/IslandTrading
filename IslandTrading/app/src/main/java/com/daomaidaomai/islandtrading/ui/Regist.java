@@ -37,9 +37,9 @@ import static cn.smssdk.SMSSDK.submitVerificationCode;
 
 public class Regist extends Activity {
     private LinearLayout Back;
-    private final String TAG="--MainActivity--";
-    private final String appKey="1977b299804e6";
-    private final String appSecret="76348e09c80f3974726941347a73b9d7";
+    private final String TAG = "--MainActivity--";
+    private final String appKey = "1977b299804e6";
+    private final String appSecret = "76348e09c80f3974726941347a73b9d7";
 
     private EventHandler eh;
     private Button bt_getCode;
@@ -49,7 +49,7 @@ public class Regist extends Activity {
 
     private boolean isChange;//控制按钮样式是否改变
     private boolean tag = true; //每次验证请求需要间隔60S
-    private int i=60;
+    private int i = 60;
     private EditText pswd;   //输入密码
     private EditText repswd;  //确认密码
 
@@ -65,11 +65,12 @@ public class Regist extends Activity {
             }
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                     | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -104,7 +105,7 @@ public class Regist extends Activity {
                         Log.d(TAG, "提交验证码成功");
                         Intent i = new Intent(Regist.this, Home.class);
                         startActivity(i);
-                       // regist();
+                        // regist();
                     } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
                         Message msg = new Message();
                         //获取验证码成功
@@ -137,61 +138,59 @@ public class Regist extends Activity {
     }
 
     private void findViewById() {
-        bt_getCode= (Button) findViewById(R.id.bt_getCode);
+        bt_getCode = (Button) findViewById(R.id.bt_getCode);
         bt_getCode.setClickable(false);
-        vertify= (Button) findViewById(R.id.bt_verify);
-        pswd=(EditText)findViewById(R.id.password);//密码的获取
-        repswd=(EditText)findViewById(R.id.repassword);
+        vertify = (Button) findViewById(R.id.bt_verify);
+        pswd = (EditText) findViewById(R.id.password);//密码的获取
+        repswd = (EditText) findViewById(R.id.repassword);
         //设置密码的默认为不可见
         pswd.setTransformationMethod(PasswordTransformationMethod.getInstance());
         repswd.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
     }
+
     private void set() {
         bt_getCode.setOnClickListener(buton);
         vertify.setOnClickListener(buton);
     }
-    View.OnClickListener buton=new View.OnClickListener(){
+
+    View.OnClickListener buton = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.bt_getCode:
                     //获取验证码操作
-                    phone=((EditText)findViewById(R.id.et_phone)).getText().toString();
-                    if(phone.equals("")){
-                        Toast.makeText(Regist.this,"手机号不能为空",Toast.LENGTH_SHORT).show();
-                    }else{
+                    phone = ((EditText) findViewById(R.id.et_phone)).getText().toString();
+                    if (phone.equals("")) {
+                        Toast.makeText(Regist.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
+                    } else {
                         //填写了手机号码
-                        if(isMobileNO(phone)){
+                        if (isMobileNO(phone)) {
                             //如果手机号码无误，则发送验证请求
                             bt_getCode.setClickable(true);
                             changeBtnGetCode();
                             getSupportedCountries();
                             getVerificationCode("86", phone);
-                        }else{
+                        } else {
                             //手机号格式有误
-                            Toast.makeText(Regist.this,"手机号格式错误，请检查",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Regist.this, "手机号格式错误，请检查", Toast.LENGTH_SHORT).show();
                         }
                     }
                     break;
                 case R.id.bt_verify:
                     //验证操作
-                    code=((EditText)findViewById(R.id.et_code)).getText().toString();
+                    code = ((EditText) findViewById(R.id.et_code)).getText().toString();
 
-                    if (code.equals("")){
-                        Toast.makeText(Regist.this,"验证码不能为空",Toast.LENGTH_SHORT).show();
-                    }
-                    else if(pswd.getText().toString().trim().length()<6||pswd.getText().toString().trim().length()>12){
+                    if (code.equals("")) {
+                        Toast.makeText(Regist.this, "验证码不能为空", Toast.LENGTH_SHORT).show();
+                    } else if (pswd.getText().toString().trim().length() < 6 || pswd.getText().toString().trim().length() > 12) {
                         Toast.makeText(Regist.this, "密码不能少于6为多余12位！！", Toast.LENGTH_LONG).show();
-                    }
-                    else if(pswd.getText().toString().equals("")){
-                        Toast.makeText(Regist.this,"密码不能为空",Toast.LENGTH_SHORT).show();
-                    }
-                    else if(!repswd.getText().toString().equals(pswd.getText().toString())){
-                        Toast.makeText(Regist.this,"密码输入不一致",Toast.LENGTH_SHORT).show();
-                    }
-                    else{
+                    } else if (pswd.getText().toString().equals("")) {
+                        Toast.makeText(Regist.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+                    } else if (!repswd.getText().toString().equals(pswd.getText().toString())) {
+                        Toast.makeText(Regist.this, "密码输入不一致", Toast.LENGTH_SHORT).show();
+                    } else {
                         //填写了验证码，进行验证
                         submitVerificationCode("86", phone, code);
                     }
@@ -201,7 +200,7 @@ public class Regist extends Activity {
         }
     };
 
-    private Handler handler=new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.arg1) {
@@ -276,19 +275,18 @@ public class Regist extends Activity {
         if (TextUtils.isEmpty(phone)) return false;
         else return phone.matches(telRegex);
     }
-    private void  regist(){
+
+    private void regist() {
         //取得用户输入的账号和密码
-        String name1=phone;
-        String pass1=pswd.getText().toString();
-        boolean result= UserServiceRegist.check(name1,pass1);
-        if(result)
-        {
-            Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT).show();
+        String name1 = phone;
+        String pass1 = pswd.getText().toString();
+        boolean result = UserServiceRegist.check(name1, pass1);
+        if (result) {
+            Toast.makeText(getApplicationContext(), "注册成功", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(Regist.this, Login.class);
             startActivity(i);
-        }else
-        {
-            Toast.makeText(getApplicationContext(),"注册失败",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "注册失败", Toast.LENGTH_SHORT).show();
         }
 
     }

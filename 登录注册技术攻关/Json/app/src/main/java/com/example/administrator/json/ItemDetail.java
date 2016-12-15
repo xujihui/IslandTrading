@@ -1,14 +1,22 @@
 package com.example.administrator.json;
 
+import android.provider.ContactsContract;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by lenovo on 2016/11/19.
  */
 public class ItemDetail {
     private int Id;
     private String mName;
-    private int mPicture;
     private String mContent;
-    private double mPrice;
+    private String mPlace;
+    private String mOgnizition;
+    private String time;
+    //Date PRODUCT_TIME = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(str_time);
+
 
     public int getId() {
         return Id;
@@ -26,14 +34,6 @@ public class ItemDetail {
         this.mName = mName;
     }
 
-    public int getmPicture() {
-        return mPicture;
-    }
-
-    public void setmPicture(int mPicture) {
-        this.mPicture = mPicture;
-    }
-
     public String getmContent() {
         return mContent;
     }
@@ -42,33 +42,47 @@ public class ItemDetail {
         this.mContent = mContent;
     }
 
-    public double getmPrice() {
-        return mPrice;
+    public String getmPlace() {
+        return mPlace;
     }
 
-    public void setmPrice(double mPrice) {
-        this.mPrice = mPrice;
+    public void setmPlace(String mPlace) {
+        this.mPlace = mPlace;
     }
 
-    public ItemDetail(int id, String mName, int mPicture, String mContent, double mPrice) {
+    public String getmOgnizition() {
+        return mOgnizition;
+    }
+
+    public void setmOgnizition(String mOgnizition) {
+        this.mOgnizition = mOgnizition;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public ItemDetail(int id, String mName, String mContent, String mPlace, String mOgnizition, String time) {
         Id = id;
         this.mName = mName;
-        this.mPicture = mPicture;
         this.mContent = mContent;
-        this.mPrice = mPrice;
+        this.mPlace = mPlace;
+        this.mOgnizition = mOgnizition;
+        this.time = time;
     }
-
-    public ItemDetail() {
-    }
-
-    @Override
+        @Override
     public String toString() {
         return "ItemDetail{" +
                 "Id=" + Id +
                 ", mName='" + mName + '\'' +
-                ", mPicture=" + mPicture +
+                ", mPlace=" + mPlace +
+                ",mtime="+time+
                 ", mContent='" + mContent + '\'' +
-                ", mPrice=" + mPrice +
+                ", mOgnizition" + mOgnizition +
                 '}';
     }
 }

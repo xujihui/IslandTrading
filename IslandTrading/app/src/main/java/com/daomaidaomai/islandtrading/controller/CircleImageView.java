@@ -21,8 +21,8 @@ import com.daomaidaomai.islandtrading.R;
 
 /**
  * 圆形头像
- * @author kincai
  *
+ * @author kincai
  */
 public class CircleImageView extends ImageView {
 

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -13,13 +14,11 @@
     </TextView>
 
     <FrameLayout
-        android:layout_below="@+id/status"
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_below="@+id/status"
         android:background="@color/mainblue">
-
-
 
 
         <LinearLayout
@@ -50,9 +49,9 @@
 
 
     <TextView
-        android:layout_below="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/Topbar"
         android:layout_margin="40dip"
         android:text="        此软件为岛买岛卖开发小组开发，如有任何问题，欢迎通过反馈留言。 "
         android:textSize="18sp" />

@@ -13,6 +13,7 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
         android:id="@+id/Topbar"
         android:layout_width="match_parent"

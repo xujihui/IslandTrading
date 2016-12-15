@@ -17,10 +17,10 @@
     </TextView>
 
     <FrameLayout
-        android:layout_below="@+id/status"
         android:id="@+id/Topbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_below="@+id/status"
         android:background="@color/mainblue">
 
         <LinearLayout
@@ -50,15 +50,12 @@
     </FrameLayout>
 
 
-
-        <ImageView
-            android:layout_below="@+id/Topbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:src="@mipmap/quxiaobg" />
-
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/Topbar"
+        android:layout_gravity="center"
+        android:src="@mipmap/quxiaobg" />
 
 
 </RelativeLayout>

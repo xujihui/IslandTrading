@@ -6,6 +6,7 @@
     android:background="@color/backcolor"
     android:orientation="vertical"
     android:weightSum="1">
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -210,9 +212,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
-                android:textColor="@color/white"
                 android:background="@drawable/buttonshape"
-                android:text="获取验证码" />
+                android:text="获取验证码"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>

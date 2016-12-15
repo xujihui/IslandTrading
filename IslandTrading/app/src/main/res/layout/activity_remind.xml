@@ -6,6 +6,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:weightSum="1">
+
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
         android:background="@color/mainblue">
 
     </TextView>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -46,14 +48,11 @@
     </FrameLayout>
 
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:src="@mipmap/mianjiaobg" />
-
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@mipmap/mianjiaobg" />
 
 
 </LinearLayout>

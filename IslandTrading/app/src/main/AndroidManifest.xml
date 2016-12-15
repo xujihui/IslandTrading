@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.daomaidaomai.islandtrading">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -54,7 +54,12 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6" />
+<<<<<<< HEAD
+            android:value="Dj2WcYxqEAnXDIwRfsWggPs1rr680Hvb" />
+
+=======
+            android:value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi" />
+>>>>>>> 548bf3587431ba499986625cf34fd5502f3d7b26
 
         <activity android:name=".ui.MainActivity">
             <intent-filter>

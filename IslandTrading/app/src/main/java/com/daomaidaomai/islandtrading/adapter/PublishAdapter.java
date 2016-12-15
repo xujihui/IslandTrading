@@ -47,14 +47,14 @@ public class PublishAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (null == view) {//判断是不是空控件
             //获取布局，将xml文件转换成view，即把xml文件当成view来使用
-            view = LayoutInflater.from(context).inflate(R.layout.publish_listview_item_layout,null);
+            view = LayoutInflater.from(context).inflate(R.layout.publish_listview_item_layout, null);
         }
         ImageView pulishImage = (ImageView) view.findViewById(R.id.publish_image);
         pulishImage.setImageResource(products.get(i).getmImage());
         TextView publishTitle = (TextView) view.findViewById(R.id.publish_title);
         publishTitle.setText(products.get(i).getmTitle());
         TextView publishPrice = (TextView) view.findViewById(R.id.publish_price);
-        publishPrice.setText(products.get(i).getmPrice()+"");
+        publishPrice.setText(products.get(i).getmPrice() + "");
         TextView publishContent = (TextView) view.findViewById(R.id.publish_content);
         publishContent.setText(products.get(i).getmContent());
         TextView publishTime = (TextView) view.findViewById(R.id.publish_time);

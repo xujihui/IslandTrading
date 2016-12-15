@@ -21,7 +21,7 @@ import java.util.List;
 
 public class AddAdapter extends BaseAdapter {
     private Context context;
-    private List<Addres> laddres=new ArrayList<>();
+    private List<Addres> laddres = new ArrayList<>();
 
 
     public AddAdapter(Context context, List<Addres> laddres) {
@@ -46,18 +46,18 @@ public class AddAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(null==convertView){
+        if (null == convertView) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_choice, null);
         }
-        TextView tvName=(TextView)convertView.findViewById(R.id.lv_name2);
+        TextView tvName = (TextView) convertView.findViewById(R.id.lv_name2);
         tvName.setText(laddres.get(position).getsName());
-        TextView tvNum=(TextView)convertView.findViewById(R.id.tv_number2);
+        TextView tvNum = (TextView) convertView.findViewById(R.id.tv_number2);
         tvNum.setText(laddres.get(position).getsNumber());
-        TextView tvStyle=(TextView)convertView.findViewById(R.id.style2);
+        TextView tvStyle = (TextView) convertView.findViewById(R.id.style2);
         tvStyle.setText(laddres.get(position).getsStyle());
-        TextView tvAddres=(TextView)convertView.findViewById(R.id.list_chioce_addres);
+        TextView tvAddres = (TextView) convertView.findViewById(R.id.list_chioce_addres);
         tvAddres.setText(laddres.get(position).getsAddres());
         return convertView;
-        }
     }
+}
 
