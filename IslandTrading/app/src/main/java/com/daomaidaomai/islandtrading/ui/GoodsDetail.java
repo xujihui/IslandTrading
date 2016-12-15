@@ -11,25 +11,31 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.daomaidaomai.islandtrading.R;
+import com.daomaidaomai.islandtrading.controller.ChatActivity;
+import com.daomaidaomai.islandtrading.easeui.EaseConstant;
 
 
 public class GoodsDetail extends Activity {
+    //以后通过网络请求获取用户Id
+    String conversation = "小明";
 
+    private LinearLayout ChatMessage;
     private LinearLayout Lin;
     private LinearLayout Back;
 
     public View.OnClickListener mylistener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.buy: {
+                case R.id.buy:
                     Intent i = new Intent(GoodsDetail.this, Order.class);
                     startActivity(i);
                     break;
-                }
-                case R.id.back: {
+                case R.id.back:
                     GoodsDetail.this.finish();
                     break;
-                }
+                case R.id.chatmessage:
+                    startActivity(new Intent(getApplication(), ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, conversation));
+                    break;
                 default:
                     break;
             }
@@ -54,10 +60,11 @@ public class GoodsDetail extends Activity {
         setContentView(R.layout.goods_detail);
         Lin = (LinearLayout) findViewById(R.id.buy);
         Back = (LinearLayout) findViewById(R.id.back);
+        ChatMessage = (LinearLayout) findViewById(R.id.chatmessage);
 
         Lin.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
-
+        ChatMessage.setOnClickListener(mylistener);
 
     }
 }
