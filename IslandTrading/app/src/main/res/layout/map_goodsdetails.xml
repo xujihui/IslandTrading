@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -9,6 +10,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:id="@+id/map_item"
         android:background="@color/backcolor"
         android:orientation="vertical">
 
@@ -23,6 +25,7 @@
             <ImageView
                 android:layout_width="75dp"
                 android:layout_height="75dp"
+                android:id="@+id/map_img"
                 android:background="@mipmap/computer_two" />
 
             <LinearLayout
@@ -34,6 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:id="@+id/map_title"
                     android:text="联想笔记本电脑 超极本"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
@@ -42,6 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:id="@+id/map_content"
                     android:text="Lenovo/联想 商务游戏本i7独显2G笔记本电脑15.6寸"
                     android:textColor="@color/drakgrey" />
             </LinearLayout>

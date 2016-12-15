@@ -51,8 +51,14 @@ import com.daomaidaomai.islandtrading.entity.MapST;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.daomaidaomai.islandtrading.ui.Login.TAG;
 
+<<<<<<< HEAD
 public class Map extends Activity implements BaiduMap.OnMapClickListener { /* 地图控件*/
+=======
+
+public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地图控件*///
+>>>>>>> 548bf3587431ba499986625cf34fd5502f3d7b26
     private ImageView Refresh;
     private ImageView Back;
     private TextureMapView mMapView = null; /* 地图实例*/
@@ -75,6 +81,11 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
                 case R.id.back:
                     Map.this.finish();
                     break;
+                case R.id.mark_layout:
+                    Intent i = new Intent(Map.this, GoodsDetail.class);
+                    startActivity(i);
+                    break;
+
                 default:
                     break;
             }
@@ -136,9 +147,16 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         LatLng latLng = null;
         Marker marker = null;
         OverlayOptions options;
-        BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
+       // BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
         //遍历MarkInfo的List一个MarkInfo就是一个Mark
         for (int i = 0; i < markInfoList.size(); i++) {
+            int image_id = 0;
+            switch (i){
+                case 2: image_id = R.mipmap.mapcomputer;break;
+                case 1: image_id = R.mipmap.chat2;break;
+                case 0: image_id = R.mipmap.chat3;break;
+            }
+            BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(image_id);
             //经纬度对象
             latLng = new LatLng(markInfoList.get(i).getLatitude(), markInfoList.get(i).getLongitude());//需要创建一个经纬对象，通过该对象就可以定位到处于地图上的某个具体点
             //图标
@@ -173,6 +191,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         markLayout = (LinearLayout) findViewById(R.id.mark_layout);//获取标志物的点击事件id
         Refresh.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
+        markLayout.setOnClickListener(mylistener);//弹出框的点击事件
 
         // 隐藏logo
         View child = mMapView.getChildAt(1);
@@ -201,11 +220,19 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
                 markLayout.setVisibility(View.VISIBLE);
                 return true;
             }
+
+
         });
+        //
+
+        }
 
 
+<<<<<<< HEAD
     }
 
+=======
+>>>>>>> 548bf3587431ba499986625cf34fd5502f3d7b26
     /**
      * 初始化出一个InfoWindow
      */
@@ -224,13 +251,17 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         LatLng ll = mBaiduMap.getProjection().fromScreenLocation(p);//把修改后的屏幕的点有转换成地图上的经纬度对象
         infoWindow = new InfoWindow(infoWindowTv, ll, 10);
         mBaiduMap.showInfoWindow(infoWindow);//显示InfoWindow
+
+
+
     }
 
     //点击地图的其他部分，然后可以收回弹出框
     @Override
     public void onMapClick(LatLng arg0) {
-        markLayout.setVisibility(View.GONE);
-        mBaiduMap.hideInfoWindow();//隐藏InfoWindow
+    markLayout.setVisibility(View.GONE);
+    mBaiduMap.hideInfoWindow();//隐藏InfoWindow
+    Log.e(TAG, "--------------看看这个方法有没有加载进去");
     }
 
     @Override
