@@ -52,4 +52,6 @@ dependencies {
     compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
     compile files('libs/open_sdk.jar')
     compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/glide-3.6.1.jar')
+    compile files('libs/google-play-services.jar')
 }
