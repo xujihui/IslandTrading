@@ -2,17 +2,13 @@ package com.daomaidaomai.islandtrading.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -21,13 +17,8 @@ import com.daomaidaomai.islandtrading.controller.MyBuy;
 import com.daomaidaomai.islandtrading.controller.MyPublish;
 import com.daomaidaomai.islandtrading.controller.MySold;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import static com.daomaidaomai.islandtrading.R.id.regist;
 import static com.daomaidaomai.islandtrading.ui.Login.bitmap;
 import static com.daomaidaomai.islandtrading.ui.Login.mQQAuth;
-import static com.daomaidaomai.islandtrading.ui.Login.nicknameString;
 
 
 public class Myself extends Activity {
@@ -73,7 +64,7 @@ public class Myself extends Activity {
                     break;
                 }
                 case R.id.chat: {
-                    Intent i = new Intent(Myself.this, Chat.class);
+                    Intent i = new Intent(Myself.this, ConversationList.class);
                     startActivity(i);
                     break;
                 }

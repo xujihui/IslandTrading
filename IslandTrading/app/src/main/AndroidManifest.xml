@@ -161,7 +161,8 @@
         <activity
             android:name=".ui.Map_GoodsDetail"
             android:theme="@style/myTransparent" />
-        <activity android:name=".ui.Chat" />
+        <activity android:name=".ui.ConversationList"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".ui.Order" />
         <activity android:name=".ui.Order_Detail" />
         <activity android:name=".ui.Facedeal" />
