@@ -53,12 +53,8 @@ import java.util.List;
 
 import static com.daomaidaomai.islandtrading.ui.Login.TAG;
 
-<<<<<<< HEAD
 public class Map extends Activity implements BaiduMap.OnMapClickListener { /* 地图控件*/
-=======
 
-public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地图控件*///
->>>>>>> 548bf3587431ba499986625cf34fd5502f3d7b26
     private ImageView Refresh;
     private ImageView Back;
     private TextureMapView mMapView = null; /* 地图实例*/
@@ -96,67 +92,54 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
     //初始化数据
     private void initMarksData() {
         markInfoList = new ArrayList<MapST>();
-        markInfoList.add(new MapST(1, 38.000076, 114.52447, R.mipmap.mapcomputer, "联想笔记本电脑 超极本", "Lenovo联想 商务游戏本"));
-        markInfoList.add(new MapST(2, 38.003385, 114.527106, R.mipmap.chat6, "迷你包包", "真的很好看，用了不长的时间"));
-        markInfoList.add(new MapST(3, 38.004057, 114.529366, R.mipmap.chat8, "懒人腮红", "一共就用过几次，现在出售"));
+        markInfoList.add(new MapST(1, 38.000094, 114.524492, R.mipmap.pxdingsi, "联想笔记本电脑 超极本", "Lenovo联想 商务游戏本"));
+        markInfoList.add(new MapST(2, 38.000183, 114.528957, R.mipmap.baobao, "Lv包包", "美国代购 奢侈品 Lv秋季新款"));
+        markInfoList.add(new MapST(3, 38.004288, 114.521514, R.mipmap.tiane, "黑天鹅", "施华洛世奇经典 黑/白天鹅"));
     }
+
 
     /**
      * 添加标注覆盖物
      **/
     private void addMarkerOverlay() {
-        // 图片合成-画布 先去画A 再去画B
-        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.mipmap.baobao); // bitmap为只读的
-        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.mipmap.local);
 
-        Bitmap alterBitmap = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), bitmap2.getConfig());
 
-        Canvas canvas = new Canvas(alterBitmap);
-
-        Paint paint = new Paint();
-        paint.setColor(Color.BLACK);
-
-        canvas.drawBitmap(bitmap1, 18, 36, paint);
-        canvas.drawBitmap(bitmap2, 0, 0, paint);
-
-        // 定义Maker坐标点
-      /*  LatLng point = new LatLng(38.000076, 114.52447);
-        LatLng point1 = new LatLng(38.003385, 114.527106);
-        LatLng point2 = new LatLng(38.004057, 114.529366);
-
-        // 构建Marker图标
-        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromBitmap(alterBitmap);
-        // 构建MarkerOption，用于在地图上添加Marker
-        // OverlayOptions option = new MarkerOptions().anchor(0.5f, 1.0f)
-        OverlayOptions option = new MarkerOptions()//设置锚点
-                .position(point)// 设置marker的位置
-                .icon(bitmap); // 必须设置marker图标
-        OverlayOptions option1 = new MarkerOptions()//设置锚点
-                .position(point1)// 设置marker的位置
-                .icon(bitmap); // 必须设置marker图标
-        OverlayOptions option2 = new MarkerOptions()//设置锚点
-                .position(point2)// 设置marker的位置
-                .icon(bitmap); // 必须设置marker图标
-        // 在地图上添加Marker，并显示
-        Marker marker = (Marker) mBaiduMap.addOverlay(option);
-
-        Marker marker1 = (Marker) mBaiduMap.addOverlay(option1);
-        Marker marker2 = (Marker) mBaiduMap.addOverlay(option2);*/
         initMarksData();
         mBaiduMap.clear();//清理图层
         LatLng latLng = null;
         Marker marker = null;
         OverlayOptions options;
-       // BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
+        // BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
         //遍历MarkInfo的List一个MarkInfo就是一个Mark
         for (int i = 0; i < markInfoList.size(); i++) {
             int image_id = 0;
-            switch (i){
-                case 2: image_id = R.mipmap.mapcomputer;break;
-                case 1: image_id = R.mipmap.chat2;break;
-                case 0: image_id = R.mipmap.chat3;break;
+            switch (i) {
+                case 0:
+                    image_id = R.mipmap.pxdingsi;
+                    break;
+                case 1:
+                    image_id = R.mipmap.baobao;
+                    break;
+                case 2:
+                    image_id = R.mipmap.tiane;
+                    break;
+
             }
-            BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(image_id);
+            // 图片合成-画布 先去画A 再去画B
+            Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), image_id); // bitmap为只读的
+            Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.mipmap.local);
+
+            Bitmap alterBitmap = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), bitmap2.getConfig());
+
+            Canvas canvas = new Canvas(alterBitmap);
+
+            Paint paint = new Paint();
+            paint.setColor(Color.BLACK);
+
+            canvas.drawBitmap(bitmap1, 18, 36, paint);
+            canvas.drawBitmap(bitmap2, 0, 0, paint);
+
+            BitmapDescriptor myMarks = BitmapDescriptorFactory.fromBitmap(alterBitmap);
             //经纬度对象
             latLng = new LatLng(markInfoList.get(i).getLatitude(), markInfoList.get(i).getLongitude());//需要创建一个经纬对象，通过该对象就可以定位到处于地图上的某个具体点
             //图标
@@ -198,9 +181,9 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
         if (child != null && (child instanceof ImageView || child instanceof ZoomControls)) {
             child.setVisibility(View.INVISIBLE);
         }
-        //添加覆盖物响应事件
         addMarkerOverlay();
 
+        //添加覆盖物响应事件
         mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
 
             @Override
@@ -225,14 +208,9 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
         });
         //
 
-        }
-
-
-<<<<<<< HEAD
     }
 
-=======
->>>>>>> 548bf3587431ba499986625cf34fd5502f3d7b26
+
     /**
      * 初始化出一个InfoWindow
      */
@@ -253,15 +231,14 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地
         mBaiduMap.showInfoWindow(infoWindow);//显示InfoWindow
 
 
-
     }
 
     //点击地图的其他部分，然后可以收回弹出框
     @Override
     public void onMapClick(LatLng arg0) {
-    markLayout.setVisibility(View.GONE);
-    mBaiduMap.hideInfoWindow();//隐藏InfoWindow
-    Log.e(TAG, "--------------看看这个方法有没有加载进去");
+        markLayout.setVisibility(View.GONE);
+        mBaiduMap.hideInfoWindow();//隐藏InfoWindow
+        Log.e(TAG, "--------------看看这个方法有没有加载进去");
     }
 
     @Override
