@@ -72,7 +72,7 @@ public class Map extends Activity { /* 地图控件*/
      **/
     private void addMarkerOverlay() {
         // 图片合成-画布 先去画A 再去画B
-        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.mipmap.pxdingsi); // bitmap为只读的
+        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.mipmap.baobao); // bitmap为只读的
         Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.mipmap.local);
 
         Bitmap alterBitmap = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), bitmap2.getConfig());
