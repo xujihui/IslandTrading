@@ -185,6 +185,7 @@
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".controller.ChatActivity"/>
         <activity android:name=".easeui.ui.EaseShowBigImageActivity"/>
+        <activity android:name=".easeui.ui.EaseBaiduMapActivity"/>
         <!--QQ登录的权限-->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
