@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.entity.ItemDetail;
+import com.daomaidaomai.islandtrading.util.ImgLO;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +56,8 @@ public class MyListAdapter extends BaseAdapter {
         TextView DetialPrice = (TextView) view.findViewById(R.id.DetialPrice);
         DetialPrice.setText("￥" + ldetail.get(i).getmPrice());
         ImageView DetialImg = (ImageView) view.findViewById(R.id.DetialImg);
-        DetialImg.setImageResource(ldetail.get(i).getmPicture());
+        ImgLO.initImageLoader(context);
+        ImageLoader.getInstance().displayImage(ldetail.get(i).getmPicture(),DetialImg);
 
         return view;
     }
