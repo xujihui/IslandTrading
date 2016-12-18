@@ -6,7 +6,7 @@ package com.daomaidaomai.islandtrading.entity;
 public class ItemDetail {
     private int Id;
     private String mName;
-    private int mPicture;
+    private String mPicture;
     private String mContent;
     private double mPrice;
 
@@ -26,11 +26,11 @@ public class ItemDetail {
         this.mName = mName;
     }
 
-    public int getmPicture() {
+    public String getmPicture() {
         return mPicture;
     }
 
-    public void setmPicture(int mPicture) {
+    public void setmPicture(String mPicture) {
         this.mPicture = mPicture;
     }
 
@@ -50,7 +50,7 @@ public class ItemDetail {
         this.mPrice = mPrice;
     }
 
-    public ItemDetail(int id, String mName, int mPicture, String mContent, double mPrice) {
+    public ItemDetail(int id, String mName, String mPicture, String mContent, double mPrice) {
         Id = id;
         this.mName = mName;
         this.mPicture = mPicture;
