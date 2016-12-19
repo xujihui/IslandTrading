@@ -32,80 +32,55 @@
         android:paddingTop="10dp"
         android:src="@mipmap/maprefresh" />
 
+
     <LinearLayout
         android:id="@+id/mark_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dip"
-        android:layout_marginTop="60dip"
-        android:background="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_margin="2dp"
+        android:background="@mipmap/map_good_bg"
         android:clickable="true"
         android:gravity="center"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:visibility="gone">
 
-        <ImageView
-            android:id="@+id/map_goodsdetails_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginTop="10dp"
-            android:scaleType="fitXY" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/map_goodsdetails_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/map_goodsdetails_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:visibility="visible"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/back1"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="@drawable/buttonshape"
-                android:text="返回"
-                android:textColor="@color/white" />
+            <ImageView
+                android:id="@+id/map_goodsdetails_img"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="fitXY" />
 
-            <Button
-                android:padding="0dp"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/buttonshape"
-                android:text="和ta联系"
-                android:textColor="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/details"
-                android:padding="0dp"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/buttonshape"
-                android:text="查看详情"
-                android:textColor="@color/white" />
-            </LinearLayout>-->
+                <TextView
+                    android:id="@+id/map_goodsdetails_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/map_goodsdetails_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/drakgrey" />
+            </LinearLayout>
+        </LinearLayout>
 
 
     </LinearLayout>
