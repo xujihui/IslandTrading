@@ -6,10 +6,19 @@
     android:animateLayoutChanges="true"
     android:background="#f2f0eb" >
 
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/mainblue">
+
+    </TextView>
     <com.daomaidaomai.islandtrading.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/status"
         hyphenate:titleBarLeftImage="@mipmap/backwhite" />
 
     <RelativeLayout

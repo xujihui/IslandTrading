@@ -1,6 +1,7 @@
 package com.daomaidaomai.http;
 
 import android.app.Activity;
+import android.net.http.HttpResponseCache;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,6 +11,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.loopj.android.http.HttpGet;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
+import java.net.HttpCookie;
 
 public class MainActivity extends Activity {
 
@@ -52,6 +61,7 @@ public class MainActivity extends Activity {
             }
         });
     }
+    private HttpResponse httpResponse;
 
     //方法：发送网络请求，获取百度首页的数据。在里面开启线程
     private void sendRequestWithHttpClient() {
@@ -61,13 +71,13 @@ public class MainActivity extends Activity {
             public void run() {
                 //用HttpClient发送请求，分为五步
                 //第一步：创建HttpClient对象
-                HttpClient httpCient = new DefaultHttpClient();
+                HttpClient httpClient = new DefaultHttpClient();
                 //第二步：创建代表请求的对象,参数是访问的服务器地址
                 HttpGet httpGet = new HttpGet("http://www.baidu.com");
 
                 try {
                     //第三步：执行请求，获取服务器发还的相应对象
-                    HttpResponse httpResponse = httpCient.execute(httpGet);
+                    httpResponse = httpClient.execute(httpGet)
                     //第四步：检查相应的状态是否正常：检查状态码的值是200表示正常
                     if (httpResponse.getStatusLine().getStatusCode() == 200) {
                         //第五步：从相应对象当中取出数据，放到entity当中
