@@ -47,13 +47,15 @@
     </FrameLayout>
 
     <GridView
+        android:scrollbars="none"
         android:id="@+id/GvAllGoods"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:horizontalSpacing="20dp"
+        android:horizontalSpacing="10dp"
         android:numColumns="3"
-        android:padding="12dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:stretchMode="columnWidth"
         android:verticalSpacing="15dp"></GridView>
 </LinearLayout>
