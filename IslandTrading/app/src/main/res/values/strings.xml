@@ -24,6 +24,21 @@
 
 
 
+    <string-array name="sort">
+        <item>电脑</item>
+        <item>女装</item>
+        <item>男装</item>
+        <item>自行车</item>
+        <item>手机</item>
+        <item>3C数码</item>
+        <item>鞋包</item>
+        <item>化妆品</item>
+        <item>玩具</item>
+        <item>图书</item>
+        <item>技能服务</item>
+        <item>其他</item>
+    </string-array>
+
 
 
     <string name="text_ack_msg">读</string>

@@ -34,7 +34,7 @@ public class MyImgScroll extends ViewPager {
 
 	/**
 	 * 开始广告滚动
-	 * 
+	 *
 	 * @param mainActivity
 	 *            显示广告的主界面
 	 * @param imgList
@@ -53,7 +53,7 @@ public class MyImgScroll extends ViewPager {
 	 *            ovalLayout为空时写0, 圆点layout XMl 正常时背景
 	 */
 	public void start(Activity mainActivity, List<View> imgList,
-					  int scrollTime, TextView title, String[] titles, LinearLayout ovalLayout, int ovalLayoutId,
+					  int scrollTime, TextView title,List<String> titles, LinearLayout ovalLayout, int ovalLayoutId,
 					  int ovalLayoutItemId, int focusedId, int normalId) {
 		mActivity = mainActivity;
 		mListViews = imgList;
@@ -84,7 +84,7 @@ public class MyImgScroll extends ViewPager {
 	}
 
 	// 设置圆点
-	private void setOvalLayout(final TextView title, final String[] titles, final LinearLayout ovalLayout, int ovalLayoutId,
+	private void setOvalLayout(final TextView title, final List<String> titles, final LinearLayout ovalLayout, int ovalLayoutId,
 							   final int ovalLayoutItemId, final int focusedId, final int normalId) {
 		if (ovalLayout != null) {
 			LayoutInflater inflater= LayoutInflater.from(mActivity);
@@ -106,7 +106,7 @@ public class MyImgScroll extends ViewPager {
 					ovalLayout.getChildAt(curIndex).findViewById(ovalLayoutItemId)
 					.setBackgroundResource(focusedId);
 					//设置选中时显示的标题
-					title.setText(titles[curIndex]);
+					title.setText(titles.get(curIndex));
 					oldIndex = curIndex;
 				}
 
