@@ -52,4 +52,10 @@ dependencies {
     compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
     compile files('libs/open_sdk.jar')
     compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/glide-3.6.1.jar')
+    compile files('libs/google-play-services.jar')
+    compile files('libs/android-async-http-1.4.8.jar')
+    compile files('libs/universal-image-loader-1.9.5.jar')
+    compile files('libs/universal-image-loader-1.9.5-javadoc.jar')
+    compile files('libs/universal-image-loader-1.9.5-sources.jar')
 }

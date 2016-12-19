@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -16,21 +14,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.adapter.HomeAdapter;
 import com.daomaidaomai.islandtrading.controller.ClassifyAllActivity;
 import com.daomaidaomai.islandtrading.defineview.MyImgScroll;
 import com.daomaidaomai.islandtrading.entity.Product;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLStreamHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,14 +47,15 @@ public class Home extends Activity {
     LinearLayout ovalLayout; // 圆点容器
     private List<View> listViews; // 图片组
     private TextView title; //用于存放获取的视图控件
-    //存放图片的标题
-    private String[] titles = new String[]{
-            "BEATS SOLO2 WIRELESS",
-            "国际大牌 低至一折",
-            "极有家推荐 品质生活 便宜不贵",
-            "施华洛世奇 秋冬新款",
-    };
+//    //存放图片的标题
+//    private String[] titles = new String[]{
+//            "BEATS SOLO2 WIRELESS",
+//            "国际大牌 低至一折",
+//            "极有家推荐 品质生活 便宜不贵",
+//            "施华洛世奇 秋冬新款",
+//    };
 
+    private List<String> strs = new ArrayList<String>();
 
     private ImageView Classfy;
     private ImageView Home;
@@ -71,7 +76,7 @@ public class Home extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.chat: {
-                    Intent i = new Intent(Home.this, Chat.class);
+                    Intent i = new Intent(Home.this, ConversationList.class);
                     startActivity(i);
                     break;
                 }
@@ -166,6 +171,7 @@ public class Home extends Activity {
         }
         setContentView(R.layout.activity_home_page);
 
+
         lv = (ListView) findViewById(R.id.home_lv);
         // ListView头部View
         View view = LayoutInflater.from(this).inflate(R.layout.viewpager, null);
@@ -175,10 +181,43 @@ public class Home extends Activity {
         title = (TextView) view.findViewById(R.id.title);
         //初始化图片
         InitViewPager();
-        //开始滚动
-        myPager.start(this, listViews, 4000, title, titles, ovalLayout,
-                R.layout.ad_scroll_dot_item, R.id.ad_item_v,
-                R.drawable.dot_focused, R.drawable.dot_normal);
+
+
+
+        //创建网络访问的类的对象
+        AsyncHttpClient client = new AsyncHttpClient();
+        String url = "http://10.7.92.57:8080/IslandTrading/analysis/request_acts";
+        client.get(getApplicationContext(),url,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                for (int i = 0 ; i < response.length(); i++){
+                    try {
+                        JSONObject a = response.getJSONObject(i);
+                        JSONObject goods = a.getJSONObject("good");
+                        JSONObject content = goods.getJSONObject("content");
+                        String output = content.getString("Activity_Name");
+                        strs.add(output);
+                        //开始滚动
+                        myPager.start(Home.this, listViews, 4000, title, strs, ovalLayout,
+                                R.layout.ad_scroll_dot_item, R.id.ad_item_v,
+                                R.drawable.dot_focused, R.drawable.dot_normal);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        });
+
+
+
+
+
+//        //开始滚动
+//        myPager.start(this, listViews, 4000, title, strs, ovalLayout,
+//                R.layout.ad_scroll_dot_item, R.id.ad_item_v,
+//                R.drawable.dot_focused, R.drawable.dot_normal);
         // 把ViewPager做成ListView的Header,注意:addHeaderView一定要在setAdapter前调用
         lv.addHeaderView(view);
 
@@ -243,7 +282,7 @@ public class Home extends Activity {
     private void InitViewPager() {
         //显示的图片
         listViews = new ArrayList<View>();
-        int[] imageResId = new int[]{R.mipmap.viewpager1, R.mipmap.viewpager2, R.mipmap.viewpager3, R.mipmap.viewpager4};
+        int[] imageResId = new int[]{R.mipmap.viewpager1, R.mipmap.viewpager2};// R.mipmap.viewpager3, R.mipmap.viewpager4
         for (int i = 0; i < imageResId.length; i++) {
             ImageView imageView = new ImageView(this);
             imageView.setBackgroundResource(imageResId[i]);

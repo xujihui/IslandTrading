@@ -11,10 +11,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +31,7 @@ public class Release extends Activity {
     private RadioButton radio_btn;
     private TextView content;
     private LocationReceiver lr;
+    private Spinner spinner;
     private static final String LOCSTART = "START_LOCATING";
 
 
@@ -37,7 +41,7 @@ public class Release extends Activity {
                 case R.id.confirm: {
                     Intent i = new Intent(Release.this, ReleaseConfirm.class);
                     startActivity(i);
-                    Toast.makeText(getApplicationContext(), "GPS测试开始", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "GPS测试开始", Toast.LENGTH_SHORT).show();
                     break;
                 }
                 case R.id.back:
@@ -67,6 +71,12 @@ public class Release extends Activity {
         setContentView(R.layout.release_layout);
         Btn = (Button) findViewById(R.id.confirm);
         Back = (LinearLayout) findViewById(R.id.back);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.sort,
+                android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         Btn.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
@@ -77,6 +87,19 @@ public class Release extends Activity {
 
             }
         });
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selected = adapterView.getItemAtPosition(i).toString();
+                Toast.makeText(getApplication(),selected,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         lr = new LocationReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("NEW LOCATION SENT");

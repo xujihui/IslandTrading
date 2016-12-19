@@ -1,0 +1,70 @@
+/*
+    目前可用接口整理
+    日期：2016-12-18
+    接口均需要替换ip；
+    数据库中可能没有数据，接口出现问题时先检查数据库内容；
+    商品发布默认使用两步发布，如果使用一步，过程可能比较繁琐；
+	
+*/
+
+
+商品查询：
+localhost:8080/IslandTrading/analysis/lookupprice?pId={Product_Id:3}
+localhost:8080/IslandTrading/analysis/lookupprice?pName={Product_Name:Apple}
+
+分类
+localhost:8080/IslandTrading/analysis/type_collection?pType={pType:电脑PC}
+
+活动列表
+localhost:8080/IslandTrading/analysis/request_acts
+
+编辑活动
+localhost:8080/IslandTrading/analysis/editActs?act={Activity_Id:1,Activity_Content:活动内容修改,Activity_Organizer:活动组织修改,Activity_Time:'2016-12-12 12:12:12',Activity_Site:活动地点修改,Activity_Name:活动名修改}
+
+删除活动
+localhost:8080/IslandTrading/analysis/deleteAct?Activity_Id=1&User_Id=1
+
+请求我的收藏
+localhost:8080/IslandTrading/analysis/request_col?User_Id={User_Id:20161130}
+localhost:8080/IslandTrading/analysis/request_col?User_Id={User_Id:20161130}&goods_id={goods_id:2}
+
+提交反馈
+localhost:8080/IslandTrading/analysis/submit_fb?fb={"FB_CONTENT":"中文可以","FB_CONTACT":"1523015666","FB_TIME":"2016-12-9 20:20:39"}
+
+登陆、注册
+localhost:8080/IslandTrading/analysis/reg_log_user?mode=check&User_Username=孙铖铖&User_Password=123abc
+localhost:8080/IslandTrading/analysis/reg_log_user?mode=register&User_Nickname=韩寒&User_Username=韩寒的用户名&User_Password=1234&User_TakingId=15686565&User_Tel=15230153136&Hx_Username=a12345&Hx_Password=12345
+
+提交订单
+localhost:8080/IslandTrading/analysis/oreder?order={ORDER_ID:1001,ORDER_SITE:河北师大,ORDER_TIME:'2016-12-8 20:46:55',OEDER_STATUS:true}
+
+删除商品
+localhost:8080/IslandTrading/analysis/deleteById?goodsCode={Product_Id:123456}
+
+编辑商品
+localhost:8080/IslandTrading/analysis/editGoods?goodsCode={Product_Id:4,Product_Name:手机,Product_Price:50,Product_Describe:奢华手机,Product_Site:发布地点,Product_Status:true}
+
+发布商品
+localhost:8080/IslandTrading/analysis/addGoods?goods={User_Username:孙铖铖,Product_Name:三星S5 G9008V,Product_Price:2000,Product_Describe:中文商品描述,Product_Time:"2016-12-15 10:46:10",Product_Site:软件学院,Product_View:50,Product_Positive:40,Product_Status:TRUE,Product_Top:false,Product_Longgitude:340.0,Product_Lagitude:350.0,Product_Type=手机Phone}
+
+图片上传（商品发布的第二步）
+192.168.194.2:8080/IslandTrading/analysis/uploadImg?Product_Id=1
+
+图片下载
+192.168.194.2:8080/IslandTrading/analysis/downloadImg?Product_Id=1
+
+QQ注册、登陆
+localhost:8080/IslandTrading/analysis/registQQ?mode=regisger&User_TakingId=12345&Hx_Username=12345&Hx_Password=123abc
+localhost:8080/IslandTrading/analysis/registQQ?mode=check&User_TakingId=12345
+
+我发布的
+localhost:8080/IslandTrading/analysis/myRelease?User_Id="700"
+
+我卖出的
+localhost:8080/IslandTrading/analysis/mySell?User_Id=700	注意，这里没引号
+
+我买到的
+localhost:8080/IslandTrading/analysis/myBuy?User_Id=700
+
+
+

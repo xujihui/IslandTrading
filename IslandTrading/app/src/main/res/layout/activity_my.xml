@@ -65,7 +65,7 @@
                 android:layout_height="90dp"
                 android:paddingTop="10dp">
 
-                <ImageView
+                <com.daomaidaomai.islandtrading.controller.CircleImageView
                     android:id="@+id/IvPersonImg"
                     android:layout_width="70dp"
                     android:layout_height="70dp"

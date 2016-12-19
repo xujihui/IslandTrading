@@ -272,6 +272,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         //infoWindowTv.setBackgroundResource(R.drawable.location_tips);
         infoWindowTv.setPadding(10, 10, 10, 10);
         //infoWindowTv.setText(MyMarker.getmName());
+       // infoWindowTv.setText(MyMarker.getmName());
         //infoWindowTv.setTextColor(Color.parseColor("#FFFFFF"));
         final LatLng latLng = marker.getPosition();
         Point p = mBaiduMap.getProjection().toScreenLocation(latLng);//将地图上的经纬度转换成屏幕中实际的点

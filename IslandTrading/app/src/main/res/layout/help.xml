@@ -68,14 +68,19 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-    <TextView
+    <EditText
+        android:id="@+id/Et_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="top"
         android:layout_margin="10dp"
         android:background="@drawable/text"
         android:padding="10dp"
-        android:text="你们做的这个岛买岛买 app 好好用啊 真的超级方便，啊啊啊啊，太棒了，我要推荐给我所有认识的人，嗯呐，感谢你们这个开发团队，感谢你们的老师教会了你们。嗯呐，mua"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:inputType="textMultiLine"
+        android:minLines="6"
+        android:maxLines="8"
+        android:hint = "你们做的这个岛买岛买 app 好好用啊 真的超级方便，啊啊啊啊，太棒了，我要推荐给我所有认识的人，嗯呐，感谢你们这个开发团队，感谢你们的老师教会了你们。嗯呐，mua"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -95,18 +100,20 @@
             android:text="联系方式"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
+
     </LinearLayout>
 
-    <TextView
+    <EditText
+        android:id="@+id/Ed_contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/text"
         android:padding="10dp"
-        android:text="邮箱/手机号"
+        android:hint="邮箱/手机号"
         android:textSize="18sp" />
-
     <Button
+        android:id="@+id/Btn_submit"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

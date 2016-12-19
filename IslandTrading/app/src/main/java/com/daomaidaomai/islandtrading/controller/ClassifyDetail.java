@@ -15,6 +15,16 @@ import android.widget.ListView;
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.adapter.MyListAdapter;
 import com.daomaidaomai.islandtrading.entity.ItemDetail;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,17 +34,18 @@ public class ClassifyDetail extends Activity {
     private ListView lv ;
     private MyListAdapter myListAdapter;
     private LinearLayout Back;
-    private void getDate(){
-        ls.add(new ItemDetail(1,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
-        ls.add(new ItemDetail(2,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
-        ls.add(new ItemDetail(3,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
-        ls.add(new ItemDetail(4,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
-        ls.add(new ItemDetail(5,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
-        ls.add(new ItemDetail(6,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
-        ls.add(new ItemDetail(7,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
-        ls.add(new ItemDetail(8,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
-        ls.add(new ItemDetail(9,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
-    }
+    private DisplayImageOptions options;
+//    private void getDate(){
+//        ls.add(new ItemDetail(1,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
+//        ls.add(new ItemDetail(2,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
+//        ls.add(new ItemDetail(3,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
+//        ls.add(new ItemDetail(4,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
+//        ls.add(new ItemDetail(5,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
+//        ls.add(new ItemDetail(6,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
+//        ls.add(new ItemDetail(7,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
+//        ls.add(new ItemDetail(8,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
+//        ls.add(new ItemDetail(9,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +71,12 @@ public class ClassifyDetail extends Activity {
             }
         });
         lv = (ListView)findViewById(R.id.lv);
-        getDate();
+      //  getDate();
+
         myListAdapter = new MyListAdapter(this,ls);
         lv.setAdapter(myListAdapter);
+        getHttp();//网络请求
+        inits();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -72,6 +86,49 @@ public class ClassifyDetail extends Activity {
                 startActivity(intent);*/
             }
         });
+
+
+    }
+
+    private void getHttp() {
+        String url = "http://10.7.88.26:8080/IslandTrading/analysis/type_collection";
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params= new RequestParams();
+        params.add("pType","{pType:电脑PC}");
+        client.get(url,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                System.out.println("--"+response.toString());
+                for(int i=0;i<response.length();i++){
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+                        JSONObject good = jsonObject.getJSONObject("good");
+                        JSONObject content = good.getJSONObject("content");
+                        int id = content.getInt("Product_Id");
+                        String name=content.getString("Product_Name");
+                        String describe=content.getString("Product_Describe");
+                        double price=content.getDouble("Product_Price");
+                        String picture=content.getString("Product_Image_Url");
+                        ls.add(new ItemDetail(id,name,picture,describe,price));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+    }
+    private void inits() {
+        options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.mipmap.odetailone) // 设置图片下载期间显示的图片
+                .showImageForEmptyUri(R.mipmap.odetailone)// 设置图片Uri为空或是错误的时候显示的图片
+                .showImageOnFail(R.mipmap.odetailone)// 设置图片加载或解码过程中发生错误显示的图片
+                .cacheInMemory(true)  // 设置下载的图片是否缓存在内存中
+                .cacheOnDisk(true)  // 设置下载的图片是否缓存在SD卡中
+                .considerExifParams(true)
+                .displayer(new CircleBitmapDisplayer(Color.WHITE, 5))// 设置成圆角图片
+                .build();// 创建配置过得DisplayImageOption对象
 
     }
 }
