@@ -49,7 +49,7 @@ public class Home extends Activity {
 //            "施华洛世奇 秋冬新款",
 //    };
 
-    private List<String> strs = new ArrayList<String>();
+    private List<String> strs = new ArrayList<String>();//存放图片的标题
 
     private ImageView Classfy;
     private ImageView Home;
@@ -175,7 +175,7 @@ public class Home extends Activity {
 
 
 //        //开始滚动
-//        myPager.start(this, listViews, 4000, title, strs, ovalLayout,
+//        myPager.start(this, listViews, 4000, title, titles, ovalLayout,
 //                R.layout.ad_scroll_dot_item, R.id.ad_item_v,
 //                R.drawable.dot_focused, R.drawable.dot_normal);
         // 把ViewPager做成ListView的Header,注意:addHeaderView一定要在setAdapter前调用
@@ -212,13 +212,37 @@ public class Home extends Activity {
 
 
     private void getListData() {
-        listViewProducts.add(new Product(0L, R.mipmap.swatch, "Swatch手表2016七夕情人节限定", 459, "Swatch系列Special edition特别款系列"));
-        listViewProducts.add(new Product(0L, R.mipmap.schaebens, " Schaebens雪本诗面膜 补水保湿美白提拉紧致祛痘", 9, "亲表姐德国代购，保证正品"));
-        listViewProducts.add(new Product(0L, R.mipmap.coach, "coach加拿大代购 长款男钱包", 558, "PVC/牛皮 长20CM*宽10CM*厚2.5CM"));
-        listViewProducts.add(new Product(0L, R.mipmap.ysl, "YSL 亮泽滋润唇膏", 298, "圣罗兰方管口红迷魅唇膏滋润保湿限量星辰"));
-        listViewProducts.add(new Product(0L, R.mipmap.zuixie, "一字鲜醉蟹", 138, "一字鲜醉蟹醉大闸蟹红膏全母蟹2.4-2两熟醉蟹共8只花雕熟醉蟹"));
-        listViewProducts.add(new Product(0L, R.mipmap.teenmix, "Teenmix/天美意 长靴", 1239, "Teenmix/天美意冬季专柜同款打蜡牛皮女过膝长靴6D480DG5"));
+//        listViewProducts.add(new Product(0L, R.mipmap.swatch, "Swatch手表2016七夕情人节限定", 459, "Swatch系列Special edition特别款系列"));
+//        listViewProducts.add(new Product(0L, R.mipmap.schaebens, " Schaebens雪本诗面膜 补水保湿美白提拉紧致祛痘", 9, "亲表姐德国代购，保证正品"));
+//        listViewProducts.add(new Product(0L, R.mipmap.coach, "coach加拿大代购 长款男钱包", 558, "PVC/牛皮 长20CM*宽10CM*厚2.5CM"));
+//        listViewProducts.add(new Product(0L, R.mipmap.ysl, "YSL 亮泽滋润唇膏", 298, "圣罗兰方管口红迷魅唇膏滋润保湿限量星辰"));
+//        listViewProducts.add(new Product(0L, R.mipmap.zuixie, "一字鲜醉蟹", 138, "一字鲜醉蟹醉大闸蟹红膏全母蟹2.4-2两熟醉蟹共8只花雕熟醉蟹"));
+//        listViewProducts.add(new Product(0L, R.mipmap.teenmix, "Teenmix/天美意 长靴", 1239, "Teenmix/天美意冬季专柜同款打蜡牛皮女过膝长靴6D480DG5"));
+        AsyncHttpClient client = new AsyncHttpClient();
+        String url = "http://10.7.88.37:8080/IslandTrading/analysis/getTop";
+        client.get(getApplicationContext(), url, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                for (int i = 0; i < response.length(); i++){
+                    try {
+
+                        JSONObject item = response.getJSONObject(i);
+                        int id = item.getInt("Product_Id");
+                        String imageUrl = item.getString("Product_Image_Url");
+                        String name = item.getString("Product_Name");
+                        String describe = item.getString("Product_Describe");
+                        Double price = item.getDouble("Product_Price");
+                        listViewProducts.add(new Product(id, imageUrl, name, price, describe));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
     }
+
 
     @Override
     protected void onRestart() {

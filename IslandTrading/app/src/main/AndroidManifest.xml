@@ -136,14 +136,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-<<<<<<< HEAD
             android:value="Dj2WcYxqEAnXDIwRfsWggPs1rr680Hvb" />
-=======
-            android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6"/>
-
-
-
-        value="9bSSufpEyZfV1OHOxpAlszUW7QvBatYu"
         <!--
         value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"
         zhanglixuan
@@ -158,8 +151,6 @@
         value="iifqdzMtLe3YWOOhSxPSL746fppYApF6"
         xujihui
         -->
->>>>>>> 45819f886a4e0077692f7392f815bb29b1fecb43
-
 
         <activity android:name=".ui.MainActivity">
             <intent-filter>
