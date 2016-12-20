@@ -17,11 +17,16 @@ import android.widget.Toast;
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.controller.ChatActivity;
 import com.daomaidaomai.islandtrading.easeui.EaseConstant;
+<<<<<<< HEAD
 import com.daomaidaomai.islandtrading.util.ImgLO;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
+=======
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+>>>>>>> 45819f886a4e0077692f7392f815bb29b1fecb43
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -88,9 +93,11 @@ public class GoodsDetail extends Activity {
         Lin.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
         ChatMessage.setOnClickListener(mylistener);
+    }
 
     }
 
+<<<<<<< HEAD
     @Override
     protected void onStart() {
         super.onStart();
@@ -129,3 +136,5 @@ public class GoodsDetail extends Activity {
         });
     }
 }
+=======
+>>>>>>> 45819f886a4e0077692f7392f815bb29b1fecb43
