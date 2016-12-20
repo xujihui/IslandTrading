@@ -14,27 +14,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.adapter.HomeAdapter;
 import com.daomaidaomai.islandtrading.controller.ClassifyAllActivity;
 import com.daomaidaomai.islandtrading.defineview.MyImgScroll;
 import com.daomaidaomai.islandtrading.entity.Product;
+import com.daomaidaomai.islandtrading.util.ImgLO;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +39,7 @@ import java.util.List;
 public class Home extends Activity {
     MyImgScroll myPager; // 图片容器
     LinearLayout ovalLayout; // 圆点容器
-    private List<View> listViews; // 图片组
+    private List<View> listViews = new ArrayList<View>(); // 图片组
     private TextView title; //用于存放获取的视图控件
 //    //存放图片的标题
 //    private String[] titles = new String[]{
@@ -106,53 +100,6 @@ public class Home extends Activity {
         }
     };
 
-    //Get方法
-    public String get(String urlPath) {
-        HttpURLConnection connection = null;
-        InputStream is = null;
-        try {
-            URL url = new URL(urlPath);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setUseCaches(false);
-            connection.setConnectTimeout(10000);
-            connection.setReadTimeout(10000);
-            connection.setDoInput(true);
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                is = connection.getInputStream();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
-
-                }
-                return response.toString();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally{
-            if(connection != null){
-                connection.disconnect();
-                connection = null;
-            }
-            if (is != null){
-                try {
-                    is.close();
-                    is = null;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
-
-        return null;
-    }
-
-
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -179,25 +126,38 @@ public class Home extends Activity {
         myPager = (MyImgScroll) view.findViewById(R.id.myvp);
         ovalLayout = (LinearLayout) view.findViewById(R.id.vb);
         title = (TextView) view.findViewById(R.id.title);
-        //初始化图片
-        InitViewPager();
+//        //初始化图片
+//        InitViewPager();
 
 
 
         //创建网络访问的类的对象
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "http://10.7.92.57:8080/IslandTrading/analysis/request_acts";
+        String url = "http://10.7.88.37:8080/IslandTrading/analysis/request_acts";
         client.get(getApplicationContext(),url,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 super.onSuccess(statusCode, headers, response);
                 for (int i = 0 ; i < response.length(); i++){
                     try {
+                        //获取的是外层的属性，外层的属性默认放在response中
                         JSONObject a = response.getJSONObject(i);
+                        //获取的是a的属性good
                         JSONObject goods = a.getJSONObject("good");
+                        //获取的是good的属性content
                         JSONObject content = goods.getJSONObject("content");
+                        //得到content下的属性对应的value值
                         String output = content.getString("Activity_Name");
+                        String imageUrl = content.getString("Activity_Img");
+                        //创建ImageView控件
+                        ImageView imageView = new ImageView(Home.this);
+                        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                        //初始化ImageLoader
+                        ImgLO.initImageLoader(Home.this);
+                        // imageUrl代表图片的URL地址，imageView代表承载图片的IMAGEVIEW控件
+                        ImageLoader.getInstance().displayImage(imageUrl, imageView);
                         strs.add(output);
+                        listViews.add(imageView);
                         //开始滚动
                         myPager.start(Home.this, listViews, 4000, title, strs, ovalLayout,
                                 R.layout.ad_scroll_dot_item, R.id.ad_item_v,
@@ -276,18 +236,18 @@ public class Home extends Activity {
         myPager.stopTimer();
     }
 
-    /**
-     * 初始化图片
-     */
-    private void InitViewPager() {
-        //显示的图片
-        listViews = new ArrayList<View>();
-        int[] imageResId = new int[]{R.mipmap.viewpager1, R.mipmap.viewpager2};// R.mipmap.viewpager3, R.mipmap.viewpager4
-        for (int i = 0; i < imageResId.length; i++) {
-            ImageView imageView = new ImageView(this);
-            imageView.setBackgroundResource(imageResId[i]);
-            listViews.add(imageView);
-        }
-    }
+//    /**
+//     * 初始化图片
+//     */
+//    private void InitViewPager() {
+//        //显示的图片
+//        listViews = new ArrayList<View>();
+//        int[] imageResId = new int[]{R.mipmap.viewpager1, R.mipmap.viewpager2};// R.mipmap.viewpager3, R.mipmap.viewpager4
+//        for (int i = 0; i < imageResId.length; i++) {
+//            ImageView imageView = new ImageView(this);
+//            imageView.setBackgroundResource(imageResId[i]);
+//            listViews.add(imageView);
+//        }
+//    }
 
 }
