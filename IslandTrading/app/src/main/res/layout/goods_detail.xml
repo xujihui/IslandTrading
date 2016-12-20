@@ -85,12 +85,14 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/Tv_Product_Time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="几分钟前在一期3号楼发布" />
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/Tv_Product_Price"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
@@ -100,12 +102,12 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/Tv_Product_Describe"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:paddingLeft="25dp"
                 android:text="如果你无法简洁的表达你的想法，那就买下这台电脑吧
---月咏几斗" />
+                --月咏几斗" />
 
 
             <LinearLayout
@@ -117,6 +119,7 @@
                 android:paddingTop="10dp">
 
                 <ImageView
+                    android:id="@+id/Iv_Product_Image_Url"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:src="@mipmap/pcone" />

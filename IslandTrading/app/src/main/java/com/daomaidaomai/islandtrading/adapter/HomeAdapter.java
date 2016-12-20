@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.entity.Product;
+import com.daomaidaomai.islandtrading.util.ImgLO;
+import com.nostra13.universalimageloader.core.ImageLoader;
 // import com.mob.tools.utils.R;
 
 import java.util.ArrayList;
@@ -50,7 +52,9 @@ public class HomeAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.home_listview_item_layout, null);
         }
         ImageView homeImage = (ImageView) view.findViewById(R.id.home_image);
-        homeImage.setImageResource(products.get(i).getmImage());
+//        homeImage.setImageResource(products.get(i).getmImage());
+        ImgLO.initImageLoader(context);
+        ImageLoader.getInstance().displayImage(products.get(i).getmImage(), homeImage);
         TextView homeTitle = (TextView) view.findViewById(R.id.home_title);
         homeTitle.setText(products.get(i).getmTitle());
         TextView homePrice = (TextView) view.findViewById(R.id.home_price);

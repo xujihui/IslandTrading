@@ -5,14 +5,23 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.controller.ChatActivity;
 import com.daomaidaomai.islandtrading.easeui.EaseConstant;
+import com.daomaidaomai.islandtrading.util.ImgLO;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -47,6 +56,10 @@ public class GoodsDetail extends Activity {
             }
         }
     };
+    private TextView Tv_Product_Time;
+    private TextView Tv_Product_Price;
+    private TextView Tv_Product_Describe;
+    private ImageView Iv_Product_Image_Url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +80,54 @@ public class GoodsDetail extends Activity {
         Lin = (LinearLayout) findViewById(R.id.buy);
         Back = (LinearLayout) findViewById(R.id.back);
         ChatMessage = (LinearLayout) findViewById(R.id.chatmessage);
+        Tv_Product_Time = (TextView)findViewById(R.id.Tv_Product_Time);
+        Tv_Product_Price = (TextView)findViewById(R.id.Tv_Product_Price);
+        Tv_Product_Describe = (TextView)findViewById(R.id.Tv_Product_Describe);
+        Iv_Product_Image_Url = (ImageView)findViewById(R.id.Iv_Product_Image_Url);
+
+
 
         Lin.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
         ChatMessage.setOnClickListener(mylistener);
     }
 
-    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //获取从上一个页面带来的商品id
+        Intent i = getIntent();
+        long pid = i.getLongExtra("pid",0);
+        Toast.makeText(getApplicationContext(),i.getLongExtra("pid",0)+"",Toast.LENGTH_SHORT).show();
+        RequestParams params = new RequestParams();
+        JSONObject params_json = new JSONObject();
+        try {
+            params_json.put("Product_Id",pid);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        params.put("pId",params_json);
+        String str_url = "http://10.7.88.37:8080/IslandTrading/analysis/lookupprice";
+        AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+        asyncHttpClient.get(str_url,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    System.out.println("----得到的：" + response.toString());
+                    JSONObject jsonObject = response.getJSONObject("PRODUCT").getJSONObject("content");
+                    System.out.println("-----得到的字符串" + jsonObject.toString() + "     \n" + response.toString());
+                    Tv_Product_Time.setText(jsonObject.getString("Product_Time"));
+                    Tv_Product_Price.setText(jsonObject.getDouble("Product_Price") + "");
+                    Tv_Product_Describe.setText(jsonObject.getString("Product_Describe"));
+//                    ImgLO.initImageLoader(getApplicationContext());
+                    ImageLoader.getInstance().displayImage(jsonObject.getString("Product_Image_Url"),Iv_Product_Image_Url);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+}

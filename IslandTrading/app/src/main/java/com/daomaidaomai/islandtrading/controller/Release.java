@@ -41,7 +41,7 @@ public class Release extends Activity {
                 case R.id.confirm: {
                     Intent i = new Intent(Release.this, ReleaseConfirm.class);
                     startActivity(i);
-                    //Toast.makeText(getApplicationContext(), "GPS测试开始", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "GPS测试开始", Toast.LENGTH_SHORT).show();
                     break;
                 }
                 case R.id.back:

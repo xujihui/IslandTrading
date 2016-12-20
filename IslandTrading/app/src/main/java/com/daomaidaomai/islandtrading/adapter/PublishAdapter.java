@@ -50,7 +50,7 @@ public class PublishAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.publish_listview_item_layout, null);
         }
         ImageView pulishImage = (ImageView) view.findViewById(R.id.publish_image);
-        pulishImage.setImageResource(products.get(i).getmImage());
+//        pulishImage.setImageResource(products.get(i).getmImage());
         TextView publishTitle = (TextView) view.findViewById(R.id.publish_title);
         publishTitle.setText(products.get(i).getmTitle());
         TextView publishPrice = (TextView) view.findViewById(R.id.publish_price);
