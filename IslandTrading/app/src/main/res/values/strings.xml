@@ -23,7 +23,6 @@
     <string name="qq_logout">退出当前账号</string>
 
 
-
     <string-array name="sort">
         <item>电脑</item>
         <item>女装</item>
@@ -38,7 +37,6 @@
         <item>技能服务</item>
         <item>其他</item>
     </string-array>
-
 
 
     <string name="text_ack_msg">读</string>
@@ -300,7 +298,7 @@
     <string name="dismiss_group">解散组</string>
     <string name="add_public_group_chat">添加公共组</string>
     <string name="gorup_not_found">找不到这个组</string>
-    <string name= "no_more_messages">没有更多的消息</string>
+    <string name="no_more_messages">没有更多的消息</string>
     <string name="join_public_group">加入公共群组</string>
     <string name="chatroom_allow_owner_leave">让主人离开聊天室</string>
     <string name="group_id">群组ID</string>

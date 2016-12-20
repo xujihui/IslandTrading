@@ -43,7 +43,10 @@ public class Release extends Activity {
                     startActivity(i);
 
 
+
                    // Toast.makeText(getApplicationContext(), "GPS测试开始", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getApplicationContext(), "GPS测试开始", Toast.LENGTH_SHORT).show();
                     break;
                 }
                 case R.id.back:

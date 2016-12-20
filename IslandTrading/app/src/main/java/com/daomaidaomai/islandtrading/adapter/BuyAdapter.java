@@ -50,7 +50,7 @@ public class BuyAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.buy_listview_item_layout, null);
         }
         ImageView buyImage = (ImageView) view.findViewById(R.id.buy_image);
-        buyImage.setImageResource(products.get(i).getmImage());
+//        buyImage.setImageResource(products.get(i).getmImage());
         TextView buyTitle = (TextView) view.findViewById(R.id.buy_title);
         buyTitle.setText(products.get(i).getmTitle());
         TextView buyPrice = (TextView) view.findViewById(R.id.buy_price);

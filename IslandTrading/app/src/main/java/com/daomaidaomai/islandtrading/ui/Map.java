@@ -192,18 +192,19 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
             int image_id = 0;
             switch (i) {
                 case 0:
-                    image_id = R.mipmap.mapgood1;
+                    image_id = R.mipmap.pxdingsi;
                     break;
                 case 1:
-                    image_id = R.mipmap.mapgood2;
+                    image_id = R.mipmap.baobao;
                     break;
                 case 2:
-                    image_id = R.mipmap.mapgood3;
+                    image_id = R.mipmap.coach;
                     break;
                 case 3:
-                    image_id=R.mipmap.mapgood4;
+                    image_id=R.mipmap.computer;
                     break;
                 default:
+                    image_id = R.mipmap.tiane;
                     break;
                   }
             BitmapDescriptor myMarks=BitmapDescriptorFactory.fromResource(image_id);//引入自定义的覆盖物图标，将其转化成一个BitmapDescriptor对象
@@ -246,8 +247,10 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         if (child != null && (child instanceof ImageView || child instanceof ZoomControls)) {
             child.setVisibility(View.INVISIBLE);
         }
+
        initMarksData();
         mBaiduMap.setOnMapClickListener(this);
+
         //添加覆盖物响应事件
         mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
 
@@ -354,7 +357,6 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         TextView infoWindowTv = new TextView(Map.this);
         //infoWindowTv.setBackgroundResource(R.drawable.location_tips);
         infoWindowTv.setPadding(10, 10, 10, 10);
-        //infoWindowTv.setText(MyMarker.getmName());
        // infoWindowTv.setText(MyMarker.getmName());
         //infoWindowTv.setTextColor(Color.parseColor("#FFFFFF"));
         final LatLng latLng = marker.getPosition();

@@ -17,6 +17,8 @@ import com.daomaidaomai.islandtrading.controller.MyBuy;
 import com.daomaidaomai.islandtrading.controller.MyPublish;
 import com.daomaidaomai.islandtrading.controller.MySold;
 
+import java.util.List;
+
 import static com.daomaidaomai.islandtrading.ui.Login.bitmap;
 import static com.daomaidaomai.islandtrading.ui.Login.mQQAuth;
 
@@ -33,6 +35,7 @@ public class Myself extends Activity {
     private LinearLayout Help;
     private LinearLayout Setting;
     private LinearLayout Back;
+    private LinearLayout Favour;
     private ImageView iv;
 
 
@@ -41,6 +44,11 @@ public class Myself extends Activity {
             switch (v.getId()) {
                 case R.id.back: {
                     Myself.this.finish();
+                    break;
+                }
+                case R.id.myfavourite:{
+                    Intent i = new Intent(Myself.this,MyCollection.class);
+                    startActivity(i);
                     break;
                 }
                 case R.id.mylogin: {
@@ -128,6 +136,7 @@ public class Myself extends Activity {
         Setting = (LinearLayout) findViewById(R.id.setting);
         Help = (LinearLayout) findViewById(R.id.help);
         Back = (LinearLayout) findViewById(R.id.back);
+        Favour = (LinearLayout)findViewById(R.id.myfavourite);
         iv = (ImageView) findViewById(R.id.IvPersonImg);
 
         Btn.setOnClickListener(mylistener);
@@ -141,6 +150,7 @@ public class Myself extends Activity {
         Setting.setOnClickListener(mylistener);
         Help.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
+        Favour.setOnClickListener(mylistener);
 
         // Intent intent = getIntent();
         // String username = intent.getStringExtra("a");

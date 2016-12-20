@@ -1,27 +1,49 @@
 package com.daomaidaomai.islandtrading.controller;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.adapter.BuyAdapter;
+import com.daomaidaomai.islandtrading.adapter.MyListAdapter;
+import com.daomaidaomai.islandtrading.entity.ItemDetail;
 import com.daomaidaomai.islandtrading.entity.Product;
+import com.daomaidaomai.islandtrading.ui.GoodsDetail;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/*
+* 2016-12-19
+* 孙铖
+* 使用了MyListAdaper
+* 使用了ItemDetaile.java 代替 Product
+* */
 
 public class MyBuy extends Activity {
-    private ArrayList<Product> buyProducts = new ArrayList<Product>(); //定义一个动态数组
-    private BuyAdapter buyAdapter;
+    //    private ArrayList<Product> buyProducts = new ArrayList<Product>(); //定义一个动态数组
+    private ArrayList<ItemDetail> list = new ArrayList<>();
+    //    private BuyAdapter buyAdapter;
+    private MyListAdapter adapter;
     private ListView lv;
     private LinearLayout Back;
 
@@ -51,23 +73,66 @@ public class MyBuy extends Activity {
             }
         });
         //得到数据源
-        getDatas();
+//        getDatas();
         //建立adapter
-        buyAdapter = new BuyAdapter(getApplication(), buyProducts);
+//        buyAdapter = new BuyAdapter(getApplication(), buyProducts);
         //获得ListView并为其绑定adapter
         lv = (ListView) findViewById(R.id.buy_lv);
-        lv.setAdapter(buyAdapter);
+//        lv.setAdapter(buyAdapter);
 
+        RequestParams params = new RequestParams();
+        int User_Id = 700;      //这里要获取登陆的账号id
+        params.put("User_Id",User_Id);
+        String str_url = "http://10.7.88.37:8080/IslandTrading/analysis/myBuy";
+        AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+        asyncHttpClient.get(str_url, params,new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                for (int i = 0; i < response.length(); i++) {
+                    JSONObject content = new JSONObject();
+                    try {
+                        content = response.getJSONObject(i);
+                        list.add(new ItemDetail(content.getInt("Product_Id"), content.getString("Product_Name"), content.getString("Product_Image_Url"),
+                                null, content.getDouble("Product_Price")));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }//for
+                lv.setAdapter(new MyListAdapter(getApplicationContext(), list));
+                lv.setOnItemClickListener(listener);
+            }
+        });
     }
 
-    /**
-     * 得到数据源
-     */
-    private void getDatas() {
-        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
-        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
-        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
-        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
-        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
+
+
+    private AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent i = new Intent(MyBuy.this, GoodsDetail.class);
+            i.putExtra("pid",id);
+            startActivityForResult(i,1);
+        }
+    };
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+        /**
+         * 得到数据源
+         */
+//    private void getDatas() {
+//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
+//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
+//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
+//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
+//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
+//    }
     }
 }

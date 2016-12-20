@@ -90,7 +90,7 @@ public class MyImgScroll extends ViewPager {
 			LayoutInflater inflater= LayoutInflater.from(mActivity);
 			for (int i = 0; i < mListViews.size(); i++) {
 				ovalLayout.addView(inflater.inflate(ovalLayoutId, null));
-				
+
 			}
 			//选中第一个
 			ovalLayout.getChildAt(0).findViewById(ovalLayoutItemId)
