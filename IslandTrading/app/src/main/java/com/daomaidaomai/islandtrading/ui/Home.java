@@ -209,8 +209,10 @@ public class Home extends Activity {
                         ImageLoader.getInstance().displayImage(imageUrl, imageView);
                         strs.add(output);
                         listViews.add(imageView);
+                        //必须每次进来清除布局里的所有小圆点，不然每一次循环会在上一次的基础上增加圆点
+                        ovalLayout.removeAllViews();
                         //开始滚动
-                        myPager.start(Home.this, listViews, 4000, title, strs, ovalLayout,
+                        myPager.start(Home.this, listViews, 5000, title, strs, ovalLayout,
                                 R.layout.ad_scroll_dot_item, R.id.ad_item_v,
                                 R.drawable.dot_focused, R.drawable.dot_normal);
                     } catch (JSONException e) {
