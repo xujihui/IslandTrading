@@ -93,18 +93,15 @@ public class GoodsDetail extends Activity {
     }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> fffd87e6e26cf6b94d7c4ca1666d71c5268c7c16
     @Override
     protected void onStart() {
         super.onStart();
 
         //获取从上一个页面带来的商品id
         Intent i = getIntent();
-        long pid = i.getLongExtra("pid",0);
-        Toast.makeText(getApplicationContext(),i.getLongExtra("pid",0)+"",Toast.LENGTH_SHORT).show();
+//        long pid = i.getLongExtra("pid",0);
+        int pid = i.getIntExtra("pid",0);
+        Toast.makeText(getApplicationContext(),"从上个页面带来的pid：" + pid +"",Toast.LENGTH_SHORT).show();
         RequestParams params = new RequestParams();
         JSONObject params_json = new JSONObject();
         try {
@@ -126,7 +123,7 @@ public class GoodsDetail extends Activity {
                     Tv_Product_Time.setText(jsonObject.getString("Product_Time"));
                     Tv_Product_Price.setText(jsonObject.getDouble("Product_Price") + "");
                     Tv_Product_Describe.setText(jsonObject.getString("Product_Describe"));
-//                    ImgLO.initImageLoader(getApplicationContext());
+                    ImgLO.initImageLoader(getApplicationContext());
                     ImageLoader.getInstance().displayImage(jsonObject.getString("Product_Image_Url"),Iv_Product_Image_Url);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -135,7 +132,3 @@ public class GoodsDetail extends Activity {
         });
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> fffd87e6e26cf6b94d7c4ca1666d71c5268c7c16

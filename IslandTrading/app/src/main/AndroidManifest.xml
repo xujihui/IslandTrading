@@ -127,23 +127,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
-<<<<<<< HEAD
-            android:name="com.baidu.lbsapi.API_KEY"/>
-            android:value="Dj2WcYxqEAnXDIwRfsWggPs1rr680Hvb" />
-
-
-
-
-        <!--value="9bSSufpEyZfV1OHOxpAlszUW7QvBatYu"
-        android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6"/>-->
-=======
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6" />
 
 
 
 
->>>>>>> fffd87e6e26cf6b94d7c4ca1666d71c5268c7c16
         <!--
         value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"
         zhanglixuan
@@ -156,12 +145,6 @@
         value="iifqdzMtLe3YWOOhSxPSL746fppYApF6"
         xujihui
         -->
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> fffd87e6e26cf6b94d7c4ca1666d71c5268c7c16
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
