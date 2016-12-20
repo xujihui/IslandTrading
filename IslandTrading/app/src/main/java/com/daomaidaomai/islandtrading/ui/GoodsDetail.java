@@ -13,6 +13,12 @@ import android.widget.LinearLayout;
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.controller.ChatActivity;
 import com.daomaidaomai.islandtrading.easeui.EaseConstant;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.apache.http.Header;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class GoodsDetail extends Activity {
@@ -65,6 +71,7 @@ public class GoodsDetail extends Activity {
         Lin.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
         ChatMessage.setOnClickListener(mylistener);
+    }
 
     }
-}
+

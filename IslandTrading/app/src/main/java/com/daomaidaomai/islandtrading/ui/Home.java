@@ -14,15 +14,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.adapter.HomeAdapter;
 import com.daomaidaomai.islandtrading.controller.ClassifyAllActivity;
 import com.daomaidaomai.islandtrading.defineview.MyImgScroll;
 import com.daomaidaomai.islandtrading.entity.Product;
+import com.daomaidaomai.islandtrading.util.ImgLO;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
@@ -45,7 +46,7 @@ import java.util.List;
 public class Home extends Activity {
     MyImgScroll myPager; // 图片容器
     LinearLayout ovalLayout; // 圆点容器
-    private List<View> listViews; // 图片组
+    private List<View> listViews = new ArrayList<View>(); // 图片组
     private TextView title; //用于存放获取的视图控件
 //    //存放图片的标题
 //    private String[] titles = new String[]{
@@ -150,7 +151,6 @@ public class Home extends Activity {
         return null;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -176,24 +176,39 @@ public class Home extends Activity {
         myPager = (MyImgScroll) view.findViewById(R.id.myvp);
         ovalLayout = (LinearLayout) view.findViewById(R.id.vb);
         title = (TextView) view.findViewById(R.id.title);
-        //初始化图片
-        InitViewPager();
+//        //初始化图片
+//        InitViewPager();
 
 
         //创建网络访问的类的对象
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "http://10.7.92.57:8080/IslandTrading/analysis/request_acts";
+
+        String url = "http://10.7.88.37:8080/IslandTrading/analysis/request_acts";
         client.get(getApplicationContext(), url, new JsonHttpResponseHandler() {
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 super.onSuccess(statusCode, headers, response);
                 for (int i = 0; i < response.length(); i++) {
                     try {
+                        //获取的是外层的属性，外层的属性默认放在response中
                         JSONObject a = response.getJSONObject(i);
+                        //获取的是a的属性good
                         JSONObject goods = a.getJSONObject("good");
+                        //获取的是good的属性content
                         JSONObject content = goods.getJSONObject("content");
+                        //得到content下的属性对应的value值
                         String output = content.getString("Activity_Name");
+                        String imageUrl = content.getString("Activity_Img");
+                        //创建ImageView控件
+                        ImageView imageView = new ImageView(Home.this);
+                        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                        //初始化ImageLoader
+                        ImgLO.initImageLoader(Home.this);
+                        // imageUrl代表图片的URL地址，imageView代表承载图片的IMAGEVIEW控件
+                        ImageLoader.getInstance().displayImage(imageUrl, imageView);
                         strs.add(output);
+                        listViews.add(imageView);
                         //开始滚动
                         myPager.start(Home.this, listViews, 4000, title, strs, ovalLayout,
                                 R.layout.ad_scroll_dot_item, R.id.ad_item_v,
@@ -251,6 +266,12 @@ public class Home extends Activity {
         listViewProducts.add(new Product(0L, R.mipmap.ysl, "YSL 亮泽滋润唇膏", 298, "圣罗兰方管口红迷魅唇膏滋润保湿限量星辰"));
         listViewProducts.add(new Product(0L, R.mipmap.zuixie, "一字鲜醉蟹", 138, "一字鲜醉蟹醉大闸蟹红膏全母蟹2.4-2两熟醉蟹共8只花雕熟醉蟹"));
         listViewProducts.add(new Product(0L, R.mipmap.teenmix, "Teenmix/天美意 长靴", 1239, "Teenmix/天美意冬季专柜同款打蜡牛皮女过膝长靴6D480DG5"));
+        listViewProducts.add(new Product(0L, R.mipmap.swatch, "Swatch手表2016七夕情人节限定", 459, "Swatch系列Special edition特别款系列"));
+        listViewProducts.add(new Product(0L, R.mipmap.schaebens, " Schaebens雪本诗面膜 补水保湿美白提拉紧致祛痘", 9, "亲表姐德国代购，保证正品"));
+        listViewProducts.add(new Product(0L, R.mipmap.coach, "coach加拿大代购 长款男钱包", 558, "PVC/牛皮 长20CM*宽10CM*厚2.5CM"));
+        listViewProducts.add(new Product(0L, R.mipmap.ysl, "YSL 亮泽滋润唇膏", 298, "圣罗兰方管口红迷魅唇膏滋润保湿限量星辰"));
+        listViewProducts.add(new Product(0L, R.mipmap.zuixie, "一字鲜醉蟹", 138, "一字鲜醉蟹醉大闸蟹红膏全母蟹2.4-2两熟醉蟹共8只花雕熟醉蟹"));
+        listViewProducts.add(new Product(0L, R.mipmap.teenmix, "Teenmix/天美意 长靴", 1239, "Teenmix/天美意冬季专柜同款打蜡牛皮女过膝长靴6D480DG5"));
     }
 
     @Override
@@ -269,18 +290,18 @@ public class Home extends Activity {
         myPager.stopTimer();
     }
 
-    /**
-     * 初始化图片
-     */
-    private void InitViewPager() {
-        //显示的图片
-        listViews = new ArrayList<View>();
-        int[] imageResId = new int[]{R.mipmap.viewpager1, R.mipmap.viewpager2};// R.mipmap.viewpager3, R.mipmap.viewpager4
-        for (int i = 0; i < imageResId.length; i++) {
-            ImageView imageView = new ImageView(this);
-            imageView.setBackgroundResource(imageResId[i]);
-            listViews.add(imageView);
-        }
-    }
+//    /**
+//     * 初始化图片
+//     */
+//    private void InitViewPager() {
+//        //显示的图片
+//        listViews = new ArrayList<View>();
+//        int[] imageResId = new int[]{R.mipmap.viewpager1, R.mipmap.viewpager2};// R.mipmap.viewpager3, R.mipmap.viewpager4
+//        for (int i = 0; i < imageResId.length; i++) {
+//            ImageView imageView = new ImageView(this);
+//            imageView.setBackgroundResource(imageResId[i]);
+//            listViews.add(imageView);
+//        }
+//    }
 
 }
