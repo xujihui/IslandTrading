@@ -131,12 +131,12 @@ public class Home extends Activity {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-            if(connection != null){
+        } finally {
+            if (connection != null) {
                 connection.disconnect();
                 connection = null;
             }
-            if (is != null){
+            if (is != null) {
                 try {
                     is.close();
                     is = null;
@@ -149,9 +149,6 @@ public class Home extends Activity {
 
         return null;
     }
-
-
-
 
 
     @Override
@@ -183,15 +180,14 @@ public class Home extends Activity {
         InitViewPager();
 
 
-
         //创建网络访问的类的对象
         AsyncHttpClient client = new AsyncHttpClient();
         String url = "http://10.7.92.57:8080/IslandTrading/analysis/request_acts";
-        client.get(getApplicationContext(),url,new JsonHttpResponseHandler(){
+        client.get(getApplicationContext(), url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 super.onSuccess(statusCode, headers, response);
-                for (int i = 0 ; i < response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject a = response.getJSONObject(i);
                         JSONObject goods = a.getJSONObject("good");
@@ -209,9 +205,6 @@ public class Home extends Activity {
             }
 
         });
-
-
-
 
 
 //        //开始滚动

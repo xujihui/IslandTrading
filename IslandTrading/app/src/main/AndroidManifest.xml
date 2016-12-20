@@ -152,7 +152,6 @@
         <activity android:name=".controller.ChatActivity" />
         <activity android:name=".easeui.ui.EaseShowBigImageActivity" />
         <activity android:name=".easeui.ui.EaseBaiduMapActivity" />
-        <activity android:name=".ui.MyInfo" />
         <activity android:name=".ui.Myself" />
         <activity android:name=".ui.Regist" />
         <activity android:name=".ui.Login" />
