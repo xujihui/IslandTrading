@@ -50,7 +50,7 @@ public class SoldAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.sold_listview_item_layout, null);
         }
         ImageView soldImage = (ImageView) view.findViewById(R.id.sold_image);
-        soldImage.setImageResource(products.get(i).getmImage());
+//        soldImage.setImageResource(products.get(i).getmImage());
         TextView soldTitle = (TextView) view.findViewById(R.id.sold_title);
         soldTitle.setText(products.get(i).getmTitle());
         TextView soldPrice = (TextView) view.findViewById(R.id.sold_price);

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.daomaidaomai.islandtrading">
-    <!--聊天模块-->
+
+    <!-- 聊天模块 -->
     <!-- 项目权限配置 -->
     <!-- 相机 -->
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -16,6 +17,9 @@
     <!-- 访问WIFI状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <!-- 读取手机状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 唤醒锁屏 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!--唤醒锁屏-->
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
@@ -37,9 +41,11 @@
     <!-- 非必需权限 -->
     <!-- 开机自启动 -->
     <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/> -->
-    <!--获取当前和最近执行的任务
+    <!--
+    获取当前和最近执行的任务
     TODO 已被弃用后期可能会添加另一个权限 REAL_GET_TASKS
-    TODO https://android.googlesource.com/platform/frameworks/base/+/2d7576b%5E!/-->
+    TODO https://android.googlesource.com/platform/frameworks/base/+/2d7576b%5E!/
+    -->
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <!-- 安装卸载文件系统 -->
     <!-- <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/> -->
@@ -49,7 +55,6 @@
     <!-- <uses-permission android:name="android.permission.READ_PROFILE"/> -->
     <!-- 读取联系人 -->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
-
 
     <!-- Demo新添加的一些属性 -->
     <!-- 访问GMail账户列表 -->
@@ -63,22 +68,9 @@
     <!-- 连续广播（允许一个程序收到广播后快速收到下一个广播） -->
     <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
 
-    <!--非必需权限-->
-    <!-- 开机自启动 -->
-    <!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>-->
-    <!--<uses-permission android:name="android.permission.GET_TASKS"/>-->
-    <!-- 安装卸载文件系统 -->
-    <!--<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>-->
-    <!-- 改变WIFI状态 -->
-    <!--<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>-->
-    <!-- 读取描述文件 -->
-    <!--<uses-permission android:name="android.permission.READ_PROFILE"/>-->
-    <!-- 读取联系人 -->
-    <!--<uses-permission android:name="android.permission.READ_CONTACTS"/>-->
 
     <!-- 连续广播（允许一个程序收到广播后快速收到下一个广播） -->
     <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
-
 
 
 
@@ -103,7 +95,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- SDK2.1新增获取用户位置信息 QQ登录的权限信息-->
+    <!-- SDK2.1新增获取用户位置信息 QQ登录的权限信息 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
@@ -111,11 +103,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--短信的权限-->
+    <!-- 短信的权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!--新添加的权限-->
+    <!-- 新添加的权限 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -125,8 +117,8 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--短信的权限-->
 
+    <!-- 短信的权限 -->
     <application
         android:name=".Application"
         android:allowBackup="true"
@@ -135,6 +127,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
+<<<<<<< HEAD
             android:name="com.baidu.lbsapi.API_KEY"/>
             android:value="Dj2WcYxqEAnXDIwRfsWggPs1rr680Hvb" />
 
@@ -143,23 +136,32 @@
 
         <!--value="9bSSufpEyZfV1OHOxpAlszUW7QvBatYu"
         android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6"/>-->
+=======
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6" />
+
+
+
+
+>>>>>>> fffd87e6e26cf6b94d7c4ca1666d71c5268c7c16
         <!--
         value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"
         zhanglixuan
         -->
-
         <!--
         value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"
-        lixiang
+        lijiang
         -->
-
         <!--
         value="iifqdzMtLe3YWOOhSxPSL746fppYApF6"
         xujihui
         -->
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> fffd87e6e26cf6b94d7c4ca1666d71c5268c7c16
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -174,7 +176,9 @@
         <activity android:name=".controller.MySold" />
         <activity android:name=".controller.MyPublish" />
         <activity android:name=".controller.ClassifyDetail" />
-        <activity android:name=".ui.MyInfo" />
+        <activity android:name=".controller.ChatActivity" />
+        <activity android:name=".easeui.ui.EaseShowBigImageActivity" />
+        <activity android:name=".easeui.ui.EaseBaiduMapActivity" />
         <activity android:name=".ui.Myself" />
         <activity android:name=".ui.Regist" />
         <activity android:name=".ui.Login" />
@@ -190,9 +194,6 @@
         <activity android:name=".ui.Onlinedeal" />
         <activity android:name=".ui.Pay" />
         <activity android:name=".ui.Canceldeal" />
-        <activity
-            android:name=".ui.Sell"
-            android:theme="@style/myTransparent" />
         <activity android:name=".ui.GoodsDetail" />
         <activity android:name=".ui.MyCollection" />
         <activity android:name=".ui.Help" />
@@ -201,9 +202,21 @@
         <activity android:name=".ui.Aboutus" />
         <activity android:name=".ui.Personal_Edit" />
         <activity android:name=".ui.AddressChioce" />
+        <activity android:name=".ui.Promotion" />
+        <activity
+            android:name=".ui.Map_GoodsDetail"
+            android:theme="@style/myTransparent" />
+        <activity
+            android:name=".ui.ConversationList"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".ui.Sell"
+            android:theme="@style/myTransparent" />
         <activity
             android:name=".ui.Home"
             android:windowSoftInputMode="stateHidden" />
+
+        <!-- QQ登录的权限 -->
         <activity android:name=".controller.ChatActivity"/>
         <activity android:name=".easeui.ui.EaseShowBigImageActivity"/>
         <activity android:name=".easeui.ui.EaseBaiduMapActivity"/>
@@ -217,7 +230,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- 100380359 100381104 222222 tencent-->
+                <!-- 100380359 100381104 222222 tencent -->
                 <data android:scheme="1105766125" />
             </intent-filter>
         </activity>
@@ -226,13 +239,13 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <!--短信的引入-->
+        <!-- 短信的引入 -->
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <!--短信的引入-->
+        <!-- 短信的引入 -->
 
 
 
@@ -257,6 +270,8 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
+
+
     </application>
 
 </manifest>

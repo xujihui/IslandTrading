@@ -93,7 +93,10 @@ public class GoodsDetail extends Activity {
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fffd87e6e26cf6b94d7c4ca1666d71c5268c7c16
     @Override
     protected void onStart() {
         super.onStart();
@@ -132,4 +135,7 @@ public class GoodsDetail extends Activity {
         });
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> fffd87e6e26cf6b94d7c4ca1666d71c5268c7c16

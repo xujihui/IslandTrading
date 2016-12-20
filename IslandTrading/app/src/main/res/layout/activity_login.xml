@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:height="40dp"
                 android:background="@color/white"
-                android:hint="    手机号"
+                android:hint="\u3000手机号"
                 android:textColorHint="@color/lightgrey"
                 android:textSize="18sp" />
 
@@ -74,7 +74,7 @@
                 android:layout_marginTop="0.5dp"
                 android:height="40dp"
                 android:background="@color/white"
-                android:hint="    密码"
+                android:hint="\u3000密码"
                 android:password="true"
                 android:textColorHint="@color/lightgrey"
                 android:textSize="18sp" />

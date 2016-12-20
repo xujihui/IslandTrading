@@ -76,6 +76,13 @@
             android:visibility="visible"
             android:orientation="horizontal">
 
+<<<<<<< HEAD
+            <ImageView
+                android:id="@+id/map_goodsdetails_img"
+                android:layout_width="90dp"
+                android:layout_height="75dp"
+                android:scaleType="fitXY" />
+=======
             <Button
                 android:id="@+id/back1"
                 android:layout_width="0dp"
@@ -84,6 +91,7 @@
                 android:background="@drawable/buttonshape"
                 android:text="返回"
                 android:textColor="@color/white" />
+>>>>>>> e984a805768cf01f576ea8954a9841476b239ae8
 
             <Button
                 android:padding="0dp"

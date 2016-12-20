@@ -1,22 +1,34 @@
 package com.daomaidaomai.islandtrading.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.daomaidaomai.islandtrading.R;
 
-
-/**
- * Created by lenovo on 2016/11/20.
- */
-public class MyInfo extends Activity {
+public class Promotion extends Activity {
     private LinearLayout Back;
+
+    public View.OnClickListener mylistener = new View.OnClickListener() {
+        public void onClick(View v) {
+            switch (v.getId()) {
+
+                case R.id.back:
+                    Promotion.this.finish();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +45,9 @@ public class MyInfo extends Activity {
             window.setStatusBarColor(Color.TRANSPARENT);
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
-        setContentView(R.layout.activity_my);
+        setContentView(R.layout.activity_promotion);
         Back = (LinearLayout) findViewById(R.id.back);
-        Back.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                MyInfo.this.finish();
-            }
-        });
+        Back.setOnClickListener(mylistener);
     }
 }
