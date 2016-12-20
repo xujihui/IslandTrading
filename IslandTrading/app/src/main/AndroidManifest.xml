@@ -4,35 +4,35 @@
     <!--聊天模块-->
     <!-- 项目权限配置 -->
     <!-- 相机 -->
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"/>
     <!-- 网络 -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!-- 录音 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <!-- 震动 -->
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <!-- 访问网络状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!-- 访问WIFI状态 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <!-- 读取手机状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!--唤醒锁屏-->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <!-- 写入外部存储 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- 访问精确定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <!-- 修改音频设置 -->
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <!-- 允许读写系统设置项 使用设置时需要 -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <!-- 读取启动设置 -->
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
 
     <!-- 音视频通话所需权限 -->
     <!-- 唤醒锁屏 -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <!-- 非必需权限 -->
     <!-- 开机自启动 -->
@@ -40,7 +40,7 @@
     <!--获取当前和最近执行的任务
     TODO 已被弃用后期可能会添加另一个权限 REAL_GET_TASKS
     TODO https://android.googlesource.com/platform/frameworks/base/+/2d7576b%5E!/-->
-    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.GET_TASKS"/>
     <!-- 安装卸载文件系统 -->
     <!-- <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/> -->
     <!-- 改变WIFI状态 -->
@@ -48,20 +48,20 @@
     <!-- 读取描述文件 -->
     <!-- <uses-permission android:name="android.permission.READ_PROFILE"/> -->
     <!-- 读取联系人 -->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
 
     <!-- Demo新添加的一些属性 -->
     <!-- 访问GMail账户列表 -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <!-- 使用证书 -->
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
     <!-- 管理账户 -->
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
     <!-- 验证账户 -->
-    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
     <!-- 连续广播（允许一个程序收到广播后快速收到下一个广播） -->
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
 
     <!--非必需权限-->
     <!-- 开机自启动 -->
@@ -77,7 +77,9 @@
     <!--<uses-permission android:name="android.permission.READ_CONTACTS"/>-->
 
     <!-- 连续广播（允许一个程序收到广播后快速收到下一个广播） -->
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+
+
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -134,23 +136,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6"/>
-
-
-        <!--
-        value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"
-        zhanglixuan
-        -->
-
-        <!--
-        value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"
-        lixiang
-        -->
-
-        <!--
-        value="iifqdzMtLe3YWOOhSxPSL746fppYApF6"
-        xujihui
-        -->
+            android:value="Dj2WcYxqEAnXDIwRfsWggPs1rr680Hvb" />
 
 
         <activity android:name=".ui.MainActivity">
@@ -175,9 +161,8 @@
         <activity
             android:name=".ui.Map_GoodsDetail"
             android:theme="@style/myTransparent" />
-        <activity
-            android:name=".ui.ConversationList"
-            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ui.ConversationList"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".ui.Order" />
         <activity android:name=".ui.Order_Detail" />
         <activity android:name=".ui.Facedeal" />
@@ -198,9 +183,9 @@
         <activity
             android:name=".ui.Home"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".controller.ChatActivity" />
-        <activity android:name=".easeui.ui.EaseShowBigImageActivity" />
-        <activity android:name=".easeui.ui.EaseBaiduMapActivity" />
+        <activity android:name=".controller.ChatActivity"/>
+        <activity android:name=".easeui.ui.EaseShowBigImageActivity"/>
+        <activity android:name=".easeui.ui.EaseBaiduMapActivity"/>
         <!--QQ登录的权限-->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
@@ -227,6 +212,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <!--短信的引入-->
+
 
 
         <!-- 设置环信应用的 appkey 换成自己的 -->

@@ -92,21 +92,9 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
     //初始化数据
     private void initMarksData() {
         markInfoList = new ArrayList<MapST>();
-        markInfoList.add(new MapST(1, 38.000094, 114.524492, R.mipmap.mapgood1, "施华洛世奇", "施华洛世奇水晶装饰"));
-        markInfoList.add(new MapST(2, 38.000183, 114.528957, R.mipmap.mapgood2, "冬款男靴", "花花公子冬季新款 男 短靴"));
-        markInfoList.add(new MapST(3, 38.004288, 114.521514, R.mipmap.mapgood3, "黑天鹅", "施华洛世奇经典 黑/白天鹅"));
-        markInfoList.add(new MapST(4, 38.003194, 114.523492, R.mipmap.mapgood4, "Lv包包", "美国代购 奢侈品 Lv秋季新款"));
-        markInfoList.add(new MapST(5, 38.004483, 114.528757, R.mipmap.mapgood5, "动漫手办", "阿尔托利亚 粘土人"));
-        markInfoList.add(new MapST(6, 38.004588, 114.526514, R.mipmap.mapgood6, "音乐口罩", "淘宝众筹同款 音乐口罩防雾霾"));
-        markInfoList.add(new MapST(7, 38.002394, 114.525492, R.mipmap.mapgood7, "创意时钟", "黑科技创意 磁悬浮 时钟"));
-        markInfoList.add(new MapST(8, 38.004383, 114.523957, R.mipmap.mapgood8, "可折叠鼠标", "大家都爱黑科技 无线鼠标 可折叠鼠标"));
-        markInfoList.add(new MapST(9, 38.003488, 114.522514, R.mipmap.mapgood9, "迷你无人机", "可折叠无人机 超小 mini"));
-        markInfoList.add(new MapST(10, 38.001694, 114.521492, R.mipmap.mapgood10, "雪本诗面膜", "德国代购 雪本诗 涂抹式面膜"));
-        markInfoList.add(new MapST(11, 38.000883, 114.521957, R.mipmap.mapgood11, "swatch手表", "2016七夕限定款 swatch情侣手表"));
-        markInfoList.add(new MapST(12, 38.001788, 114.522514, R.mipmap.mapgood12, "beats耳机", "beats studio耳机正品"));
-        markInfoList.add(new MapST(13, 38.002794, 114.523492, R.mipmap.mapgood13, "天美意 长靴", "天美意 冬季2016新款 过膝靴 长靴"));
-        markInfoList.add(new MapST(14, 38.003983, 114.524957, R.mipmap.mapgood14, "ysl 星辰", "ysl 星辰 2016圣诞节限定款"));
-        markInfoList.add(new MapST(15, 38.004488, 114.525514, R.mipmap.mapgood15, "联想笔记本电脑 超极本", "Lenovo联想 商务游戏本"));
+        markInfoList.add(new MapST(1, 38.000094, 114.524492, R.mipmap.pxdingsi, "联想笔记本电脑 超极本", "Lenovo联想 商务游戏本"));
+        markInfoList.add(new MapST(2, 38.000183, 114.528957, R.mipmap.baobao, "Lv包包", "美国代购 奢侈品 Lv秋季新款"));
+        markInfoList.add(new MapST(3, 38.004288, 114.521514, R.mipmap.tiane, "黑天鹅", "施华洛世奇经典 黑/白天鹅"));
     }
 
 
@@ -127,51 +115,13 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
             int image_id = 0;
             switch (i) {
                 case 0:
-                    image_id = R.mipmap.mapgood1;
+                    image_id = R.mipmap.pxdingsi;
                     break;
                 case 1:
-                    image_id = R.mipmap.mapgood2;
+                    image_id = R.mipmap.baobao;
                     break;
                 case 2:
-                    image_id = R.mipmap.mapgood3;
-                    break;
-                case 3:
-                    image_id = R.mipmap.mapgood4;
-                    break;
-                case 4:
-                    image_id = R.mipmap.mapgood5;
-                    break;
-                case 5:
-                    image_id = R.mipmap.mapgood6;
-                    break;
-                case 6:
-                    image_id = R.mipmap.mapgood7;
-                    break;
-                case 7:
-                    image_id = R.mipmap.mapgood8;
-                    break;
-                case 8:
-                    image_id = R.mipmap.mapgood9;
-                    break;
-                case 9:
-                    image_id = R.mipmap.mapgood10;
-                    break;
-                case 10:
-                    image_id = R.mipmap.mapgood11;
-                    break;
-                case 11:
-                    image_id = R.mipmap.mapgood12;
-                    break;
-                case 12:
-                    image_id = R.mipmap.mapgood13;
-                    break;
-                case 13:
-                    image_id = R.mipmap.mapgood14;
-                    break;
-                case 14:
-                    image_id = R.mipmap.mapgood15;
-                    break;
-                default:
+                    image_id = R.mipmap.tiane;
                     break;
 
             }
@@ -232,7 +182,9 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
             child.setVisibility(View.INVISIBLE);
         }
         addMarkerOverlay();
+
         mBaiduMap.setOnMapClickListener(this);
+
         //添加覆盖物响应事件
         mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
 
@@ -271,7 +223,6 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         TextView infoWindowTv = new TextView(Map.this);
         //infoWindowTv.setBackgroundResource(R.drawable.location_tips);
         infoWindowTv.setPadding(10, 10, 10, 10);
-        //infoWindowTv.setText(MyMarker.getmName());
        // infoWindowTv.setText(MyMarker.getmName());
         //infoWindowTv.setTextColor(Color.parseColor("#FFFFFF"));
         final LatLng latLng = marker.getPosition();
