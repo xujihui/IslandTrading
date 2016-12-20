@@ -10,7 +10,7 @@ public class MapST implements Serializable {
     private int id;
     private double latitude;
     private double longitude;
-    private int ImageId;
+    private String ImageId;
     private String mName;
     private String mContent;
 
@@ -38,11 +38,11 @@ public class MapST implements Serializable {
         this.longitude = longitude;
     }
 
-    public int getImageId() {
+    public String getImageId() {
         return ImageId;
     }
 
-    public void setImageId(int imageId) {
+    public void setImageId(String imageId) {
         ImageId = imageId;
     }
 
@@ -62,7 +62,7 @@ public class MapST implements Serializable {
         this.mContent = mContent;
     }
 
-    public MapST(int id, double latitude, double longitude, int imageId, String mName, String mContent) {
+    public MapST(int id, double latitude, double longitude, String imageId, String mName, String mContent) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;

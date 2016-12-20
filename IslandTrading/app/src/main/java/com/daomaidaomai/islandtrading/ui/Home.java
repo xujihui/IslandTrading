@@ -186,7 +186,7 @@ public class Home extends Activity {
 
         //创建网络访问的类的对象
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "http://10.7.92.57:8080/IslandTrading/analysis/request_acts";
+        String url = "http://10.7.88.37:8080/IslandTrading/analysis/request_acts";
         client.get(getApplicationContext(),url,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -215,7 +215,7 @@ public class Home extends Activity {
 
 
 //        //开始滚动
-//        myPager.start(this, listViews, 4000, title, strs, ovalLayout,
+//        myPager.start(this, listViews, 4000, title, titles, ovalLayout,
 //                R.layout.ad_scroll_dot_item, R.id.ad_item_v,
 //                R.drawable.dot_focused, R.drawable.dot_normal);
         // 把ViewPager做成ListView的Header,注意:addHeaderView一定要在setAdapter前调用
@@ -289,5 +289,6 @@ public class Home extends Activity {
             listViews.add(imageView);
         }
     }
+
 
 }

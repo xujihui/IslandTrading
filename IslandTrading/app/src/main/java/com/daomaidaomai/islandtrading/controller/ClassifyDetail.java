@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import com.daomaidaomai.islandtrading.R;
@@ -72,11 +73,11 @@ public class ClassifyDetail extends Activity {
         });
         lv = (ListView)findViewById(R.id.lv);
       //  getDate();
+        getHttp();//网络请求
+        inits();
 
         myListAdapter = new MyListAdapter(this,ls);
         lv.setAdapter(myListAdapter);
-        getHttp();//网络请求
-        inits();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -91,10 +92,10 @@ public class ClassifyDetail extends Activity {
     }
 
     private void getHttp() {
-        String url = "http://10.7.88.26:8080/IslandTrading/analysis/type_collection";
+        String url = "http://10.7.88.37:8080/IslandTrading/analysis/type_collection";
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params= new RequestParams();
-        params.add("pType","{pType:电脑PC}");
+        params.add("pType","{pType:手机}");
         client.get(url,params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -111,6 +112,7 @@ public class ClassifyDetail extends Activity {
                         double price=content.getDouble("Product_Price");
                         String picture=content.getString("Product_Image_Url");
                         ls.add(new ItemDetail(id,name,picture,describe,price));
+                        //Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

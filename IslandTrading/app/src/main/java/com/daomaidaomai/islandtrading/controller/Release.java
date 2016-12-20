@@ -29,8 +29,8 @@ public class Release extends Activity {
     private Button Btn;
     private LinearLayout Back;
     private RadioButton radio_btn;
-    private TextView content;
-    private LocationReceiver lr;
+    //private TextView content;
+    //private LocationReceiver lr;
     private Spinner spinner;
     private static final String LOCSTART = "START_LOCATING";
 
@@ -41,7 +41,9 @@ public class Release extends Activity {
                 case R.id.confirm: {
                     Intent i = new Intent(Release.this, ReleaseConfirm.class);
                     startActivity(i);
-                    //Toast.makeText(getApplicationContext(), "GPS测试开始", Toast.LENGTH_SHORT).show();
+
+
+                   // Toast.makeText(getApplicationContext(), "GPS测试开始", Toast.LENGTH_SHORT).show();
                     break;
                 }
                 case R.id.back:
@@ -100,26 +102,27 @@ public class Release extends Activity {
             }
         });
 
-        lr = new LocationReceiver();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("NEW LOCATION SENT");
-        registerReceiver(lr, intentFilter);
+//        lr = new LocationReceiver();
+//        IntentFilter intentFilter = new IntentFilter();
+//        intentFilter.addAction("NEW LOCATION SENT");
+//        registerReceiver(lr, intentFilter);
 
 
     }
-
-    class LocationReceiver extends BroadcastReceiver {
-
-        String locationMsg = "";
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            // TODO Auto-generated method stub
-            locationMsg = intent.getStringExtra("newLoca");
-            content.setText(locationMsg);
-
-        }
-    }
+//
+//    class LocationReceiver extends BroadcastReceiver {
+//
+//        String locationMsg = "";
+//
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            // TODO Auto-generated method stub
+//            locationMsg = intent.getStringExtra("newLoca");
+//            //content.setText(locationMsg);
+//           // Toast.makeText(getApplicationContext(), locationMsg, Toast.LENGTH_SHORT).show();
+//
+//        }
+//    }
 
 
 }
