@@ -108,50 +108,6 @@ public class Home extends Activity {
         }
     };
 
-    //Get方法
-    public String get(String urlPath) {
-        HttpURLConnection connection = null;
-        InputStream is = null;
-        try {
-            URL url = new URL(urlPath);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setUseCaches(false);
-            connection.setConnectTimeout(10000);
-            connection.setReadTimeout(10000);
-            connection.setDoInput(true);
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                is = connection.getInputStream();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
-
-                }
-                return response.toString();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                connection.disconnect();
-                connection = null;
-            }
-            if (is != null) {
-                try {
-                    is.close();
-                    is = null;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
-
-        return null;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
