@@ -117,6 +117,11 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--写发布时要用的权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--发布页定位-->
+    <uses-permission android:name="android.permission.ACCESSFINELOCATION"/>
+    <uses-permission android:name="android.permission.ACCESSCOARSELOCATION"/>
 
     <!-- 短信的权限 -->
     <application
