@@ -136,7 +136,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* åœ
             Paint paint = new Paint();
             paint.setColor(Color.BLACK);
 
-            canvas.drawBitmap(bitmap1, 18, 36, paint);
+            canvas.drawBitmap(bitmap1, 0, 0, paint);
             canvas.drawBitmap(bitmap2, 0, 0, paint);
 
             BitmapDescriptor myMarks = BitmapDescriptorFactory.fromBitmap(alterBitmap);
