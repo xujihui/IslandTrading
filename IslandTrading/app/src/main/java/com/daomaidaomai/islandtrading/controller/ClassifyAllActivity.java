@@ -81,8 +81,46 @@ public class ClassifyAllActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent();
-                intent.setClass(ClassifyAllActivity.this, ClassifyDetail.class);
-                startActivity(intent);
+                intent.setClass(getApplicationContext(), ClassifyDetail.class);
+                switch (position){
+                    case 0:
+                        intent.putExtra("ClassifyName","女装");
+                        break;
+                    case 1:
+                        intent.putExtra("ClassifyName","男装");
+                        break;
+                    case 2:
+                        intent.putExtra("ClassifyName","自行车");
+                        break;
+                    case 3:
+                        intent.putExtra("ClassifyName","手机");
+                        break;
+                    case 4:
+                        intent.putExtra("ClassifyName","电脑");
+                        break;
+                    case 5:
+                        intent.putExtra("ClassifyName","3C数码");
+                        break;
+                    case 6:
+                        intent.putExtra("ClassifyName","鞋包");
+                        break;
+                    case 7:
+                        intent.putExtra("ClassifyName","化妆品");
+                        break;
+                    case 8:
+                        intent.putExtra("ClassifyName","文具");
+                        break;
+                    case 9:
+                        intent.putExtra("ClassifyName","图书");
+                        break;
+                    case 10:
+                        intent.putExtra("ClassifyName","技能服务");
+                        break;
+                    case 11:
+                        intent.putExtra("ClassifyName","其他");
+                        break;
+                }
+                startActivityForResult(intent,1);
             }
         });
     }
