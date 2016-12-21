@@ -133,7 +133,7 @@ public class Home extends Activity {
         //创建网络访问的类的对象
         AsyncHttpClient client = new AsyncHttpClient();
 
-        String url = "http://10.7.88.37:8080/IslandTrading/analysis/request_acts";
+        String url = "http://182.61.37.142/IslandTrading/analysis/request_acts";
         client.get(getApplicationContext(), url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -215,7 +215,7 @@ public class Home extends Activity {
 
     private void getListData() {
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "http://10.7.88.37:8080/IslandTrading/analysis/getTop";
+        String url = "http://182.61.37.142/IslandTrading/analysis/getTop";
         client.get(getApplicationContext(), url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
