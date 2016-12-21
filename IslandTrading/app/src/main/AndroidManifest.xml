@@ -128,11 +128,8 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="iifqdzMtLe3YWOOhSxPSL746fppYApF6" />
 
-
-
-
+            android:value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"/>
         <!--
         value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"
         zhanglixuan
@@ -186,12 +183,9 @@
         <activity android:name=".ui.Personal_Edit" />
         <activity android:name=".ui.AddressChioce" />
         <activity android:name=".ui.Promotion" />
-        <activity
+       <!-- <activity
             android:name=".ui.Map_GoodsDetail"
-            android:theme="@style/myTransparent" />
-        <activity
-            android:name=".ui.ConversationList"
-            android:windowSoftInputMode="stateHidden" />
+            android:theme="@style/myTransparent" />-->
         <activity
             android:name=".ui.Sell"
             android:theme="@style/myTransparent" />
@@ -200,9 +194,10 @@
             android:windowSoftInputMode="stateHidden" />
 
         <!-- QQ登录的权限 -->
-        <activity android:name=".controller.ChatActivity"/>
+        <!--这些类我pull下来是有问题的因为重复了李江-->
+        <!--<activity android:name=".controller.ChatActivity"/>
         <activity android:name=".easeui.ui.EaseShowBigImageActivity"/>
-        <activity android:name=".easeui.ui.EaseBaiduMapActivity"/>
+        <activity android:name=".easeui.ui.EaseBaiduMapActivity"/>-->
         <!--QQ登录的权限-->
         <activity
             android:name="com.tencent.tauth.AuthActivity"

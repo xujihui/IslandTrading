@@ -186,7 +186,6 @@ public class Home extends Activity {
 
         String url = "http://10.7.88.37:8080/IslandTrading/analysis/request_acts";
         client.get(getApplicationContext(), url, new JsonHttpResponseHandler() {
-
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 super.onSuccess(statusCode, headers, response);
@@ -326,5 +325,6 @@ public class Home extends Activity {
 //            listViews.add(imageView);
 //        }
 //    }
+
 
 }

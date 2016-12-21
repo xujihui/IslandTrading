@@ -3,6 +3,7 @@ package com.daomaidaomai.islandtrading.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -53,6 +54,7 @@ public class BDGpsServiceListener implements BDLocationListener {
         longitude = location.getLongitude();
         latitude = location.getLatitude();
         time = location.getTime();
+        Log.e("----------",""+longitude);
     }
 }
 
