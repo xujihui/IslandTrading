@@ -2,6 +2,7 @@ package com.daomaidaomai.islandtrading.defineview;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -11,6 +12,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.daomaidaomai.islandtrading.ui.Promotion;
 
 import java.util.List;
 import java.util.Timer;
@@ -181,6 +184,16 @@ public class MyImgScroll extends ViewPager {
 				((ViewPager) v)
 						.removeView(mListViews.get(i % mListViews.size()));//移除给定位置的视图
 			}
+
+			//轮播图的点击事件
+			mListViews.get(i % mListViews.size()).setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					mActivity.startActivity(new Intent(mActivity, Promotion.class));
+
+				}
+			});
+
 			((ViewPager) v).addView(mListViews.get(i % mListViews.size()), 0);
 			return mListViews.get(i % mListViews.size());
 		}
