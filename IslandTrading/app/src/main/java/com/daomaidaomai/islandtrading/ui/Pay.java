@@ -16,13 +16,19 @@ import com.daomaidaomai.islandtrading.R;
 
 public class Pay extends Activity {
     private Button Btn;
+    private Button Cancel;
     private LinearLayout Back;
 
     public View.OnClickListener mylistener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.pay: {
-                    Intent i = new Intent(Pay.this, Onlinedeal.class);
+                    Intent i = new Intent(Pay.this, Order_Detail.class);
+                    startActivity(i);
+                    break;
+                }
+                case R.id.cancel: {
+                    Intent i = new Intent(Pay.this, Canceldeal.class);
                     startActivity(i);
                     break;
                 }
@@ -52,8 +58,9 @@ public class Pay extends Activity {
         }
         setContentView(R.layout.activity_pay);
         Btn = (Button) findViewById(R.id.pay);
+        Cancel = (Button) findViewById(R.id.cancel);
         Back = (LinearLayout) findViewById(R.id.back);
-
+        Cancel.setOnClickListener(mylistener);
         Btn.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
     }

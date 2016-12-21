@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.adapter.HomeAdapter;
@@ -178,7 +179,6 @@ public class Home extends Activity {
 
         String url = "http://10.7.88.37:8080/IslandTrading/analysis/request_acts";
         client.get(getApplicationContext(), url, new JsonHttpResponseHandler() {
-
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 super.onSuccess(statusCode, headers, response);
@@ -202,8 +202,10 @@ public class Home extends Activity {
                         ImageLoader.getInstance().displayImage(imageUrl, imageView);
                         strs.add(output);
                         listViews.add(imageView);
+                        //必须每次进来清除布局里的所有小圆点，不然每一次循环会在上一次的基础上增加圆点
+                        ovalLayout.removeAllViews();
                         //开始滚动
-                        myPager.start(Home.this, listViews, 4000, title, strs, ovalLayout,
+                        myPager.start(Home.this, listViews, 5000, title, strs, ovalLayout,
                                 R.layout.ad_scroll_dot_item, R.id.ad_item_v,
                                 R.drawable.dot_focused, R.drawable.dot_normal);
                     } catch (JSONException e) {
@@ -225,15 +227,18 @@ public class Home extends Activity {
         //得到数据源
         getListData();
         //创建adapter
-        homeAdapter = new HomeAdapter(Home.this, listViewProducts);
+        homeAdapter = new HomeAdapter(getApplicationContext(), listViewProducts);
+        //为ListView绑定adapter
+        lv.setAdapter(homeAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(getApplication(), GoodsDetail.class));
+                Intent intent = new Intent(com.daomaidaomai.islandtrading.ui.Home.this, GoodsDetail.class);
+                intent.putExtra("pid",listViewProducts.get(i-1).getId());
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(),"点击了" + i + "项  " + l, Toast.LENGTH_SHORT).show();
             }
         });
-        //为ListView绑定adapter
-        lv.setAdapter(homeAdapter);
 
 
         Chat = (LinearLayout) findViewById(R.id.chat);
@@ -261,7 +266,6 @@ public class Home extends Activity {
                 super.onSuccess(statusCode, headers, response);
                 for (int i = 0; i < response.length(); i++) {
                     try {
-
                         JSONObject item = response.getJSONObject(i);
                         int id = item.getInt("Product_Id");
                         String imageUrl = item.getString("Product_Image_Url");
@@ -294,6 +298,7 @@ public class Home extends Activity {
     public void stop(View v) {
         myPager.stopTimer();
     }
+
 
 
 }

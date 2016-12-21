@@ -31,6 +31,7 @@ public class Onlinedeal extends Activity {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.activity_ordercomplet);
+
         Back = (LinearLayout) findViewById(R.id.back);
         Back.setOnClickListener(new View.OnClickListener() {
 
