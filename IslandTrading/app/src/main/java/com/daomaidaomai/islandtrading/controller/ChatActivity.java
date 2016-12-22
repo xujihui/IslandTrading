@@ -18,9 +18,6 @@ public class ChatActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_chat);
 
-        //get user id
-        mChatId = getIntent().getExtras().getString("userId");
-
         // 这里直接使用EaseUI封装好的聊天界面
         chatFragment = new EaseChatFragment();
         // 将参数传递给聊天界面

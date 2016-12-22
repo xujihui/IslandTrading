@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,9 +38,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.location.Address;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.geocode.GeoCodeResult;
+import com.baidu.mapapi.search.geocode.GeoCoder;
+import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
+import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
+import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.autoclose.ReleaseConfirm;
 import com.daomaidaomai.islandtrading.util.BDGpsServiceListener;
+import com.daomaidaomai.islandtrading.util.BaiduMapUtils;
 import com.daomaidaomai.islandtrading.util.GetLocation;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -130,6 +140,25 @@ public class Release extends Activity {
 
         //定位对象
         mLocation = new GetLocation(this);
+
+        BaiduMapUtils.reverseGeoParse(mLocation.getCurrentLongitude(),mLocation.getCurrentLatitude(),new OnGetGeoCoderResultListener(){
+            //获取正向解析结果时执行函数
+            @Override
+            public void onGetGeoCodeResult(GeoCodeResult arg0) {
+            }
+
+            //获取反向解析结果时执行函数
+            @Override
+            public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
+                if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
+                    // 没有检测到结果
+                    Toast.makeText(getApplication(), "抱歉，未能找到结果!", Toast.LENGTH_LONG);
+                }else{////得到结果后处理方法
+                    Toast.makeText(getApplication(), "地址为："+result.getAddress(), Toast.LENGTH_LONG);
+                }
+            }
+
+        });
     }
     public void findView (){
         Btn = (Button) findViewById(R.id.confirm);
@@ -193,12 +222,14 @@ public class Release extends Activity {
         }else if( mEt_ProducePrice.getText().toString().equals("")){
             Toast.makeText(getApplicationContext(),"商品价格不能为空",Toast.LENGTH_SHORT).show();
         }else{
-            String url = "http://10.7.88.37:8080/IslandTrading/analysis/addGoods";
+            String url = "http://182.61.37.142/IslandTrading/analysis/addGoods";
             AsyncHttpClient client = new AsyncHttpClient();
             RequestParams params= new RequestParams();
 
-            Longitude = mLocation.getCurrentLongitude();
-            Latitude = mLocation.getCurrentLatitude();
+            //经度
+            Longitude = mLocation.getCurrentLongitude()+"";
+            //纬度
+            Latitude = mLocation.getCurrentLatitude()+"";
             currentTime = mLocation.getCurrentTime();
             System.out.println("----Location: " +Longitude + " Latitude: " + Latitude +" currentTime: "+currentTime);
             //params.add("goods","{User_Username:"+UserName+",Product_Name:"+ProductName+",Product_Price:"+ProductPirce+",Product_Describe:"+ProductDescribe+",Product_Time:"+currentTime+",Product_Site:"+TradeSite+",Product_View:0,Product_Positive:0,Product_Status:false,Product_Top:false,Product_Longgitude:"+Longitude+",Product_Lagitude:"+Latitude+",Product_Type="+type+"}");
@@ -226,7 +257,7 @@ public class Release extends Activity {
     //得到商品id并且商品图片上传
     public void getProductId(){
         System.out.println("----调用了这个方法了啊");
-        String url = "http://10.7.88.37:8080/IslandTrading/analysis/lookupprice";
+        String url = "http://182.61.37.142/IslandTrading/analysis/lookupprice";
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params= new RequestParams();
         params.add("pName","{Product_Name:"+"'"+ProductName+"'"+"}");//商品名称一会儿设置看看汉字可不可以提交ProductName
@@ -425,7 +456,7 @@ public class Release extends Activity {
             if(file.exists() && file.length()>0){
                 Log.e("tag",file.getPath());
                 //ip是 虚拟机使用的电脑的某个ip，不是电脑ip
-                String str_url = "http://10.7.88.37:8080/IslandTrading/analysis/uploadImg";
+                String str_url = "http://182.61.37.142/IslandTrading/analysis/uploadImg";
 
                 AsyncHttpClient client = new AsyncHttpClient();
                 RequestParams params = new RequestParams();
@@ -478,4 +509,5 @@ public class Release extends Activity {
             }
         }
     }
+
 }

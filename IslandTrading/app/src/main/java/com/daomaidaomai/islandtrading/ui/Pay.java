@@ -23,13 +23,15 @@ public class Pay extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.pay: {
-                    Intent i = new Intent(Pay.this, Order_Detail.class);
+                    Intent i = new Intent(Pay.this, Facedeal.class);
                     startActivity(i);
+                    Pay.this.finish();
                     break;
                 }
                 case R.id.cancel: {
                     Intent i = new Intent(Pay.this, Canceldeal.class);
                     startActivity(i);
+                    Pay.this.finish();
                     break;
                 }
                 case R.id.back:
@@ -57,11 +59,20 @@ public class Pay extends Activity {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.activity_pay);
-        Btn = (Button) findViewById(R.id.pay);
-        Cancel = (Button) findViewById(R.id.cancel);
-        Back = (LinearLayout) findViewById(R.id.back);
+        //得到视图控件
+        getViews();
+        //设置监听器
         Cancel.setOnClickListener(mylistener);
         Btn.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
+    }
+
+    /**
+     * 得到视图控件
+     */
+    void getViews(){
+        Btn = (Button) findViewById(R.id.pay);
+        Cancel = (Button) findViewById(R.id.cancel);
+        Back = (LinearLayout) findViewById(R.id.back);
     }
 }

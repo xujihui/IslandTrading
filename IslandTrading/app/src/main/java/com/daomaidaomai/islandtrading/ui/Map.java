@@ -68,7 +68,7 @@ import java.util.List;
 
 import static com.daomaidaomai.islandtrading.ui.Login.TAG;
 
-public class Map extends Activity implements BaiduMap.OnMapClickListener { /* 地图控件*/
+public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地图控件*/
 
     private ImageView Refresh;
     private ImageView Back;
@@ -525,5 +525,6 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         super.onPause(); // 在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理
         mMapView.onPause();
     }
+
 
 }
