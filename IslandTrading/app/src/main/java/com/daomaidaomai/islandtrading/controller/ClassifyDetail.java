@@ -1,6 +1,7 @@
 package com.daomaidaomai.islandtrading.controller;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -21,6 +23,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer;
+
 
 import org.apache.http.Header;
 import org.json.JSONArray;
@@ -47,6 +50,10 @@ public class ClassifyDetail extends Activity {
 //        ls.add(new ItemDetail(8,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
 //        ls.add(new ItemDetail(9,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
 //    }
+
+    private TextView Classify;
+    private String type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,16 +70,28 @@ public class ClassifyDetail extends Activity {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.classify_detail);
+
         Back = (LinearLayout) findViewById(R.id.back);
         Back.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 ClassifyDetail.this.finish();
+                /*Intent i = new Intent();
+                i.setClass(getApplication(),ClassifyAllActivity.class);
+                startActivity(i);*/
             }
         });
+
+        Classify = (TextView)findViewById(R.id.TvType);
+        Intent i = getIntent();
+
+        type = i.getStringExtra("ClassifyName");
+        Classify.setText(type);
+
+
         lv = (ListView)findViewById(R.id.lv);
-      //  getDate();
+        //  getDate();
         getHttp();//网络请求
         inits();
 
@@ -133,4 +152,5 @@ public class ClassifyDetail extends Activity {
                 .build();// 创建配置过得DisplayImageOption对象
 
     }
+
 }

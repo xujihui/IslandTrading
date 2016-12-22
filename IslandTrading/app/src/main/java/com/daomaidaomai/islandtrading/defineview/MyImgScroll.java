@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.ui.Promotion;
 
@@ -179,7 +180,7 @@ public class MyImgScroll extends ViewPager {
 		 * @param i
          * @return
          */
-		public Object instantiateItem(View v, int i) {
+		public Object instantiateItem(View v, final int i) {
 			if (((ViewPager) v).getChildCount() == mListViews.size()) {
 				((ViewPager) v)
 						.removeView(mListViews.get(i % mListViews.size()));//移除给定位置的视图
@@ -189,8 +190,10 @@ public class MyImgScroll extends ViewPager {
 			mListViews.get(i % mListViews.size()).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					mActivity.startActivity(new Intent(mActivity, Promotion.class));
-
+					Intent intent = new Intent(mActivity,Promotion.class);
+					//得到点击当前图片的下标
+					intent.putExtra("index",getCurIndex());
+					mActivity.startActivity(intent);
 				}
 			});
 

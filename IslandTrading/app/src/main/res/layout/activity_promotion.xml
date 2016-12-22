@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="活动详情（这里改活动名称）"
+            android:text="活动详情"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
@@ -55,16 +55,16 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="国培大厦第一佳大鸡排买一送一"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textStyle="bold"/>
 
             <LinearLayout
                 android:id="@+id/nameandtime"
@@ -78,13 +78,14 @@
                     android:id="@+id/name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="3"
                     android:text="官方" />
 
                 <TextView
+                    android:id="@+id/time"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5"
+                    android:layout_weight="2"
                     android:text="12-20 6:28" />
             </LinearLayout>
 
@@ -94,18 +95,19 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nameandtime"
                 android:layout_margin="10dp"
-                android:text="\u3000\u3000鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一鸡排好吃的鸡排，杜海涛代言，第一佳大鸡排，首次消费买一赠一，支持支付宝付款，微信付款，河北师范大学一卡通付款，招牌无骨大鸡排买一送一"
+                android:text="\u3000\u3000"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/down"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/maintext"
-                android:layout_margin="8dp"
-                android:gravity="center"
-                android:text="本活动最终解释权归活动举办方所有" />
         </RelativeLayout>
     </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:text="本活动最终解释权归活动举办方所有" />
+
 </RelativeLayout>
