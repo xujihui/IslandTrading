@@ -36,7 +36,7 @@ public class ClassifyAllActivity extends Activity {
         ls.add(new Item(3, "自行车 ", R.mipmap.bike));
         ls.add(new Item(4, "手机", R.mipmap.phone));
         ls.add(new Item(5, "电脑", R.mipmap.pc));
-        ls.add(new Item(6, "3C数码", R.mipmap.game));
+        ls.add(new Item(6, "数码3CC", R.mipmap.game));
         ls.add(new Item(7, "鞋包", R.mipmap.shoes));
         ls.add(new Item(8, "化妆品", R.mipmap.cosmetics));
         ls.add(new Item(9, "文具", R.mipmap.stationery));
@@ -99,7 +99,7 @@ public class ClassifyAllActivity extends Activity {
                         intent.putExtra("ClassifyName","电脑");
                         break;
                     case 5:
-                        intent.putExtra("ClassifyName","3C数码");
+                        intent.putExtra("ClassifyName","数码3CC");
                         break;
                     case 6:
                         intent.putExtra("ClassifyName","鞋包");

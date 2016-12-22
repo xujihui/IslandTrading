@@ -24,7 +24,6 @@ import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.display.CircleBitmapDisplayer;
 
-
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,11 +37,11 @@ public class ClassifyDetail extends Activity {
     private ListView lv ;
     private MyListAdapter myListAdapter;
     private LinearLayout Back;
-    private DisplayImageOptions options;
+    private DisplayImageOptions options ;
 //    private void getDate(){
-//        ls.add(new ItemDetail(1,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
-//        ls.add(new ItemDetail(2,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
-//        ls.add(new ItemDetail(3,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
+//        ls.add(new ItemDetail2(1,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
+//        ls.add(new ItemDetail2(2,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
+//        ls.add(new ItemDetail2(3,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
 //        ls.add(new ItemDetail(4,"德芙巧克力 黑巧克力/牛奶/榛仁 三种口味",R.mipmap.odetailone,"德芙巧克力500克散装",59.90));
 //        ls.add(new ItemDetail(5,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
 //        ls.add(new ItemDetail(6,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
@@ -50,10 +49,8 @@ public class ClassifyDetail extends Activity {
 //        ls.add(new ItemDetail(8,"30包心逸原木抽纸巾 3层300张/包面巾纸", R.mipmap.odetailtwo,"精选优质原生木桨，温柔呵护肌肤，温水依然柔韧，孕婴都适用。",27.90));
 //        ls.add(new ItemDetail(9,"三只松鼠 能量果仁182g",R.mipmap.odetailthree,"每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。",33.90));
 //    }
-
-    private TextView Classify;
+private TextView Classify;
     private String type;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,34 +67,27 @@ public class ClassifyDetail extends Activity {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.classify_detail);
-
         Back = (LinearLayout) findViewById(R.id.back);
         Back.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 ClassifyDetail.this.finish();
-                /*Intent i = new Intent();
-                i.setClass(getApplication(),ClassifyAllActivity.class);
-                startActivity(i);*/
             }
         });
-
         Classify = (TextView)findViewById(R.id.TvType);
         Intent i = getIntent();
 
         type = i.getStringExtra("ClassifyName");
         Classify.setText(type);
 
-
         lv = (ListView)findViewById(R.id.lv);
-        //  getDate();
-        getHttp();//网络请求
+       //getDate();
+
+       getHttp();//网络请求
         inits();
-
-        myListAdapter = new MyListAdapter(this,ls);
+        myListAdapter = new MyListAdapter(ClassifyDetail.this,ls);
         lv.setAdapter(myListAdapter);
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -111,10 +101,11 @@ public class ClassifyDetail extends Activity {
     }
 
     private void getHttp() {
-        String url = "http://10.7.88.37:8080/IslandTrading/analysis/type_collection";
+        String url = "http://182.61.37.142/IslandTrading/analysis/type_collection";
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params= new RequestParams();
-        params.add("pType","{pType:手机}");
+        params.add("pType","{pType:"+type+"}");
+
         client.get(url,params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -129,9 +120,13 @@ public class ClassifyDetail extends Activity {
                         String name=content.getString("Product_Name");
                         String describe=content.getString("Product_Describe");
                         double price=content.getDouble("Product_Price");
-                        String picture=content.getString("Product_Image_Url");
+                       String picture=content.getString("Product_Image_Url");
                         ls.add(new ItemDetail(id,name,picture,describe,price));
-                        //Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),jsonObject.toString(),Toast.LENGTH_SHORT).show();
+                        System.out.println("name-------" + name);
+                        System.out.println("ls-------" + ls);
+                        myListAdapter.notifyDataSetChanged();
+                        myListAdapter.notifyDataSetInvalidated();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -152,5 +147,4 @@ public class ClassifyDetail extends Activity {
                 .build();// 创建配置过得DisplayImageOption对象
 
     }
-
 }
