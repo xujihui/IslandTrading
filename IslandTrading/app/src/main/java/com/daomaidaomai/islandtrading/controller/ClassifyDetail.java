@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.adapter.MyListAdapter;
 import com.daomaidaomai.islandtrading.entity.ItemDetail;
+import com.daomaidaomai.islandtrading.ui.GoodsDetail;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -94,6 +95,9 @@ private TextView Classify;
                /* Intent intent = new Intent();
                 intent.setClass(ClassifyDetail.this,ClassifyDetail.class);
                 startActivity(intent);*/
+                Intent intent = new Intent(ClassifyDetail.this, GoodsDetail.class);
+                intent.putExtra("pid",ls.get(i).getId());
+                startActivity(intent);
             }
         });
 
