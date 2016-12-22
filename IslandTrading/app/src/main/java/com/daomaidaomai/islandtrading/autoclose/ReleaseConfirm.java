@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.ui.Home;
 
@@ -54,6 +52,10 @@ public class ReleaseConfirm extends Activity {
             }
         });
         helper_pay.start();
+
+
     }
+
+
 
 }

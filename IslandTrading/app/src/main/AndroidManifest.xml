@@ -117,6 +117,11 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--写发布时要用的权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--发布页定位-->
+    <uses-permission android:name="android.permission.ACCESSFINELOCATION"/>
+    <uses-permission android:name="android.permission.ACCESSCOARSELOCATION"/>
 
     <!-- 短信的权限 -->
     <application
@@ -129,9 +134,9 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
 
-            android:value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"/>
+            android:value="Dj2WcYxqEAnXDIwRfsWggPs1rr680Hvb"/>
         <!--
-        value="Gm78qv2QeAbWq6tNAIPKbWfvpSqViwQi"
+        value="Dj2WcYxqEAnXDIwRfsWggPs1rr680Hvb"
         zhanglixuan
         -->
         <!--
@@ -168,10 +173,8 @@
             android:theme="@style/myTransparent" />
         <activity android:name=".ui.ConversationList"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ui.Order" />
         <activity android:name=".ui.Order_Detail" />
         <activity android:name=".ui.Facedeal" />
-        <activity android:name=".ui.Onlinedeal" />
         <activity android:name=".ui.Pay" />
         <activity android:name=".ui.Canceldeal" />
         <activity android:name=".ui.GoodsDetail" />

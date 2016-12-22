@@ -68,10 +68,12 @@ import java.util.List;
 
 import static com.daomaidaomai.islandtrading.ui.Login.TAG;
 
-public class Map extends Activity implements BaiduMap.OnMapClickListener { /* 地图控件*/
+public class Map extends Activity implements BaiduMap.OnMapClickListener{ /* 地图控件*/
 
     private ImageView Refresh;
     private ImageView Back;
+    private ImageView Goods;
+    private LinearLayout mapgood;
     private TextureMapView mMapView = null; /* 地图实例*/
     private BaiduMap mBaiduMap; /* 定位的客户端*/
     private LocationClient mLocationClient; /* 定位的监听器*/
@@ -98,7 +100,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
                     break;
                 case R.id.mark_layout:
                     Intent i = new Intent(Map.this, GoodsDetail.class);
-                       i.putExtra("id", id);
+                    i.putExtra("id", id);
                     startActivity(i);
                     break;
 
@@ -176,7 +178,23 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
        mBaiduMap.animateMapStatus(msu);
         //mBaiduMap.setMapStatus(msu);
     }*/
+    private Bitmap getViewBitmap(View addViewContent) {
 
+        addViewContent.setDrawingCacheEnabled(true);
+
+        addViewContent.measure(
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        addViewContent.layout(0, 0,
+                addViewContent.getMeasuredWidth(),
+                addViewContent.getMeasuredHeight());
+
+        addViewContent.buildDrawingCache();
+        Bitmap cacheBitmap = addViewContent.getDrawingCache();
+        Bitmap bitmap = Bitmap.createBitmap(cacheBitmap);
+
+        return bitmap;
+    }
     /**
      * 添加标注覆盖物
      **/
@@ -206,8 +224,12 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
                 default:
                     image_id = R.mipmap.tiane;
                     break;
-                  }
-            BitmapDescriptor myMarks=BitmapDescriptorFactory.fromResource(image_id);//引入自定义的覆盖物图标，将其转化成一个BitmapDescriptor对象
+            }
+            ImageView Goods = (ImageView) findViewById(R.id.mapgood); //获取原来的布局容器
+            ImageView imageView = new ImageView(this);  //创建imageview
+            imageView.setImageResource(image_id);  //设置imageview呈现的图片
+
+            BitmapDescriptor myMarks=BitmapDescriptorFactory.fromBitmap(getViewBitmap(mapgood));//引入自定义的覆盖物图标，将其转化成一个BitmapDescriptor对象
             //经纬度对象
             latLng = new LatLng(markInfoList.get(i).getLatitude(), markInfoList.get(i).getLongitude());//需要创建一个经纬对象，通过该对象就可以定位到处于地图上的某个具体点
             //图标
@@ -248,7 +270,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
             child.setVisibility(View.INVISIBLE);
         }
 
-       initMarksData();
+        initMarksData();
         mBaiduMap.setOnMapClickListener(this);
 
         //添加覆盖物响应事件
@@ -261,13 +283,13 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
                 Bundle bundle = marker.getExtraInfo();
                 MapST MyMarker = (MapST) bundle.getSerializable("mark");
                 //ImageView iv = (ImageView) markLayout.findViewById(R.id.map_goodsdetails_img);
-                 iv = (ImageView) markLayout.findViewById(R.id.map_goodsdetails_img);
+                iv = (ImageView) markLayout.findViewById(R.id.map_goodsdetails_img);
                 TextView nameTv = (TextView) markLayout.findViewById(R.id.map_goodsdetails_title);
                 TextView contentTv = (TextView) markLayout.findViewById(R.id.map_goodsdetails_content);
                 //iv.setImageResource(MyMarker.getImageId());
                 ImgLO.initImageLoader(Map.this);
-               ImageLoader.getInstance().displayImage(MyMarker.getImageId(),iv);
-                        nameTv.setText(MyMarker.getmName());
+                ImageLoader.getInstance().displayImage(MyMarker.getImageId(),iv);
+                nameTv.setText(MyMarker.getmName());
                 contentTv.setText(MyMarker.getmContent());
                 //初始化一个InfoWindow
                 initInfoWindow(MyMarker, marker);
@@ -286,7 +308,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
             if (msg.what == 0) {
                 addMarkerOverlay1();
             }
-            }
+        }
     };
 
 
@@ -306,7 +328,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
                         JSONObject jsonObject = response.getJSONObject(i);
                         JSONObject good = jsonObject.getJSONObject("good");
                         JSONObject content = good.getJSONObject("content");
-                         id = content.getInt("Product_Id");
+                        id = content.getInt("Product_Id");
                         String name=content.getString("Product_Name");
                         String describe=content.getString("Product_Describe");
                         //double price=content.getDouble("Product_Price");
@@ -316,8 +338,8 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
                         double longgitude=content.getDouble("Product_Longgitude");//38.0432
                         // bitmap=ImageLoader.getInstance().loadImageSync(picture);
                         markInfoList.add(new  MapST(id,longgitude,lagitude,picture,name,describe));
-                         Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
-                       //调用handle
+                        Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
+                        //调用handle
                         Message msg = handler.obtainMessage();
                         msg.what = 0;
                         handler.sendMessage(msg);
@@ -357,7 +379,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         TextView infoWindowTv = new TextView(Map.this);
         //infoWindowTv.setBackgroundResource(R.drawable.location_tips);
         infoWindowTv.setPadding(10, 10, 10, 10);
-       // infoWindowTv.setText(MyMarker.getmName());
+        // infoWindowTv.setText(MyMarker.getmName());
         //infoWindowTv.setTextColor(Color.parseColor("#FFFFFF"));
         final LatLng latLng = marker.getPosition();
         Point p = mBaiduMap.getProjection().toScreenLocation(latLng);//将地图上的经纬度转换成屏幕中实际的点
@@ -503,5 +525,6 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         super.onPause(); // 在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理
         mMapView.onPause();
     }
+
 
 }

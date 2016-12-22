@@ -76,6 +76,7 @@
             android:paddingTop="8dp">
 
             <TextView
+                android:id="@+id/order_tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="联想笔记本电脑 二手电脑 游戏本"
@@ -96,6 +97,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/order_tv_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="5dp"

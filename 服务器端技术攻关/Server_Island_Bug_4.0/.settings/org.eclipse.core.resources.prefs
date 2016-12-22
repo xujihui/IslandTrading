@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//WebContent/ClassifyList.jsp=UTF-8
+encoding//WebContent/FeedbackList.jsp=UTF-8
+encoding//WebContent/addActivity.jsp=UTF-8
+encoding//WebContent/addClassify.jsp=UTF-8
+encoding//WebContent/addUser.jsp=UTF-8
+encoding//WebContent/css=GBK
+encoding//WebContent/css/select.css=UTF-8
+encoding//WebContent/editActivity.jsp=UTF-8
+encoding//WebContent/editClassify.jsp=UTF-8
+encoding//WebContent/editUser.jsp=UTF-8
+encoding//WebContent/findActivity.jsp=UTF-8
+encoding//WebContent/findClassify.jsp=UTF-8
+encoding//WebContent/findFeedback.jsp=UTF-8
+encoding//WebContent/findUser.jsp=UTF-8
+encoding//WebContent/userList.jsp=UTF-8
+encoding//src/config/DemoConfig.java=UTF-8

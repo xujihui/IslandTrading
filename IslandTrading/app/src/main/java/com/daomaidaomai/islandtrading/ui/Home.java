@@ -49,13 +49,6 @@ public class Home extends Activity {
     LinearLayout ovalLayout; // 圆点容器
     private List<View> listViews = new ArrayList<View>(); // 图片组
     private TextView title; //用于存放获取的视图控件
-//    //存放图片的标题
-//    private String[] titles = new String[]{
-//            "BEATS SOLO2 WIRELESS",
-//            "国际大牌 低至一折",
-//            "极有家推荐 品质生活 便宜不贵",
-//            "施华洛世奇 秋冬新款",
-//    };
 
     private List<String> strs = new ArrayList<String>();//存放图片的标题
 
@@ -83,7 +76,7 @@ public class Home extends Activity {
                     break;
                 }
                 case R.id.map: {
-                    Intent i = new Intent(Home.this, Map.class);
+                    Intent i = new Intent(Home.this,  Map.class);
                     startActivity(i);
                     break;
                 }
@@ -107,50 +100,6 @@ public class Home extends Activity {
             }
         }
     };
-
-    //Get方法
-    public String get(String urlPath) {
-        HttpURLConnection connection = null;
-        InputStream is = null;
-        try {
-            URL url = new URL(urlPath);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setUseCaches(false);
-            connection.setConnectTimeout(10000);
-            connection.setReadTimeout(10000);
-            connection.setDoInput(true);
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                is = connection.getInputStream();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
-
-                }
-                return response.toString();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                connection.disconnect();
-                connection = null;
-            }
-            if (is != null) {
-                try {
-                    is.close();
-                    is = null;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
-
-        return null;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -184,7 +133,7 @@ public class Home extends Activity {
         //创建网络访问的类的对象
         AsyncHttpClient client = new AsyncHttpClient();
 
-        String url = "http://10.7.88.37:8080/IslandTrading/analysis/request_acts";
+        String url = "http://182.61.37.142/IslandTrading/analysis/request_acts";
         client.get(getApplicationContext(), url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -265,19 +214,13 @@ public class Home extends Activity {
 
 
     private void getListData() {
-//        listViewProducts.add(new Product(0L, R.mipmap.swatch, "Swatch手表2016七夕情人节限定", 459, "Swatch系列Special edition特别款系列"));
-//        listViewProducts.add(new Product(0L, R.mipmap.schaebens, " Schaebens雪本诗面膜 补水保湿美白提拉紧致祛痘", 9, "亲表姐德国代购，保证正品"));
-//        listViewProducts.add(new Product(0L, R.mipmap.coach, "coach加拿大代购 长款男钱包", 558, "PVC/牛皮 长20CM*宽10CM*厚2.5CM"));
-//        listViewProducts.add(new Product(0L, R.mipmap.ysl, "YSL 亮泽滋润唇膏", 298, "圣罗兰方管口红迷魅唇膏滋润保湿限量星辰"));
-//        listViewProducts.add(new Product(0L, R.mipmap.zuixie, "一字鲜醉蟹", 138, "一字鲜醉蟹醉大闸蟹红膏全母蟹2.4-2两熟醉蟹共8只花雕熟醉蟹"));
-//        listViewProducts.add(new Product(0L, R.mipmap.teenmix, "Teenmix/天美意 长靴", 1239, "Teenmix/天美意冬季专柜同款打蜡牛皮女过膝长靴6D480DG5"));
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "http://10.7.88.37:8080/IslandTrading/analysis/getTop";
-        client.get(getApplicationContext(), url, new JsonHttpResponseHandler(){
+        String url = "http://182.61.37.142/IslandTrading/analysis/getTop";
+        client.get(getApplicationContext(), url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 super.onSuccess(statusCode, headers, response);
-                for (int i = 0; i < response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject item = response.getJSONObject(i);
                         int id = item.getInt("Product_Id");
@@ -312,19 +255,6 @@ public class Home extends Activity {
         myPager.stopTimer();
     }
 
-//    /**
-//     * 初始化图片
-//     */
-//    private void InitViewPager() {
-//        //显示的图片
-//        listViews = new ArrayList<View>();
-//        int[] imageResId = new int[]{R.mipmap.viewpager1, R.mipmap.viewpager2};// R.mipmap.viewpager3, R.mipmap.viewpager4
-//        for (int i = 0; i < imageResId.length; i++) {
-//            ImageView imageView = new ImageView(this);
-//            imageView.setBackgroundResource(imageResId[i]);
-//            listViews.add(imageView);
-//        }
-//    }
 
 
 }

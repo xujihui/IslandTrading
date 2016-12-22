@@ -42,7 +42,7 @@ public class GoodsDetail extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.buy:
-                    Intent i = new Intent(GoodsDetail.this, Order.class);
+                    Intent i = new Intent(GoodsDetail.this, Pay.class);
                     startActivity(i);
                     break;
                 case R.id.back:
@@ -110,7 +110,7 @@ public class GoodsDetail extends Activity {
             e.printStackTrace();
         }
         params.put("pId",params_json);
-        String str_url = "http://10.7.88.37:8080/IslandTrading/analysis/lookupprice";
+        String str_url = "http://182.61.37.142/IslandTrading/analysis/lookupprice";
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
         asyncHttpClient.get(str_url,params,new JsonHttpResponseHandler(){
             @Override

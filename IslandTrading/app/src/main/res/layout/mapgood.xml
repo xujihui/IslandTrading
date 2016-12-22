@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="20dp">
 
+<<<<<<< HEAD
     <LinearLayout
         android:id="@+id/mapgoodgroup"
         android:layout_width="90dip"
@@ -35,4 +36,33 @@
                 android:src="@mipmap/outside" />
         </RelativeLayout>
     </LinearLayout>
+=======
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/mapgood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4.5dip"
+            android:layout_marginTop="5dip"
+            android:src="@mipmap/pxdingsi" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mapgood"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ding" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/outside" />
+
+
+    </RelativeLayout>
+>>>>>>> a9509d1b34920510ff86c106248e36e7e90721c4
 </LinearLayout>
