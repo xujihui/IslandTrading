@@ -24,6 +24,7 @@ import com.daomaidaomai.islandtrading.entity.Product;
 import com.daomaidaomai.islandtrading.ui.GoodsDetail;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 
 import org.apache.http.Header;
@@ -85,7 +86,8 @@ public class MyPublish extends Activity {
 //        lv.setAdapter(publishAdapter);
 
 
-        String str_url = "http://10.7.88.37:8080/IslandTrading/analysis/myRelease?User_Id=\"800\"";
+        //这里要获取登陆的账号id
+        String str_url = "http://182.61.37.142/IslandTrading/analysis/myRelease?User_Id=\"800\""; //这里写死了
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
         asyncHttpClient.get(str_url,new JsonHttpResponseHandler(){
             @Override

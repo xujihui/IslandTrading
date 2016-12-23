@@ -1,26 +1,19 @@
 package com.daomaidaomai.islandtrading.controller;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 
 import com.daomaidaomai.islandtrading.R;
-import com.daomaidaomai.islandtrading.adapter.BuyAdapter;
 import com.daomaidaomai.islandtrading.adapter.MyListAdapter;
 import com.daomaidaomai.islandtrading.entity.ItemDetail;
-import com.daomaidaomai.islandtrading.entity.Product;
-import com.daomaidaomai.islandtrading.ui.GoodsDetail;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -81,9 +74,9 @@ public class MyBuy extends Activity {
 //        lv.setAdapter(buyAdapter);
 
         RequestParams params = new RequestParams();
-        int User_Id = 700;      //这里要获取登陆的账号id
+        int User_Id = 2014011845;      //这里要获取登陆的账号id
         params.put("User_Id",User_Id);
-        String str_url = "http://10.7.88.37:8080/IslandTrading/analysis/myBuy";
+        String str_url = "http://182.61.37.142/IslandTrading/analysis/myBuy";
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
         asyncHttpClient.get(str_url, params,new JsonHttpResponseHandler() {
             @Override
@@ -94,45 +87,21 @@ public class MyBuy extends Activity {
                     try {
                         content = response.getJSONObject(i);
                         list.add(new ItemDetail(content.getInt("Product_Id"), content.getString("Product_Name"), content.getString("Product_Image_Url"),
-                                null, content.getDouble("Product_Price")));
+                                content.getString("Product_Describe"), content.getDouble("Product_Price")));
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }//for
                 lv.setAdapter(new MyListAdapter(getApplicationContext(), list));
-                lv.setOnItemClickListener(listener);
             }
         });
     }
-
-
-
-    private AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent i = new Intent(MyBuy.this, GoodsDetail.class);
-            i.putExtra("pid",id);
-            startActivityForResult(i,1);
-        }
-    };
-
 
 
     @Override
     protected void onStart() {
         super.onStart();
 
-
-        /**
-         * 得到数据源
-         */
-//    private void getDatas() {
-//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
-//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
-//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
-//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
-//        buyProducts.add(new Product(0L, R.mipmap.memory, "八个笔记本儿内存条", 50.0));
-//    }
     }
 }

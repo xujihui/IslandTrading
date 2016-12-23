@@ -28,6 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:layout_weight="2.5"
                 android:text="链条女包萌耳朵夹子包单肩"
                 android:textColor="@color/black"
@@ -72,6 +74,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:text="可爱的单肩包"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:textColor="@color/drakgrey"
             android:textSize="15sp" />
     </LinearLayout>

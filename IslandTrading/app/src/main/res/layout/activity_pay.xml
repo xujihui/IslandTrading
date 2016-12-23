@@ -92,13 +92,15 @@
                         android:orientation="vertical"
                         android:paddingLeft="10dp"
                         android:paddingRight="15dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="15dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:orientation="vertical"
+                            android:ellipsize="end"
+                            android:maxLines="2"
                             android:weightSum="1">
 
                             <TextView
@@ -115,12 +117,12 @@
                             <TextView
                                 android:layout_marginTop="2dp"
                                 android:id="@+id/PeDec"
-                                android:maxLines="2"
-                                android:ellipsize="end"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="联想笔记本电脑 超极本"
                                 android:textColor="#000000"
+                                android:ellipsize="end"
+                                android:maxLines="2"
                                 android:textIsSelectable="true"
                                 android:textSize="14sp"/>
 
@@ -141,7 +143,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="￥"
                                     android:id="@+id/tv"
-                                    android:textColor="@color/black"
+                                    android:textColor="@android:color/holo_red_light"
                                     android:textSize="14sp" />
                                 <TextView
                                     android:id="@+id/PePri"
@@ -149,7 +151,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="9999"
-                                    android:textColor="@color/black"
+                                    android:textColor="@android:color/holo_red_light"
                                     android:textSize="14sp" />
                             </RelativeLayout>
 

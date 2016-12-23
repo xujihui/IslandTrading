@@ -63,14 +63,14 @@ public class MyCollection extends Activity {
 
         RequestParams params = new RequestParams();
         JSONObject param_json = new JSONObject();
-        int User_Id = 2014011905;       //这里要获取登陆的账号id
+        int User_Id = 2014011845;       //这里要获取登陆的账号id
         try {
             param_json.put("User_Id",User_Id);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         params.put("User_Id",param_json);
-        String str_url = "http://10.7.88.37:8080/IslandTrading/analysis/request_col?User_Id={User_Id:2014011905}";      //这里写死了
+        String str_url = "http://182.61.37.142/IslandTrading/analysis/request_col?User_Id={User_Id:2014011845}";      //这里写死了
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
         asyncHttpClient.get(str_url,params,new JsonHttpResponseHandler(){
             @Override

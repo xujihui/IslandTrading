@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -37,14 +38,36 @@ public class GoodsDetail extends Activity {
     private LinearLayout ChatMessage;
     private LinearLayout Lin;
     private LinearLayout Back;
+    private LinearLayout Collection;
+    Time time = new Time();
+    String user_name = "15230121602"; //以后通过网络请求获取用户名
 
     public View.OnClickListener mylistener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.collection:
+                    //获取手机当前时间
+                    time.setToNow();
+                    RequestParams params = new RequestParams();
+                    params.add("Product_Id",pid+"");
+                    params.add("User_Name",user_name);
+                    params.add("Collect_Id",time.hour+""+time.minute);
+                    String url = "http://182.61.37.142/IslandTrading/analysis/addCel";
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    client.get(url,params,new JsonHttpResponseHandler(){
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            super.onFailure(statusCode, headers, responseString, throwable);
+                            System.out.print(responseString);
+                        }
+                    });
+                    Toast.makeText(getApplication(),"已收藏",Toast.LENGTH_SHORT).show();
+                    break;
                 case R.id.buy:
                     Intent i = new Intent(GoodsDetail.this, Pay.class);
                     i.putExtra("oid",pid);
                     startActivity(i);
+                    GoodsDetail.this.finish();
                     break;
                 case R.id.back:
                     GoodsDetail.this.finish();
@@ -79,22 +102,28 @@ public class GoodsDetail extends Activity {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.goods_detail);
+        getViews();
+
+        Lin.setOnClickListener(mylistener);
+        Back.setOnClickListener(mylistener);
+        ChatMessage.setOnClickListener(mylistener);
+        Collection.setOnClickListener(mylistener);
+    }
+
+    /**
+     * 得到视图控件
+     */
+    void getViews(){
         Lin = (LinearLayout) findViewById(R.id.buy);
         Back = (LinearLayout) findViewById(R.id.back);
+        Collection = (LinearLayout) findViewById(R.id.collection);
         ChatMessage = (LinearLayout) findViewById(R.id.chatmessage);
         Tv_Product_Time = (TextView)findViewById(R.id.Tv_Product_Time);
         Tv_Product_Price = (TextView)findViewById(R.id.Tv_Product_Price);
         Tv_Product_Title = (TextView) findViewById(R.id.Tv_Product_Title);
         Tv_Product_Describe = (TextView)findViewById(R.id.Tv_Product_Describe);
         Iv_Product_Image_Url = (ImageView)findViewById(R.id.Iv_Product_Image_Url);
-
-
-
-        Lin.setOnClickListener(mylistener);
-        Back.setOnClickListener(mylistener);
-        ChatMessage.setOnClickListener(mylistener);
     }
-
 
     @Override
     protected void onStart() {
@@ -131,6 +160,12 @@ public class GoodsDetail extends Activity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                System.out.println("----错误：" + responseString);
             }
         });
     }
