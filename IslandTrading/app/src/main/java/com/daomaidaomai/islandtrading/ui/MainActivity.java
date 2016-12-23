@@ -38,7 +38,7 @@ public class MainActivity extends Activity implements Animation.AnimationListene
         //创建透明度动画对象
         AlphaAnimation anima = new AlphaAnimation(0.3f, 1.0f);
         //设置动画显示时间
-        anima.setDuration(1000);
+        anima.setDuration(3000);
         //启动动画
         rl.startAnimation(anima);
         //为动画对象设置动画监听器

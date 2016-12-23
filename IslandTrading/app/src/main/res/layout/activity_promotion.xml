@@ -99,15 +99,17 @@
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="本活动最终解释权归活动举办方所有" />
         </RelativeLayout>
     </ScrollView>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="8dp"
-        android:gravity="center"
-        android:text="本活动最终解释权归活动举办方所有" />
+
 
 </RelativeLayout>

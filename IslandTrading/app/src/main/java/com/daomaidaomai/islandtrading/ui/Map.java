@@ -162,7 +162,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
             }
             good.setImageDrawable( getResources().getDrawable(image_id) );
 
-            myMarks = BitmapDescriptorFactory.fromView(mapgood);//引入自定义的覆盖物图标，将其转化成一个BitmapDescriptor对象
+            myMarks = BitmapDescriptorFactory.fromView(good);//引入自定义的覆盖物图标，将其转化成一个BitmapDescriptor对象
             //经纬度对象
             latLng = new LatLng(markInfoList.get(i).getLatitude(), markInfoList.get(i).getLongitude());//需要创建一个经纬对象，通过该对象就可以定位到处于地图上的某个具体点
             //图标
@@ -275,7 +275,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
                         double lagitude = content.getDouble("Product_Lagitude");
                         double longgitude = content.getDouble("Product_Longgitude");//38.0432
                         markInfoList.add(new MapST(id, longgitude, lagitude, picture, name, describe));
-                        Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
                         //调用handle
                         Message msg = handler.obtainMessage();
                         msg.what = 0;

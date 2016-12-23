@@ -3,7 +3,7 @@
     android:id="@+id/rl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/welcomebg">
+    android:background="@color/backcolor">
 
     <TextView
         android:id="@+id/status"
@@ -18,31 +18,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/status">
 
-        <TextView
-            android:id="@+id/top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@mipmap/team" />
+
 
         <LinearLayout
+            android:layout_marginTop="80dip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/down"
-            android:layout_below="@+id/top"
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/iam"
-                android:gravity="center" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dip"
+                android:layout_height="100dip"
                 android:layout_marginTop="20dp"
                 android:background="@mipmap/logo"
                 android:gravity="center" />
@@ -51,17 +39,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@mipmap/dmdm"
+                android:textSize="20sp"
+                android:text="大学生二手交易app"
                 android:gravity="center" />
 
         </LinearLayout>
 
         <TextView
+            android:layout_above="@+id/powername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Powered by"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/powername"
+            android:layout_above="@+id/down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="岛买岛卖项目组"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dip"/>
+        <TextView
             android:id="@+id/down"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@mipmap/down">
+            android:background="@mipmap/weldown">
 
 
         </TextView>
