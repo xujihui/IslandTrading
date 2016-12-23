@@ -132,7 +132,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         OverlayOptions options;
         // BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
         //遍历MarkInfo的List一个MarkInfo就是一个Mark
-        for (int i = 0; i < markInfoList.size(); i++) {
+        for (int i = 0; i < markInfoList.size(); i++) {// markInfoList.size();
             // BitmapDescriptor myMarks = BitmapDescriptorFactory.fromBitmap(alterBitmap);
             int image_id = 0;
             switch (i) {
@@ -214,7 +214,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
             @Override
             public boolean onMarkerClick(Marker marker) {
 //                Intent i = new Intent(Map.this, Map_GoodsDetail.class);
-//                startActivity(i);
+//                startActivity(i)
                 Bundle bundle = marker.getExtraInfo();
                 MapST MyMarker = (MapST) bundle.getSerializable("mark");
                  iv = (ImageView) markLayout.findViewById(R.id.map_goodsdetails_img);

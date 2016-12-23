@@ -58,6 +58,7 @@
                 android:id="@+id/map_goodsdetails_img"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
+                android:src="@mipmap/mapgood1"
                 android:scaleType="fitXY" />
 
             <LinearLayout
