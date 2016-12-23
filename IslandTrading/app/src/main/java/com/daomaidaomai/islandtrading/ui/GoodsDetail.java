@@ -43,6 +43,7 @@ public class GoodsDetail extends Activity {
             switch (v.getId()) {
                 case R.id.buy:
                     Intent i = new Intent(GoodsDetail.this, Pay.class);
+                    i.putExtra("oid",pid);
                     startActivity(i);
                     break;
                 case R.id.back:
@@ -58,9 +59,10 @@ public class GoodsDetail extends Activity {
     };
     private TextView Tv_Product_Time;
     private TextView Tv_Product_Price;
+    private TextView Tv_Product_Title;
     private TextView Tv_Product_Describe;
     private ImageView Iv_Product_Image_Url;
-
+    int pid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +84,7 @@ public class GoodsDetail extends Activity {
         ChatMessage = (LinearLayout) findViewById(R.id.chatmessage);
         Tv_Product_Time = (TextView)findViewById(R.id.Tv_Product_Time);
         Tv_Product_Price = (TextView)findViewById(R.id.Tv_Product_Price);
+        Tv_Product_Title = (TextView) findViewById(R.id.Tv_Product_Title);
         Tv_Product_Describe = (TextView)findViewById(R.id.Tv_Product_Describe);
         Iv_Product_Image_Url = (ImageView)findViewById(R.id.Iv_Product_Image_Url);
 
@@ -99,9 +102,8 @@ public class GoodsDetail extends Activity {
 
         //获取从上一个页面带来的商品id
         Intent i = getIntent();
-//        long pid = i.getLongExtra("pid",0);
-        int pid = i.getIntExtra("pid",0);
-        Toast.makeText(getApplicationContext(),"从上个页面带来的pid：" + pid +"",Toast.LENGTH_SHORT).show();
+        pid = i.getIntExtra("pid",0);
+//        Toast.makeText(getApplicationContext(),"从上个页面带来的pid：" + pid +"",Toast.LENGTH_SHORT).show();
         RequestParams params = new RequestParams();
         JSONObject params_json = new JSONObject();
         try {
@@ -122,6 +124,7 @@ public class GoodsDetail extends Activity {
                     System.out.println("-----得到的字符串" + jsonObject.toString() + "     \n" + response.toString());
                     Tv_Product_Time.setText(jsonObject.getString("Product_Time"));
                     Tv_Product_Price.setText(jsonObject.getDouble("Product_Price") + "");
+                    Tv_Product_Title.setText(jsonObject.getString("Product_Name"));
                     Tv_Product_Describe.setText(jsonObject.getString("Product_Describe"));
                     ImgLO.initImageLoader(getApplicationContext());
                     ImageLoader.getInstance().displayImage(jsonObject.getString("Product_Image_Url"),Iv_Product_Image_Url);

@@ -192,7 +192,7 @@ public class Home extends Activity {
                 Intent intent = new Intent(com.daomaidaomai.islandtrading.ui.Home.this, GoodsDetail.class);
                 intent.putExtra("pid",listViewProducts.get(i-1).getId());
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(),"点击了" + i + "项  " + l, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),"点击了" + i + "项  " + l, Toast.LENGTH_SHORT).show();
             }
         });
 
