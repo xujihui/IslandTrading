@@ -174,7 +174,6 @@
             android:theme="@style/myTransparent" />
         <activity android:name=".ui.ConversationList"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ui.Order_Detail" />
         <activity android:name=".ui.Facedeal" />
         <activity android:name=".ui.Pay" />
         <activity android:name=".ui.Canceldeal" />

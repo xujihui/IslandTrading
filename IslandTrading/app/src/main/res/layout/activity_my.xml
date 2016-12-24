@@ -80,15 +80,15 @@
                     android:layout_toRightOf="@+id/IvPersonImg"
                     android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/mylogin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/button"
-                        android:text="登  录"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                    <!--<Button-->
+                        <!--android:id="@+id/mylogin"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:background="@drawable/button"-->
+                        <!--android:text="登  录"-->
+                        <!--android:textColor="@android:color/white"-->
+                        <!--android:textSize="14sp" />-->
 
                 </LinearLayout>
 

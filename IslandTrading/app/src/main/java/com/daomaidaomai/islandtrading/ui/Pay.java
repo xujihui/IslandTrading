@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.util.ImgLO;
@@ -34,14 +34,43 @@ public class Pay extends Activity {
     private TextView title;
     private TextView decrible;
     private TextView price;
+    int oid; //商品id
+    String user_name = "15232157618"; //以后通过网络请求获取用户名
+    Time time = new Time();
 
     public View.OnClickListener mylistener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.pay: {
-                    Intent i = new Intent(Pay.this, Facedeal.class);
-                    startActivity(i);
-                    Pay.this.finish();
+                    //获取手机当前时间
+                    time.setToNow();
+                    RequestParams params = new RequestParams();
+                    JSONObject params_json = new JSONObject();
+                    try {
+                        params_json.put("User_Name",user_name);
+                        params_json.put("Product_Id",oid);
+                        params_json.put("Order_Id",time.hour+""+time.minute);
+                        params_json.put("ORDER_TIME",time.year+"-"+(time.month+1)+"-"+time.monthDay+" "+time.hour+":"+time.minute+":"+time.second);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    params.put("order",params_json);
+                    String url = " http://182.61.37.142/IslandTrading/analysis/oreder";
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    client.get(url,params,new JsonHttpResponseHandler(){
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            super.onFailure(statusCode, headers, responseString, throwable);
+                            Intent i = new Intent(Pay.this, Facedeal.class);
+                            startActivity(i);
+                            Pay.this.finish();
+                            System.out.print(responseString);
+                        }
+                    });
+
+//                    Intent i = new Intent(Pay.this, Facedeal.class);
+//                    startActivity(i);
+//                    Pay.this.finish();
                     break;
                 }
                 case R.id.cancel: {
@@ -83,7 +112,7 @@ public class Pay extends Activity {
         Back.setOnClickListener(mylistener);
 
         Intent intent = getIntent();
-        int oid = intent.getIntExtra("oid",0);
+        oid = intent.getIntExtra("oid",0);
 //        Toast.makeText(Pay.this,oid+"",Toast.LENGTH_SHORT).show();
         RequestParams params = new RequestParams();
         JSONObject params_json = new JSONObject();
@@ -111,7 +140,6 @@ public class Pay extends Activity {
                 }
             }
         });
-
 
     }
 

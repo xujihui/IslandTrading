@@ -51,11 +51,11 @@ public class Myself extends Activity {
                     startActivity(i);
                     break;
                 }
-                case R.id.mylogin: {
-                    Intent i = new Intent(Myself.this, Login.class);
-                    startActivity(i);
-                    break;
-                }
+//                case R.id.mylogin: {
+//                    Intent i = new Intent(Myself.this, Login.class);
+//                    startActivity(i);
+//                    break;
+//                }
                 case R.id.main: {
                     Intent i = new Intent(Myself.this, Home.class);
                     startActivity(i);
@@ -125,7 +125,7 @@ public class Myself extends Activity {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.activity_my);
-        Btn = (Button) findViewById(R.id.mylogin);
+        //Btn = (Button) findViewById(R.id.mylogin);
         Main = (LinearLayout) findViewById(R.id.main);
         Map = (LinearLayout) findViewById(R.id.map);
         Sell = (LinearLayout) findViewById(R.id.sell);
@@ -139,7 +139,7 @@ public class Myself extends Activity {
         Favour = (LinearLayout)findViewById(R.id.myfavourite);
         iv = (ImageView) findViewById(R.id.IvPersonImg);
 
-        Btn.setOnClickListener(mylistener);
+        //Btn.setOnClickListener(mylistener);
         Main.setOnClickListener(mylistener);
         Map.setOnClickListener(mylistener);
         Sell.setOnClickListener(mylistener);
@@ -156,7 +156,7 @@ public class Myself extends Activity {
         // String username = intent.getStringExtra("a");
         // Bitmap bi = intent.getParcelableExtra("b");
 
-        updateLoginButton();
+        //updateLoginButton();
 
     }
 

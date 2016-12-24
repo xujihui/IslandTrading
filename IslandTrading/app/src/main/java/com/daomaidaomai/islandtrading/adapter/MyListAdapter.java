@@ -54,7 +54,7 @@ public class MyListAdapter extends BaseAdapter {
         TextView DetialContent = (TextView) view.findViewById(R.id.DetialContent);
         DetialContent.setText(ldetail.get(i).getmContent());
         TextView DetialPrice = (TextView) view.findViewById(R.id.DetialPrice);
-        DetialPrice.setText("￥" + ldetail.get(i).getmPrice());
+        DetialPrice.setText(""+ldetail.get(i).getmPrice());
         ImageView DetialImg = (ImageView) view.findViewById(R.id.DetialImg);
         ImgLO.initImageLoader(context);
         ImageLoader.getInstance().displayImage(ldetail.get(i).getmPicture(),DetialImg);

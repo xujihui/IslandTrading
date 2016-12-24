@@ -76,7 +76,7 @@ public class MySold extends Activity {
         RequestParams params = new RequestParams();
         int User_Id = 800;      //需要获取登陆的User_Id
         params.put("User_Id",User_Id);
-        String str_url = "http://10.7.88.37:8080/IslandTrading/analysis/mySell";
+        String str_url = "http://182.61.37.142/IslandTrading/analysis/mySell";
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
         asyncHttpClient.get(str_url, new JsonHttpResponseHandler() {
             @Override
