@@ -2,6 +2,7 @@ package com.daomaidaomai.islandtrading;
 
 import android.content.Context;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.daomaidaomai.islandtrading.easeui.controller.EaseUI;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
@@ -28,6 +29,10 @@ public class Application extends android.app.Application{
 
         // 初始化环信SDK
         initEasemob();
+
+
+        //在使用SDK各组间之前初始化context信息，传入ApplicationContext（百度地图经纬度转换成地址）
+        SDKInitializer.initialize(this);
     }
     /**
      * 初始化环信SDK

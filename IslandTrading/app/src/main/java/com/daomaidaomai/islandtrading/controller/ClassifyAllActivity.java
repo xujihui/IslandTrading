@@ -31,18 +31,18 @@ public class ClassifyAllActivity extends Activity {
     private LinearLayout Back;
 
     private void getDate() {
-        ls.add(new Item(1, "女装", R.mipmap.women));
-        ls.add(new Item(2, "男装", R.mipmap.man));
-        ls.add(new Item(3, "自行车 ", R.mipmap.bike));
-        ls.add(new Item(4, "手机", R.mipmap.phone));
-        ls.add(new Item(5, "电脑", R.mipmap.pc));
-        ls.add(new Item(6, "3C数码", R.mipmap.game));
-        ls.add(new Item(7, "鞋包", R.mipmap.shoes));
-        ls.add(new Item(8, "化妆品", R.mipmap.cosmetics));
-        ls.add(new Item(9, "文具", R.mipmap.stationery));
-        ls.add(new Item(10, "图书", R.mipmap.book));
-        ls.add(new Item(11, "技能服务", R.mipmap.skills));
-        ls.add(new Item(12, "其他", R.mipmap.other));
+        ls.add(new Item(1, "数码", R.mipmap.classfy_shuma));
+        ls.add(new Item(2, "男装", R.mipmap.classfy_nanzhuang));
+        ls.add(new Item(3, "女装 ", R.mipmap.classfy_nvzhuang));
+        ls.add(new Item(4, "食品", R.mipmap.classfy_food));
+        ls.add(new Item(5, "鞋靴", R.mipmap.classfy_xiexue));
+        ls.add(new Item(6, "箱包", R.mipmap.classfy_xiangbao));
+        ls.add(new Item(7, "运动", R.mipmap.classfy_yundong));
+        ls.add(new Item(8, "户外", R.mipmap.classfy_huwai));
+        ls.add(new Item(9, "图书", R.mipmap.classfy_book));
+        ls.add(new Item(10, "音像", R.mipmap.classfy_luxiang));
+        ls.add(new Item(11, "电子书", R.mipmap.classfy_dianzishu));
+        ls.add(new Item(12, "奢侈品", R.mipmap.classfy_shechipin));
     }
 
     @Override
@@ -84,40 +84,40 @@ public class ClassifyAllActivity extends Activity {
                 intent.setClass(getApplicationContext(), ClassifyDetail.class);
                 switch (position){
                     case 0:
-                        intent.putExtra("ClassifyName","女装");
+                        intent.putExtra("ClassifyName","数码");
                         break;
                     case 1:
                         intent.putExtra("ClassifyName","男装");
                         break;
                     case 2:
-                        intent.putExtra("ClassifyName","自行车");
+                        intent.putExtra("ClassifyName","女装");
                         break;
                     case 3:
-                        intent.putExtra("ClassifyName","手机");
+                        intent.putExtra("ClassifyName","食品");
                         break;
                     case 4:
-                        intent.putExtra("ClassifyName","电脑");
+                        intent.putExtra("ClassifyName","鞋靴");
                         break;
                     case 5:
-                        intent.putExtra("ClassifyName","3C数码");
+                        intent.putExtra("ClassifyName","箱包");
                         break;
                     case 6:
-                        intent.putExtra("ClassifyName","鞋包");
+                        intent.putExtra("ClassifyName","运动");
                         break;
                     case 7:
-                        intent.putExtra("ClassifyName","化妆品");
+                        intent.putExtra("ClassifyName","户外");
                         break;
                     case 8:
-                        intent.putExtra("ClassifyName","文具");
-                        break;
-                    case 9:
                         intent.putExtra("ClassifyName","图书");
                         break;
+                    case 9:
+                        intent.putExtra("ClassifyName","音像");
+                        break;
                     case 10:
-                        intent.putExtra("ClassifyName","技能服务");
+                        intent.putExtra("ClassifyName","电子书");
                         break;
                     case 11:
-                        intent.putExtra("ClassifyName","其他");
+                        intent.putExtra("ClassifyName","奢侈品");
                         break;
                 }
                 startActivityForResult(intent,1);

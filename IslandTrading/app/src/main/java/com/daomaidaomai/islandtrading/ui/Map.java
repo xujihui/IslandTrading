@@ -132,44 +132,74 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
         OverlayOptions options;
         // BitmapDescriptor myMarks = BitmapDescriptorFactory.fromResource(R.mipmap.mapcomputer);
         //遍历MarkInfo的List一个MarkInfo就是一个Mark
-
-        good = (ImageView) (LayoutInflater.from(Map.this)
-                .inflate(R.layout.mapgood, null)
-                .findViewById(R.id.mapgoodpic));
-        mapgood = (LinearLayout) (LayoutInflater.from(Map.this)
-                .inflate(R.layout.mapgood, null)
-                .findViewById(R.id.mapgoodgroup));
-
-        for (int i = 0; i < markInfoList.size(); i++) {
+        for (int i = 0; i < markInfoList.size(); i++) {// markInfoList.size();
             // BitmapDescriptor myMarks = BitmapDescriptorFactory.fromBitmap(alterBitmap);
             int image_id = 0;
             switch (i) {
                 case 0:
-                    image_id = R.mipmap.mapgood1;
+                    image_id = R.mipmap.ps_mgood1;
                     break;
                 case 1:
-                    image_id = R.mipmap.mapgood2;
+                    image_id = R.mipmap.ps_mgood2;
                     break;
                 case 2:
-                    image_id = R.mipmap.mapgood3;
+                    image_id = R.mipmap.ps_mgood3;
                     break;
                 case 3:
-                    image_id = R.mipmap.mapgood4;
+                    image_id = R.mipmap.ps_mgood4;
                     break;
+                case 4:
+                    image_id = R.mipmap.ps_mgood5;
+                    break;
+                case 5:
+                    image_id = R.mipmap.ps_mgood6;
+                    break;
+                case 6:
+                    image_id = R.mipmap.ps_mgood7;
+                    break;
+                case 7:
+                    image_id = R.mipmap.ps_mgood8;
+                    break;
+                case 8:
+                    image_id = R.mipmap.ps_mgood9;
+                    break;
+                case 9:
+                    image_id = R.mipmap.ps_mgood10;
+                    break;
+                case 10:
+                    image_id = R.mipmap.ps_mgood11;
+                    break;
+                case 11:
+                    image_id = R.mipmap.ps_mgood12;
+                    break;
+                case 12:
+                    image_id = R.mipmap.ps_mgood13;
+                    break;
+                case 13:
+                    image_id = R.mipmap.ps_mgood14;
+                    break;
+                case 14:
+                    image_id = R.mipmap.ps_mgood15;
+                    break;
+
+
                 default:
                     break;
 
             }
-            good.setImageDrawable( getResources().getDrawable(image_id) );
-
-            myMarks = BitmapDescriptorFactory.fromView(good);//引入自定义的覆盖物图标，将其转化成一个BitmapDescriptor对象
+//            mapgood = (LinearLayout) (LayoutInflater.from(Map.this)
+//                    .inflate(R.layout.mapgood, null)
+//                    .findViewById(R.id.mapgoodgroup));
+//            good = (ImageView) (LayoutInflater.from(Map.this)
+//                    .inflate(R.layout.mapgood, null)
+//                    .findViewById(R.id.mapgoodpic));
+//            good.setImageResource(image_id);
+            //myMarks=BitmapDescriptorFactory.fromView(mapgood);//引入自定义的覆盖物图标，将其转化成一个BitmapDescriptor对象
             //经纬度对象
+            myMarks = BitmapDescriptorFactory.fromResource(image_id);
             latLng = new LatLng(markInfoList.get(i).getLatitude(), markInfoList.get(i).getLongitude());//需要创建一个经纬对象，通过该对象就可以定位到处于地图上的某个具体点
             //图标
-            options = new MarkerOptions()
-                    .position(latLng)
-                    .icon(myMarks)
-                    .zIndex(6);
+            options = new MarkerOptions().position(latLng).icon(myMarks).zIndex(6);
             marker = (Marker) mBaiduMap.addOverlay(options);//将覆盖物添加到地图上
             Bundle bundle = new Bundle();//创建一个Bundle对象将每个mark具体信息传过去，当点击该覆盖物图标的时候就会显示该覆盖物的详细信息
             bundle.putSerializable("mark", markInfoList.get(i));
@@ -213,7 +243,7 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
             @Override
             public boolean onMarkerClick(Marker marker) {
 //                Intent i = new Intent(Map.this, Map_GoodsDetail.class);
-//                startActivity(i);
+//                startActivity(i)
                 Bundle bundle = marker.getExtraInfo();
                 MapST MyMarker = (MapST) bundle.getSerializable("mark");
                 iv = (ImageView) markLayout.findViewById(R.id.map_goodsdetails_img);
@@ -251,11 +281,50 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
 
 
     //百度地图的网络请求
+//    private void BDmap(){
+//        String url = "http://182.61.37.142/IslandTrading/analysis/type_collection";
+//        AsyncHttpClient client = new AsyncHttpClient();
+//        RequestParams params= new RequestParams();
+//        params.add("pType","{pType:数码3CC}");
+//        client.get(url,params,new JsonHttpResponseHandler(){
+//            @Override
+//            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+//                super.onSuccess(statusCode, headers, response);
+//                System.out.println("--"+response.toString());
+//                for(int i=0;i<response.length();i++){
+//                    try {
+//                        JSONObject jsonObject = response.getJSONObject(i);
+//                        JSONObject good = jsonObject.getJSONObject("good");
+//                        JSONObject content = good.getJSONObject("content");
+//                        int id = content.getInt("Product_Id");
+//                        String name=content.getString("Product_Name");
+//                        String describe=content.getString("Product_Describe");
+//                        //double price=content.getDouble("Product_Price");
+//                        //uil=http://10.7.88.37:8080/IslandTrading/analysis/downloadImg?Product_Id=1
+//                        String picture=content.getString("Product_Image_Url");
+//                        double lagitude=content.getDouble("Product_Lagitude");
+//                        double longgitude=content.getDouble("Product_Longgitude");//38.0432
+//                        markInfoList.add(new  MapST(id,longgitude,lagitude,picture,name,describe));
+//                         Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
+//                       //调用handle
+//                        Message msg = handler.obtainMessage();
+//                        msg.what = 0;
+//                        handler.sendMessage(msg);
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//
+//        });
+//       // addMarkerOverlay();
+//
+//    }
     private void BDmap() {
-        String url = "http://10.7.88.48:8080/IslandTrading/analysis/type_collection";
+        String url = "http://182.61.37.142/IslandTrading/analysis/getTop";
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
-        params.add("pType", "{pType:手机}");
+        // params.add("pType","{pType:数码3CC}");
         client.get(url, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -264,18 +333,18 @@ public class Map extends Activity implements BaiduMap.OnMapClickListener { /* �
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject jsonObject = response.getJSONObject(i);
-                        JSONObject good = jsonObject.getJSONObject("good");
-                        JSONObject content = good.getJSONObject("content");
-                        int id = content.getInt("Product_Id");
-                        String name = content.getString("Product_Name");
-                        String describe = content.getString("Product_Describe");
+                        //  JSONObject good = jsonObject.getJSONObject("good");
+                        // JSONObject content = good.getJSONObject("content");
+                        int id = jsonObject.getInt("Product_Id");
+                        String name = jsonObject.getString("Product_Name");
+                        String describe = jsonObject.getString("Product_Describe");
                         //double price=content.getDouble("Product_Price");
                         //uil=http://10.7.88.37:8080/IslandTrading/analysis/downloadImg?Product_Id=1
-                        String picture = content.getString("Product_Image_Url");
-                        double lagitude = content.getDouble("Product_Lagitude");
-                        double longgitude = content.getDouble("Product_Longgitude");//38.0432
+                        String picture = jsonObject.getString("Product_Image_Url");
+                        double lagitude = jsonObject.getDouble("Product_Lagitude");
+                        double longgitude = jsonObject.getDouble("Product_Longgitude");//38.0432
                         markInfoList.add(new MapST(id, longgitude, lagitude, picture, name, describe));
-                        //Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
                         //调用handle
                         Message msg = handler.obtainMessage();
                         msg.what = 0;

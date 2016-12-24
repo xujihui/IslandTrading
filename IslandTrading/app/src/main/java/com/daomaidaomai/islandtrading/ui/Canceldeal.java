@@ -9,12 +9,18 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.daomaidaomai.islandtrading.R;
+import com.daomaidaomai.islandtrading.autoclose.CountDownTextViewHelper;
+import com.daomaidaomai.islandtrading.controller.ChatActivity;
+import com.daomaidaomai.islandtrading.easeui.EaseConstant;
 
 
 public class Canceldeal extends Activity {
-    private LinearLayout Back;
+
+    private TextView tv_paysuccess_time;//开始是3秒
+    private Boolean abc = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +38,21 @@ public class Canceldeal extends Activity {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.activity_cancel);
-        Back = (LinearLayout) findViewById(R.id.back);
-        Back.setOnClickListener(new View.OnClickListener() {
+        tv_paysuccess_time = (TextView) findViewById(R.id.timenumber);
+
+
+        CountDownTextViewHelper helper_pay = new CountDownTextViewHelper(tv_paysuccess_time, "0", 3, 1);
+        helper_pay.setOnFinishListener(new CountDownTextViewHelper.OnFinishListener() {
 
             @Override
-            public void onClick(View v) {
-                Canceldeal.this.finish();
+            public void finish() {
+                if (abc == false) {
+                    startActivity(new Intent(getApplication(), GoodsDetail.class));
+                    Canceldeal.this.finish();
+                }
             }
         });
+        helper_pay.start();
     }
 
 }

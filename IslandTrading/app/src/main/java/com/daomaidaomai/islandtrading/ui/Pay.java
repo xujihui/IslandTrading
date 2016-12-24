@@ -9,27 +9,45 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.R;
+import com.daomaidaomai.islandtrading.util.ImgLO;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.nostra13.universalimageloader.core.ImageLoader;
+
+import org.apache.http.Header;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class Pay extends Activity {
     private Button Btn;
     private Button Cancel;
     private LinearLayout Back;
+    private ImageView img;
+    private TextView title;
+    private TextView decrible;
+    private TextView price;
 
     public View.OnClickListener mylistener = new View.OnClickListener() {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.pay: {
-                    Intent i = new Intent(Pay.this, Order_Detail.class);
+                    Intent i = new Intent(Pay.this, Facedeal.class);
                     startActivity(i);
+                    Pay.this.finish();
                     break;
                 }
                 case R.id.cancel: {
                     Intent i = new Intent(Pay.this, Canceldeal.class);
                     startActivity(i);
+                    Pay.this.finish();
                     break;
                 }
                 case R.id.back:
@@ -57,11 +75,56 @@ public class Pay extends Activity {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.activity_pay);
-        Btn = (Button) findViewById(R.id.pay);
-        Cancel = (Button) findViewById(R.id.cancel);
-        Back = (LinearLayout) findViewById(R.id.back);
+        //得到视图控件
+        getViews();
+        //设置监听器
         Cancel.setOnClickListener(mylistener);
         Btn.setOnClickListener(mylistener);
         Back.setOnClickListener(mylistener);
+
+        Intent intent = getIntent();
+        int oid = intent.getIntExtra("oid",0);
+//        Toast.makeText(Pay.this,oid+"",Toast.LENGTH_SHORT).show();
+        RequestParams params = new RequestParams();
+        JSONObject params_json = new JSONObject();
+        try {
+            params_json.put("Product_Id",oid);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        params.put("pId",params_json);
+        String url = "http://182.61.37.142/IslandTrading/analysis/lookupprice";
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(url,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                try {
+                    JSONObject content = response.getJSONObject("PRODUCT").getJSONObject("content");
+                    title.setText(content.getString("Product_Name"));
+                    decrible.setText(content.getString("Product_Describe"));
+                    price.setText(content.getDouble("Product_Price") + "");
+                    ImgLO.initImageLoader(getApplicationContext());
+                    ImageLoader.getInstance().displayImage(content.getString("Product_Image_Url"),img);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
+    }
+
+    /**
+     * 得到视图控件
+     */
+    void getViews(){
+        Btn = (Button) findViewById(R.id.pay);
+        Cancel = (Button) findViewById(R.id.cancel);
+        Back = (LinearLayout) findViewById(R.id.back);
+        img = (ImageView) findViewById(R.id.PeImg);
+        title = (TextView) findViewById(R.id.PeTil);
+        decrible = (TextView) findViewById(R.id.PeDec);
+        price = (TextView) findViewById(R.id.PePri);
     }
 }

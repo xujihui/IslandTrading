@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,9 +38,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.location.Address;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.geocode.GeoCodeResult;
+import com.baidu.mapapi.search.geocode.GeoCoder;
+import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
+import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
+import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.autoclose.ReleaseConfirm;
 import com.daomaidaomai.islandtrading.util.BDGpsServiceListener;
+import com.daomaidaomai.islandtrading.util.BaiduMapUtils;
 import com.daomaidaomai.islandtrading.util.GetLocation;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -59,7 +69,7 @@ import java.util.Date;
 
 
 public class Release extends Activity {
-    private Button Btn , btn_submit;
+    private Button Btn, btn_submit;
     private LinearLayout Back;
     private RadioButton radio_btn;
 //    private TextView content;
@@ -130,21 +140,41 @@ public class Release extends Activity {
 
         //定位对象
         mLocation = new GetLocation(this);
-    }
-    public void findView (){
-        Btn = (Button) findViewById(R.id.confirm);
-        btn_submit = (Button)findViewById(R.id.Btn_submit);
-        Back = (LinearLayout) findViewById(R.id.back);
-        imageView = (ImageView)findViewById(R.id.IvImg);
-        radio_btn = (RadioButton) findViewById(R.id.radio_button);
-        spinner = (Spinner) findViewById(R.id.spinner);
-        mEt_ProductName = (EditText)findViewById(R.id.Et_ProductName);
-        mEt_ProductDescribe = (EditText)findViewById(R.id.Et_ProductDescribe);
-        mEt_ProducePrice = (EditText)findViewById(R.id.Et_ProductPrice);
-        mEt_TradeSite = (EditText)findViewById(R.id.Et_TradeSite);
+
+        BaiduMapUtils.reverseGeoParse(mLocation.getCurrentLongitude(), mLocation.getCurrentLatitude(), new OnGetGeoCoderResultListener() {
+            //获取正向解析结果时执行函数
+            @Override
+            public void onGetGeoCodeResult(GeoCodeResult arg0) {
+            }
+
+            //获取反向解析结果时执行函数
+            @Override
+            public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
+                if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
+                    // 没有检测到结果
+                    Toast.makeText(getApplication(), "抱歉，未能找到结果!", Toast.LENGTH_LONG);
+                } else {////得到结果后处理方法
+                    Toast.makeText(getApplication(), "地址为：" + result.getAddress(), Toast.LENGTH_LONG);
+                }
+            }
+
+        });
     }
 
-    public  void setListener(){
+    public void findView() {
+        Btn = (Button) findViewById(R.id.confirm);
+        btn_submit = (Button) findViewById(R.id.Btn_submit);
+        Back = (LinearLayout) findViewById(R.id.back);
+        imageView = (ImageView) findViewById(R.id.IvImg);
+        radio_btn = (RadioButton) findViewById(R.id.radio_button);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        mEt_ProductName = (EditText) findViewById(R.id.Et_ProductName);
+        mEt_ProductDescribe = (EditText) findViewById(R.id.Et_ProductDescribe);
+        mEt_ProducePrice = (EditText) findViewById(R.id.Et_ProductPrice);
+        mEt_TradeSite = (EditText) findViewById(R.id.Et_TradeSite);
+    }
+
+    public void setListener() {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -175,7 +205,8 @@ public class Release extends Activity {
 //        registerReceiver(lr, intentFilter);
 
     }
-    public void getHttp(){
+
+    public void getHttp() {
         String UserName = "孙铖铖";//后期要改
         ProductName = mEt_ProductName.getText().toString().trim();
         String ProductPirce = mEt_ProducePrice.getText().toString().trim();
@@ -186,34 +217,36 @@ public class Release extends Activity {
         String currentTime = null;//当前时间
 
 
-        if( mEt_ProductDescribe.getText().toString().equals("")){
-            Toast.makeText(getApplicationContext(),"商品描述不能为空",Toast.LENGTH_SHORT).show();
-        }else if( mEt_TradeSite.getText().toString().equals("")){
-            Toast.makeText(getApplicationContext(),"交易地点不能为空",Toast.LENGTH_SHORT).show();
-        }else if( mEt_ProducePrice.getText().toString().equals("")){
-            Toast.makeText(getApplicationContext(),"商品价格不能为空",Toast.LENGTH_SHORT).show();
-        }else{
-            String url = "http://10.7.88.37:8080/IslandTrading/analysis/addGoods";
+        if (mEt_ProductDescribe.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "商品描述不能为空", Toast.LENGTH_SHORT).show();
+        } else if (mEt_TradeSite.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "交易地点不能为空", Toast.LENGTH_SHORT).show();
+        } else if (mEt_ProducePrice.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "商品价格不能为空", Toast.LENGTH_SHORT).show();
+        } else {
+            String url = "http://182.61.37.142/IslandTrading/analysis/addGoods";
             AsyncHttpClient client = new AsyncHttpClient();
-            RequestParams params= new RequestParams();
+            RequestParams params = new RequestParams();
 
-            Longitude = mLocation.getCurrentLongitude();
-            Latitude = mLocation.getCurrentLatitude();
+            //经度
+            Longitude = mLocation.getCurrentLongitude() + "";
+            //纬度
+            Latitude = mLocation.getCurrentLatitude() + "";
             currentTime = mLocation.getCurrentTime();
-            System.out.println("----Location: " +Longitude + " Latitude: " + Latitude +" currentTime: "+currentTime);
+            System.out.println("----Location: " + Longitude + " Latitude: " + Latitude + " currentTime: " + currentTime);
             //params.add("goods","{User_Username:"+UserName+",Product_Name:"+ProductName+",Product_Price:"+ProductPirce+",Product_Describe:"+ProductDescribe+",Product_Time:"+currentTime+",Product_Site:"+TradeSite+",Product_View:0,Product_Positive:0,Product_Status:false,Product_Top:false,Product_Longgitude:"+Longitude+",Product_Lagitude:"+Latitude+",Product_Type="+type+"}");
-            params.add("goods","{User_Username:"+UserName+",Product_Name:"+ProductName+",Product_Price:"+ProductPirce+",Product_Describe:"+ProductDescribe+",Product_Time:"+"'"+currentTime+"'"+",Product_Site:"+TradeSite+",Product_View:0,Product_Positive:0,Product_Status:false,Product_Top:false,Product_Longgitude:"+Longitude+",Product_Lagitude:"+Latitude+",Product_Type="+type+"}");
-            client.get(url,params,new JsonHttpResponseHandler(){
+            params.add("goods", "{User_Username:" + UserName + ",Product_Name:" + ProductName + ",Product_Price:" + ProductPirce + ",Product_Describe:" + ProductDescribe + ",Product_Time:" + "'" + currentTime + "'" + ",Product_Site:" + TradeSite + ",Product_View:0,Product_Positive:0,Product_Status:false,Product_Top:false,Product_Longgitude:" + Longitude + ",Product_Lagitude:" + Latitude + ",Product_Type=" + type + "}");
+            client.get(url, params, new JsonHttpResponseHandler() {
                 @Override
                 public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                     super.onFailure(statusCode, headers, responseString, throwable);
-                    if(responseString.substring(0,6).equals("商品发布成功")){
+                    if (responseString.substring(0, 6).equals("商品发布成功")) {
                         Intent i = new Intent(Release.this, ReleaseConfirm.class);
                         startActivity(i);
-                        Toast.makeText(getApplicationContext(),responseString,Toast.LENGTH_SHORT).show();
-                        System.out.println("----成功调用onFailure:"+responseString);
+                        Toast.makeText(getApplicationContext(), responseString, Toast.LENGTH_SHORT).show();
+                        System.out.println("----成功调用onFailure:" + responseString);
                         getProductId();
-                        if(Release.this.isFinishing()){
+                        if (Release.this.isFinishing()) {
                             mLocation.ReleaseListener();
                         }
                     }
@@ -223,28 +256,29 @@ public class Release extends Activity {
         }
 
     }
+
     //得到商品id并且商品图片上传
-    public void getProductId(){
+    public void getProductId() {
         System.out.println("----调用了这个方法了啊");
-        String url = "http://10.7.88.37:8080/IslandTrading/analysis/lookupprice";
+        String url = "http://182.61.37.142/IslandTrading/analysis/lookupprice";
         AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params= new RequestParams();
-        params.add("pName","{Product_Name:"+"'"+ProductName+"'"+"}");//商品名称一会儿设置看看汉字可不可以提交ProductName
-        client.get(url,params,new JsonHttpResponseHandler(){
+        RequestParams params = new RequestParams();
+        params.add("pName", "{Product_Name:" + "'" + ProductName + "'" + "}");//商品名称一会儿设置看看汉字可不可以提交ProductName
+        client.get(url, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
-                for (int i = 0; i < response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject product = response.getJSONObject("PRODUCT");
                         JSONObject content = product.getJSONObject("content");
-                        Toast.makeText(getApplicationContext(),content.toString(),Toast.LENGTH_SHORT).show();
-                        System.out.println("----调用了啊"+content.toString());
-                        mid = content.getInt("Product_Id")+"";
-                        Toast.makeText(getApplicationContext(),"得到的id"+mid,Toast.LENGTH_SHORT).show();
-                        System.out.println("----商品id"+mid);
-                        System.out.println("----难道没有在这里获得URI吗"+ImageUri);
-                        getImage(ImageUri,ImageSelect,mid);
+                        Toast.makeText(getApplicationContext(), content.toString(), Toast.LENGTH_SHORT).show();
+                        System.out.println("----调用了啊" + content.toString());
+                        mid = content.getInt("Product_Id") + "";
+                        Toast.makeText(getApplicationContext(), "得到的id" + mid, Toast.LENGTH_SHORT).show();
+                        System.out.println("----商品id" + mid);
+                        System.out.println("----难道没有在这里获得URI吗" + ImageUri);
+                        getImage(ImageUri, ImageSelect, mid);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -253,6 +287,7 @@ public class Release extends Activity {
         });
 
     }
+
     /*
     * 输入框内容状态改变监听*/
     private TextWatcher textWatcher = new TextWatcher() {
@@ -266,8 +301,8 @@ public class Release extends Activity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            if(mEt_ProductName.getText().toString().equals("")){
-                Toast.makeText(getApplicationContext(),"商品名称不能为空",Toast.LENGTH_SHORT).show();
+            if (mEt_ProductName.getText().toString().equals("")) {
+                Toast.makeText(getApplicationContext(), "商品名称不能为空", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -285,7 +320,7 @@ public class Release extends Activity {
                 case R.id.Btn_submit:
                     showPopupWindow();
                     break;
-                case R.id.pop_camera:{
+                case R.id.pop_camera: {
                     Intent cameraintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     // 指定调用相机拍照后照片的储存路径
                     cameraintent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
@@ -293,7 +328,7 @@ public class Release extends Activity {
                     mPopWindow.dismiss();
                 }
                 break;
-                case R.id.pop_album:{
+                case R.id.pop_album: {
                     // 激活系统图库，选择一张图片
                     Intent intent = new Intent(Intent.ACTION_PICK);
                     intent.setType("image/*");
@@ -307,6 +342,7 @@ public class Release extends Activity {
             }
         }
     };
+
     //选择拍照或者从图库上传照片，需要黑雾效果
     private void showPopupWindow() {
         //设置contentView
@@ -315,8 +351,8 @@ public class Release extends Activity {
                 ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, true);
         mPopWindow.setContentView(contentView);
         //设置各个控件的点击响应
-        TextView tv1 = (TextView)contentView.findViewById(R.id.pop_camera);
-        TextView tv2 = (TextView)contentView.findViewById(R.id.pop_album);
+        TextView tv1 = (TextView) contentView.findViewById(R.id.pop_camera);
+        TextView tv2 = (TextView) contentView.findViewById(R.id.pop_album);
         tv1.setOnClickListener(mylistener);
         tv2.setOnClickListener(mylistener);
         //显示PopupWindow
@@ -324,6 +360,7 @@ public class Release extends Activity {
         mPopWindow.showAtLocation(rootview, Gravity.CENTER, 0, 0);
 
     }
+
     //    class LocationReceiver extends BroadcastReceiver {
 //
 //        String locationMsg = "";
@@ -352,7 +389,7 @@ public class Release extends Activity {
                 Uri uri = data.getData();
                 ImageUri = uri;
                 ImageSelect = 0;
-                System.out.println("---从相册返回的数据图片的URI  "+uri);
+                System.out.println("---从相册返回的数据图片的URI  " + uri);
                 crop(uri);
             }
 
@@ -407,34 +444,35 @@ public class Release extends Activity {
         // 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_CUT
         startActivityForResult(intent, PHOTO_REQUEST_CUT);
     }
-    public void getImage(Uri uri ,int i ,String productid){
+
+    public void getImage(Uri uri, int i, String productid) {
         try {
             File file = null;
-            if( i == 0 ){//相册
-                String url = getRealPathFromUri(getApplicationContext(),uri);
+            if (i == 0) {//相册
+                String url = getRealPathFromUri(getApplicationContext(), uri);
                 file = new File(url);
-            }else if ( i == 1){//照相机
-                System.out.println("----到底有没有URI啊啊啊！"+uri);
+            } else if (i == 1) {//照相机
+                System.out.println("----到底有没有URI啊啊啊！" + uri);
                 file = new File(new URI(uri.toString()));
-                if(!file.exists()){
+                if (!file.exists()) {
                     System.out.println("----文件不存在啊啊啊！");
                 }
             }
-            System.out.println("-----商品id"+productid);
-            System.out.println("uri: ----- "+uri);
-            if(file.exists() && file.length()>0){
-                Log.e("tag",file.getPath());
+            System.out.println("-----商品id" + productid);
+            System.out.println("uri: ----- " + uri);
+            if (file.exists() && file.length() > 0) {
+                Log.e("tag", file.getPath());
                 //ip是 虚拟机使用的电脑的某个ip，不是电脑ip
-                String str_url = "http://10.7.88.37:8080/IslandTrading/analysis/uploadImg";
+                String str_url = "http://182.61.37.142/IslandTrading/analysis/uploadImg";
 
                 AsyncHttpClient client = new AsyncHttpClient();
                 RequestParams params = new RequestParams();
                 try {
-                    params.put("profile_picture",file);
+                    params.put("profile_picture", file);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                params.add("Product_Id",productid);
+                params.add("Product_Id", productid);
 
                 client.post(str_url, params, new AsyncHttpResponseHandler() {
                     @Override
@@ -450,7 +488,7 @@ public class Release extends Activity {
                         System.out.println("----上传失败！statusCode:" + statusCode + "  " + error.toString());
                     }
                 });
-            }else{
+            } else {
                 Toast.makeText(getApplicationContext(), "文件不存在", Toast.LENGTH_SHORT).show();
                 System.out.println("----文件不存在！");
             }
@@ -464,10 +502,11 @@ public class Release extends Activity {
             e.printStackTrace();
         }
     }
+
     public static String getRealPathFromUri(Context context, Uri contentUri) {
         Cursor cursor = null;
         try {
-            String[] proj = { MediaStore.Images.Media.DATA };
+            String[] proj = {MediaStore.Images.Media.DATA};
             cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
             int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
             cursor.moveToFirst();
@@ -478,4 +517,5 @@ public class Release extends Activity {
             }
         }
     }
+
 }

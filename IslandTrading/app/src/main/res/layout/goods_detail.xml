@@ -102,51 +102,36 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/Tv_Product_Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:text="商品标题"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_marginTop="5dp"
                 android:id="@+id/Tv_Product_Describe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="25dp"
-                android:text="如果你无法简洁的表达你的想法，那就买下这台电脑吧
-                --月咏几斗" />
+                android:text="商品内容" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="300dp"
+                android:gravity="center"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="10dp">
+                android:paddingRight="10dp">
 
                 <ImageView
                     android:id="@+id/Iv_Product_Image_Url"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_width="330dp"
+                    android:layout_height="300dp"
                     android:src="@mipmap/pcone" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@mipmap/pctwo" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@mipmap/pcthree" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@mipmap/pcfour" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@mipmap/pcfive" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

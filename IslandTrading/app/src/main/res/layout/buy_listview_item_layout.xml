@@ -9,7 +9,7 @@
         android:layout_height="100dp"
         android:layout_margin="10dp"
         android:layout_weight="0.45"
-        android:background="@mipmap/detaithree" />
+        android:background="@mipmap/loading" />
 
     <RelativeLayout
         android:layout_width="0dp"

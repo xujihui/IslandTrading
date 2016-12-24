@@ -26,8 +26,8 @@ public class GetLocation {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    private String currentLongitude;//经度
-    private String currentLatitude;//维度
+    private Double currentLongitude;//经度
+    private Double currentLatitude;//维度
     private String currentTime;//获得当前时间
 
     public GetLocation(Context context) {
@@ -40,11 +40,11 @@ public class GetLocation {
         return currentTime;
     }
 
-    public String getCurrentLongitude() {
+    public Double getCurrentLongitude() {
         return currentLongitude;
     }
 
-    public String getCurrentLatitude() {
+    public Double getCurrentLatitude() {
         return currentLatitude;
     }
 
@@ -139,8 +139,8 @@ public class GetLocation {
         // TODO Auto-generated method stub
         String current = "当前的经度是：" + location.getLongitude() + ",\n"
                 + "当前的纬度是：" + location.getLatitude()+",\n"+"时间"+ sdf.format(new Date());
-        currentLongitude = location.getLongitude()+"";
-        currentLatitude = location.getLatitude()+"";
+        currentLongitude = location.getLongitude();
+        currentLatitude = location.getLatitude();
         currentTime = sdf.format(new Date());
         //positionText.setText(currentLocation);
         //tipInfo.setText(changeInfo);

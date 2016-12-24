@@ -4,10 +4,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="20dp">
 
-    <LinearLayout
-        android:id="@+id/mapgoodgroup"
-        android:layout_width="90dip"
-        android:layout_height="120dip">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -22,6 +18,7 @@
                 android:src="@mipmap/pxdingsi" />
 
 
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,5 +31,6 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/outside" />
         </RelativeLayout>
-    </LinearLayout>
+
+
 </LinearLayout>

@@ -47,11 +47,12 @@
 
     </FrameLayout>
 
-    <ImageView
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+    <com.daomaidaomai.islandtrading.controller.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:paddingTop="30dp"
+        android:layout_marginTop="20dip"
         android:src="@mipmap/chat1" />
 
     <LinearLayout

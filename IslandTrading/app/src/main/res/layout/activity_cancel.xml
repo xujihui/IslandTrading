@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/status"
@@ -23,19 +22,6 @@
         android:layout_below="@+id/status"
         android:background="@color/mainblue">
 
-        <LinearLayout
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:paddingLeft="5dp"
-                android:src="@mipmap/backwhite" />
-        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -52,10 +38,35 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
         android:layout_below="@+id/Topbar"
         android:layout_gravity="center"
         android:src="@mipmap/quxiaobg" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/timenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="3"
+            android:textColor="@color/drakgrey"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/timenumber"
+            android:gravity="center"
+            android:text="秒后自动跳到商品详情页面"
+            android:textColor="@color/drakgrey"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

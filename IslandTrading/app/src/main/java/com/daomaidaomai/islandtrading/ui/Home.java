@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -18,12 +19,16 @@ import android.widget.Toast;
 
 import com.daomaidaomai.islandtrading.R;
 import com.daomaidaomai.islandtrading.adapter.HomeAdapter;
+import com.daomaidaomai.islandtrading.adapter.SearchAdapter;
 import com.daomaidaomai.islandtrading.controller.ClassifyAllActivity;
 import com.daomaidaomai.islandtrading.defineview.MyImgScroll;
 import com.daomaidaomai.islandtrading.entity.Product;
+import com.daomaidaomai.islandtrading.model.Bean;
 import com.daomaidaomai.islandtrading.util.ImgLO;
+import com.daomaidaomai.islandtrading.widge.SearchView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.apache.http.Header;
@@ -44,7 +49,69 @@ import java.util.List;
  * Created by Administrator on 2016/11/24 0024.
  */
 
-public class Home extends Activity {
+public class Home extends Activity implements SearchView.SearchViewListener {
+    /**
+     * 搜索结果列表view
+     */
+    private ListView lvResults;
+
+    /**
+     * 搜索view
+     */
+    private SearchView searchView;
+
+
+    /**
+     * 热搜框列表adapter
+     */
+    private ArrayAdapter<String> hintAdapter;
+
+    /**
+     * 自动补全列表adapter
+     */
+    private ArrayAdapter<String> autoCompleteAdapter;
+
+    /**
+     * 搜索结果列表adapter
+     */
+    private SearchAdapter resultAdapter;
+
+    private List<Bean> dbData;
+
+    /**
+     * 热搜版数据
+     */
+    private List<String> hintData;
+
+    /**
+     * 搜索过程中自动补全数据
+     */
+    private List<String> autoCompleteData;
+
+    /**
+     * 搜索结果的数据
+     */
+    private List<Bean> resultData;
+
+    /**
+     * 默认提示框显示项的个数
+     */
+    private static int DEFAULT_HINT_SIZE = 4;
+
+    /**
+     * 提示框显示项的个数
+     */
+    private static int hintSize = DEFAULT_HINT_SIZE;
+
+    /**
+     * 设置提示框显示项的个数
+     *
+     * @param hintSize 提示框显示个数
+     */
+    public static void setHintSize(int hintSize) {
+        Home.hintSize = hintSize;
+    }
+
     MyImgScroll myPager; // 图片容器
     LinearLayout ovalLayout; // 圆点容器
     private List<View> listViews = new ArrayList<View>(); // 图片组
@@ -53,7 +120,6 @@ public class Home extends Activity {
     private List<String> strs = new ArrayList<String>();//存放图片的标题
 
     private ImageView Classfy;
-    private ImageView Home;
     private LinearLayout Chat;
     private LinearLayout Map;
     private LinearLayout Sell;
@@ -76,7 +142,7 @@ public class Home extends Activity {
                     break;
                 }
                 case R.id.map: {
-                    Intent i = new Intent(Home.this,  Map.class);
+                    Intent i = new Intent(Home.this, Map.class);
                     startActivity(i);
                     break;
                 }
@@ -100,6 +166,7 @@ public class Home extends Activity {
             }
         }
     };
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -182,6 +249,7 @@ public class Home extends Activity {
 
         //得到数据源
         getListData();
+        getListData2();
         //创建adapter
         homeAdapter = new HomeAdapter(getApplicationContext(), listViewProducts);
         //为ListView绑定adapter
@@ -190,29 +258,64 @@ public class Home extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(com.daomaidaomai.islandtrading.ui.Home.this, GoodsDetail.class);
-                intent.putExtra("pid",listViewProducts.get(i-1).getId());
+                intent.putExtra("pid", listViewProducts.get(i - 1).getId());
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(),"点击了" + i + "项  " + l, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),"点击了" + i + "项  " + l, Toast.LENGTH_SHORT).show();
             }
         });
-
+        initData();
+        initViews();
 
         Chat = (LinearLayout) findViewById(R.id.chat);
         Map = (LinearLayout) findViewById(R.id.map);
         Sell = (LinearLayout) findViewById(R.id.sell);
         Myself = (LinearLayout) findViewById(R.id.myself);
         Classfy = (ImageView) findViewById(R.id.classfy);
-        Home = (ImageView) findViewById(R.id.home);
 
         Chat.setOnClickListener(mylistener);
         Map.setOnClickListener(mylistener);
         Sell.setOnClickListener(mylistener);
         Myself.setOnClickListener(mylistener);
         Classfy.setOnClickListener(mylistener);
-        Home.setOnClickListener(mylistener);
     }
 
+    private void getListData2() {
+        String url = "http://182.61.37.142/IslandTrading/analysis/getTop";
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params= new RequestParams();
+        // params.add("pType","{pType:数码3CC}");
+        client.get(url,params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                System.out.println("--"+response.toString());
+                for(int i=0;i<response.length();i++){
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+                        //  JSONObject good = jsonObject.getJSONObject("good");
+                        // JSONObject content = good.getJSONObject("content");
+                        int id = jsonObject.getInt("Product_Id");
+                        String name=jsonObject.getString("Product_Name");
+                        String describe=jsonObject.getString("Product_Describe");
+                        double price=jsonObject.getDouble("Product_Price");
+                        //uil=http://10.7.88.37:8080/IslandTrading/analysis/downloadImg?Product_Id=1
+                        String picture=jsonObject.getString("Product_Image_Url");
+                        double lagitude=jsonObject.getDouble("Product_Lagitude");
+                        double longgitude=jsonObject.getDouble("Product_Longgitude");//38.0432
+                        dbData.add(new  Bean(id,picture,name,describe,price+""));
+                        //Toast.makeText(getApplicationContext(),picture,Toast.LENGTH_SHORT).show();
+                        //调用handle
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
 
+        });
+        // addMarkerOverlay();
+
+
+    }
     private void getListData() {
         AsyncHttpClient client = new AsyncHttpClient();
         String url = "http://182.61.37.142/IslandTrading/analysis/getTop";
@@ -238,7 +341,120 @@ public class Home extends Activity {
 
     }
 
+    /**
+     * 初始化视图
+     */
+    private void initViews() {
+        lvResults = (ListView) findViewById(R.id.main_lv_search_results);
+        searchView = (SearchView) findViewById(R.id.main_search_layout);
+        //设置监听
+        searchView.setSearchViewListener(this);
+        //设置adapter
+        searchView.setTipsHintAdapter(hintAdapter);
+        searchView.setAutoCompleteAdapter(autoCompleteAdapter);
 
+        lvResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                //Toast.makeText(Home.this, position + "", Toast.LENGTH_SHORT).show();
+                lvResults.setVisibility(View.GONE);
+                Intent i = new Intent(Home.this, GoodsDetail.class);
+                i.putExtra("pid",resultData.get(position).getId());
+                startActivity(i);
+
+            }
+        });
+    }
+
+    /**
+     * 初始化数据
+     */
+    private void initData() {
+        //从数据库获取数据
+        getDbData();
+        //网络请求获取数据
+        //getListData();
+        //初始化热搜版数据
+        // getHintData();
+        //初始化自动补全数据
+        getAutoCompleteData(null);
+        //初始化搜索结果数据
+        getResultData(null);
+    }
+
+    private void getDbData() {
+        //int size = 100;
+        dbData = new ArrayList<>();
+        for (int i = 0; i < dbData.size(); i++) {
+            // dbData.add(new Bean(R.drawable.icon, "android开发必备技能" + (i + 1), "Android自定义view——自定义搜索view", i * 20 + 2 + ""));
+            // dbData.add(new Bean("vv", "手表" + (i + 1), "很好看的手表", i * 20 + 2 + ""));
+        }
+
+    }
+
+    private void getAutoCompleteData(String text) {
+        if (autoCompleteData == null) {
+            //初始化
+            autoCompleteData = new ArrayList<>(hintSize);
+        } else {
+            // 根据text 获取auto data
+            autoCompleteData.clear();
+            for (int i = 0, count = 0; i < dbData.size()
+                    && count < hintSize; i++) {
+                if (dbData.get(i).getTitle().contains(text.trim())) {
+                    autoCompleteData.add(dbData.get(i).getTitle());
+                    count++;
+                }
+            }
+        }
+        if (autoCompleteAdapter == null) {
+            autoCompleteAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, autoCompleteData);
+        } else {
+            autoCompleteAdapter.notifyDataSetChanged();
+        }
+    }
+
+    private void getResultData(String text) {
+        if (resultData == null) {
+            // 初始化
+            resultData = new ArrayList<>();
+        } else {
+            resultData.clear();
+            for (int i = 0; i < dbData.size(); i++) {
+                if (dbData.get(i).getTitle().contains(text.trim())) {
+                    resultData.add(dbData.get(i));
+                }
+            }
+        }
+        if (resultAdapter == null) {
+            resultAdapter = new SearchAdapter(this, resultData, R.layout.item_bean_list);
+        } else {
+            resultAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onRefreshAutoComplete(String text) {
+        //更新数据
+        getAutoCompleteData(text);
+    }
+    @Override
+    public void onSearch(String text) {
+        //更新result数据
+        getResultData(text);
+        lvResults.setVisibility(View.VISIBLE);
+        //第一次获取结果 还未配置适配器
+        if (lvResults.getAdapter() == null) {
+            //获取搜索数据 设置适配器
+            lvResults.setAdapter(resultAdapter);
+        } else {
+            //更新搜索数据
+            resultAdapter.notifyDataSetChanged();
+        }
+        //Toast.makeText(this, "完成搜素", Toast.LENGTH_SHORT).show();
+
+
+    }
     @Override
     protected void onRestart() {
         myPager.startTimer();

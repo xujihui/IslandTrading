@@ -1,49 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="5dp">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/DetialImg"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
         android:scaleType="fitCenter"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:src="@mipmap/odetailone" />
+        android:src="@mipmap/loading" />
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/DetialName"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="三只松鼠 能量果仁182g"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/DetialName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="2.5"
+                android:text="链条女包萌耳朵夹子包单肩"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1.6">
+
+                <TextView
+                    android:id="@+id/DetialPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="40"
+                    android:textColor="@color/orange"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/DetialContent"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="每天一包坚果，健康欢乐的生活，9种坚果搭配，颜值与口感双百分。" />
+            android:layout_below="@+id/home_title"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:text="可爱的单肩包"
+            android:textColor="@color/drakgrey"
+            android:textSize="15sp" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/DetialPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_weight="1"
-        android:text="￥33.90"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="18sp" />
 </LinearLayout>

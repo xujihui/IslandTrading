@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backcolor">
 
     <TextView
         android:id="@+id/status"
@@ -15,20 +16,11 @@
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/status"
         android:background="@color/mainblue"
-        android:gravity="center_vertical"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp">
+        android:gravity="center_vertical">
 
-        <ImageView
-            android:id="@+id/home"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_weight="0.4"
-            android:src="@mipmap/home" />
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -36,28 +28,17 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="8">
 
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/search" />
 
-            <ImageView
-                android:id="@+id/search"
-                android:layout_width="30dp"
-                android:layout_height="50dp"
-                android:layout_alignLeft="@+id/tv"
-                android:src="@mipmap/search" />
-
-            <EditText
+            <com.daomaidaomai.islandtrading.widge.SearchView
+                android:id="@+id/main_search_layout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_toRightOf="@+id/search"
+                android:layout_height="100dp"
                 android:background="@null"
                 android:gravity="center_vertical"
                 android:hint="搜索"
                 android:textColorHint="@color/lightgrey" />
+
+
         </RelativeLayout>
 
         <ImageView
@@ -70,14 +51,33 @@
             android:src="@mipmap/sort" />
     </LinearLayout>
 
+
+        <ListView
+            android:visibility="gone"
+            android:layout_below="@+id/ll"
+            android:id="@+id/main_lv_search_results"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ListView>
+
+
+
     <ListView
         android:id="@+id/home_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/Buttonbar"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/ll"
+        android:layout_below="@+id/main_lv_search_results"
         android:background="@color/white" />
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/Buttonbar"
+        android:background="@color/drakgrey" />
 
     <LinearLayout
         android:id="@+id/Buttonbar"

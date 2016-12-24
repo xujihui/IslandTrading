@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/status"
@@ -20,20 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/mainblue">
-
-        <LinearLayout
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:paddingLeft="5dp"
-                android:src="@mipmap/backwhite" />
-        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -50,9 +35,33 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
         android:layout_gravity="center"
-        android:src="@mipmap/mianjiaobg" />
+        android:background="@mipmap/mianjiaobg" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
 
+        <TextView
+            android:id="@+id/timenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="3"
+            android:textColor="@color/drakgrey"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/timenumber"
+            android:gravity="center"
+            android:text="秒后自动跳到会话页面"
+            android:textColor="@color/drakgrey"
+            android:textSize="20sp" />
+    </RelativeLayout>
 </LinearLayout>
